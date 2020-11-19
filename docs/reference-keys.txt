@@ -1,5 +1,7 @@
 fig:nice-fig
 tab:nice-tab
+tab:unnamed-chunk-4
+tab:unnamed-chunk-7
 prerequisites
 intro
 literature

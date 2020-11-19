@@ -18,4 +18,20 @@ knitr::kable(
 )
 ```
 
+
+```{r}
+tab_barrier_scoring <- dplyr::tribble(
+  ~Risk,   ~Embedded,                                 ~Value,  ~`Outlet Drop (cm)`, ~Value, ~SWR,    ~Value, ~`Slope (%)`, ~Value, ~`Length (m)`, ~Value,
+  "LOW",  ">30cm or >20% of diameter and continuous",  "0",       "<15",              '0',  '<1.0',    '0',      '<1',      '0',     '<15',         '0',
+  "MOD",  "<30cm or 20% of diameter but continuous",   "5",       "15-30",            '5',  '1.0-1.3', '3',      '1-3',     '5',     '15-30',       '3',
+  "HIGH", "No embedment or discontinuous",             "10",      ">30",             '10',  '>1.3',    '6',       '>3',     '10',    '>30',         '6',
+) 
+```
+
+```{r eval=T}
+knitr::kable(tab_barrier_scoring,
+               caption = 'Fish Barrier Scoring (Fish Passage Technical Working Group, 2011).') 
+    # kableExtra::column_spec(column = 2, width_min = '1.5in') %>% 
+    # kableExtra::kable_styling(c("condensed"), full_width = T)
+```
 You can write citations, too. For example, we are using the **bookdown** package [@R-bookdown] in this sample book, which was built on top of R Markdown and **knitr** [@xie2015].
