@@ -75,6 +75,19 @@
   \thm@postskip=\thm@preskip
 }
 \makeatother
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
 \usepackage[]{natbib}
 \bibliographystyle{apalike}
 
@@ -186,6 +199,41 @@ Here is a review of existing methods.
 \chapter{Methods}\label{methods}}
 
 Is this working at all?
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-7}Fish Barrier Scoring (Fish Passage Technical Working Group, 2011).}
+\centering
+\resizebox{\linewidth}{!}{
+\begin{tabular}[t]{l|l|l|l|l|l|l|l|l|l|l}
+\hline
+\textbf{Risk} & \textbf{Embedded} & \textbf{Value} & \textbf{Outlet Drop (cm)} & \textbf{Value} & \textbf{SWR} & \textbf{Value} & \textbf{Slope (\%)} & \textbf{Value} & \textbf{Length (m)} & \textbf{Value}\\
+\hline
+LOW & >30cm or >20\% of diameter and continuous & 0 & <15 & 0 & <1.0 & 0 & <1 & 0 & <15 & 0\\
+\hline
+MOD & <30cm or 20\% of diameter but continuous & 5 & 15-30 & 5 & 1.0-1.3 & 3 & 1-3 & 5 & 15-30 & 3\\
+\hline
+HIGH & No embedment or discontinuous & 10 & >30 & 10 & >1.3 & 6 & >3 & 10 & >30 & 6\\
+\hline
+\end{tabular}}
+\end{table}
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-8}Fish Barrier Scoring (Fish Passage Technical Working Group, 2011).}
+\centering
+\begin{tabular}[t]{l|l}
+\hline
+Cumlative Score & Result\\
+\hline
+0-14 & passable\\
+\hline
+15-19 & potential barrier\\
+\hline
+>20 & barrier\\
+\hline
+\end{tabular}
+\end{table}
 
 \hypertarget{applications}{%
 \chapter{Applications}\label{applications}}

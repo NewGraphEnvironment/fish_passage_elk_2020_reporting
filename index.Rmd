@@ -1,6 +1,6 @@
 --- 
-title: "A Minimal Book Example"
-author: "Yihui Xie"
+title: "Elk River Fish Passage"
+author: "Al Irvine, R.P.Bio."
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
@@ -13,8 +13,7 @@ description: "This is a minimal example of using the bookdown package to write a
 ---
 
 ```{r setup, include = TRUE, echo =FALSE, message=FALSE, warning=FALSE}
-knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE,
-                      fig.align="center", fig.width = 5.118, fig.height = 3.409)
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE)
 source('R/packages.R')
 source('R/Functions.R')
 
