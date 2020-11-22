@@ -13,5 +13,14 @@ pacman::p_load(
   RPostgres,
   DBI,
   sf,
-  magick
+  magick,
+  citr,
+  bcdata,
+  datapasta,
+  knitr
   )
+
+
+
+pacman::p_load_gh("poissonconsulting/fwapgr",
+                  "poissonconsulting/subfoldr2")

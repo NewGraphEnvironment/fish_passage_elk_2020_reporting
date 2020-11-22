@@ -1,7 +1,7 @@
-library(tabulizer)
-library(tidyverse)
+source('R/packages.R')
+source('R/functions.R')
 
-##maske the tables for the methods
+##make the tables for the methods
 
 tab_barrier_scoring <- dplyr::tribble(
   ~Risk,   ~Embedded,                                 ~Value,  ~`Outlet Drop (cm)`, ~Value, ~SWR,    ~Value, ~`Slope (%)`, ~Value, ~`Length (m)`, ~Value,
@@ -10,7 +10,6 @@ tab_barrier_scoring <- dplyr::tribble(
   "HIGH", "No embedment or discontinuous",             "10",      ">30",             '10',  '>1.3',    '6',       '>3',     '10',    '>30',         '6',
 )
 
-
 tab_barrier_result <- dplyr::tribble(
   ~`Cumlative Score`, ~Result,
   '0-14',             'passable',
@@ -18,4 +17,211 @@ tab_barrier_result <- dplyr::tribble(
   '>20',              'barrier'
 )
 
+# names_bcdata <- names(d) %>%
+#   stringr::str_to_lower() %>%
+#   dplyr::as_tibble() %>%
+#   # dplyr::slice(-1:-7) %>%
+#   mutate(report_names = 'report_names') %>%
+#   tibble::rowid_to_column() %>%
+#   select(value, rowid, report_names)
+
+##there is a bunch hashed out becasue we don't need to repeat this proces anynore.  good to know for the future though
+
+##make a lookup table to pull out the pscis barrier info and present in the report
+##first we pull out the data from the provincial catalougue.  We will filter for our project later
+# bcdata::bcdc_browse()
+# d <- bcdata::bcdc_get_data('7ecfafa6-5e18-48cd-8d9b-eae5b5ea2881') ###aka 'pscis-assessments'
+# names_pscis_spreadsheet <- import_pscis() %>%
+#   names() %>%
+#   dplyr::as_tibble() %>%
+#   mutate(test = value)
+#
+
+#
+#
+#
+# ##make a table to cross reference the names from bcdata catalouge with the names for our report with the names of our input spreadsheet
+# names_bcdata <- names(d) %>%
+#   stringr::str_to_lower() %>%
+#   dplyr::as_tibble() %>%
+  # dplyr::slice(-1:-7)
+#   # dplyr::rename(value_bcdata = value)
+
+pscis <- import_pscis()
+
+tab_xref_names <- tibble::tribble(
+                          ~bcdata,                               ~spdsht,               ~report, ~id_join, ~id_side,
+                             "id",                                    NA,                    NA,       NA,       NA,
+         "funding_project_number",                                    NA,                    NA,       NA,       NA,
+                "funding_project",                                    NA,                    NA,       NA,       NA,
+                     "project_id",                                    NA,                    NA,       NA,       NA,
+                 "funding_source",                                    NA,                    NA,       NA,       NA,
+         "responsible_party_name",                                    NA,                    NA,       NA,       NA,
+                "consultant_name",                                    NA,                    NA,       NA,       NA,
+                "assessment_date",                                'date',                'Date',       1L,       1L,
+             "stream_crossing_id",                   "pscis_crossing_id",            "PSCIS ID",       2L,       1L,
+                  "assessment_id",                                    NA,                    NA,       NA,       NA,
+    "external_crossing_reference",               "my_crossing_reference",         "Modelled ID",       3L,       1L,
+                   "crew_members",                        "crew_members",                "Crew",       5L,       1L,
+                       "utm_zone",                            "utm_zone",            "UTM Zone",       6L,       1L,
+                    "utm_easting",                             "easting",             "Easting",       7L,       1L,
+                   "utm_northing",                            "northing",            "Northing",       8L,       1L,
+        "location_confidence_ind",                                    NA,                    NA,       NA,       NA,
+                    "stream_name",                         "stream_name",              "Stream",       9L,       1L,
+                      "road_name",                           "road_name",                "Road",       10L,      1L,
+                   "road_km_mark",                        "road_km_mark",                    NA,       NA,       NA,
+                    "road_tenure",                         "road_tenure",         "Road Tenure",       11L,       1L,
+             "crossing_type_code",                       "crossing_type",       "Crossing Type",       NA,       NA,
+             "crossing_type_desc",                                    NA,                    NA,       NA,       NA,
+          "crossing_subtype_code",                    "crossing_subtype",   "Crossing Sub Type",       1L,       2L,
+          "crossing_subtype_desc",                                    NA,                    NA,       NA,       NA,
+               "diameter_or_span",             "diameter_or_span_meters",            "Diameter",       2L,       2L,
+                "length_or_width",              "length_or_width_meters",              "Length",       3L,       2L,
+    "continuous_embeddedment_ind",      "continuous_embeddedment_yes_no",               "Embed",       5L,       2L,
+     "average_depth_embededdment",   "average_depth_embededdment_meters",      "Depth Embedded",       6L,       2L,
+           "resemble_channel_ind",             "resemble_channel_yes_no",    "Resemble Channel",       7L,       2L,
+                "backwatered_ind",                  "backwatered_yes_no",         "Backwatered",       8L,       2L,
+         "percentage_backwatered",              "percentage_backwatered", "Percent Backwatered",       9L,       2L,
+                     "fill_depth",                   "fill_depth_meters",          "Fill Depth",       10L,       2L,
+                    "outlet_drop",                  "outlet_drop_meters",         "Outlet Drop",       11L,       2L,
+              "outlet_pool_depth",             "outlet_pool_depth_0_01m",   "Outlet Pool Depth",       12L,       2L,
+                 "inlet_drop_ind",                   "inlet_drop_yes_no",          "Inlet Drop",       13L,       2L,
+                  "culvert_slope",               "culvert_slope_percent",               "Slope",       14L,       2L,
+       "downstream_channel_width",     "downstream_channel_width_meters",       "Channel Width",       12L,       1L,
+                   "stream_slope",                        "stream_slope",        "Stream Slope",       13L,       1L,
+            "beaver_activity_ind",              "beaver_activity_yes_no",     "Beaver Activity",       14L,       1L,
+              "fish_observed_ind",                "fish_observed_yes_no",        "Fish Sighted",       NA,       NA,
+               "valley_fill_code",                         "valley_fill",         "Valley Fill",       15L,       2L,
+          "valley_fill_code_desc",                                    NA,                    NA,       NA,       NA,
+             "habitat_value_code",                       "habitat_value",       "Habitat Value",       15L,       1L,
+             "habitat_value_desc",                                    NA,                    NA,       NA,       NA,
+             "stream_width_ratio",                  "stream_width_ratio",                 "SWR",       NA,       NA,
+       "stream_width_ratio_score",                                    NA,               "Score",       NA,       NA,
+           "culvert_length_score",                "culvert_length_score",               "Score",       NA,       NA,
+                    "embed_score",                         "embed_score",               "Score",       NA,       NA,
+              "outlet_drop_score",                   "outlet_drop_score",               "Score",       NA,       NA,
+            "culvert_slope_score",                 "culvert_slope_score",               "Score",       NA,       NA,
+                    "final_score",                         "final_score",         "Total Score",       NA,       NA,
+            "barrier_result_code",                      "barrier_result",              "Result",       NA,       NA,
+     "barrier_result_description",                                    NA,                    NA,       NA,       NA,
+              "crossing_fix_code",                        "crossing_fix",         "Culvert Fix",       NA,       NA,
+              "crossing_fix_desc",                                    NA,                    NA,       NA,       NA,
+   "recommended_diameter_or_span", "recommended_diameter_or_span_meters", "Fix Span / Diameter",       NA,       NA,
+             "assessment_comment",                  "assessment_comment",             "Comment",       NA,       NA,
+                     "ecocat_url",                                    NA,                    NA,       NA,       NA,
+                 "image_view_url",                                    NA,                    NA,       NA,       NA,
+           "current_pscis_status",                                    NA,                    NA,       NA,       NA,
+     "current_crossing_type_code",                                    NA,                    NA,       NA,       NA,
+     "current_crossing_type_desc",                                    NA,                    NA,       NA,       NA,
+  "current_crossing_subtype_code",                                    NA,                    NA,       NA,       NA,
+  "current_crossing_subtype_desc",                                    NA,                    NA,       NA,       NA,
+    "current_barrier_result_code",                                    NA,                    NA,       NA,       NA,
+    "current_barrier_description",                                    NA,                    NA,       NA,       NA,
+                   "feature_code",                                    NA,                    NA,       NA,       NA,
+                       "objectid",                                    NA,                    NA,       NA,       NA,
+               "se_anno_cad_data",                                    NA,                    NA,       NA,       NA,
+                       "geometry",                                    NA,                    NA,       NA,       NA
+  )
+
+
+
+
+# ##make the table to summarize the results in the report
+#
+# ##grab a df with the names of the left hand side of the table
+# tab_results_left <- tab_xref_names %>%
+#   filter(id_side == 1)
+#
+# ##get the data
+# tab_pull_left <- pscis %>%
+#   select(pull(tab_results_left,spdsht)) %>%
+#   slice(1) %>%
+#   t() %>%
+#   as.data.frame() %>%
+#   tibble::rownames_to_column()
+#
+# left <- left_join(tab_pull_left, tab_xref_names, by = c('rowname' = 'spdsht'))
+#
+#
+# tab_results_right <- tab_xref_names %>%
+#   filter(id_side == 2)
+#
+# ##get the data
+# tab_pull_right<- pscis %>%
+#   select(pull(tab_results_right,spdsht)) %>%
+#   slice(1) %>%
+#   t() %>%
+#   as.data.frame() %>%
+#   tibble::rownames_to_column()
+#
+# right <- left_join(tab_pull_right, tab_xref_names, by = c('rowname' = 'spdsht'))
+#
+# test_joined <- left_join(
+#   select(left, report, V1, id_join),
+#   select(right, report, V1, id_join),
+#   by = 'id_join'
+# ) %>%
+#   select(-id_join) %>%
+#   purrr::set_names(c('Attribute 1', 'Value 1', 'Attribute 2', 'Value 2'))
+#
+# ##make a table for the comments
+make_tab_summary_comments <- function(df){
+  df %>%
+  select(assessment_comment) %>%
+  # slice(1) %>%
+  set_names('Comment')
+}
+
+####--------------------
+##make the report table
+##grab a df with the names of the left hand side of the table
+make_tab_summary <- function(df){
+  tab_results_left <- tab_xref_names %>%
+    filter(id_side == 1)
+  ##get the data
+  tab_pull_left <- df %>%
+    select(pull(tab_results_left,spdsht)) %>%
+    # slice(1) %>%
+    t() %>%
+    as.data.frame() %>%
+    tibble::rownames_to_column()
+
+  left <- left_join(tab_pull_left, tab_xref_names, by = c('rowname' = 'spdsht'))
+
+  tab_results_right <- tab_xref_names %>%
+    filter(id_side == 2)
+
+  ##get the data
+  tab_pull_right<- pscis %>%
+    select(pull(tab_results_right,spdsht)) %>%
+    # slice(1) %>%
+    t() %>%
+    as.data.frame() %>%
+    tibble::rownames_to_column()
+
+  right <- left_join(tab_pull_right, tab_xref_names, by = c('rowname' = 'spdsht'))
+
+  tab_joined <- left_join(
+    select(left, report, V1, id_join),
+    select(right, report, V1, id_join),
+    by = 'id_join'
+  ) %>%
+    select(-id_join) %>%
+    purrr::set_names(c('Attribute 1', 'Value 1', 'Attribute 2', 'Value 2'))
+  return(tab_joined)
+}
+
+##turn spreadsheet into list of data frames
+pscis_split <- pscis %>%
+  # tibble::rownames_to_column() %>%
+  dplyr::group_split(my_crossing_reference) %>%
+  purrr::set_names(pscis$my_crossing_reference)
+
+##make result summary tables for each of the crossings
+tab_summary <- pscis_split %>%
+  purrr::map(make_tab_summary)
+
+tab_summary_comments <- pscis_split %>%
+  purrr::map(make_tab_summary_comments)
+##make a table for the cost estimates.  It should have an equation.
 

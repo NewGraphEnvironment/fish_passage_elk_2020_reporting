@@ -1,0 +1,13 @@
+# Appendix 1 {-}
+'`
+
+```{r results='asis'}
+print_tab_summary <- function(x, y){
+  kable(x) %>% 
+    kableExtra::add_footnote(label = paste0('Comments: ', y[[1]]), notation = 'none') #this grabs the comments out
+}
+
+tabs <- mapply(print_tab_summary, x = tab_summary, y = tab_summary_comments)
+```
+
+`r knit(text = unlist(tabs))`
