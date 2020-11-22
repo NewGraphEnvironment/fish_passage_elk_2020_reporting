@@ -5,8 +5,10 @@ _publish.R
 _book
 _bookdown_files
 rsconnect
-
+data/~$*
 
 R/private_info.R
 R/pers_*
-data/photos/*
+#data/photos/*
+*.JPG
+!crossing_all.JPG
