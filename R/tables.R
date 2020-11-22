@@ -208,7 +208,7 @@ make_tab_summary <- function(df){
     by = 'id_join'
   ) %>%
     select(-id_join) %>%
-    purrr::set_names(c('Attribute 1', 'Value 1', 'Attribute 2', 'Value 2'))
+    purrr::set_names(c('Location and Stream Data', '-', 'Crossing Characteristics', '--'))
   return(tab_joined)
 }
 
