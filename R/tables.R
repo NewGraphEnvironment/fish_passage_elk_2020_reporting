@@ -47,7 +47,8 @@ tab_barrier_result <- dplyr::tribble(
   # dplyr::slice(-1:-7)
 #   # dplyr::rename(value_bcdata = value)
 
-pscis <- import_pscis()
+pscis <- import_pscis() %>%
+  arrange(my_crossing_reference)
 
 tab_xref_names <- tibble::tribble(
                           ~bcdata,                               ~spdsht,               ~report, ~id_join, ~id_side,
@@ -223,5 +224,22 @@ tab_summary <- pscis_split %>%
 
 tab_summary_comments <- pscis_split %>%
   purrr::map(make_tab_summary_comments)
+
+
 ##make a table for the cost estimates.  It should have an equation.
+
+
+##make a table with just the photos in it so you can add as a footnote
+##get list of files (site_ids) in the photo folder
+tab_photo_url <- list.files(path = paste0(getwd(), '/data/photos/'), full.names = T) %>%
+  basename() %>%
+  as_tibble() %>%
+  mutate(value = as.integer(value)) %>% ##need this to sort
+  dplyr::arrange(value)  %>%
+  mutate(photo = paste0('![](https://github.com/NewGraphEnvironment/', basename(getwd()), '/tree/master/data/photos/', value, '/crossing_all.JPG)')) %>%
+  filter(value %in% pscis$my_crossing_reference) %>% ##we don't want all the photos - just the phase 1 photos for this use case!!!
+  dplyr::group_split(value) %>%
+  purrr::set_names(nm = pscis$my_crossing_reference)
+
+
 
