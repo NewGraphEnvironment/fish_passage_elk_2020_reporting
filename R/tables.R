@@ -1,8 +1,13 @@
 source('R/packages.R')
 source('R/functions.R')
 
-##make the tables for the methods
+####---------------import pscis data----------------
+pscis <- import_pscis() %>%
+  arrange(my_crossing_reference)
 
+
+
+#------------------make the tables for the methods----------
 tab_barrier_scoring <- dplyr::tribble(
   ~Risk,   ~Embedded,                                 ~Value,  ~`Outlet Drop (cm)`, ~Value, ~SWR,    ~Value, ~`Slope (%)`, ~Value, ~`Length (m)`, ~Value,
   "LOW",  ">30cm or >20% of diameter and continuous",  "0",       "<15",              '0',  '<1.0',    '0',      '<1',      '0',     '<15',         '0',
@@ -35,11 +40,7 @@ tab_barrier_result <- dplyr::tribble(
 #   names() %>%
 #   dplyr::as_tibble() %>%
 #   mutate(test = value)
-#
 
-#
-#
-#
 # ##make a table to cross reference the names from bcdata catalouge with the names for our report with the names of our input spreadsheet
 # names_bcdata <- names(d) %>%
 #   stringr::str_to_lower() %>%
@@ -47,9 +48,9 @@ tab_barrier_result <- dplyr::tribble(
   # dplyr::slice(-1:-7)
 #   # dplyr::rename(value_bcdata = value)
 
-pscis <- import_pscis() %>%
-  arrange(my_crossing_reference)
 
+
+####---------make a table to cross reference column names for ---------------
 tab_xref_names <- tibble::tribble(
                           ~bcdata,                               ~spdsht,               ~report, ~id_join, ~id_side,
                              "id",                                    NA,                    NA,       NA,       NA,
@@ -124,10 +125,7 @@ tab_xref_names <- tibble::tribble(
                        "geometry",                                    NA,                    NA,       NA,       NA
   )
 
-
-
-
-# ##make the table to summarize the results in the report
+###make the table to summarize the results in the report
 #
 # ##grab a df with the names of the left hand side of the table
 # tab_results_left <- tab_xref_names %>%
@@ -164,8 +162,9 @@ tab_xref_names <- tibble::tribble(
 # ) %>%
 #   select(-id_join) %>%
 #   purrr::set_names(c('Attribute 1', 'Value 1', 'Attribute 2', 'Value 2'))
-#
-# ##make a table for the comments
+
+
+####---------------make a table for the comments---------------
 make_tab_summary_comments <- function(df){
   df %>%
   select(assessment_comment) %>%
@@ -173,8 +172,7 @@ make_tab_summary_comments <- function(df){
   set_names('Comment')
 }
 
-####--------------------
-##make the report table
+####---------------make the report table-----
 ##grab a df with the names of the left hand side of the table
 make_tab_summary <- function(df){
   tab_results_left <- tab_xref_names %>%
@@ -226,10 +224,10 @@ tab_summary_comments <- pscis_split %>%
   purrr::map(make_tab_summary_comments)
 
 
-##make a table for the cost estimates.  It should have an equation.
+####------------------make a table for the cost estimates.  It should have an equation.--------------
 
 
-##make a table with just the photos in it so you can add as a footnote
+####-----------make a table with just the photos in it so you can add as a footnote - should combine with commetns I think-------
 ##get list of files (site_ids) in the photo folder
 tab_photo_url <- list.files(path = paste0(getwd(), '/data/photos/'), full.names = T) %>%
   basename() %>%
@@ -240,6 +238,109 @@ tab_photo_url <- list.files(path = paste0(getwd(), '/data/photos/'), full.names 
   filter(value %in% pscis$my_crossing_reference) %>% ##we don't want all the photos - just the phase 1 photos for this use case!!!
   dplyr::group_split(value) %>%
   purrr::set_names(nm = pscis$my_crossing_reference)
+
+####--------------bring in the habitat and fish data------------------
+habitat_confirmations <-  readxl::excel_sheets(path = "./data/habitat_confirmations.xls") %>%
+  purrr::set_names() %>%
+  purrr::map(read_excel,
+             path = "./data/habitat_confirmations.xls",
+             .name_repair = janitor::make_clean_names) %>%
+  purrr::set_names(janitor::make_clean_names(names(.))) %>%
+  purrr::map(at_trim_xlsheet2) %>% #moved to functions from https://github.com/NewGraphEnvironment/altools to reduce dependencies
+  purrr::map(plyr::colwise(type.convert))
+
+
+hab_site_prep <-  habitat_confirmations %>%
+  purrr::pluck("step_4_stream_site_data") %>%
+  # tidyr::separate(local_name, into = c('site', 'location'), remove = F) %>%
+  mutate(average_gradient_percent = round(average_gradient_percent * 100, 1)) %>%
+  mutate_if(is.numeric, round, 1) %>%
+  select(-gazetted_names:-site_number, -feature_type:-utm_method) ##remove the feature utms so they don't conflict with the site utms
+
+hab_loc <- habitat_confirmations %>%
+  purrr::pluck("step_1_ref_and_loc_info") %>%
+  dplyr::filter(!is.na(site_number))%>%
+  mutate(survey_date = janitor::excel_numeric_to_date(as.numeric(survey_date)))
+
+hab_site <- left_join(
+  hab_loc,
+  hab_site_prep,
+  by = 'reference_number'
+) %>%
+  tidyr::separate(alias_local_name, into = c('site', 'location'), remove = F) %>%
+  dplyr::filter(!alias_local_name %like% '_ef') ##get rid of the ef sites
+
+hab_fish_collect_prep <- habitat_confirmations %>%
+  purrr::pluck("step_2_fish_coll_data") %>%
+  dplyr::filter(!is.na(site_number)) %>%
+  select(-gazetted_name:-site_number)
+
+# hab_fish_indiv_prep <- habitat_confirmations %>%
+#   purrr::pluck("step_3_individual_fish_data") %>%
+#   dplyr::filter(!is.na(site_number)) %>%
+#   select(-gazetted_names:-site_number)
+
+hab_fish_codes <- habitat_confirmations %>%
+  purrr::pluck("species_by_common_name") %>%
+  select(-step)
+
+# hab_fish_indiv_prep2 <- left_join(
+#   hab_fish_indiv_prep,
+#   hab_loc,
+#   by = 'reference_number'
+# )
+
+hab_fish_collect_prep2 <- left_join(
+  hab_fish_collect_prep,
+  hab_loc,
+  by = 'reference_number'
+)
+
+
+# hab_fish_indiv <- left_join(
+#   hab_fish_indiv_prep2,
+#   select(hab_fish_codes, common_name:species_code),
+#   by = c('species' = 'common_name')
+# ) %>%
+#   dplyr::distinct(alias_local_name, utm_zone, utm_easting, utm_northing, species_code)
+
+hab_fish_collect <- left_join(
+  hab_fish_collect_prep2,
+  select(hab_fish_codes, common_name:species_code),
+  by = c('species' = 'common_name')
+) %>%
+  dplyr::distinct(reference_number, alias_local_name, utm_zone, utm_easting, utm_northing, species_code)
+
+
+hab_features <- habitat_confirmations %>%
+  purrr::pluck("step_4_stream_site_data") %>%
+  select(feature_type:utm_northing) %>%
+  filter(!is.na(feature_type))
+
+
+####--------import priorities spreadsheet--------------
+habitat_confirmations_priorities <- readxl::read_excel(
+  path = "./data/habitat_confirmations_priorities.xlsx",
+  .name_repair = janitor::make_clean_names)
+
+
+##add the priorities to the site data
+hab_site_priorities <- left_join(
+  select(habitat_confirmations_priorities, reference_number, priority),
+  select(hab_site, reference_number, alias_local_name, site, utm_zone:utm_northing),
+  by = 'reference_number'
+) %>%
+  filter(!is.na(priority))
+
+
+##clean up the objects
+rm(hab_site_prep,
+   # hab_fish_indiv_prep,
+   # hab_fish_indiv_prep2,
+   hab_fish_collect_prep,
+   hab_fish_collect_prep2)
+
+
 
 
 

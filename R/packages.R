@@ -17,7 +17,8 @@ pacman::p_load(
   citr,
   bcdata,
   datapasta,
-  knitr
+  knitr,
+  data.table
   )
 
 
