@@ -1,0 +1,142 @@
+--- 
+title: "Elk River Fish Passage"
+author: "Al Irvine, R.P.Bio."
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+github-repo: rstudio/bookdown-demo
+description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
+---
+
+```{r setup, include = TRUE, echo =FALSE, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE)
+source('R/packages.R')
+source('R/functions.R')
+source('R/tables.R')
+
+```
+
+
+# Executive Summary {-}
+
+
+
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```
+
+<!--chapter:end:index.Rmd-->
+
+# Introduction {#intro}
+New Graph Environment was retained by the Canadian Wildlife Federation in the fall of 2020 to conduct fish passage assessments of stream crossings within the Elk River watershed upstream of the Elko Dam near Elko, BC. Hillcrest Geographics was subcontracted to provide geographical information systems (GIS) support for the project.  The work was carried out in accordance with the BC Ministry of Environment: Field Assessment  for Determining Fish Passage at Closed  Bottom  Structures,  4th  Edition [@fish_passage_assessments] and Fish Passage Strategic Approach: Protocol for Prioritizing Sites for Fish Passage Remediation: 4th Edition [@fishpassagetechnicalworkinggroupFishPassageStrategic2014].
+
+<br>
+
+The health and viability of freshwater fish populations can depend on access to tributary and off channel areas which provide refuge during high flows, opportunities for foraging, overwintering habitat, spawning habitat and summer rearing habitat [@Bramblett_2002; @swalesRoleOffChannelPonds1989].  Culverts can present barriers to fish migration due to increased water velocity, turbulence, a vertical drop at the culvert outlet and/or maintenance issues [@slaneyFishHabitatRehabilitation1997]. Reconnection of fragmented habitats is a management action that can generate some of the highest ecological returns on economic investments relative to other habitat restoration techniques [@saldicaromileStreamHabitatRestoration2004].
+
+```{r eval=F}
+
+
+
+
+```
+
+
+<!--chapter:end:0100-intro.Rmd-->
+
+# Background
+
+As a result of high-level direction from the provincial government, a Fish Passage Strategic Approach protocol has been developed for British Columbia to ensure that the greatest opportunities for restoration of fish passage are pursued.  A Fish Passage Technical Working Group has been formed to coordinate the protocol and data is continuously amalgamated within the Provincial Steam Crossing Inventory System (PSCIS).  The strategic approach protocol involves a four-phase process as described in @fishpassagetechnicalworkinggroupFishPassageStrategic2014 :
+ * Phase 1: Fish Passage Assessment – Fish stream crossings within watersheds with high fish values are assessed to determine barrier status of structures and document a general assessment of adjacent habitat quality and quantity.
+ * Phase 2: Habitat Confirmation – Assessments of crossings prioritized for follow up in Phase 1 studies are conducted to confirm quality and quantity of habitat upstream and down as well as to scope for other potential nearby barriers that could affect the practicality of remediation.
+ * Phase 3: Design – Site plans and designs are drawn for priority crossings where high value fish habitat has been confirmed. 
+ * Phase 4: Remediation – Reconnection of isolated habitats through replacement, rehabilitation or removal of prioritized crossing structure barriers. 
+ 
+  
+ <br>
+ 
+The scope of 2020/2021 project activities reported on in this document includes planning for and implementation of the first phase of fish passage assessment in the Elk River watershed upstream of the Elko Dam.
+
+## Project Location
+The project was focused within the upper Elk River watershed upstream of the Elko Dam located at Elko, BC.  
+
+
+
+## Fisheries
+
+<!--chapter:end:0200-background.Rmd-->
+
+
+# Methods
+
+Placeholder
+
+
+
+<!--chapter:end:0300-method.Rmd-->
+
+# Applications
+
+Some _significant_ applications are demonstrated in this chapter.
+
+## Example one
+
+## Example two
+
+<!--chapter:end:0400-application.Rmd-->
+
+# Final Words
+
+We have finished a nice book.
+
+<!--chapter:end:0500-summary.Rmd-->
+
+`r if (knitr::is_html_output()){ '
+# References {-}
+<div id="refs"></div>
+'}`
+
+```{r}
+#https://github.com/rstudio/bookdown/issues/8 how to put the references wherever we want.
+```
+
+
+<!--chapter:end:0600-references.Rmd-->
+
+# Appendix 1 - Site Assessment Data and Photos {-}
+
+
+```{r results='asis'}
+print_tab_summary <- function(x, y, z){
+  kable(x) %>%
+    kableExtra::add_footnote(label = paste0('Comments: ', y[[1]]), notation = 'none') %>% #this grabs the comments out
+    kableExtra::add_footnote(label = paste0('Photos: ', z[[1]], z[[2]]), notation = 'none')
+}
+ 
+tabs <- mapply(print_tab_summary, x = tab_summary, y = tab_summary_comments, z = tab_photo_url)
+
+
+##this is a test
+
+
+```
+
+
+
+`r knit(text = unlist(tabs))`
+
+```{r}
+
+```
+
+
+<!--chapter:end:0700-appendix.Rmd-->
+

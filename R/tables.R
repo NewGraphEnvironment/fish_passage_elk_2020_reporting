@@ -125,43 +125,25 @@ tab_xref_names <- tibble::tribble(
                        "geometry",                                    NA,                    NA,       NA,       NA
   )
 
-###make the table to summarize the results in the report
-#
-# ##grab a df with the names of the left hand side of the table
-# tab_results_left <- tab_xref_names %>%
-#   filter(id_side == 1)
-#
-# ##get the data
-# tab_pull_left <- pscis %>%
-#   select(pull(tab_results_left,spdsht)) %>%
-#   slice(1) %>%
-#   t() %>%
-#   as.data.frame() %>%
-#   tibble::rownames_to_column()
-#
-# left <- left_join(tab_pull_left, tab_xref_names, by = c('rowname' = 'spdsht'))
-#
-#
-# tab_results_right <- tab_xref_names %>%
-#   filter(id_side == 2)
-#
-# ##get the data
-# tab_pull_right<- pscis %>%
-#   select(pull(tab_results_right,spdsht)) %>%
-#   slice(1) %>%
-#   t() %>%
-#   as.data.frame() %>%
-#   tibble::rownames_to_column()
-#
-# right <- left_join(tab_pull_right, tab_xref_names, by = c('rowname' = 'spdsht'))
-#
-# test_joined <- left_join(
-#   select(left, report, V1, id_join),
-#   select(right, report, V1, id_join),
-#   by = 'id_join'
-# ) %>%
-#   select(-id_join) %>%
-#   purrr::set_names(c('Attribute 1', 'Value 1', 'Attribute 2', 'Value 2'))
+
+####------------make a table to summarize priorization of phase 1 sites
+phase1_priorities <- pscis %>%
+  select(my_crossing_reference, utm_zone:northing, habitat_value, barrier_result) %>%
+  mutate(priority_phase1 = case_when(habitat_value == 'High' & barrier_result != 'Passable' ~ 'high',
+                                     habitat_value == 'Medium' & barrier_result != 'Passable' ~ 'mod',
+                                     habitat_value == 'Low' & barrier_result != 'Passable' ~ 'low',
+                                     T ~ NA_character_)) %>%
+  mutate(priority_phase1 = case_when(habitat_value == 'High' & barrier_result == 'Potential' ~ 'mod',
+                                     T ~ priority_phase1)) %>%
+  mutate(priority_phase1 = case_when(habitat_value == 'Medium' & barrier_result == 'Potential' ~ 'low',
+                                     T ~ priority_phase1)) %>%
+  mutate(priority_phase1 = case_when(my_crossing_reference == 4600070 ~ 'high', ##very large watershed
+                                     my_crossing_reference == 4600039 ~ 'low', ##does not seem like much of barrier
+                                     my_crossing_reference == 4604198 ~ 'low', ##very steep
+                                     my_crossing_reference == 4605653 ~ 'low', ##does not seem like much of barrier
+                                     my_crossing_reference == 4605675 ~ 'low', ##does not seem like much of barrier
+                                     T ~ priority_phase1)) %>%
+  dplyr::rename(utm_easting = easting, utm_northing = northing)
 
 
 ####---------------make a table for the comments---------------

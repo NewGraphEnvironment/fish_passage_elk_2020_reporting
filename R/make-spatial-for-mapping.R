@@ -12,6 +12,15 @@ make_geopackage <- function(dat, gpkg_name = 'habitat_confirmations'){
     sf::st_write(paste0("./data/", gpkg_name, ".gpkg"), nm, append = TRUE)
 }
 
+sf::read_sf("./data/habitat_confirmation_tracks.gpx", layer = "tracks")
+
+
+
 make_geopackage(dat = hab_fish_collect)
 make_geopackage(dat = hab_features)
 make_geopackage(dat = hab_site_priorities)
+make_geopackage(dat = phase1_priorities)
+
+##add the tracks
+sf::read_sf("./data/habitat_confirmation_tracks.gpx", layer = "tracks") %>%
+  sf::st_write(paste0("./data/", 'habitat_confirmations', ".gpkg"), 'hab_tracks', append = TRUE)
