@@ -98,10 +98,10 @@ tab_cost_est_prep3 <- left_join(
   select(bcfishpass_rd, my_crossing_reference, uphab_gross_sub22, uphab_net_sub22),
   by = 'my_crossing_reference'
 ) %>%
-  mutate(HGI_net = round(uphab_net_sub22/cost_est_1000s, 1),
-         HGI_gross = round(uphab_gross_sub22/cost_est_1000s, 1),
-         HGI_area_net = round((uphab_net_sub22 * downstream_channel_width_meters * 0.5)/cost_est_1000s, 1),
-         HGI_area_gross = round((uphab_gross_sub22 * downstream_channel_width_meters * 0.5)/cost_est_1000s, 1))
+  mutate(cost_net = round(uphab_net_sub22/cost_est_1000s, 1),
+         cost_gross = round(uphab_gross_sub22/cost_est_1000s, 1),
+         cost_area_net = round((uphab_net_sub22 * downstream_channel_width_meters * 0.5)/cost_est_1000s, 1),
+         cost_area_gross = round((uphab_gross_sub22 * downstream_channel_width_meters * 0.5)/cost_est_1000s, 1))
 
 ##add the priority info
 tab_cost_est <- left_join(
@@ -109,15 +109,26 @@ tab_cost_est <- left_join(
   select(phase1_priorities, my_crossing_reference, priority_phase1),
   by = 'my_crossing_reference'
 ) %>%
-  select(my_crossing_reference, priority = priority_phase1, rd_class = my_road_class, rd_surface = my_road_surface,
-         fill = fill_depth_meters, fix = crossing_fix_code, cost_$K = cost_est_1000s,
-         upstream
-         )
+  select(my_crossing_reference, stream_name, road_name, downstream_channel_width_meters, priority_phase1,
+         crossing_fix_code, cost_est_1000s, uphab_net_sub22,
+         cost_net, cost_area_net) %>%
+  mutate(uphab_net_sub22 = round(uphab_net_sub22,0)) %>%
+  rename(`External ID` = my_crossing_reference,
+         Priority = priority_phase1,
+         Stream = stream_name,
+         Road = road_name,
+         `Stream Width (m)` = downstream_channel_width_meters,
+         Fix = crossing_fix_code,
+        `Cost Est ( $K )` =  cost_est_1000s,
+         `Habitat Upstream (m)` = uphab_net_sub22,
+         `Cost Benefit (m / $K)` = cost_net,
+         `Cost Benefit (m2 / $K)` = cost_area_net) %>%
+  filter(!is.na(Priority))
 
 
 
 ##clean up
-rm(tab_cost_est_prep, tab_cost_est_prep2, tab_cost_est_prep3, pscis_rd_prep)
+rm(tab_cost_est_prep, tab_cost_est_prep2, tab_cost_est_prep3)
 
 
 
