@@ -108,7 +108,11 @@ tab_cost_est <- left_join(
   tab_cost_est_prep3,
   select(phase1_priorities, my_crossing_reference, priority_phase1),
   by = 'my_crossing_reference'
-)
+) %>%
+  select(my_crossing_reference, priority = priority_phase1, rd_class = my_road_class, rd_surface = my_road_surface,
+         fill = fill_depth_meters, fix = crossing_fix_code, cost_$K = cost_est_1000s,
+         upstream
+         )
 
 
 
