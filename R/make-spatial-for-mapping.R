@@ -4,15 +4,13 @@ source('R/tables.R')
 
 
 ##make your geopackage for mapping
-make_geopackage <- function(dat, gpkg_name = 'habitat_confirmations'){
+make_geopackage <- function(dat, gpkg_name = 'fishpass_mapping'){
   nm <-deparse(substitute(dat))
   dat %>%
     sf::st_as_sf(coords = c("utm_easting", "utm_northing"), crs = 26911, remove = F) %>%
     st_transform(crs = 4326) %>%
     sf::st_write(paste0("./data/", gpkg_name, ".gpkg"), nm, append = TRUE)
 }
-
-sf::read_sf("./data/habitat_confirmation_tracks.gpx", layer = "tracks")
 
 
 
@@ -23,4 +21,4 @@ make_geopackage(dat = phase1_priorities)
 
 ##add the tracks
 sf::read_sf("./data/habitat_confirmation_tracks.gpx", layer = "tracks") %>%
-  sf::st_write(paste0("./data/", 'habitat_confirmations', ".gpkg"), 'hab_tracks', append = TRUE)
+  sf::st_write(paste0("./data/", 'fishpass_mapping', ".gpkg"), 'hab_tracks', append = TRUE)

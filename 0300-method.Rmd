@@ -23,6 +23,7 @@ knitr::kable(tab_barrier_scoring,
 ```{r}
 knitr::kable(tab_barrier_result,
              caption = 'Fish Barrier Scoring Results (Fish Passage Technical Working Group 2011).') 
+
 ```
 
 

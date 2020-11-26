@@ -2,7 +2,9 @@ source('R/packages.R')
 source('R/functions.R')
 
 ####---------------import pscis data----------------
+##should give this rownames!!
 pscis <- import_pscis() %>%
+  tibble::rownames_to_column() %>%
   arrange(my_crossing_reference)
 
 
@@ -106,8 +108,8 @@ tab_xref_names <- tibble::tribble(
                     "final_score",                         "final_score",         "Total Score",       NA,       NA,
             "barrier_result_code",                      "barrier_result",              "Result",       NA,       NA,
      "barrier_result_description",                                    NA,                    NA,       NA,       NA,
-              "crossing_fix_code",                        "crossing_fix",         "Culvert Fix",       NA,       NA,
-              "crossing_fix_desc",                                    NA,                    NA,       NA,       NA,
+              "crossing_fix_code",                                    NA,                    NA,       NA,       NA,
+              "crossing_fix_desc",                        "crossing_fix",         "Culvert Fix",       NA,       NA,
    "recommended_diameter_or_span", "recommended_diameter_or_span_meters", "Fix Span / Diameter",       NA,       NA,
              "assessment_comment",                  "assessment_comment",             "Comment",       NA,       NA,
                      "ecocat_url",                                    NA,                    NA,       NA,       NA,
@@ -125,8 +127,32 @@ tab_xref_names <- tibble::tribble(
                        "geometry",                                    NA,                    NA,       NA,       NA
   )
 
+####----------structure type xref table----------------
+##this is how we made the tribble
+# tab_xref_structure <- d %>%
+#   sf::st_drop_geometry() %>%
+#   purrr::set_names(tolower) %>%
+#   select(crossing_fix_code, crossing_fix_desc) %>%
+#   distinct() %>%
+#   tidyr::drop_na() %>%
+#   mutate(crossing_fix = NA_character_)
+
+
+tab_xref_structure <- tibble::tribble(
+                        ~crossing_fix_code,                                ~crossing_fix_desc,                                     ~crossing_fix,
+                                      "RM",                    "Remove / Deactivate Crossing",                      "Remove/Deactivate Crossing",
+                                     "OBS",          "Replace with new open bottom structure",          "Replace with New Open Bottom Structure",
+                                  "SS-CBS", "Replace structure with streambed simulation CBS", "Replace Structure with Streambed Simulation CBS",
+                                      "EM",          "Add substrate to further imbed the CBS",          "Add Substrate to Further embed the CBS",
+                                      "BW",     "Install downstream weir(s) to backwater CBS",     "Install Downstream Weir(s) to Backwater CBS"
+                        )
+
+
+
+
 
 ####------------make a table to summarize priorization of phase 1 sites
+##uses habitat value to initially screen but then refines based on what are likely not barriers to most most the time
 phase1_priorities <- pscis %>%
   select(my_crossing_reference, utm_zone:northing, habitat_value, barrier_result) %>%
   mutate(priority_phase1 = case_when(habitat_value == 'High' & barrier_result != 'Passable' ~ 'high',
@@ -138,6 +164,7 @@ phase1_priorities <- pscis %>%
   mutate(priority_phase1 = case_when(habitat_value == 'Medium' & barrier_result == 'Potential' ~ 'low',
                                      T ~ priority_phase1)) %>%
   mutate(priority_phase1 = case_when(my_crossing_reference == 4600070 ~ 'high', ##very large watershed
+                                     my_crossing_reference == 4600028 ~ 'mod', ##listed as high value habitat but smaller stream
                                      my_crossing_reference == 4600039 ~ 'low', ##does not seem like much of barrier
                                      my_crossing_reference == 4604198 ~ 'low', ##very steep
                                      my_crossing_reference == 4605653 ~ 'low', ##does not seem like much of barrier
@@ -173,7 +200,7 @@ make_tab_summary <- function(df){
     filter(id_side == 2)
 
   ##get the data
-  tab_pull_right<- pscis %>%
+  tab_pull_right<- df %>%
     select(pull(tab_results_right,spdsht)) %>%
     # slice(1) %>%
     t() %>%
@@ -194,6 +221,7 @@ make_tab_summary <- function(df){
 
 ##turn spreadsheet into list of data frames
 pscis_split <- pscis %>%
+  # mutate_if(is.numeric, as.character) %>% ##added this to try to get the outlet drop to not disapear
   # tibble::rownames_to_column() %>%
   dplyr::group_split(my_crossing_reference) %>%
   purrr::set_names(pscis$my_crossing_reference)
@@ -204,9 +232,6 @@ tab_summary <- pscis_split %>%
 
 tab_summary_comments <- pscis_split %>%
   purrr::map(make_tab_summary_comments)
-
-
-####------------------make a table for the cost estimates.  It should have an equation.--------------
 
 
 ####-----------make a table with just the photos in it so you can add as a footnote - should combine with commetns I think-------
