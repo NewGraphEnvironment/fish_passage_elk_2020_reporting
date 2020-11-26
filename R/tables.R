@@ -65,7 +65,7 @@ tab_xref_names <- tibble::tribble(
                 "assessment_date",                                'date',                'Date',       1L,       1L,
              "stream_crossing_id",                   "pscis_crossing_id",            "PSCIS ID",       2L,       1L,
                   "assessment_id",                                    NA,                    NA,       NA,       NA,
-    "external_crossing_reference",               "my_crossing_reference",         "Modelled ID",       3L,       1L,
+    "external_crossing_reference",               "my_crossing_reference",         "External ID",       3L,       1L,
                    "crew_members",                        "crew_members",                "Crew",       5L,       1L,
                        "utm_zone",                            "utm_zone",            "UTM Zone",       6L,       1L,
                     "utm_easting",                             "easting",             "Easting",       7L,       1L,

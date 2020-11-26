@@ -17,12 +17,12 @@ find_photo_names <- function(site_id){
 ##if you look at this "by hand" you can see tibbles with less than 6 rows so those should be fixed.
 ##we had a couple of extra litte files in the folder that were a problem. make sure the file is only photo folders
 ##we should be able to filter the list so that we get a quick read on which ones are short photos but we will need to do that another time.
+##this does not identify when there are duplicates and one photo is missing!! need to revise
 photo_names <- site_id_list %>%
   map(find_photo_names)
 
 
 ##once you review the test results and you are good then run your function over the list
-
 site_id_list %>%
   map(make_photo_comp_cv)
 
