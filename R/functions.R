@@ -51,4 +51,15 @@ make_photo_comp_cv <- function(site_id){
   image_write(photos_stacked, path = paste0(getwd(), '/data/photos/', site_id, '/crossing_all.JPG'), format = 'jpg')
 }
 
+##make a function to retrieve the watershed info
+get_watershed <- function(fish_habitat_info){
+  mapply(fwapgr::fwa_watershed, blue_line_key = fish_habitat_info$blue_line_key,
+         downstream_route_measure = fish_habitat_info$downstream_route_measure) %>%
+    purrr::set_names(nm = fish_habitat_info$pscis_model_combined_id) %>%
+    discard(function(x) nrow(x) == 0) %>% ##remove zero row tibbles with https://stackoverflow.com/questions/49696392/remove-list-elements-that-are-zero-row-tibbles
+    data.table::rbindlist(idcol="pscis_model_combined_id") %>%
+    distinct(pscis_model_combined_id, .keep_all = T) %>% ##there are duplicates we should get rid of
+    st_as_sf()
+}
+
 

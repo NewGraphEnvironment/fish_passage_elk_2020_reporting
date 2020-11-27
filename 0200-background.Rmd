@@ -14,6 +14,7 @@ The scope of 2020/2021 project activities reported on in this document includes 
 ## Project Location
 The project was focused within the upper Elk River watershed upstream of the Elko Dam located at Elko, BC.  
 
+![](fig/hydrology1.png)
 
 
 ## Fisheries

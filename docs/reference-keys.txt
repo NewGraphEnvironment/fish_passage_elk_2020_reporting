@@ -1,0 +1,16 @@
+tab:tab-hab-value
+tab:tab-barrier-scoring
+tab:tab-barrier-result
+tab:cost-est
+intro
+background
+project-location
+fisheries
+methods
+planning
+fish-passage-assessments
+barrier-scoreing
+cost-benefit-analysis
+habitat-gain-index
+results
+conclusion

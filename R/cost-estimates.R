@@ -67,7 +67,11 @@ tab_cost_rd_mult <- pscis_rd %>%
   distinct( .keep_all = T)
   # arrange(cost_1000s_for_10m_bridge)
 
+##make a version for the report
+tab_cost_rd_mult_report <- tab_cost_rd_mult %>%
+  rename(
 
+  )
 
 ##make tyhe cost estimates
 tab_cost_est_prep <- left_join(
@@ -119,7 +123,7 @@ tab_cost_est <- left_join(
          Road = road_name,
          `Stream Width (m)` = downstream_channel_width_meters,
          Fix = crossing_fix_code,
-        `Cost Est ( $K )` =  cost_est_1000s,
+        `Cost Est ( $K)` =  cost_est_1000s,
          `Habitat Upstream (m)` = uphab_net_sub22,
          `Cost Benefit (m / $K)` = cost_net,
          `Cost Benefit (m2 / $K)` = cost_area_net) %>%
