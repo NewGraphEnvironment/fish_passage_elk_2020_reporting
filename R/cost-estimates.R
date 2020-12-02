@@ -91,7 +91,7 @@ tab_cost_est_prep <- left_join(
 
 tab_cost_est_prep2 <- left_join(
   tab_cost_est_prep,
-  select(xref_structure, crossing_fix, crossing_fix_code),
+  select(xref_structure_fix, crossing_fix, crossing_fix_code),
   by = c('crossing_fix')
 ) %>%
   mutate(cost_est_1000s = case_when(

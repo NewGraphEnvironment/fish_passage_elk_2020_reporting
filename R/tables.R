@@ -160,7 +160,7 @@ xref_pscis_my_crossing_modelled <- readr::read_csv(file = paste0(getwd(), '/data
 #   mutate(crossing_fix = NA_character_)
 
 
-xref_structure <- tibble::tribble(
+xref_structure_fix <- tibble::tribble(
                         ~crossing_fix_code,                                ~crossing_fix_desc,                                     ~crossing_fix,
                                       "RM",                    "Remove / Deactivate Crossing",                      "Remove/Deactivate Crossing",
                                      "OBS",          "Replace with new open bottom structure",          "Replace with New Open Bottom Structure",
