@@ -64,8 +64,12 @@ tab_cost_rd_mult <- pscis_rd %>%
   mutate(cost_m_1000s_bridge = road_surface_mult * road_class_mult * 12.5,
          cost_embed_cv = road_surface_mult * road_class_mult * 25) %>%
   # mutate(cost_1000s_for_10m_bridge = 10 * cost_m_1000s_bridge) %>%
-  distinct( .keep_all = T)
-  # arrange(cost_1000s_for_10m_bridge)
+  distinct( .keep_all = T) %>%
+  arrange(cost_m_1000s_bridge)
+  # readr::write_csv(file = paste0(getwd(), '/data/raw_input/tab_cost_rd_mult.csv')) %>%
+# kable() %>%
+# kable_styling(latex_options = c("striped", "scale_down")) %>%
+# kableExtra::save_kable("fig/tab_cost_rd_mult.png")
 
 ##make a version for the report
 tab_cost_rd_mult_report <- tab_cost_rd_mult %>%
@@ -87,7 +91,7 @@ tab_cost_est_prep <- left_join(
 
 tab_cost_est_prep2 <- left_join(
   tab_cost_est_prep,
-  select(tab_xref_structure, crossing_fix, crossing_fix_code),
+  select(xref_structure, crossing_fix, crossing_fix_code),
   by = c('crossing_fix')
 ) %>%
   mutate(cost_est_1000s = case_when(

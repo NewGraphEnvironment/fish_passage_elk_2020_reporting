@@ -26,6 +26,9 @@ tab_barrier_scoring <- dplyr::tribble(
   "MOD",  "<30cm or 20% of diameter but continuous",   "5",       "15-30",            '5',  '1.0-1.3', '3',      '1-3',     '5',     '15-30',       '3',
   "HIGH", "No embedment or discontinuous",             "10",      ">30",             '10',  '>1.3',    '6',       '>3',     '10',    '>30',         '6',
 )
+  # kable() %>%
+  # kable_styling(latex_options = c("striped", "scale_down")) %>%
+  # kableExtra::save_kable("fig/tab_barrier_scoring.png")
 
 tab_barrier_result <- dplyr::tribble(
   ~`Cumlative Score`, ~Result,
@@ -33,6 +36,9 @@ tab_barrier_result <- dplyr::tribble(
   '15-19',            'potential barrier',
   '>20',              'barrier'
 )
+  # kable() %>%
+  # kable_styling(latex_options = c("striped", "scale_down")) %>%
+  # kableExtra::save_kable("fig/tab_barrier_result.png")
 
 # names_bcdata <- names(d) %>%
 #   stringr::str_to_lower() %>%
@@ -63,7 +69,7 @@ tab_barrier_result <- dplyr::tribble(
 
 
 ####---------make a table to cross reference column names for ---------------
-tab_xref_names <- tibble::tribble(
+xref_names <- tibble::tribble(
                           ~bcdata,                               ~spdsht,               ~report, ~id_join, ~id_side,
                              "id",                                    NA,                    NA,       NA,       NA,
          "funding_project_number",                                    NA,                    NA,       NA,       NA,
@@ -137,6 +143,12 @@ tab_xref_names <- tibble::tribble(
                        "geometry",                                    NA,                    NA,       NA,       NA
   )
 
+
+##this is built with load-crossings-xref.R file
+xref_pscis_my_crossing_modelled <- readr::read_csv(file = paste0(getwd(), '/data/raw_input/xref_pscis_my_crossing_modelled.csv')) %>%
+  mutate(across(everything(), as.integer))
+
+
 ####----------structure type xref table----------------
 ##this is how we made the tribble
 # tab_xref_structure <- d %>%
@@ -148,7 +160,7 @@ tab_xref_names <- tibble::tribble(
 #   mutate(crossing_fix = NA_character_)
 
 
-tab_xref_structure <- tibble::tribble(
+xref_structure <- tibble::tribble(
                         ~crossing_fix_code,                                ~crossing_fix_desc,                                     ~crossing_fix,
                                       "RM",                    "Remove / Deactivate Crossing",                      "Remove/Deactivate Crossing",
                                      "OBS",          "Replace with new open bottom structure",          "Replace with New Open Bottom Structure",
@@ -194,7 +206,7 @@ make_tab_summary_comments <- function(df){
 ####---------------make the report table-----
 ##grab a df with the names of the left hand side of the table
 make_tab_summary <- function(df){
-  tab_results_left <- tab_xref_names %>%
+  tab_results_left <- xref_names %>%
     filter(id_side == 1)
   ##get the data
   tab_pull_left <- df %>%
@@ -204,9 +216,9 @@ make_tab_summary <- function(df){
     as.data.frame() %>%
     tibble::rownames_to_column()
 
-  left <- left_join(tab_pull_left, tab_xref_names, by = c('rowname' = 'spdsht'))
+  left <- left_join(tab_pull_left, xref_names, by = c('rowname' = 'spdsht'))
 
-  tab_results_right <- tab_xref_names %>%
+  tab_results_right <- xref_names %>%
     filter(id_side == 2)
 
   ##get the data
@@ -217,7 +229,7 @@ make_tab_summary <- function(df){
     as.data.frame() %>%
     tibble::rownames_to_column()
 
-  right <- left_join(tab_pull_right, tab_xref_names, by = c('rowname' = 'spdsht'))
+  right <- left_join(tab_pull_right, xref_names, by = c('rowname' = 'spdsht'))
 
   tab_joined <- left_join(
     select(left, report, V1, id_join),

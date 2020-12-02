@@ -18,7 +18,9 @@ pacman::p_load(
   bcdata,
   datapasta,
   knitr,
-  data.table
+  data.table,
+  lubridate,
+  forcats
   )
 
 
