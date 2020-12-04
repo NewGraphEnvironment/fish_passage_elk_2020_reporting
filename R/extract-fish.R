@@ -1,6 +1,6 @@
 source('R/packages.R')
 source('R/functions.R')
-source('R/tables.R')
+source('R/tables-phase2.R')
 
 
 
@@ -29,6 +29,9 @@ hab_fish_indiv_prep3 <- left_join(
 
 
 ##we need the size of the sites too
+
+####workflow is a bit weird because we need to input NFC sites and the size of the sites
+##or else we don't know about them in the summary.
 hab_fish_collect_prep <- habitat_confirmations %>%
   purrr::pluck("step_2_fish_coll_data") %>%
   dplyr::filter(!is.na(site_number)) %>%
@@ -105,12 +108,9 @@ hab_fish_input_prep <- hab_fish_indiv %>%
   # group_by(reference_number:model, species_code, life_stage) %>%
   summarise(min = min(length_mm),
             max = max(length_mm),
-            n = length(length_mm)) %>%
-  # janitor::adorn_totals() %>%
-  mutate(life_stage = case_when(
-    life_stage == 'imm' ~ 'parr',
-    life_stage == 'm' ~ 'juvenile',
-    T ~ NA_character_))
+            n = length(length_mm))
+  # janitor::adorn_totals()
+
 
 ##need to add the species name
 hab_fish_input <- left_join(
@@ -120,9 +120,16 @@ hab_fish_input <- left_join(
 ) %>%
   ungroup() %>%
   select(reference_number:model, common_name, stage = life_stage, total_number = n,
-         min, max)
+         min, max) %>%
+  mutate(total_number = case_when(
+    common_name == 'No Fish Caught' ~ NA_integer_,
+    T ~ total_number
+  ))
+  # janitor::adorn_totals()   ##use this to ensure you have the same number of fish in the summary as the individual fish sheet
 
-
+##burn to a csv so you can cut and paste into your fish submission
+hab_fish_input %>%
+  readr::write_csv(file = paste0(getwd(), '/data/raw_input/habitat_confirmation_fish_summary.csv'))
 
 
 ######----------------density plots--------------------------
@@ -154,11 +161,15 @@ plot_fish_box <- hab_fish_dens %>%
 plot_fish_box
 
 ##paths to write to will need to change now
-ggsave(plot = plot_fish_box, filename = "./fig/plot_fish_box.png",
-       h=9.66, w=14.5, units="cm", dpi=300)
+# ggsave(plot = plot_fish_box, filename = "./fig/plot_fish_box.png",
+#        h=9.66, w=14.5, units="cm", dpi=300)
 
 ##clean up the workspace
 remove <- ls() %>%
   stringr::str_subset(., 'prep|bin')
 
-rm(remove, fish_eb, fish_wct)
+##this prints a list to the console that we can copy and paste into the rm call #https://stackoverflow.com/questions/30861769/convert-a-list-into-a-string/30862559
+paste(unlist(remove), collapse=', ')
+
+rm(bin_1, bin_n, bins, hab_fish_collect_prep, hab_fish_indiv_prep, hab_fish_indiv_prep2, hab_fish_indiv_prep3, hab_fish_input_prep,
+   fish_eb, fish_wct)
