@@ -40,16 +40,16 @@ conn <- DBI::dbConnect(
 # #
 # #
 # # ##list tables in a schema
-# dbGetQuery(conn,
-#            "SELECT table_name
-#            FROM information_schema.tables
-#            WHERE table_schema='bcfishpass'")
+dbGetQuery(conn,
+           "SELECT table_name
+           FROM information_schema.tables
+           WHERE table_schema='fish_passage'")
 # # #
 # # # ##list column names in a table
 dbGetQuery(conn,
            "SELECT column_name,data_type
            FROM information_schema.columns
-           WHERE table_name='pscis_modelledcrossings_streams_xref'")
+           WHERE table_name='pscis_model_combined'")
 
 
 
@@ -122,11 +122,20 @@ sf::st_write(obj = dat, dsn = conn, Id(schema= "working", table = "misc"))
 
 dat_info <- dbGetQuery(conn,
                        "
-                                  SELECT a.misc_point_id, b.admin_area_abbreviation
+                                  WITH C AS
+                                  (SELECT a.misc_point_id, b.admin_area_abbreviation, a.geometry
                                   FROM working.misc a
                                   INNER JOIN
                                   whse_legal_admin_boundaries.abms_municipalities_sp b
-                                  ON ST_Intersects(b.geom, ST_Transform(a.geometry,3005))
+                                  ON ST_Intersects(b.geom, ST_Transform(a.geometry,3005)))
+
+
+                                  SELECT C.misc_point_id, c.admin_area_abbreviation, b.map_tile_display_name
+                                  FROM C
+                                  INNER JOIN
+                                  whse_basemapping.dbm_mof_50k_grid b
+                                  ON ST_Intersects(b.geom, ST_Transform(c.geometry,3005))
+
                        ")
 
 dbDisconnect(conn = conn)
@@ -137,6 +146,8 @@ dat_joined2 <- left_join(
   dat_info,
   by = "misc_point_id"
 )
+
+
 
 # ##burn it all to a csv so you can use it however you want
 # df_joined2 %>% readr::write_csv(file = paste0(getwd(), '/data/bcfishpass-phase2.csv'))

@@ -207,9 +207,15 @@ my_site <- 50155
 
 ### Site Location
 
-Crossing `r as.character(my_site)` is located on an `r my_pscis_info() %>% pull(stream_name)` `r my_bcfishpass() %>% pull(downstream_route_measure)`m upstream from the confluence with Lizard Creek. 
+Crossing `r as.character(my_site)` is located on a `r my_pscis_info() %>% pull(stream_name)`, approximately 75m upstream from the confluence with Lizard Creek. The stream is located approximately 100m east of the location where it is mapped on the freshwater atlas stream layer.
+
+<br>
+
+### Background
 
 
+
+<br>
 
 
 
