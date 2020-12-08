@@ -18,7 +18,8 @@ import_pscis <- function(workbook_name = 'pscis_phase1.xlsm'){ ##new template.  
     rename(date = date_of_assessment_yyyy_mm_dd) %>%
     mutate(date = janitor::excel_numeric_to_date(as.numeric(date))) %>%
     filter(!is.na(date)) %>%
-    readr::type_convert()  ##guess the type!!
+    readr::type_convert() %>%  ##guess the type!!
+    mutate(source = workbook_name)
 }
 
 

@@ -58,6 +58,8 @@ CROSS JOIN LATERAL
    LIMIT 1) AS b")
 
 
+##swapped out fish_passage.modelled_crossings_closed_bottom for bcfishpass.barriers_anthropogenic
+
 ##join the modelling data to our pscis submission info
 df_joined <- left_join(
   select(df, misc_point_id, my_crossing_reference),

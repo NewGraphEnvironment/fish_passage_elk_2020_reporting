@@ -41,37 +41,57 @@ get_watershed <- function(dat){
          blue_line_key = dat$blue_line_key,
          downstream_route_measure = dat$downstream_route_measure,
          SIMPLIFY = F) %>%
-    purrr::set_names(nm = dat$alias_local_name) %>%
+    purrr::set_names(nm = dat$pscis_crossing_id) %>%
     discard(function(x) nrow(x) == 0) %>% ##remove zero row tibbles with https://stackoverflow.com/questions/49696392/remove-list-elements-that-are-zero-row-tibbles
-    data.table::rbindlist(idcol="alias_local_name") %>%
-    distinct(alias_local_name, .keep_all = T) %>% ##there are duplicates we should get rid of
+    data.table::rbindlist(idcol="pscis_crossing_id") %>%
+    distinct(pscis_crossing_id, .keep_all = T) %>% ##in case there are duplicates we should get rid of
     st_as_sf()
 }
 
-##for each site grab a blueline key and downstream route measure
-hab_site_priorities2 <- hab_site_priorities %>%
-  mutate(srid = as.integer(26911),
-         limit = as.integer(1))
+# ##for each site grab a blueline key and downstream route measure
+# hab_site_priorities2 <- hab_site_priorities %>%
+#   mutate(srid = as.integer(26911))
+#
+# hab_site_fwa_index <- mapply(fwapgr::fwa_index_point,
+#                              x = hab_site_priorities2$utm_easting,
+#                              y = hab_site_priorities2$utm_northing,
+#                              srid = hab_site_priorities2$srid,
+#                              SIMPLIFY = F) %>%
+#   purrr::set_names(nm = hab_site_priorities2$alias_local_name) %>%
+#   data.table::rbindlist(idcol="alias_local_name") %>%
+#   st_as_sf()
 
-hab_site_fwa_index <- mapply(fwapgr::fwa_index_point,
-                             x = hab_site_priorities2$utm_easting,
-                             y = hab_site_priorities2$utm_northing,
-                             srid = hab_site_priorities2$srid,
-                             SIMPLIFY = F) %>%
-  purrr::set_names(nm = hab_site_priorities2$alias_local_name) %>%
-  data.table::rbindlist(idcol="alias_local_name") %>%
-  st_as_sf()
+# ##now lets get our watersheds
+# hab_site_fwa_wshds <- get_watershed(dat = hab_site_fwa_index)
+
+##filter only phase 2 sites that were qa'd to a modelled crossing thorugh
+wshed_input <- bcfishpass_phase2 %>%
+  filter(source %like% 'phase2' &
+           !is.na(modelled_crossing_id)) %>%
+  select(-geom, -geometry) %>%
+  mutate(downstream_route_measure_chk = case_when(
+    downstream_route_measure < 200 ~ 20,
+    T ~ NA_real_
+  ),
+  downstream_route_measure = case_when(
+    !is.na(downstream_route_measure_chk) ~ downstream_route_measure_chk,
+    T ~ downstream_route_measure
+  ))
+
 
 ##now lets get our watersheds
-hab_site_fwa_wshds <- get_watershed(dat = hab_site_fwa_index)
-
+hab_site_fwa_wshds <- left_join(
+  get_watershed(dat = wshed_input) %>% mutate(pscis_crossing_id = as.integer(pscis_crossing_id)),
+  select(wshed_input, -localcode_ltree, -wscode_ltree),
+  by = 'pscis_crossing_id'
+)
 
 ##add to the geopackage
 hab_site_fwa_wshds %>%
-  sf::st_write(paste0("./data/", 'fishpass_mapping', ".gpkg"), 'hab_wshds', append = TRUE)
+  sf::st_write(paste0("./data/", 'fishpass_mapping', ".gpkg"), 'hab_wshds', append = F) ##might want to f the append....
 
-hab_site_fwa_index %>%
-  sf::st_write(paste0("./data/", 'fishpass_mapping', ".gpkg"), 'hab_fwa_index', append = TRUE)
+# hab_site_fwa_index %>%
+#   sf::st_write(paste0("./data/", 'fishpass_mapping', ".gpkg"), 'hab_fwa_index', append = T) ##might want to f the append....
 
 
 

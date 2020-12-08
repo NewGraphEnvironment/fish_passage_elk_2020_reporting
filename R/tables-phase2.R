@@ -2,6 +2,9 @@ source('R/packages.R')
 source('R/functions.R')
 # source('R/tables.R')
 
+##this is made from extract-bcfishpass-phase2.R
+bcfishpass_phase2 <- readr::read_csv(file = paste0(getwd(), '/data/bcfishpass-phase2.csv'))
+
 
 ####--------------bring in the habitat and fish data------------------
 habitat_confirmations <-  readxl::excel_sheets(path = "./data/habitat_confirmations.xls") %>%

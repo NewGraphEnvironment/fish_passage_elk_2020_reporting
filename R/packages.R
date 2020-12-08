@@ -18,7 +18,9 @@ pacman::p_load(
   knitr,
   data.table,
   lubridate,
-  forcats
+  forcats,
+  bookdown,
+  bit64
   )
 
 
