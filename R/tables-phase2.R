@@ -5,6 +5,14 @@ source('R/functions.R')
 ##this is made from extract-bcfishpass-phase2.R
 bcfishpass_phase2 <- readr::read_csv(file = paste0(getwd(), '/data/bcfishpass-phase2.csv'))
 
+##this is made from extract-fwa-watershed-ltree.R
+wsheds <- sf::st_read(dsn = 'data/fishpass_mapping.gpkg', layer = 'hab_wshds_ltree')
+wsheds_up1 <- sf::st_read(dsn = 'data/fishpass_mapping.gpkg', layer = 'hab_wshds_ltree_up1')
+
+
+##burned to a kml so we can easily add elevation info
+# st_write(wsheds, append = TRUE, driver = 'kml', dsn = "data/raw_input/wsheds.kml")
+# st_write(wsheds_up1, append = TRUE, driver = 'kml', dsn = "data/raw_input/wsheds_up1.kml")
 
 ####--------------bring in the habitat and fish data------------------
 habitat_confirmations <-  readxl::excel_sheets(path = "./data/habitat_confirmations.xls") %>%
@@ -153,6 +161,7 @@ pscis2 <- import_pscis(workbook_name = 'pscis_phase2.xlsm') %>%
 # xref_pscis_my_crossing_modelled %>%
 #   filter(my_crossing_reference %in% c(4605732, 4600070, 4600183))
 
+##summary table for the culvert status
 
 
 

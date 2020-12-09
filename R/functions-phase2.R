@@ -37,7 +37,18 @@ my_pscis_info <- function(dat = pscis2, site = my_site){
 my_bcfishpass <- function(dat = bcfishpass_phase2, site = my_site){
   dat %>%
     mutate(across(where(is.numeric), round, 0)) %>%
-    filter(pscis_crossing_id == my_site)
+    filter(pscis_crossing_id == site)
+}
+
+my_watershed_area <- function(dat = wsheds, site = my_site){
+  dat %>%
+    filter(pscis_crossing_id == my_site) %>%
+    pull(area_km)
+}
+
+my_mapsheet <- function(){
+  paste0('https://hillcrestgeo.ca/outgoing/fishpassage/projects/elk/FishPassage_', my_bcfishpass() %>%
+           pull(map_tile_display_name), '.pdf')
 }
 
 

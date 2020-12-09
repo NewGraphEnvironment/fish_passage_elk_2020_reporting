@@ -20,8 +20,8 @@ wshed_input <- bcfishpass_phase2 %>%
 
 dat <- wshed_input %>%
   filter(!is.na(modelled_crossing_id)) %>%
-  # mutate(ltree_in = paste0(localcode_ltree, '.*{1}'))
-  mutate(ltree_in = paste0(localcode_ltree, '.*'))
+  mutate(ltree_in = paste0(localcode_ltree, '.*{1}'))  ##this one is maybe a bit better
+  # mutate(ltree_in = paste0(localcode_ltree, '.*'))
 
 
 conn <- DBI::dbConnect(
@@ -61,8 +61,8 @@ ltrees <-  dat %>%
   # as_vector() %>%
   # na.omit()
 
-localcode_ltree <- dat %>%
-  pull(localcode_ltree)
+# localcode_ltree <- dat %>%
+#   pull(localcode_ltree)
 
 ##trying
 ids <-  dat %>%
@@ -118,7 +118,7 @@ wshds3 <- bind_cols(
 
 ##add to the geopackage
 wshds3 %>%
-  sf::st_write(paste0("./data/", 'fishpass_mapping', ".gpkg"), 'hab_wshds_ltree', append = F) ##might want to f the append....
+  sf::st_write(paste0("./data/", 'fishpass_mapping', ".gpkg"), 'hab_wshds_ltree_up1', append = F) ##might want to f the append....
 
 dbDisconnect(conn = conn)
 

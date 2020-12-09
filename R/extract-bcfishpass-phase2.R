@@ -118,23 +118,27 @@ conn <- DBI::dbConnect(
 # load to database
 sf::st_write(obj = dat, dsn = conn, Id(schema= "working", table = "misc"))
 
-
+# sf doesn't automagically create a spatial index or a primary key
+res <- dbSendQuery(conn, "CREATE INDEX ON working.misc USING GIST (geometry)")
+dbClearResult(res)
+res <- dbSendQuery(conn, "ALTER TABLE working.misc ADD PRIMARY KEY (misc_point_id)")
+dbClearResult(res)
 
 dat_info <- dbGetQuery(conn,
                        "
-                                  WITH C AS
-                                  (SELECT a.misc_point_id, b.admin_area_abbreviation, a.geometry
+                                  WITH c AS
+                                  (SELECT a.misc_point_id, b.map_tile_display_name, a.geometry
                                   FROM working.misc a
                                   INNER JOIN
-                                  whse_legal_admin_boundaries.abms_municipalities_sp b
+                                  whse_basemapping.dbm_mof_50k_grid b
                                   ON ST_Intersects(b.geom, ST_Transform(a.geometry,3005)))
 
-
-                                  SELECT C.misc_point_id, c.admin_area_abbreviation, b.map_tile_display_name
-                                  FROM C
-                                  INNER JOIN
-                                  whse_basemapping.dbm_mof_50k_grid b
+                                  SELECT c.misc_point_id, c.map_tile_display_name, b.admin_area_abbreviation, c.geometry
+                                  FROM c
+                                  LEFT OUTER JOIN
+                                  whse_legal_admin_boundaries.abms_municipalities_sp b
                                   ON ST_Intersects(b.geom, ST_Transform(c.geometry,3005))
+
 
                        ")
 
