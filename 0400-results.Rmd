@@ -1,7 +1,12 @@
 # Results
 
+## Phase 1
 
-The analysis phase is summarized in Table \@ref(tab:cost-est)
+A total of XXX assessments were conducted between xxx and xxxxxxxxxx.  Site details and photos are presented in 
+
+The analysis phase is summarized in Table \@ref(tab:cost-est) [Appendix 1 - Site Assessment Data and Photos]
+
+<br>
 
 ```{r cost-est}
 source('R/cost-estimates.R')
@@ -14,4 +19,24 @@ tab_cost_est %>%
 
 ```
 
+
+## Phase 2
+
+A summary of habitat summarized in Table \@ref(tab:tab-habitat-summary)
+
+<br>
+
+```{r tab-overview}
+tab_overview %>% 
+  kable(caption = 'Overview of habitat confirmation sites.') %>% 
+  kableExtra::kable_styling(c("condensed"), full_width = T, font_size = 11) %>% 
+  kableExtra::scroll_box(width = "100%", height = "500px")
+```
+
+<br>
+
+```{r tab-habitat-summary}
+tab_hab_summary %>% 
+  kable(caption = 'Summary of habitat details.')
+```
 

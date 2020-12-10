@@ -68,8 +68,13 @@ hab_fish_indiv <- left_join(
                                   'fry',
                                   'parr',
                                   'juvenile',
-                                  'adult'))
+                                  'adult')) %>%
+  tidyr::separate(local_name, into = c('site', 'location', 'ef'), remove = F) %>%
+  mutate(site_id = paste0(site, '_', location))
 
+tab_fish_summary <- hab_fish_indiv %>%
+  group_by(site_id, species_code) %>%
+  summarise(count_fish = n())
 
 
 
@@ -89,7 +94,7 @@ plot_fish_hist_wct <- ggplot(fish_wct, aes(x=length_mm
                                          )) +
   geom_histogram(breaks = bins, alpha=0.5,
                  position="identity", size = 0.75)+
-  labs(x = "Fork Length (mm)", y = "Count (#)") +
+  labs(x = "Fork Length (mm)", y = "Count WCT (#)") +
   # facet_wrap(~alias_local_name)+
   scale_color_grey() +
   scale_fill_grey() +
@@ -128,37 +133,25 @@ hab_fish_input <- left_join(
   # janitor::adorn_totals()   ##use this to ensure you have the same number of fish in the summary as the individual fish sheet
 
 ##burn to a csv so you can cut and paste into your fish submission
-hab_fish_input %>%
-  readr::write_csv(file = paste0(getwd(), '/data/raw_input/habitat_confirmation_fish_summary.csv'))
+# hab_fish_input %>%
+#   readr::write_csv(file = paste0(getwd(), '/data/raw_input/habitat_confirmation_fish_summary.csv'))
 
+##
 
 ######----------------density plots--------------------------
 
 hab_fish_dens <- hab_fish_indiv %>%
-  mutate(area = ef_length_m * ef_width_m) %>%
-  group_by(local_name, ef_length_m, ef_width_m, area, species_code, life_stage) %>%
+  mutate(area = round(ef_length_m * ef_width_m),0) %>%
+  group_by(local_name, site_number, ef_length_m, ef_width_m, ef_seconds, area, species_code, life_stage) %>%
   summarise(fish_total = length(life_stage)) %>%
   ungroup() %>%
-  mutate(density_100m2 = round(fish_total/area * 100, 0)) %>%
+  mutate(density_100m2 = round(fish_total/area * 100, 1)) %>%
   tidyr::separate(local_name, into = c('site', 'location', 'ef'), remove = F) %>%
-  mutate(site_id = paste0(site, location))
+  mutate(site_id = paste0(site, location),
+         location = case_when(location == 'us' ~ 'Upstream',
+                              T ~ 'Downstream'))
 
 
-plot_fish_box <- hab_fish_dens %>%
-  filter(
-    # site  == '50185'
-          # &
-    species_code == 'WCT'
-         ) %>%
-  ggplot(., aes(x = location, y =density_100m2)) +
-  geom_boxplot()+
-  facet_grid(site~life_stage, scales ="free_y",
-             as.table = T)+
-  theme_bw()+
-  theme(legend.position = "none") +
-  geom_dotplot(binaxis='y', stackdir='center', dotsize=1)+
-  ylab("Density (fish/100m2)")
-plot_fish_box
 
 ##paths to write to will need to change now
 # ggsave(plot = plot_fish_box, filename = "./fig/plot_fish_box.png",
@@ -169,7 +162,7 @@ remove <- ls() %>%
   stringr::str_subset(., 'prep|bin')
 
 ##this prints a list to the console that we can copy and paste into the rm call #https://stackoverflow.com/questions/30861769/convert-a-list-into-a-string/30862559
-paste(unlist(remove), collapse=', ')
+# paste(unlist(remove), collapse=', ')
 
 rm(bin_1, bin_n, bins, hab_fish_collect_prep, hab_fish_indiv_prep, hab_fish_indiv_prep2, hab_fish_indiv_prep3, hab_fish_input_prep,
    fish_eb, fish_wct)

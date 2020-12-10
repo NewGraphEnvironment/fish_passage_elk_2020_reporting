@@ -2,12 +2,20 @@ source('R/packages.R')
 source('R/functions.R')
 # source('R/tables.R')
 
+pscis2 <- import_pscis(workbook_name = 'pscis_phase2.xlsm') %>%
+  tibble::rownames_to_column() %>%
+  arrange(pscis_crossing_id) %>%
+  mutate(rowname = as.numeric(rowname))
+
+
 ##this is made from extract-bcfishpass-phase2.R
 bcfishpass_phase2 <- readr::read_csv(file = paste0(getwd(), '/data/bcfishpass-phase2.csv'))
 
 ##this is made from extract-fwa-watershed-ltree.R
 wsheds <- sf::st_read(dsn = 'data/fishpass_mapping.gpkg', layer = 'hab_wshds_ltree')
 wsheds_up1 <- sf::st_read(dsn = 'data/fishpass_mapping.gpkg', layer = 'hab_wshds_ltree_up1')
+
+
 
 
 ##burned to a kml so we can easily add elevation info
@@ -43,6 +51,7 @@ hab_site <- left_join(
   by = 'reference_number'
 ) %>%
   tidyr::separate(alias_local_name, into = c('site', 'location'), remove = F) %>%
+  mutate(site = as.numeric(site)) %>%
   dplyr::filter(!alias_local_name %like% '_ef') ##get rid of the ef sites
 
 ##summarized the fish collection information
@@ -130,7 +139,11 @@ hab_features <- habitat_confirmations %>%
 ####--------import priorities spreadsheet--------------
 habitat_confirmations_priorities <- readxl::read_excel(
   path = "./data/habitat_confirmations_priorities.xlsx",
-  .name_repair = janitor::make_clean_names)
+  .name_repair = janitor::make_clean_names) %>%
+  filter(!local_name %like% 'ef') %>% ##ditch the ef sites
+  tidyr::separate(local_name, into = c('site', 'location'), remove = F) %>%
+  mutate(site = as.numeric(site),
+         upstream_habitat_length_km = round(upstream_habitat_length_m/1000,1))
 
 
 ##add the priorities to the site data
@@ -150,12 +163,6 @@ rm(hab_site_prep,
    hab_fish_collect_prep2,
    hab_loc2)
 
-##pupose here is to put all the habitat data into one place so that we can spit out
-##individual write-ups
-
-pscis2 <- import_pscis(workbook_name = 'pscis_phase2.xlsm') %>%
-  tibble::rownames_to_column() %>%
-  arrange(pscis_crossing_id)
 
 ##these orignally had modelled rather than pscis ids
 # xref_pscis_my_crossing_modelled %>%
@@ -163,5 +170,64 @@ pscis2 <- import_pscis(workbook_name = 'pscis_phase2.xlsm') %>%
 
 ##summary table for the culvert status
 
+####-----------overview table------------
 
+tab_overview_prep1 <- pscis2 %>%
+  select(pscis_crossing_id, stream_name, road_name, road_tenure, easting, northing, habitat_value)
+
+tab_overview_prep2 <- habitat_confirmations_priorities %>%
+  filter(location == 'us') %>%
+  select(site, species_codes, upstream_habitat_length_m, priority, comments) %>%
+  mutate(upstream_habitat_length_km = round(upstream_habitat_length_m/1000,1))
+
+tab_overview <- left_join(
+  tab_overview_prep1,
+  tab_overview_prep2,
+  by = c('pscis_crossing_id' = 'site')
+) %>%
+  mutate(utm = paste0(easting, ' ', northing)) %>%
+  select(Site = pscis_crossing_id,
+         Stream = stream_name,
+         Road = road_name,
+         Tenure = road_tenure,
+         `UTM (11U)` = utm,
+         `Fish Species` = species_codes,
+         `Habitat Gain (km)` = upstream_habitat_length_km,
+         `Habitat Value` = habitat_value,
+         Priority = priority,
+         Comments = comments ) %>%
+  mutate(test = paste0('[', Site, ']', '(Appendix 1 - Site Assessment Data and Photos)'))
+# %>%
+#   replace(., is.na(.), "-")
+
+
+rm(tab_overview_prep1, tab_overview_prep2)
+
+####---------habitat summary--------------------------------
+
+tab_hab_summary <- left_join(
+  hab_site %>%
+  select(site, location, avg_channel_width_m, avg_wetted_width_m,
+         average_residual_pool_depth_m, average_gradient_percent, total_cover),
+
+  habitat_confirmations_priorities %>%
+    select(site, location, survey_length_m, hab_value),
+
+  by = c('site', 'location')
+) %>%
+  mutate(location = case_when(
+    location == 'us' ~ 'upstream',
+    T ~ 'downstream'
+  )) %>%
+  arrange(site) %>%
+  select(Site = site,
+         Location = location,
+         `Length Surveyed (m)` = survey_length_m,
+         `Channel Width (m)` = avg_channel_width_m,
+         `Wetted Width (m)` = avg_wetted_width_m,
+         `Pool Depth (m)` = average_residual_pool_depth_m,
+         `Gradient (%)` = average_gradient_percent,
+         `Total Cover` = total_cover,
+         `Habitat Value` = hab_value) %>%
+  replace(., is.na(.), "-")
 

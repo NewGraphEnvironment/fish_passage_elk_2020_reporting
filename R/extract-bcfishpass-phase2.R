@@ -43,13 +43,13 @@ conn <- DBI::dbConnect(
 dbGetQuery(conn,
            "SELECT table_name
            FROM information_schema.tables
-           WHERE table_schema='fish_passage'")
+           WHERE table_schema='cwf'")
 # # #
 # # # ##list column names in a table
 dbGetQuery(conn,
            "SELECT column_name,data_type
            FROM information_schema.columns
-           WHERE table_name='pscis_model_combined'")
+           WHERE table_name='modelled_culverts_qa'")
 
 
 

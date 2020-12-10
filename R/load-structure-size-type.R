@@ -30,24 +30,27 @@ fill_dpth_mult <- 3
 
 ####----------backwater candidates------------------
 ##backwatering required od<30 and slope <2, swr <1.2 see if there are options
-tab_backwater <- pscis %>%
+tab_backwater <- pscis2 %>%  ##changed this to pscis2!
   filter(barrier_result != 'Passable' &
            barrier_result != 'Unknown' &
            outlet_drop_meters < 0.3 &
            stream_width_ratio_score < 1.2 &
            culvert_slope_percent <= 2 )
 
-str_type <- pscis %>%
-  select(column_num, my_crossing_reference, downstream_channel_width_meters, fill_depth_meters) %>%
+str_type <- pscis2 %>%
+  select(rowname, pscis_crossing_id, my_crossing_reference, downstream_channel_width_meters, fill_depth_meters) %>%
   mutate(fill_dpth_over = fill_depth_meters - fill_dpth_mult) %>%
-  mutate(span_input = case_when(downstream_channel_width_meters >= 2 ~ brdg_wdth))  %>%
+  mutate(span_input = case_when(downstream_channel_width_meters >= 2 ~ brdg_wdth, T ~ NA_real_))  %>%
   mutate(span_input = case_when(fill_dpth_over > 0 ~
-                                      (brg_wdth_input + fill_dpth_mult * fill_dpth_over),  ##1m more fill = 3 m more bridge
-                                    T ~ brg_wdth_input)) %>%
+                                      (brdg_wdth + fill_dpth_mult * fill_dpth_over),  ##1m more fill = 3 m more bridge
+                                    T ~ span_input)) %>%
   mutate(span_input = case_when(downstream_channel_width_meters > 5 ~
-                                      (downstream_channel_width_meters - chn_wdth_max) * 2 + brdg_wdth,  ##for every m bigger than a 5 m channel add that much to each side in terms of span
-                                    T ~ brg_wdth_input))
+                                      (downstream_channel_width_meters - chn_wdth_max) * 2 + span_input,  ##for every m bigger than a 5 m channel add that much to each side in terms of span
+                                    T ~ span_input)) %>%
+  arrange(rowname)
 
+##burn to a csv so you can copy and paste into spreadsheet
 
+str_type %>% readr::write_csv(file = paste0(getwd(), '/data/raw_input/pscis2_str_type.csv'))
 
 
