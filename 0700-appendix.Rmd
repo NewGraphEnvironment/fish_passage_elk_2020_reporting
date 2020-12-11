@@ -1,4 +1,4 @@
-# Appendix 1 - Site Assessment Data and Photos {-}
+# Appendix - Site Assessment Data and Photos {-}
 
 
 ```{r results='asis'}

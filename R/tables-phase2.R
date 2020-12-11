@@ -195,8 +195,8 @@ tab_overview <- left_join(
          `Habitat Gain (km)` = upstream_habitat_length_km,
          `Habitat Value` = habitat_value,
          Priority = priority,
-         Comments = comments ) %>%
-  mutate(test = paste0('[', Site, ']', '(Appendix 1 - Site Assessment Data and Photos)'))
+         Comments = comments )
+  # mutate(test = paste0('[', Site, ']', '(Appendix 1 - Site Assessment Data and Photos)'))##hmm.. thought this worked
 # %>%
 #   replace(., is.na(.), "-")
 

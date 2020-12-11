@@ -96,7 +96,7 @@
 
 \title{Elk River Fish Passage}
 \author{Al Irvine, R.P.Bio.}
-\date{2020-12-04}
+\date{2020-12-10}
 
 \begin{document}
 \maketitle
@@ -105,6 +105,36 @@
 \setcounter{tocdepth}{1}
 \tableofcontents
 }
+\begin{verbatim}
+## Reading layer `hab_wshds_ltree' from data source `C:\Users\allan\OneDrive\New_Graph\Current\2020-025_cwf_elk\scripts\fish_passage_elk_2020_reporting\data\fishpass_mapping.gpkg' using driver `GPKG'
+## Simple feature collection with 7 features and 2 fields
+## geometry type:  POLYGON
+## dimension:      XY
+## bbox:           xmin: 1778770 ymin: 541240.2 xmax: 1806472 ymax: 631526.5
+## projected CRS:  NAD83 / BC Albers
+## Reading layer `hab_wshds_ltree_up1' from data source `C:\Users\allan\OneDrive\New_Graph\Current\2020-025_cwf_elk\scripts\fish_passage_elk_2020_reporting\data\fishpass_mapping.gpkg' using driver `GPKG'
+## Simple feature collection with 6 features and 2 fields
+## geometry type:  MULTIPOLYGON
+## dimension:      XY
+## bbox:           xmin: 1779095 ymin: 542126.3 xmax: 1802742 ymax: 631526.5
+## projected CRS:  NAD83 / BC Albers
+\end{verbatim}
+
+\begin{verbatim}
+## Reading layer `hab_wshds_ltree' from data source `C:\Users\allan\OneDrive\New_Graph\Current\2020-025_cwf_elk\scripts\fish_passage_elk_2020_reporting\data\fishpass_mapping.gpkg' using driver `GPKG'
+## Simple feature collection with 7 features and 2 fields
+## geometry type:  POLYGON
+## dimension:      XY
+## bbox:           xmin: 1778770 ymin: 541240.2 xmax: 1806472 ymax: 631526.5
+## projected CRS:  NAD83 / BC Albers
+## Reading layer `hab_wshds_ltree_up1' from data source `C:\Users\allan\OneDrive\New_Graph\Current\2020-025_cwf_elk\scripts\fish_passage_elk_2020_reporting\data\fishpass_mapping.gpkg' using driver `GPKG'
+## Simple feature collection with 6 features and 2 fields
+## geometry type:  MULTIPOLYGON
+## dimension:      XY
+## bbox:           xmin: 1779095 ymin: 542126.3 xmax: 1802742 ymax: 631526.5
+## projected CRS:  NAD83 / BC Albers
+\end{verbatim}
+
 \hypertarget{executive-summary}{%
 \chapter*{Executive Summary}\label{executive-summary}}
 \addcontentsline{toc}{chapter}{Executive Summary}
@@ -238,7 +268,12 @@ Cost estimates for structure replacement were generated based on the channel wid
 \hypertarget{results}{%
 \chapter{Results}\label{results}}
 
-The analysis phase is summarized in Table \ref{tab:cost-est}
+\hypertarget{phase-1}{%
+\section{Phase 1}\label{phase-1}}
+
+A total of XXX assessments were conducted between xxx and xxxxxxxxxx. Site details and photos are presented in
+
+The analysis phase is summarized in Table \ref{tab:cost-est} {[}test{]}{[}test{]}
 
 \begin{table}
 
@@ -348,129 +383,129 @@ External ID & Stream & Road & Stream Width (m) & Priority & Fix & Cost Est ( \$K
 \end{tabu}
 \end{table}
 
-html\_title \textless- paste0(`\#\#\# Crossing', my\_site, ' - `, my\_overview\_info \%\textgreater\% pull(road\_name),' - ', my\_overview\_info \%\textgreater\% pull(stream\_name))
+\hypertarget{phase-2}{%
+\section{Phase 2}\label{phase-2}}
 
-\hypertarget{results-1}{%
-\section{Results}\label{results-1}}
+Raw results are included in digital format as \href{https://github.com/NewGraphEnvironment/fish_passage_elk_2020_reporting/raw/master/data/habitat_confirmations.xls}{Attachment 2} and summarized in Tables \ref{tab:tab-overview} - \ref{tab:tab-habitat-summary}
 
-The analysis phase is summarized in Table \ref{tab:cost-est}
+\begin{table}
 
-\textbackslash begin\{table\}
-
-\textbackslash caption\{(\#tab:cost\_est)Modelled upstream habitat estimate and cost benefit.\}
+\caption{\label{tab:tab-overview}Overview of habitat confirmation sites.}
 \centering
 \fontsize{11}{13}\selectfont
-
-\begin{tabu} to \linewidth {>{\raggedleft}X>{\raggedright}X>{\raggedright}X>{\raggedleft}X>{\raggedright}X>{\raggedright}X>{\raggedleft}X>{\raggedleft}X>{\raggedleft}X>{\raggedleft}X}
+\begin{tabu} to \linewidth {>{\raggedleft}X>{\raggedright}X>{\raggedright}X>{\raggedright}X>{\raggedright}X>{\raggedright}X>{\raggedleft}X>{\raggedright}X>{\raggedright}X>{\raggedright}X}
 \hline
-External ID & Stream & Road & Stream Width (m) & Priority & Fix & Cost Est ( \$K) & Habitat Upstream (m) & Cost Benefit (m / \$K) & Cost Benefit (m2 / \$K)\\
+Site & Stream & Road & Tenure & UTM (11U) & Fish Species & Habitat Gain (km) & Habitat Value & Priority & Comments\\
 \hline
-4600026 & Tributary to Elk River & Dicken Rd & 2.20 & low & OBS & 250 & 225 & 0.9 & 1.0\\
+50155 & Tributary to Lizard Creek & Island Lake Lodge Road & MoTi recreation & 635113 5484261 & NA & NA & Medium & moderate & NA\\
 \hline
-4600028 & Bean Creek & Dicken Rd & 2.00 & mod & OBS & 250 & 404 & 1.6 & 1.6\\
+50159 & Tributary to Lizard Creek & Island Lake Lodge Road & MoTi recreation & 633320 5484601 & NA & NA & Medium & high & NA\\
 \hline
-4600037 & Dalzell Creek & Driveway & 2.50 & low & OBS & 750 & 264 & 0.4 & 0.4\\
+50185 & Tributary to Morrisey Creek & River Rd & FLNR 5466 & 645683 5469025 & NA & NA & High & moderate & NA\\
 \hline
-4600038 & Dalzell Creek & Driveway & 1.20 & low & SS-CBS & 150 & 1294 & 8.6 & 5.2\\
+62423 & Tributary to Grave Creek & Grave Creek FSR & Unknown & 660508 5524239 & NA & NA & Low & low & NA\\
 \hline
-4600039 & Dalzell Creek & Lower Elk Valley Road & 3.80 & low & OBS & 750 & 206 & 0.3 & 0.5\\
+62425 & Grave Creek & Spur & Canfor R08362 & 661486 5524426 & NA & NA & Medium & moderate & NA\\
 \hline
-4600069 & Weigart Creek & Highway 43 & 4.30 & high & OBS & 2500 & 1206 & 0.5 & 1.0\\
+62426 & Grave Creek & Spur & Canfor R08362 & 661611 5524460 & NA & NA & Medium & moderate & NA\\
 \hline
-4600070 & Brule Creek & Highway 43 & 6.10 & high & OBS & 3050 & 763 & 0.3 & 0.8\\
+62516 & Tributary to Lizard Creek & Island Lake Lodge Road & MoTi recreation & 636123 5484087 & NA & NA & Medium & moderate & Fry observed upstream and downstream\\
 \hline
-4600080 & Tributary to Elk River & Cokato Road & 2.10 & low & OBS & 250 & 748 & 3.0 & 3.1\\
+197533 & Brule Creek & Busato Rd & MoTi local & 651626 5528888 & NA & 0 & High & high & Deactivate\\
 \hline
-4600084 & Littlemoor Creek & Lower Elk Valley Road & 1.00 & low & SS-CBS & 150 & 145 & 1.0 & 0.5\\
+197555 & Tributary to Elk River & Elk River FSR & FLNR 0103 & 646735 5554534 & BT & NA & High & moderate & NA\\
 \hline
-4600090 & Tributary to Elk River & Lower Elk Valley Road & 0.00 & low & SS-CBS & 150 & 620 & 4.1 & 0.0\\
-\hline
-4600092 & North Littlemoor Creek & Lower Elk Valley Road & 1.50 & low & SS-CBS & 150 & 635 & 4.2 & 3.2\\
-\hline
-4600102 & Tributary to Elk River & McGiverin Road & 0.50 & low & SS-CBS & 25 & 471 & 18.8 & 4.7\\
-\hline
-4600130 & Tributary to Elk River & Cokato Road & 0.65 & low & SS-CBS & 50 & 94 & 1.9 & 0.6\\
-\hline
-4600134 & Tributary to Elk River & Fernie ski hill & 1.40 & low & SS-CBS & 25 & 58 & 2.3 & 1.6\\
-\hline
-4600140 & Whiting Creek & Highway 43 & 0.60 & low & SS-CBS & 150 & 569 & 3.8 & 1.1\\
-\hline
-4600158 & Bean Creek & Highway 3 & 3.20 & mod & OBS & 2500 & 1772 & 0.7 & 1.1\\
-\hline
-4600169 & Tributary to Elk River & Highline Drive (Fernie ski hill) & 2.30 & mod & OBS & 475 & 219 & 0.5 & 0.5\\
-\hline
-4600181 & Tributary to Elk River & Line creek mine road & 0.50 & low & SS-CBS & 50 & 492 & 9.8 & 2.5\\
-\hline
-4600183 & Brule Creek & Busato Road & 7.10 & high & OBS & 178 & 128 & 0.7 & 2.6\\
-\hline
-4600184 & North Littlemoor Creek & Highway 43 & 1.60 & mod & SS-CBS & 500 & 533 & 1.1 & 0.9\\
-\hline
-4600185 & Littlemoor Creek & Highway 43 & 1.20 & mod & SS-CBS & 500 & 2508 & 5.0 & 3.0\\
-\hline
-4600186 & Hollow Creek & Highway 43 & 1.10 & low & SS-CBS & 500 & 0 & 0.0 & 0.0\\
-\hline
-4600316 & Tributary to Elk River & Cokato Road & 4.10 & low & OBS & 250 & 36 & 0.1 & 0.3\\
-\hline
-4600329 & Tributary to Whiting Creek & Lower Elk Valley Road & 0.50 & low & SS-CBS & 150 & 273 & 1.8 & 0.5\\
-\hline
-4600332 & Tributary to Elk River & Highway 3 & 3.30 & mod & OBS & 2500 & 1616 & 0.6 & 1.1\\
-\hline
-4600367 & Hartley Creek & Dicken Road & 3.50 & high & OBS & 250 & 278 & 1.1 & 1.9\\
-\hline
-4601556 & Tributary to Elk River & Fernie ski hill & 1.30 & low & SS-CBS & 25 & 85 & 3.4 & 2.2\\
-\hline
-4601594 & Tributary to Elk River & Railway & 2.70 & low & OBS & 125 & 28 & 0.2 & 0.3\\
-\hline
-4601639 & Tributary to Elk River & Fernie ski hill & 1.50 & low & SS-CBS & 25 & 58 & 2.3 & 1.7\\
-\hline
-4602270 & Tributary to Grave Creek & NA & 1.50 & low & SS-CBS & 25 & 5421 & 216.8 & 162.6\\
-\hline
-4602349 & Tributary to Elk River & Fernie Nordic Trail & 2.00 & mod & OBS & 125 & 1747 & 14.0 & 14.0\\
-\hline
-4602533 & Grave Creek & NA & 0.10 & low & SS-CBS & 25 & 181 & 7.2 & 0.4\\
-\hline
-4603291 & Cokato Creek & Cokato Road & 4.50 & low & OBS & 250 & 688 & 2.8 & 6.2\\
-\hline
-4604198 & Tributary to Elk River & Hadner FSR & 2.90 & low & OBS & 162 & 0 & 0.0 & 0.0\\
-\hline
-4604455 & Tributary to Elk River & Fernie ski hill & 1.50 & low & SS-CBS & 25 & 58 & 2.3 & 1.7\\
-\hline
-4605649 & Tributary to Elk River & Elk River FSR & 1.00 & low & SS-CBS & 25 & 1504 & 60.2 & 30.1\\
-\hline
-4605653 & Tributary to Elk River & Elk River FSR & 2.50 & low & OBS & 125 & 2233 & 17.9 & 22.3\\
-\hline
-4605675 & Tributary to Elk River & Elk River FSR & 2.00 & low & OBS & 125 & 762 & 6.1 & 6.1\\
-\hline
-4605697 & Crossing Creek & Elk River FSR & 2.50 & low & OBS & 125 & 1481 & 11.8 & 14.8\\
-\hline
-4605705 & Tributary to Elk River & Elk River FSR & 1.00 & low & SS-CBS & 25 & 621 & 24.8 & 12.4\\
-\hline
-4605707 & Tributary to Elk River & Elk River FSR & 2.30 & low & OBS & 125 & 1178 & 9.4 & 10.8\\
-\hline
-4605708 & Tributary to Lowe Creek & Elk River FSR & 1.10 & low & SS-CBS & 25 & 1348 & 53.9 & 29.7\\
-\hline
-4605732 & Tributary to Elk River & Elk River FSR & 3.50 & high & OBS & 312 & 6845 & 21.9 & 38.4\\
-\hline
-4605733 & Tributary to Elk River & Elk River FSR & 3.10 & low & OBS & 125 & 2865 & 22.9 & 35.5\\
-\hline
-4605742 & Lowe Creek & Elk River FSR & 2.50 & mod & OBS & 125 & 6563 & 52.5 & 65.6\\
-\hline
-4606669 & Tributary to Elk River & Spur from Elk River FSR & 1.00 & low & RM & NA & 940 & NA & NA\\
-\hline
-4606835 & Tributary to Elk River & Spur from Elk River FSR & 1.00 & low & SS-CBS & 25 & 0 & 0.0 & 0.0\\
-\hline
-2020092303 & Tributary to Elk River & Driveway & 1.50 & low & SS-CBS & 25 & 582 & 23.3 & 17.5\\
+197559 & Brule Creek & Highway 43 & MoTi highway & 651516 5528829 & BT, WCT & NA & Medium & moderate & NA\\
 \hline
 \end{tabu}
+\end{table}
 
-\textbackslash end\{table\}
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-4}Summary of Phase 2 fish passage assessments.}
+\centering
+\fontsize{11}{13}\selectfont
+\begin{tabu} to \linewidth {>{\raggedleft}X>{\raggedright}X>{\raggedleft}X>{\raggedleft}X>{\raggedleft}X>{\raggedleft}X>{\raggedleft}X>{\raggedleft}X>{\raggedright}X}
+\hline
+PSCIS ID & Embedded & Outlet Drop (m) & Diameter (m) & SWR & Slope (\%) & Length (m) & Score & Result\\
+\hline
+50155 & No & 0.22 & 0.9 & 2.5 & 2.6 & 11 & 26 & Barrier\\
+\hline
+50159 & No & 1.60 & 0.8 & 3.1 & 8.0 & 12 & 36 & Barrier\\
+\hline
+50185 & No & 0.00 & 2.2 & 2.0 & 3.4 & 17 & 29 & Barrier\\
+\hline
+62423 & No & 0.18 & 0.9 & 1.6 & 0.5 & 12 & 21 & Barrier\\
+\hline
+62425 & No & 0.47 & 1.2 & 3.1 & 7.5 & 12 & 36 & Barrier\\
+\hline
+62426 & No & 0.25 & 1.2 & 2.9 & 5.0 & 12 & 31 & Barrier\\
+\hline
+62516 & No & 0.49 & 1.2 & 2.1 & 5.0 & 11 & 36 & Barrier\\
+\hline
+197533 & No & 0.70 & 3.3 & 2.2 & 4.0 & 20 & 39 & Barrier\\
+\hline
+197555 & No & 1.48 & 1.5 & 2.3 & 3.5 & 49 & 42 & Barrier\\
+\hline
+197559 & Yes & 0.00 & 2.5 & 2.4 & 2.5 & 35 & 22 & Barrier\\
+\hline
+\end{tabu}
+\end{table}
+
+\begin{table}
+
+\caption{\label{tab:tab-habitat-summary}Summary of habitat details.}
+\centering
+\fontsize{11}{13}\selectfont
+\begin{tabu} to \linewidth {>{\raggedleft}X>{\raggedright}X>{\raggedleft}X>{\raggedleft}X>{\raggedright}X>{\raggedright}X>{\raggedleft}X>{\raggedright}X>{\raggedright}X}
+\hline
+Site & Location & Length Surveyed (m) & Channel Width (m) & Wetted Width (m) & Pool Depth (m) & Gradient (\%) & Total Cover & Habitat Value\\
+\hline
+50155 & upstream & 700 & 2.2 & 1.6 & 0.3 & 10.5 & abundant & high\\
+\hline
+50155 & downstream & 100 & 2.2 & 1.9 & - & 4.3 & moderate & medium\\
+\hline
+50159 & upstream & 400 & 3.0 & 2.6 & 0.4 & 11.2 & moderate & -\\
+\hline
+50159 & downstream & 150 & 2.5 & 2.3 & 0.2 & 8.8 & moderate & -\\
+\hline
+50185 & upstream & 740 & 4.0 & 2.8 & 0.4 & 6.2 & moderate & -\\
+\hline
+50185 & downstream & 255 & 4.3 & 2.7 & 0.4 & 4.2 & moderate & -\\
+\hline
+62423 & downstream & 30 & 1.3 & - & - & 4.0 & moderate & -\\
+\hline
+62423 & upstream & 725 & 1.2 & 0.8 & 0.2 & 4.4 & moderate & -\\
+\hline
+62425 & upstream & 170 & 3.5 & 2.1 & 0.3 & 5.0 & moderate & -\\
+\hline
+62425 & downstream & 75 & 3.7 & 1.8 & 0.3 & 7.5 & moderate & -\\
+\hline
+62426 & upstream & 650 & 3.9 & 1.6 & 0.4 & 11.9 & moderate & -\\
+\hline
+62516 & upstream & 730 & 2.0 & 1.3 & 0.3 & 7.6 & moderate & -\\
+\hline
+62516 & downstream & 630 & 2.5 & 1.4 & 0.4 & 2.7 & moderate & -\\
+\hline
+197533 & upstream & 125 & 5.5 & 3.8 & - & 1.5 & moderate & -\\
+\hline
+197533 & downstream & 400 & 7.4 & 4.1 & - & 1.9 & moderate & -\\
+\hline
+197555 & upstream & 675 & 5.9 & 3.8 & 0.4 & 5.9 & abundant & -\\
+\hline
+197555 & downstream & 700 & 3.6 & 3.1 & 0.4 & 3.6 & moderate & -\\
+\hline
+197559 & upstream & 980 & 7.7 & 2.3 & 0.6 & 3.5 & moderate & -\\
+\hline
+\end{tabu}
+\end{table}
 
 \hypertarget{conclusion}{%
 \chapter{Conclusion}\label{conclusion}}
 
-\hypertarget{appendix-1---site-assessment-data-and-photos}{%
-\chapter*{Appendix 1 - Site Assessment Data and Photos}\label{appendix-1---site-assessment-data-and-photos}}
-\addcontentsline{toc}{chapter}{Appendix 1 - Site Assessment Data and Photos}
+\hypertarget{appendix---site-assessment-data-and-photos}{%
+\chapter*{Appendix - Site Assessment Data and Photos}\label{appendix---site-assessment-data-and-photos}}
+\addcontentsline{toc}{chapter}{Appendix - Site Assessment Data and Photos}
 
 \begin{tabular}{l|l|l|l}
 \hline
@@ -478,13 +513,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-23 & Crossing Sub Type & Round Culvert\\
 \hline
-PSCIS ID & NA & Diameter & 0.65\\
+PSCIS ID & NA & Diameter (m) & 0.65\\
 \hline
-External ID & 4600008 & Length & 11\\
+External ID & 4600008 & Length (m) & 11\\
 \hline
-Crew & AI, KP & Embed & Yes\\
+Crew & AI, KP & Embedded & Yes\\
 \hline
-UTM Zone & 11 & Depth Embedded & 0.1\\
+UTM Zone & 11 & Depth Embedded (m) & 0.1\\
 \hline
 Easting & 640268 & Resemble Channel & Yes\\
 \hline
@@ -492,15 +527,15 @@ Northing & 5481377 & Backwatered & No\\
 \hline
 Stream & Tributary to Elk River & Percent Backwatered & NA\\
 \hline
-Road & Robinson Road & Fill Depth & 1.2\\
+Road & Robinson Road & Fill Depth (m) & 1.2\\
 \hline
-Road Tenure & MoTi local & Outlet Drop & 0\\
+Road Tenure & MoTi local & Outlet Drop (m) & 0\\
 \hline
-Channel Width & 1.2 & Outlet Pool Depth & 0\\
+Channel Width (m) & 1.2 & Outlet Pool Depth (m) & 0\\
 \hline
-Stream Slope & 0.5 & Inlet Drop & No\\
+Stream Slope (\%) & 0.5 & Inlet Drop & No\\
 \hline
-Beaver Activity & No & Slope & 0.5\\
+Beaver Activity & No & Slope (\%) & 0.5\\
 \hline
 Habitat Value & Low & Valley Fill & Deep Fill\\
 \hline
@@ -515,13 +550,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-24 & Crossing Sub Type & Round Culvert\\
 \hline
-PSCIS ID & NA & Diameter & 0.6\\
+PSCIS ID & NA & Diameter (m) & 0.6\\
 \hline
-External ID & 4600026 & Length & 22\\
+External ID & 4600026 & Length (m) & 22\\
 \hline
-Crew & AI, MF, DN & Embed & No\\
+Crew & AI, MF, DN & Embedded & No\\
 \hline
-UTM Zone & 11 & Depth Embedded & NA\\
+UTM Zone & 11 & Depth Embedded (m) & NA\\
 \hline
 Easting & 642911 & Resemble Channel & No\\
 \hline
@@ -529,15 +564,15 @@ Northing & 5490630 & Backwatered & No\\
 \hline
 Stream & Tributary to Elk River & Percent Backwatered & NA\\
 \hline
-Road & Dicken Rd & Fill Depth & 2\\
+Road & Dicken Rd & Fill Depth (m) & 2\\
 \hline
-Road Tenure & MoTi collector & Outlet Drop & 1.3\\
+Road Tenure & MoTi collector & Outlet Drop (m) & 1.3\\
 \hline
-Channel Width & 2.2 & Outlet Pool Depth & 0.3\\
+Channel Width (m) & 2.2 & Outlet Pool Depth (m) & 0.3\\
 \hline
-Stream Slope & 3 & Inlet Drop & No\\
+Stream Slope (\%) & 3 & Inlet Drop & No\\
 \hline
-Beaver Activity & No & Slope & 1.5\\
+Beaver Activity & No & Slope (\%) & 1.5\\
 \hline
 Habitat Value & Low & Valley Fill & Deep Fill\\
 \hline
@@ -554,13 +589,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-24 & Crossing Sub Type & Round Culvert\\
 \hline
-PSCIS ID & NA & Diameter & 0.95\\
+PSCIS ID & NA & Diameter (m) & 0.95\\
 \hline
-External ID & 4600028 & Length & 14.5\\
+External ID & 4600028 & Length (m) & 14\\
 \hline
-Crew & AI, MF, DN & Embed & No\\
+Crew & AI, MF, DN & Embedded & No\\
 \hline
-UTM Zone & 11 & Depth Embedded & NA\\
+UTM Zone & 11 & Depth Embedded (m) & NA\\
 \hline
 Easting & 642559 & Resemble Channel & No\\
 \hline
@@ -568,15 +603,15 @@ Northing & 5490377 & Backwatered & No\\
 \hline
 Stream & Bean Creek & Percent Backwatered & NA\\
 \hline
-Road & Dicken Rd & Fill Depth & 1.2\\
+Road & Dicken Rd & Fill Depth (m) & 1.2\\
 \hline
-Road Tenure & MoTi collector & Outlet Drop & 0.57\\
+Road Tenure & MoTi collector & Outlet Drop (m) & 0.57\\
 \hline
-Channel Width & 2 & Outlet Pool Depth & 0.22\\
+Channel Width (m) & 2 & Outlet Pool Depth (m) & 0.22\\
 \hline
-Stream Slope & 5 & Inlet Drop & No\\
+Stream Slope (\%) & 5 & Inlet Drop & No\\
 \hline
-Beaver Activity & No & Slope & 5.5\\
+Beaver Activity & No & Slope (\%) & 5.5\\
 \hline
 Habitat Value & High & Valley Fill & Deep Fill\\
 \hline
@@ -593,13 +628,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-17 & Crossing Sub Type & Round Culvert\\
 \hline
-PSCIS ID & NA & Diameter & 0.75\\
+PSCIS ID & NA & Diameter (m) & 0.75\\
 \hline
-External ID & 4600037 & Length & 6\\
+External ID & 4600037 & Length (m) & 6\\
 \hline
-Crew & AI, KP & Embed & Yes\\
+Crew & AI, KP & Embedded & Yes\\
 \hline
-UTM Zone & 11 & Depth Embedded & 0.1\\
+UTM Zone & 11 & Depth Embedded (m) & 0.1\\
 \hline
 Easting & 651867 & Resemble Channel & Yes\\
 \hline
@@ -607,15 +642,15 @@ Northing & 5522741 & Backwatered & No\\
 \hline
 Stream & Dalzell Creek & Percent Backwatered & NA\\
 \hline
-Road & Driveway & Fill Depth & 0.3\\
+Road & Driveway & Fill Depth (m) & 0.3\\
 \hline
-Road Tenure & private & Outlet Drop & 0\\
+Road Tenure & private & Outlet Drop (m) & 0\\
 \hline
-Channel Width & 2.5 & Outlet Pool Depth & 0\\
+Channel Width (m) & 2.5 & Outlet Pool Depth (m) & 0\\
 \hline
-Stream Slope & 1.5 & Inlet Drop & No\\
+Stream Slope (\%) & 1.5 & Inlet Drop & No\\
 \hline
-Beaver Activity & No & Slope & 2\\
+Beaver Activity & No & Slope (\%) & 2\\
 \hline
 Habitat Value & Medium & Valley Fill & Deep Fill\\
 \hline
@@ -633,13 +668,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-17 & Crossing Sub Type & Round Culvert\\
 \hline
-PSCIS ID & NA & Diameter & 0.75\\
+PSCIS ID & NA & Diameter (m) & 0.75\\
 \hline
-External ID & 4600038 & Length & 12.5\\
+External ID & 4600038 & Length (m) & 12\\
 \hline
-Crew & AI, KP & Embed & Yes\\
+Crew & AI, KP & Embedded & Yes\\
 \hline
-UTM Zone & 11 & Depth Embedded & 0.18\\
+UTM Zone & 11 & Depth Embedded (m) & 0.18\\
 \hline
 Easting & 651917 & Resemble Channel & Yes\\
 \hline
@@ -647,15 +682,15 @@ Northing & 5522888 & Backwatered & No\\
 \hline
 Stream & Dalzell Creek & Percent Backwatered & NA\\
 \hline
-Road & Driveway & Fill Depth & 0.3\\
+Road & Driveway & Fill Depth (m) & 0.3\\
 \hline
-Road Tenure & private & Outlet Drop & 0\\
+Road Tenure & private & Outlet Drop (m) & 0\\
 \hline
-Channel Width & 1.2 & Outlet Pool Depth & 0\\
+Channel Width (m) & 1.2 & Outlet Pool Depth (m) & 0\\
 \hline
-Stream Slope & 1.5 & Inlet Drop & Yes\\
+Stream Slope (\%) & 1.5 & Inlet Drop & Yes\\
 \hline
-Beaver Activity & No & Slope & 2\\
+Beaver Activity & No & Slope (\%) & 2\\
 \hline
 Habitat Value & Medium & Valley Fill & Deep Fill\\
 \hline
@@ -673,13 +708,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-17 & Crossing Sub Type & Round Culvert\\
 \hline
-PSCIS ID & NA & Diameter & 0.45\\
+PSCIS ID & NA & Diameter (m) & 0.45\\
 \hline
-External ID & 4600039 & Length & 16\\
+External ID & 4600039 & Length (m) & 16\\
 \hline
-Crew & KP, AI & Embed & Yes\\
+Crew & KP, AI & Embedded & Yes\\
 \hline
-UTM Zone & 11 & Depth Embedded & 0.07\\
+UTM Zone & 11 & Depth Embedded (m) & 0.07\\
 \hline
 Easting & 651833 & Resemble Channel & Yes\\
 \hline
@@ -687,15 +722,15 @@ Northing & 5522544 & Backwatered & No\\
 \hline
 Stream & Dalzell Creek & Percent Backwatered & NA\\
 \hline
-Road & Lower Elk Valley Road & Fill Depth & 1\\
+Road & Lower Elk Valley Road & Fill Depth (m) & 1\\
 \hline
-Road Tenure & MoTi arterial & Outlet Drop & 0\\
+Road Tenure & MoTi arterial & Outlet Drop (m) & 0\\
 \hline
-Channel Width & 3.8 & Outlet Pool Depth & 0.07\\
+Channel Width (m) & 3.8 & Outlet Pool Depth (m) & 0.07\\
 \hline
-Stream Slope & 1 & Inlet Drop & No\\
+Stream Slope (\%) & 1 & Inlet Drop & No\\
 \hline
-Beaver Activity & No & Slope & 3.5\\
+Beaver Activity & No & Slope (\%) & 3.5\\
 \hline
 Habitat Value & Medium & Valley Fill & Deep Fill\\
 \hline
@@ -716,13 +751,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-17 & Crossing Sub Type & Round Culvert\\
 \hline
-PSCIS ID & NA & Diameter & 0.9\\
+PSCIS ID & NA & Diameter (m) & 0.9\\
 \hline
-External ID & 4600040 & Length & 22\\
+External ID & 4600040 & Length (m) & 22\\
 \hline
-Crew & AI, KP & Embed & Yes\\
+Crew & AI, KP & Embedded & Yes\\
 \hline
-UTM Zone & 11 & Depth Embedded & 0.3\\
+UTM Zone & 11 & Depth Embedded (m) & 0.3\\
 \hline
 Easting & 652004 & Resemble Channel & Yes\\
 \hline
@@ -730,15 +765,15 @@ Northing & 5522330 & Backwatered & No\\
 \hline
 Stream & Dalzell Creek & Percent Backwatered & NA\\
 \hline
-Road & Airport Road & Fill Depth & 0.5\\
+Road & Airport Road & Fill Depth (m) & 0.5\\
 \hline
-Road Tenure & MoTi local & Outlet Drop & 0\\
+Road Tenure & MoTi local & Outlet Drop (m) & 0\\
 \hline
-Channel Width & 5 & Outlet Pool Depth & 0\\
+Channel Width (m) & 5 & Outlet Pool Depth (m) & 0\\
 \hline
-Stream Slope & 0 & Inlet Drop & No\\
+Stream Slope (\%) & 0 & Inlet Drop & No\\
 \hline
-Beaver Activity & No & Slope & 2.5\\
+Beaver Activity & No & Slope (\%) & 2.5\\
 \hline
 Habitat Value & Medium & Valley Fill & Deep Fill\\
 \hline
@@ -756,13 +791,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-17 & Crossing Sub Type & Round Culvert\\
 \hline
-PSCIS ID & NA & Diameter & 3.2\\
+PSCIS ID & NA & Diameter (m) & 3.2\\
 \hline
-External ID & 4600069 & Length & 18.2\\
+External ID & 4600069 & Length (m) & 18\\
 \hline
-Crew & AI, KP & Embed & No\\
+Crew & AI, KP & Embedded & No\\
 \hline
-UTM Zone & 11 & Depth Embedded & NA\\
+UTM Zone & 11 & Depth Embedded (m) & NA\\
 \hline
 Easting & 650144 & Resemble Channel & No\\
 \hline
@@ -770,15 +805,15 @@ Northing & 5532055 & Backwatered & No\\
 \hline
 Stream & Weigart Creek & Percent Backwatered & NA\\
 \hline
-Road & Highway 43 & Fill Depth & 1.3\\
+Road & Highway 43 & Fill Depth (m) & 1.3\\
 \hline
-Road Tenure & MoTi highway & Outlet Drop & 0.15\\
+Road Tenure & MoTi highway & Outlet Drop (m) & 0.15\\
 \hline
-Channel Width & 4.3 & Outlet Pool Depth & 0.6\\
+Channel Width (m) & 4.3 & Outlet Pool Depth (m) & 0.6\\
 \hline
-Stream Slope & 2 & Inlet Drop & Yes\\
+Stream Slope (\%) & 2 & Inlet Drop & Yes\\
 \hline
-Beaver Activity & No & Slope & 3.4\\
+Beaver Activity & No & Slope (\%) & 3.4\\
 \hline
 Habitat Value & High & Valley Fill & Deep Fill\\
 \hline
@@ -797,13 +832,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-17 & Crossing Sub Type & Round Culvert\\
 \hline
-PSCIS ID & NA & Diameter & 2.5\\
+PSCIS ID & NA & Diameter (m) & 2.5\\
 \hline
-External ID & 4600070 & Length & 35\\
+External ID & 4600070 & Length (m) & 35\\
 \hline
-Crew & KP, AI & Embed & Yes\\
+Crew & KP, AI & Embedded & Yes\\
 \hline
-UTM Zone & 11 & Depth Embedded & 0.05\\
+UTM Zone & 11 & Depth Embedded (m) & 0.05\\
 \hline
 Easting & 651516 & Resemble Channel & Yes\\
 \hline
@@ -811,15 +846,15 @@ Northing & 5528829 & Backwatered & No\\
 \hline
 Stream & Brule Creek & Percent Backwatered & NA\\
 \hline
-Road & Highway 43 & Fill Depth & 3\\
+Road & Highway 43 & Fill Depth (m) & 3\\
 \hline
-Road Tenure & MoTi highway & Outlet Drop & 0\\
+Road Tenure & MoTi highway & Outlet Drop (m) & 0\\
 \hline
-Channel Width & 6.1 & Outlet Pool Depth & 1.7\\
+Channel Width (m) & 6.1 & Outlet Pool Depth (m) & 1.7\\
 \hline
-Stream Slope & 1.5 & Inlet Drop & No\\
+Stream Slope (\%) & 1.5 & Inlet Drop & No\\
 \hline
-Beaver Activity & No & Slope & 2.5\\
+Beaver Activity & No & Slope (\%) & 2.5\\
 \hline
 Habitat Value & Medium & Valley Fill & Deep Fill\\
 \hline
@@ -839,13 +874,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-23 & Crossing Sub Type & Round Culvert\\
 \hline
-PSCIS ID & NA & Diameter & 0.75\\
+PSCIS ID & NA & Diameter (m) & 0.75\\
 \hline
-External ID & 4600077 & Length & 20\\
+External ID & 4600077 & Length (m) & 20\\
 \hline
-Crew & AI, KP & Embed & Yes\\
+Crew & AI, KP & Embedded & Yes\\
 \hline
-UTM Zone & 11 & Depth Embedded & 0.1\\
+UTM Zone & 11 & Depth Embedded (m) & 0.1\\
 \hline
 Easting & 639864 & Resemble Channel & Yes\\
 \hline
@@ -853,15 +888,15 @@ Northing & 5483627 & Backwatered & No\\
 \hline
 Stream & Tributary to Elk River & Percent Backwatered & NA\\
 \hline
-Road & Mt Mclean Road & Fill Depth & 4\\
+Road & Mt Mclean Road & Fill Depth (m) & 4\\
 \hline
-Road Tenure & Fernie local & Outlet Drop & 0\\
+Road Tenure & Fernie local & Outlet Drop (m) & 0\\
 \hline
-Channel Width & 2.7 & Outlet Pool Depth & 0\\
+Channel Width (m) & 2.7 & Outlet Pool Depth (m) & 0\\
 \hline
-Stream Slope & 0.5 & Inlet Drop & No\\
+Stream Slope (\%) & 0.5 & Inlet Drop & No\\
 \hline
-Beaver Activity & No & Slope & 0.5\\
+Beaver Activity & No & Slope (\%) & 0.5\\
 \hline
 Habitat Value & Low & Valley Fill & Deep Fill\\
 \hline
@@ -876,13 +911,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-23 & Crossing Sub Type & Round Culvert\\
 \hline
-PSCIS ID & NA & Diameter & 1.1\\
+PSCIS ID & NA & Diameter (m) & 1.1\\
 \hline
-External ID & 4600080 & Length & 43\\
+External ID & 4600080 & Length (m) & 43\\
 \hline
-Crew & KP, AI & Embed & No\\
+Crew & KP, AI & Embedded & No\\
 \hline
-UTM Zone & 11 & Depth Embedded & NA\\
+UTM Zone & 11 & Depth Embedded (m) & NA\\
 \hline
 Easting & 640568 & Resemble Channel & No\\
 \hline
@@ -890,15 +925,15 @@ Northing & 5481516 & Backwatered & No\\
 \hline
 Stream & Tributary to Elk River & Percent Backwatered & NA\\
 \hline
-Road & Cokato Road & Fill Depth & 2\\
+Road & Cokato Road & Fill Depth (m) & 2\\
 \hline
-Road Tenure & MoTi local & Outlet Drop & 0\\
+Road Tenure & MoTi local & Outlet Drop (m) & 0\\
 \hline
-Channel Width & 2.1 & Outlet Pool Depth & 0\\
+Channel Width (m) & 2.1 & Outlet Pool Depth (m) & 0\\
 \hline
-Stream Slope & 3.5 & Inlet Drop & No\\
+Stream Slope (\%) & 3.5 & Inlet Drop & No\\
 \hline
-Beaver Activity & No & Slope & 4\\
+Beaver Activity & No & Slope (\%) & 4\\
 \hline
 Habitat Value & Low & Valley Fill & Deep Fill\\
 \hline
@@ -914,13 +949,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-17 & Crossing Sub Type & Round Culvert\\
 \hline
-PSCIS ID & NA & Diameter & 0.6\\
+PSCIS ID & NA & Diameter (m) & 0.6\\
 \hline
-External ID & 4600084 & Length & 22\\
+External ID & 4600084 & Length (m) & 22\\
 \hline
-Crew & AI, KP & Embed & No\\
+Crew & AI, KP & Embedded & No\\
 \hline
-UTM Zone & 11 & Depth Embedded & NA\\
+UTM Zone & 11 & Depth Embedded (m) & NA\\
 \hline
 Easting & 651532 & Resemble Channel & No\\
 \hline
@@ -928,15 +963,15 @@ Northing & 5521052 & Backwatered & No\\
 \hline
 Stream & Littlemoor Creek & Percent Backwatered & NA\\
 \hline
-Road & Lower Elk Valley Road & Fill Depth & 0.8\\
+Road & Lower Elk Valley Road & Fill Depth (m) & 0.8\\
 \hline
-Road Tenure & MoTi arterial & Outlet Drop & 0.2\\
+Road Tenure & MoTi arterial & Outlet Drop (m) & 0.2\\
 \hline
-Channel Width & 1 & Outlet Pool Depth & 0.15\\
+Channel Width (m) & 1 & Outlet Pool Depth (m) & 0.15\\
 \hline
-Stream Slope & 0.5 & Inlet Drop & No\\
+Stream Slope (\%) & 0.5 & Inlet Drop & No\\
 \hline
-Beaver Activity & No & Slope & 3\\
+Beaver Activity & No & Slope (\%) & 3\\
 \hline
 Habitat Value & Low & Valley Fill & Deep Fill\\
 \hline
@@ -954,13 +989,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-17 & Crossing Sub Type & Round Culvert\\
 \hline
-PSCIS ID & NA & Diameter & 0.45\\
+PSCIS ID & NA & Diameter (m) & 0.45\\
 \hline
-External ID & 4600090 & Length & 18\\
+External ID & 4600090 & Length (m) & 18\\
 \hline
-Crew & KP, AI & Embed & No\\
+Crew & KP, AI & Embedded & No\\
 \hline
-UTM Zone & 11 & Depth Embedded & NA\\
+UTM Zone & 11 & Depth Embedded (m) & NA\\
 \hline
 Easting & 651814 & Resemble Channel & No\\
 \hline
@@ -968,15 +1003,15 @@ Northing & 5519652 & Backwatered & No\\
 \hline
 Stream & Tributary to Elk River & Percent Backwatered & NA\\
 \hline
-Road & Lower Elk Valley Road & Fill Depth & 1\\
+Road & Lower Elk Valley Road & Fill Depth (m) & 1\\
 \hline
-Road Tenure & MoTi arterial & Outlet Drop & 0\\
+Road Tenure & MoTi arterial & Outlet Drop (m) & 0\\
 \hline
-Channel Width & 0 & Outlet Pool Depth & 0\\
+Channel Width (m) & 0 & Outlet Pool Depth (m) & 0\\
 \hline
-Stream Slope & 0 & Inlet Drop & No\\
+Stream Slope (\%) & 0 & Inlet Drop & No\\
 \hline
-Beaver Activity & No & Slope & 1.5\\
+Beaver Activity & No & Slope (\%) & 1.5\\
 \hline
 Habitat Value & Low & Valley Fill & Deep Fill\\
 \hline
@@ -992,13 +1027,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-17 & Crossing Sub Type & Round Culvert\\
 \hline
-PSCIS ID & NA & Diameter & 0.8\\
+PSCIS ID & NA & Diameter (m) & 0.8\\
 \hline
-External ID & 4600092 & Length & 17.5\\
+External ID & 4600092 & Length (m) & 18\\
 \hline
-Crew & KP, AI & Embed & No\\
+Crew & KP, AI & Embedded & No\\
 \hline
-UTM Zone & 11 & Depth Embedded & NA\\
+UTM Zone & 11 & Depth Embedded (m) & NA\\
 \hline
 Easting & 651701 & Resemble Channel & No\\
 \hline
@@ -1006,15 +1041,15 @@ Northing & 5521881 & Backwatered & No\\
 \hline
 Stream & North Littlemoor Creek & Percent Backwatered & NA\\
 \hline
-Road & Lower Elk Valley Road & Fill Depth & 0.6\\
+Road & Lower Elk Valley Road & Fill Depth (m) & 0.6\\
 \hline
-Road Tenure & MoTi arterial & Outlet Drop & 0\\
+Road Tenure & MoTi arterial & Outlet Drop (m) & 0\\
 \hline
-Channel Width & 1.5 & Outlet Pool Depth & 0\\
+Channel Width (m) & 1.5 & Outlet Pool Depth (m) & 0\\
 \hline
-Stream Slope & 2.5 & Inlet Drop & No\\
+Stream Slope (\%) & 2.5 & Inlet Drop & No\\
 \hline
-Beaver Activity & No & Slope & 3\\
+Beaver Activity & No & Slope (\%) & 3\\
 \hline
 Habitat Value & Low & Valley Fill & Deep Fill\\
 \hline
@@ -1029,13 +1064,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-23 & Crossing Sub Type & Round Culvert\\
 \hline
-PSCIS ID & NA & Diameter & 0.5\\
+PSCIS ID & NA & Diameter (m) & 0.5\\
 \hline
-External ID & 4600102 & Length & 16\\
+External ID & 4600102 & Length (m) & 16\\
 \hline
-Crew & AI, Kp & Embed & No\\
+Crew & AI, Kp & Embedded & No\\
 \hline
-UTM Zone & 11 & Depth Embedded & NA\\
+UTM Zone & 11 & Depth Embedded (m) & NA\\
 \hline
 Easting & 640306 & Resemble Channel & No\\
 \hline
@@ -1043,15 +1078,15 @@ Northing & 5481672 & Backwatered & No\\
 \hline
 Stream & Tributary to Elk River & Percent Backwatered & NA\\
 \hline
-Road & McGiverin Road & Fill Depth & 1\\
+Road & McGiverin Road & Fill Depth (m) & 1\\
 \hline
-Road Tenure & MoTi local & Outlet Drop & 0\\
+Road Tenure & MoTi local & Outlet Drop (m) & 0\\
 \hline
-Channel Width & 0.5 & Outlet Pool Depth & 0\\
+Channel Width (m) & 0.5 & Outlet Pool Depth (m) & 0\\
 \hline
-Stream Slope & 0 & Inlet Drop & No\\
+Stream Slope (\%) & 0 & Inlet Drop & No\\
 \hline
-Beaver Activity & No & Slope & 1\\
+Beaver Activity & No & Slope (\%) & 1\\
 \hline
 Habitat Value & Low & Valley Fill & Deep Fill\\
 \hline
@@ -1066,13 +1101,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-23 & Crossing Sub Type & Round Culvert\\
 \hline
-PSCIS ID & NA & Diameter & 1.2\\
+PSCIS ID & NA & Diameter (m) & 1.2\\
 \hline
-External ID & 4600130 & Length & 22\\
+External ID & 4600130 & Length (m) & 22\\
 \hline
-Crew & KP, AI & Embed & No\\
+Crew & KP, AI & Embedded & No\\
 \hline
-UTM Zone & 11 & Depth Embedded & NA\\
+UTM Zone & 11 & Depth Embedded (m) & NA\\
 \hline
 Easting & 640037 & Resemble Channel & No\\
 \hline
@@ -1080,15 +1115,15 @@ Northing & 5483655 & Backwatered & Yes\\
 \hline
 Stream & Tributary to Elk River & Percent Backwatered & 20\\
 \hline
-Road & Cokato Road & Fill Depth & 8\\
+Road & Cokato Road & Fill Depth (m) & 8\\
 \hline
-Road Tenure & Fernie collector & Outlet Drop & 0\\
+Road Tenure & Fernie collector & Outlet Drop (m) & 0\\
 \hline
-Channel Width & 0.65 & Outlet Pool Depth & 0\\
+Channel Width (m) & 0.65 & Outlet Pool Depth (m) & 0\\
 \hline
-Stream Slope & 9 & Inlet Drop & Yes\\
+Stream Slope (\%) & 9 & Inlet Drop & Yes\\
 \hline
-Beaver Activity & No & Slope & 9\\
+Beaver Activity & No & Slope (\%) & 9\\
 \hline
 Habitat Value & Low & Valley Fill & Deep Fill\\
 \hline
@@ -1105,13 +1140,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-24 & Crossing Sub Type & Round Culvert\\
 \hline
-PSCIS ID & NA & Diameter & 0.9\\
+PSCIS ID & NA & Diameter (m) & 0.9\\
 \hline
-External ID & 4600134 & Length & 48\\
+External ID & 4600134 & Length (m) & 48\\
 \hline
-Crew & KP, AI & Embed & No\\
+Crew & KP, AI & Embedded & No\\
 \hline
-UTM Zone & 11 & Depth Embedded & NA\\
+UTM Zone & 11 & Depth Embedded (m) & NA\\
 \hline
 Easting & 638639 & Resemble Channel & No\\
 \hline
@@ -1119,15 +1154,15 @@ Northing & 5480681 & Backwatered & No\\
 \hline
 Stream & Tributary to Elk River & Percent Backwatered & NA\\
 \hline
-Road & Fernie ski hill & Fill Depth & 3\\
+Road & Fernie ski hill & Fill Depth (m) & 3\\
 \hline
-Road Tenure & unclassified & Outlet Drop & 0.09\\
+Road Tenure & unclassified & Outlet Drop (m) & 0.09\\
 \hline
-Channel Width & 1.4 & Outlet Pool Depth & 0.22\\
+Channel Width (m) & 1.4 & Outlet Pool Depth (m) & 0.22\\
 \hline
-Stream Slope & 5 & Inlet Drop & No\\
+Stream Slope (\%) & 5 & Inlet Drop & No\\
 \hline
-Beaver Activity & No & Slope & 9\\
+Beaver Activity & No & Slope (\%) & 9\\
 \hline
 Habitat Value & Low & Valley Fill & Deep Fill\\
 \hline
@@ -1148,13 +1183,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-18 & Crossing Sub Type & Round Culvert\\
 \hline
-PSCIS ID & NA & Diameter & 0.9\\
+PSCIS ID & NA & Diameter (m) & 0.9\\
 \hline
-External ID & 4600140 & Length & 22\\
+External ID & 4600140 & Length (m) & 22\\
 \hline
-Crew & KP, AI & Embed & No\\
+Crew & KP, AI & Embedded & No\\
 \hline
-UTM Zone & 11 & Depth Embedded & NA\\
+UTM Zone & 11 & Depth Embedded (m) & NA\\
 \hline
 Easting & 651110 & Resemble Channel & No\\
 \hline
@@ -1162,15 +1197,15 @@ Northing & 5515356 & Backwatered & No\\
 \hline
 Stream & Whiting Creek & Percent Backwatered & NA\\
 \hline
-Road & Highway 43 & Fill Depth & 3\\
+Road & Highway 43 & Fill Depth (m) & 3\\
 \hline
-Road Tenure & MoTi arterial & Outlet Drop & 0.18\\
+Road Tenure & MoTi arterial & Outlet Drop (m) & 0.18\\
 \hline
-Channel Width & 0.6 & Outlet Pool Depth & 0\\
+Channel Width (m) & 0.6 & Outlet Pool Depth (m) & 0\\
 \hline
-Stream Slope & 2 & Inlet Drop & No\\
+Stream Slope (\%) & 2 & Inlet Drop & No\\
 \hline
-Beaver Activity & No & Slope & 1.5\\
+Beaver Activity & No & Slope (\%) & 1.5\\
 \hline
 Habitat Value & Low & Valley Fill & Deep Fill\\
 \hline
@@ -1186,13 +1221,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-24 & Crossing Sub Type & Pipe Arch\\
 \hline
-PSCIS ID & NA & Diameter & 4\\
+PSCIS ID & NA & Diameter (m) & 4\\
 \hline
-External ID & 4600157 & Length & 44\\
+External ID & 4600157 & Length (m) & 44\\
 \hline
-Crew & AI, MF, DN & Embed & NA\\
+Crew & AI, MF, DN & Embedded & NA\\
 \hline
-UTM Zone & 11 & Depth Embedded & NA\\
+UTM Zone & 11 & Depth Embedded (m) & NA\\
 \hline
 Easting & 643565 & Resemble Channel & NA\\
 \hline
@@ -1200,15 +1235,15 @@ Northing & 5490325 & Backwatered & NA\\
 \hline
 Stream & Hartley Creek & Percent Backwatered & NA\\
 \hline
-Road & Highway 3 & Fill Depth & NA\\
+Road & Highway 3 & Fill Depth (m) & NA\\
 \hline
-Road Tenure & MoTi highway & Outlet Drop & NA\\
+Road Tenure & MoTi highway & Outlet Drop (m) & NA\\
 \hline
-Channel Width & NA & Outlet Pool Depth & NA\\
+Channel Width (m) & NA & Outlet Pool Depth (m) & NA\\
 \hline
-Stream Slope & NA & Inlet Drop & NA\\
+Stream Slope (\%) & NA & Inlet Drop & NA\\
 \hline
-Beaver Activity & No & Slope & NA\\
+Beaver Activity & No & Slope (\%) & NA\\
 \hline
 Habitat Value & NA & Valley Fill & NA\\
 \hline
@@ -1226,13 +1261,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-24 & Crossing Sub Type & Round Culvert\\
 \hline
-PSCIS ID & NA & Diameter & 1.8\\
+PSCIS ID & NA & Diameter (m) & 1.8\\
 \hline
-External ID & 4600158 & Length & 29.5\\
+External ID & 4600158 & Length (m) & 30\\
 \hline
-Crew & AI, MF, DN & Embed & No\\
+Crew & AI, MF, DN & Embedded & No\\
 \hline
-UTM Zone & 11 & Depth Embedded & NA\\
+UTM Zone & 11 & Depth Embedded (m) & NA\\
 \hline
 Easting & 642739 & Resemble Channel & No\\
 \hline
@@ -1240,15 +1275,15 @@ Northing & 5489444 & Backwatered & No\\
 \hline
 Stream & Bean Creek & Percent Backwatered & NA\\
 \hline
-Road & Highway 3 & Fill Depth & 1.5\\
+Road & Highway 3 & Fill Depth (m) & 1.5\\
 \hline
-Road Tenure & MoTi highway & Outlet Drop & 0.17\\
+Road Tenure & MoTi highway & Outlet Drop (m) & 0.17\\
 \hline
-Channel Width & 3.2 & Outlet Pool Depth & 0.24\\
+Channel Width (m) & 3.2 & Outlet Pool Depth (m) & 0.24\\
 \hline
-Stream Slope & 0.5 & Inlet Drop & No\\
+Stream Slope (\%) & 0.5 & Inlet Drop & No\\
 \hline
-Beaver Activity & No & Slope & 1\\
+Beaver Activity & No & Slope (\%) & 1\\
 \hline
 Habitat Value & Medium & Valley Fill & Deep Fill\\
 \hline
@@ -1265,13 +1300,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-24 & Crossing Sub Type & Round Culvert\\
 \hline
-PSCIS ID & NA & Diameter & 1\\
+PSCIS ID & NA & Diameter (m) & 1\\
 \hline
-External ID & 4600169 & Length & 36\\
+External ID & 4600169 & Length (m) & 36\\
 \hline
-Crew & KP, AI & Embed & No\\
+Crew & KP, AI & Embedded & No\\
 \hline
-UTM Zone & 11 & Depth Embedded & NA\\
+UTM Zone & 11 & Depth Embedded (m) & NA\\
 \hline
 Easting & 638850 & Resemble Channel & No\\
 \hline
@@ -1279,24 +1314,24 @@ Northing & 5480833 & Backwatered & No\\
 \hline
 Stream & Tributary to Elk River & Percent Backwatered & NA\\
 \hline
-Road & Highline Drive (Fernie ski hill) & Fill Depth & 6\\
+Road & Highline Drive (Fernie ski hill) & Fill Depth (m) & 6\\
 \hline
-Road Tenure & MoTi local & Outlet Drop & 0.2\\
+Road Tenure & MoTi local & Outlet Drop (m) & 0.2\\
 \hline
-Channel Width & 2.3 & Outlet Pool Depth & 0.25\\
+Channel Width (m) & 2.3 & Outlet Pool Depth (m) & 0.25\\
 \hline
-Stream Slope & 11.5 & Inlet Drop & No\\
+Stream Slope (\%) & 11.5 & Inlet Drop & No\\
 \hline
-Beaver Activity & No & Slope & 13\\
+Beaver Activity & No & Slope (\%) & 13\\
 \hline
 Habitat Value & Medium & Valley Fill & Deep Fill\\
 \hline
 \multicolumn{4}{l}{\textsuperscript{} Comments: Very recent heavy rains, 2 side channels for ski hill}\\
-\multicolumn{4}{l}{drainage infrastructure giving significant flow contributions}\\
-\multicolumn{4}{l}{just upstream of crossing, one of which is especially turbid}\\
-\multicolumn{4}{l}{(from large parking lot). Culvert not baffled, very steep. A lot}\\
-\multicolumn{4}{l}{of fill on paved access to condos. Old metal collar of culvert}\\
-\multicolumn{4}{l}{ripped off and in outlet pool.}\\
+\multicolumn{4}{l}{drainage infrastructure giving significant flow contributions just}\\
+\multicolumn{4}{l}{upstream of crossing, one of which is especially turbid (from large}\\
+\multicolumn{4}{l}{parking lot). Culvert not baffled, very steep. A lot of fill on paved}\\
+\multicolumn{4}{l}{access to condos. Old metal collar of culvert ripped off and in}\\
+\multicolumn{4}{l}{outlet pool.}\\
 \multicolumn{4}{l}{\textsuperscript{} Photos:}\\
 \multicolumn{4}{l}{4600169![](https://github.com/NewGraphEnvironment/fish\_passage\_elk\_2020\_reporting/raw/master/data/photos/4600169/crossing\_all.JPG)}\\
 \end{tabular}
@@ -1307,13 +1342,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-18 & Crossing Sub Type & Round Culvert\\
 \hline
-PSCIS ID & NA & Diameter & 0.6\\
+PSCIS ID & NA & Diameter (m) & 0.6\\
 \hline
-External ID & 4600181 & Length & 73\\
+External ID & 4600181 & Length (m) & 73\\
 \hline
-Crew & KP, AI & Embed & No\\
+Crew & KP, AI & Embedded & No\\
 \hline
-UTM Zone & 11 & Depth Embedded & NA\\
+UTM Zone & 11 & Depth Embedded (m) & NA\\
 \hline
 Easting & 652322 & Resemble Channel & No\\
 \hline
@@ -1321,15 +1356,15 @@ Northing & 5527529 & Backwatered & No\\
 \hline
 Stream & Tributary to Elk River & Percent Backwatered & NA\\
 \hline
-Road & Line creek mine road & Fill Depth & 3.5\\
+Road & Line creek mine road & Fill Depth (m) & 3.5\\
 \hline
-Road Tenure & MoTi local & Outlet Drop & 0\\
+Road Tenure & MoTi local & Outlet Drop (m) & 0\\
 \hline
-Channel Width & 0.5 & Outlet Pool Depth & 0\\
+Channel Width (m) & 0.5 & Outlet Pool Depth (m) & 0\\
 \hline
-Stream Slope & 2 & Inlet Drop & No\\
+Stream Slope (\%) & 2 & Inlet Drop & No\\
 \hline
-Beaver Activity & No & Slope & 2\\
+Beaver Activity & No & Slope (\%) & 2\\
 \hline
 Habitat Value & Low & Valley Fill & Deep Fill\\
 \hline
@@ -1346,13 +1381,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-17 & Crossing Sub Type & Oval Culvert\\
 \hline
-PSCIS ID & NA & Diameter & 3.3\\
+PSCIS ID & NA & Diameter (m) & 3.3\\
 \hline
-External ID & 4600183 & Length & 20\\
+External ID & 4600183 & Length (m) & 20\\
 \hline
-Crew & AI, KP & Embed & No\\
+Crew & AI, KP & Embedded & No\\
 \hline
-UTM Zone & 11 & Depth Embedded & NA\\
+UTM Zone & 11 & Depth Embedded (m) & NA\\
 \hline
 Easting & 651626 & Resemble Channel & No\\
 \hline
@@ -1360,15 +1395,15 @@ Northing & 5528888 & Backwatered & No\\
 \hline
 Stream & Brule Creek & Percent Backwatered & NA\\
 \hline
-Road & Busato Road & Fill Depth & 1\\
+Road & Busato Road & Fill Depth (m) & 1\\
 \hline
-Road Tenure & MoTi local & Outlet Drop & 0.7\\
+Road Tenure & MoTi local & Outlet Drop (m) & 0.7\\
 \hline
-Channel Width & 7.1 & Outlet Pool Depth & 1.5\\
+Channel Width (m) & 7.1 & Outlet Pool Depth (m) & 1.5\\
 \hline
-Stream Slope & 2 & Inlet Drop & Yes\\
+Stream Slope (\%) & 2 & Inlet Drop & Yes\\
 \hline
-Beaver Activity & No & Slope & 4\\
+Beaver Activity & No & Slope (\%) & 4\\
 \hline
 Habitat Value & High & Valley Fill & Deep Fill\\
 \hline
@@ -1385,13 +1420,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-18 & Crossing Sub Type & Round Culvert\\
 \hline
-PSCIS ID & NA & Diameter & 0.6\\
+PSCIS ID & NA & Diameter (m) & 0.6\\
 \hline
-External ID & 4600184 & Length & 30\\
+External ID & 4600184 & Length (m) & 30\\
 \hline
-Crew & AI, KP & Embed & No\\
+Crew & AI, KP & Embedded & No\\
 \hline
-UTM Zone & 11 & Depth Embedded & NA\\
+UTM Zone & 11 & Depth Embedded (m) & NA\\
 \hline
 Easting & 650954 & Resemble Channel & No\\
 \hline
@@ -1399,15 +1434,15 @@ Northing & 5522199 & Backwatered & No\\
 \hline
 Stream & North Littlemoor Creek & Percent Backwatered & NA\\
 \hline
-Road & Highway 43 & Fill Depth & 4\\
+Road & Highway 43 & Fill Depth (m) & 4\\
 \hline
-Road Tenure & MoTi highway & Outlet Drop & 0.65\\
+Road Tenure & MoTi highway & Outlet Drop (m) & 0.65\\
 \hline
-Channel Width & 1.6 & Outlet Pool Depth & 0.55\\
+Channel Width (m) & 1.6 & Outlet Pool Depth (m) & 0.55\\
 \hline
-Stream Slope & 5 & Inlet Drop & No\\
+Stream Slope (\%) & 5 & Inlet Drop & No\\
 \hline
-Beaver Activity & No & Slope & 8\\
+Beaver Activity & No & Slope (\%) & 8\\
 \hline
 Habitat Value & Medium & Valley Fill & Deep Fill\\
 \hline
@@ -1424,13 +1459,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-18 & Crossing Sub Type & Round Culvert\\
 \hline
-PSCIS ID & NA & Diameter & 0.9\\
+PSCIS ID & NA & Diameter (m) & 0.9\\
 \hline
-External ID & 4600185 & Length & 40\\
+External ID & 4600185 & Length (m) & 40\\
 \hline
-Crew & AI, KP & Embed & No\\
+Crew & AI, KP & Embedded & No\\
 \hline
-UTM Zone & 11 & Depth Embedded & NA\\
+UTM Zone & 11 & Depth Embedded (m) & NA\\
 \hline
 Easting & 651002 & Resemble Channel & No\\
 \hline
@@ -1438,15 +1473,15 @@ Northing & 5521022 & Backwatered & No\\
 \hline
 Stream & Littlemoor Creek & Percent Backwatered & NA\\
 \hline
-Road & Highway 43 & Fill Depth & 5\\
+Road & Highway 43 & Fill Depth (m) & 5\\
 \hline
-Road Tenure & MoTi highway & Outlet Drop & 0.3\\
+Road Tenure & MoTi highway & Outlet Drop (m) & 0.3\\
 \hline
-Channel Width & 1.2 & Outlet Pool Depth & 0.55\\
+Channel Width (m) & 1.2 & Outlet Pool Depth (m) & 0.55\\
 \hline
-Stream Slope & 3.5 & Inlet Drop & Yes\\
+Stream Slope (\%) & 3.5 & Inlet Drop & Yes\\
 \hline
-Beaver Activity & No & Slope & 5\\
+Beaver Activity & No & Slope (\%) & 5\\
 \hline
 Habitat Value & Medium & Valley Fill & Deep Fill\\
 \hline
@@ -1463,13 +1498,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-18 & Crossing Sub Type & Round Culvert\\
 \hline
-PSCIS ID & NA & Diameter & 0.8\\
+PSCIS ID & NA & Diameter (m) & 0.8\\
 \hline
-External ID & 4600186 & Length & 22\\
+External ID & 4600186 & Length (m) & 22\\
 \hline
-Crew & KP, AI & Embed & No\\
+Crew & KP, AI & Embedded & No\\
 \hline
-UTM Zone & 11 & Depth Embedded & NA\\
+UTM Zone & 11 & Depth Embedded (m) & NA\\
 \hline
 Easting & 651051 & Resemble Channel & No\\
 \hline
@@ -1477,15 +1512,15 @@ Northing & 5519343 & Backwatered & No\\
 \hline
 Stream & Hollow Creek & Percent Backwatered & NA\\
 \hline
-Road & Highway 43 & Fill Depth & 0.8\\
+Road & Highway 43 & Fill Depth (m) & 0.8\\
 \hline
-Road Tenure & MoTi highway & Outlet Drop & 0.46\\
+Road Tenure & MoTi highway & Outlet Drop (m) & 0.46\\
 \hline
-Channel Width & 1.1 & Outlet Pool Depth & 0.36\\
+Channel Width (m) & 1.1 & Outlet Pool Depth (m) & 0.36\\
 \hline
-Stream Slope & 2 & Inlet Drop & No\\
+Stream Slope (\%) & 2 & Inlet Drop & No\\
 \hline
-Beaver Activity & No & Slope & 4\\
+Beaver Activity & No & Slope (\%) & 4\\
 \hline
 Habitat Value & Low & Valley Fill & Deep Fill\\
 \hline
@@ -1501,13 +1536,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-23 & Crossing Sub Type & Round Culvert\\
 \hline
-PSCIS ID & NA & Diameter & 1.2\\
+PSCIS ID & NA & Diameter (m) & 1.2\\
 \hline
-External ID & 4600316 & Length & 12\\
+External ID & 4600316 & Length (m) & 12\\
 \hline
-Crew & KP, AI & Embed & No\\
+Crew & KP, AI & Embedded & No\\
 \hline
-UTM Zone & 11 & Depth Embedded & NA\\
+UTM Zone & 11 & Depth Embedded (m) & NA\\
 \hline
 Easting & 641167 & Resemble Channel & No\\
 \hline
@@ -1515,15 +1550,15 @@ Northing & 5479429 & Backwatered & No\\
 \hline
 Stream & Tributary to Elk River & Percent Backwatered & NA\\
 \hline
-Road & Cokato Road & Fill Depth & 0.5\\
+Road & Cokato Road & Fill Depth (m) & 0.5\\
 \hline
-Road Tenure & MoTi local & Outlet Drop & 0\\
+Road Tenure & MoTi local & Outlet Drop (m) & 0\\
 \hline
-Channel Width & 4.1 & Outlet Pool Depth & 0\\
+Channel Width (m) & 4.1 & Outlet Pool Depth (m) & 0\\
 \hline
-Stream Slope & 4 & Inlet Drop & No\\
+Stream Slope (\%) & 4 & Inlet Drop & No\\
 \hline
-Beaver Activity & No & Slope & 2.5\\
+Beaver Activity & No & Slope (\%) & 2.5\\
 \hline
 Habitat Value & Low & Valley Fill & Deep Fill\\
 \hline
@@ -1540,13 +1575,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-17 & Crossing Sub Type & Round Culvert\\
 \hline
-PSCIS ID & NA & Diameter & 0.6\\
+PSCIS ID & NA & Diameter (m) & 0.6\\
 \hline
-External ID & 4600329 & Length & 12\\
+External ID & 4600329 & Length (m) & 12\\
 \hline
-Crew & AI, KP & Embed & No\\
+Crew & AI, KP & Embedded & No\\
 \hline
-UTM Zone & 11 & Depth Embedded & NA\\
+UTM Zone & 11 & Depth Embedded (m) & NA\\
 \hline
 Easting & 652325 & Resemble Channel & Yes\\
 \hline
@@ -1554,15 +1589,15 @@ Northing & 5515789 & Backwatered & No\\
 \hline
 Stream & Tributary to Whiting Creek & Percent Backwatered & NA\\
 \hline
-Road & Lower Elk Valley Road & Fill Depth & 1\\
+Road & Lower Elk Valley Road & Fill Depth (m) & 1\\
 \hline
-Road Tenure & MoTi arterial & Outlet Drop & 0\\
+Road Tenure & MoTi arterial & Outlet Drop (m) & 0\\
 \hline
-Channel Width & 0.5 & Outlet Pool Depth & 0\\
+Channel Width (m) & 0.5 & Outlet Pool Depth (m) & 0\\
 \hline
-Stream Slope & 0 & Inlet Drop & No\\
+Stream Slope (\%) & 0 & Inlet Drop & No\\
 \hline
-Beaver Activity & No & Slope & 1\\
+Beaver Activity & No & Slope (\%) & 1\\
 \hline
 Habitat Value & Low & Valley Fill & Deep Fill\\
 \hline
@@ -1582,13 +1617,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-24 & Crossing Sub Type & Round Culvert\\
 \hline
-PSCIS ID & NA & Diameter & 1.2\\
+PSCIS ID & NA & Diameter (m) & 1.2\\
 \hline
-External ID & 4600332 & Length & 25\\
+External ID & 4600332 & Length (m) & 25\\
 \hline
-Crew & AI, KP & Embed & No\\
+Crew & AI, KP & Embedded & No\\
 \hline
-UTM Zone & 11 & Depth Embedded & NA\\
+UTM Zone & 11 & Depth Embedded (m) & NA\\
 \hline
 Easting & 639511 & Resemble Channel & No\\
 \hline
@@ -1596,15 +1631,15 @@ Northing & 5481114 & Backwatered & No\\
 \hline
 Stream & Tributary to Elk River & Percent Backwatered & NA\\
 \hline
-Road & Highway 3 & Fill Depth & 2.3\\
+Road & Highway 3 & Fill Depth (m) & 2.3\\
 \hline
-Road Tenure & MoTi highway & Outlet Drop & 0\\
+Road Tenure & MoTi highway & Outlet Drop (m) & 0\\
 \hline
-Channel Width & 3.3 & Outlet Pool Depth & 0.5\\
+Channel Width (m) & 3.3 & Outlet Pool Depth (m) & 0.5\\
 \hline
-Stream Slope & 4 & Inlet Drop & Yes\\
+Stream Slope (\%) & 4 & Inlet Drop & Yes\\
 \hline
-Beaver Activity & No & Slope & 1.5\\
+Beaver Activity & No & Slope (\%) & 1.5\\
 \hline
 Habitat Value & Medium & Valley Fill & Deep Fill\\
 \hline
@@ -1622,13 +1657,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-18 & Crossing Sub Type & Oval Culvert\\
 \hline
-PSCIS ID & NA & Diameter & 2.6\\
+PSCIS ID & NA & Diameter (m) & 2.6\\
 \hline
-External ID & 4600367 & Length & 20\\
+External ID & 4600367 & Length (m) & 20\\
 \hline
-Crew & AI, KP & Embed & No\\
+Crew & AI, KP & Embedded & No\\
 \hline
-UTM Zone & 11 & Depth Embedded & NA\\
+UTM Zone & 11 & Depth Embedded (m) & NA\\
 \hline
 Easting & 643534 & Resemble Channel & No\\
 \hline
@@ -1636,15 +1671,15 @@ Northing & 5490723 & Backwatered & No\\
 \hline
 Stream & Hartley Creek & Percent Backwatered & NA\\
 \hline
-Road & Dicken Road & Fill Depth & 0.4\\
+Road & Dicken Road & Fill Depth (m) & 0.4\\
 \hline
-Road Tenure & MoTi collector & Outlet Drop & 0.4\\
+Road Tenure & MoTi collector & Outlet Drop (m) & 0.4\\
 \hline
-Channel Width & 3.5 & Outlet Pool Depth & 0.8\\
+Channel Width (m) & 3.5 & Outlet Pool Depth (m) & 0.8\\
 \hline
-Stream Slope & 1 & Inlet Drop & No\\
+Stream Slope (\%) & 1 & Inlet Drop & No\\
 \hline
-Beaver Activity & No & Slope & 2\\
+Beaver Activity & No & Slope (\%) & 2\\
 \hline
 Habitat Value & High & Valley Fill & Deep Fill\\
 \hline
@@ -1662,13 +1697,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-20 & Crossing Sub Type & Ford\\
 \hline
-PSCIS ID & NA & Diameter & NA\\
+PSCIS ID & NA & Diameter (m) & NA\\
 \hline
-External ID & 4601129 & Length & NA\\
+External ID & 4601129 & Length (m) & NA\\
 \hline
-Crew & KP, AI & Embed & NA\\
+Crew & KP, AI & Embedded & NA\\
 \hline
-UTM Zone & 11 & Depth Embedded & NA\\
+UTM Zone & 11 & Depth Embedded (m) & NA\\
 \hline
 Easting & 661062 & Resemble Channel & NA\\
 \hline
@@ -1676,15 +1711,15 @@ Northing & 5524446 & Backwatered & NA\\
 \hline
 Stream & Grave Creek & Percent Backwatered & NA\\
 \hline
-Road & NA & Fill Depth & NA\\
+Road & NA & Fill Depth (m) & NA\\
 \hline
-Road Tenure & unclassified & Outlet Drop & NA\\
+Road Tenure & unclassified & Outlet Drop (m) & NA\\
 \hline
-Channel Width & NA & Outlet Pool Depth & NA\\
+Channel Width (m) & NA & Outlet Pool Depth (m) & NA\\
 \hline
-Stream Slope & NA & Inlet Drop & NA\\
+Stream Slope (\%) & NA & Inlet Drop & NA\\
 \hline
-Beaver Activity & No & Slope & NA\\
+Beaver Activity & No & Slope (\%) & NA\\
 \hline
 Habitat Value & NA & Valley Fill & NA\\
 \hline
@@ -1699,13 +1734,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-18 & Crossing Sub Type & Ford\\
 \hline
-PSCIS ID & NA & Diameter & NA\\
+PSCIS ID & NA & Diameter (m) & NA\\
 \hline
-External ID & 4601205 & Length & NA\\
+External ID & 4601205 & Length (m) & NA\\
 \hline
-Crew & AI, KP & Embed & NA\\
+Crew & AI, KP & Embedded & NA\\
 \hline
-UTM Zone & 11 & Depth Embedded & NA\\
+UTM Zone & 11 & Depth Embedded (m) & NA\\
 \hline
 Easting & 650917 & Resemble Channel & NA\\
 \hline
@@ -1713,15 +1748,15 @@ Northing & 5528513 & Backwatered & NA\\
 \hline
 Stream & Brule Creek & Percent Backwatered & NA\\
 \hline
-Road & Private & Fill Depth & NA\\
+Road & Private & Fill Depth (m) & NA\\
 \hline
-Road Tenure & private & Outlet Drop & NA\\
+Road Tenure & private & Outlet Drop (m) & NA\\
 \hline
-Channel Width & NA & Outlet Pool Depth & NA\\
+Channel Width (m) & NA & Outlet Pool Depth (m) & NA\\
 \hline
-Stream Slope & NA & Inlet Drop & NA\\
+Stream Slope (\%) & NA & Inlet Drop & NA\\
 \hline
-Beaver Activity & No & Slope & NA\\
+Beaver Activity & No & Slope (\%) & NA\\
 \hline
 Habitat Value & NA & Valley Fill & NA\\
 \hline
@@ -1736,13 +1771,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-24 & Crossing Sub Type & Round Culvert\\
 \hline
-PSCIS ID & NA & Diameter & 0.9\\
+PSCIS ID & NA & Diameter (m) & 0.9\\
 \hline
-External ID & 4601556 & Length & 14.5\\
+External ID & 4601556 & Length (m) & 14\\
 \hline
-Crew & KP, AI & Embed & No\\
+Crew & KP, AI & Embedded & No\\
 \hline
-UTM Zone & 11 & Depth Embedded & NA\\
+UTM Zone & 11 & Depth Embedded (m) & NA\\
 \hline
 Easting & 638522 & Resemble Channel & No\\
 \hline
@@ -1750,15 +1785,15 @@ Northing & 5480616 & Backwatered & No\\
 \hline
 Stream & Tributary to Elk River & Percent Backwatered & NA\\
 \hline
-Road & Fernie ski hill & Fill Depth & 1.2\\
+Road & Fernie ski hill & Fill Depth (m) & 1.2\\
 \hline
-Road Tenure & unclassified & Outlet Drop & 0\\
+Road Tenure & unclassified & Outlet Drop (m) & 0\\
 \hline
-Channel Width & 1.3 & Outlet Pool Depth & 0.2\\
+Channel Width (m) & 1.3 & Outlet Pool Depth (m) & 0.2\\
 \hline
-Stream Slope & 8 & Inlet Drop & Yes\\
+Stream Slope (\%) & 8 & Inlet Drop & Yes\\
 \hline
-Beaver Activity & No & Slope & 9\\
+Beaver Activity & No & Slope (\%) & 9\\
 \hline
 Habitat Value & Low & Valley Fill & Deep Fill\\
 \hline
@@ -1777,13 +1812,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-23 & Crossing Sub Type & Round Culvert\\
 \hline
-PSCIS ID & NA & Diameter & 1.5\\
+PSCIS ID & NA & Diameter (m) & 1.5\\
 \hline
-External ID & 4601594 & Length & 22\\
+External ID & 4601594 & Length (m) & 22\\
 \hline
-Crew & KP, AI & Embed & No\\
+Crew & KP, AI & Embedded & No\\
 \hline
-UTM Zone & 11 & Depth Embedded & NA\\
+UTM Zone & 11 & Depth Embedded (m) & NA\\
 \hline
 Easting & 641090 & Resemble Channel & No\\
 \hline
@@ -1791,15 +1826,15 @@ Northing & 5479392 & Backwatered & No\\
 \hline
 Stream & Tributary to Elk River & Percent Backwatered & NA\\
 \hline
-Road & Railway & Fill Depth & 2\\
+Road & Railway & Fill Depth (m) & 2\\
 \hline
-Road Tenure & Canadian Pacific & Outlet Drop & 0\\
+Road Tenure & Canadian Pacific & Outlet Drop (m) & 0\\
 \hline
-Channel Width & 2.7 & Outlet Pool Depth & 0\\
+Channel Width (m) & 2.7 & Outlet Pool Depth (m) & 0\\
 \hline
-Stream Slope & 2.5 & Inlet Drop & No\\
+Stream Slope (\%) & 2.5 & Inlet Drop & No\\
 \hline
-Beaver Activity & No & Slope & 1.5\\
+Beaver Activity & No & Slope (\%) & 1.5\\
 \hline
 Habitat Value & Low & Valley Fill & Deep Fill\\
 \hline
@@ -1816,13 +1851,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-24 & Crossing Sub Type & Round Culvert\\
 \hline
-PSCIS ID & NA & Diameter & 1.2\\
+PSCIS ID & NA & Diameter (m) & 1.2\\
 \hline
-External ID & 4601639 & Length & 99\\
+External ID & 4601639 & Length (m) & 99\\
 \hline
-Crew & KP, AI & Embed & No\\
+Crew & KP, AI & Embedded & No\\
 \hline
-UTM Zone & 11 & Depth Embedded & NA\\
+UTM Zone & 11 & Depth Embedded (m) & NA\\
 \hline
 Easting & 638630 & Resemble Channel & No\\
 \hline
@@ -1830,15 +1865,15 @@ Northing & 5480655 & Backwatered & No\\
 \hline
 Stream & Tributary to Elk River & Percent Backwatered & NA\\
 \hline
-Road & Fernie ski hill & Fill Depth & 2.5\\
+Road & Fernie ski hill & Fill Depth (m) & 2.5\\
 \hline
-Road Tenure & unclassified & Outlet Drop & 0.73\\
+Road Tenure & unclassified & Outlet Drop (m) & 0.73\\
 \hline
-Channel Width & 1.5 & Outlet Pool Depth & 0.65\\
+Channel Width (m) & 1.5 & Outlet Pool Depth (m) & 0.65\\
 \hline
-Stream Slope & 6 & Inlet Drop & Yes\\
+Stream Slope (\%) & 6 & Inlet Drop & Yes\\
 \hline
-Beaver Activity & No & Slope & 11\\
+Beaver Activity & No & Slope (\%) & 11\\
 \hline
 Habitat Value & Low & Valley Fill & Deep Fill\\
 \hline
@@ -1856,13 +1891,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-20 & Crossing Sub Type & Round Culvert\\
 \hline
-PSCIS ID & NA & Diameter & 0.9\\
+PSCIS ID & NA & Diameter (m) & 0.9\\
 \hline
-External ID & 4602270 & Length & 14\\
+External ID & 4602270 & Length (m) & 14\\
 \hline
-Crew & KP, AI & Embed & No\\
+Crew & KP, AI & Embedded & No\\
 \hline
-UTM Zone & 11 & Depth Embedded & NA\\
+UTM Zone & 11 & Depth Embedded (m) & NA\\
 \hline
 Easting & 655441 & Resemble Channel & No\\
 \hline
@@ -1870,15 +1905,15 @@ Northing & 5524175 & Backwatered & No\\
 \hline
 Stream & Tributary to Grave Creek & Percent Backwatered & NA\\
 \hline
-Road & NA & Fill Depth & 2\\
+Road & NA & Fill Depth (m) & 2\\
 \hline
-Road Tenure & unclassified & Outlet Drop & 0\\
+Road Tenure & unclassified & Outlet Drop (m) & 0\\
 \hline
-Channel Width & 1.5 & Outlet Pool Depth & 0\\
+Channel Width (m) & 1.5 & Outlet Pool Depth (m) & 0\\
 \hline
-Stream Slope & 3 & Inlet Drop & Yes\\
+Stream Slope (\%) & 3 & Inlet Drop & Yes\\
 \hline
-Beaver Activity & No & Slope & 4\\
+Beaver Activity & No & Slope (\%) & 4\\
 \hline
 Habitat Value & Low & Valley Fill & Deep Fill\\
 \hline
@@ -1894,13 +1929,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-18 & Crossing Sub Type & Ford\\
 \hline
-PSCIS ID & NA & Diameter & NA\\
+PSCIS ID & NA & Diameter (m) & NA\\
 \hline
-External ID & 4602276 & Length & NA\\
+External ID & 4602276 & Length (m) & NA\\
 \hline
-Crew & AI & Embed & NA\\
+Crew & AI & Embedded & NA\\
 \hline
-UTM Zone & 11 & Depth Embedded & NA\\
+UTM Zone & 11 & Depth Embedded (m) & NA\\
 \hline
 Easting & 649758 & Resemble Channel & NA\\
 \hline
@@ -1908,15 +1943,15 @@ Northing & 5527935 & Backwatered & NA\\
 \hline
 Stream & Brule Creek & Percent Backwatered & NA\\
 \hline
-Road & Spur & Fill Depth & NA\\
+Road & Spur & Fill Depth (m) & NA\\
 \hline
-Road Tenure & unclassified & Outlet Drop & NA\\
+Road Tenure & unclassified & Outlet Drop (m) & NA\\
 \hline
-Channel Width & NA & Outlet Pool Depth & NA\\
+Channel Width (m) & NA & Outlet Pool Depth (m) & NA\\
 \hline
-Stream Slope & NA & Inlet Drop & NA\\
+Stream Slope (\%) & NA & Inlet Drop & NA\\
 \hline
-Beaver Activity & No & Slope & NA\\
+Beaver Activity & No & Slope (\%) & NA\\
 \hline
 Habitat Value & NA & Valley Fill & NA\\
 \hline
@@ -1931,13 +1966,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-24 & Crossing Sub Type & Round Culvert\\
 \hline
-PSCIS ID & NA & Diameter & 1.2\\
+PSCIS ID & NA & Diameter (m) & 1.2\\
 \hline
-External ID & 4602349 & Length & 10.5\\
+External ID & 4602349 & Length (m) & 10\\
 \hline
-Crew & KP, AI & Embed & No\\
+Crew & KP, AI & Embedded & No\\
 \hline
-UTM Zone & 11 & Depth Embedded & NA\\
+UTM Zone & 11 & Depth Embedded (m) & NA\\
 \hline
 Easting & 638525 & Resemble Channel & No\\
 \hline
@@ -1945,15 +1980,15 @@ Northing & 5481496 & Backwatered & Yes\\
 \hline
 Stream & Tributary to Elk River & Percent Backwatered & 20\\
 \hline
-Road & Fernie Nordic Trail & Fill Depth & 1.5\\
+Road & Fernie Nordic Trail & Fill Depth (m) & 1.5\\
 \hline
-Road Tenure & unclassified & Outlet Drop & 0\\
+Road Tenure & unclassified & Outlet Drop (m) & 0\\
 \hline
-Channel Width & 2 & Outlet Pool Depth & 2\\
+Channel Width (m) & 2 & Outlet Pool Depth (m) & 2\\
 \hline
-Stream Slope & 7 & Inlet Drop & No\\
+Stream Slope (\%) & 7 & Inlet Drop & No\\
 \hline
-Beaver Activity & No & Slope & 3.5\\
+Beaver Activity & No & Slope (\%) & 3.5\\
 \hline
 Habitat Value & Medium & Valley Fill & Deep Fill\\
 \hline
@@ -1969,13 +2004,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-20 & Crossing Sub Type & Round Culvert\\
 \hline
-PSCIS ID & NA & Diameter & 0.6\\
+PSCIS ID & NA & Diameter (m) & 0.6\\
 \hline
-External ID & 4602533 & Length & 7.5\\
+External ID & 4602533 & Length (m) & 8\\
 \hline
-Crew & KP, AI & Embed & No\\
+Crew & KP, AI & Embedded & No\\
 \hline
-UTM Zone & 11 & Depth Embedded & NA\\
+UTM Zone & 11 & Depth Embedded (m) & NA\\
 \hline
 Easting & 661172 & Resemble Channel & No\\
 \hline
@@ -1983,15 +2018,15 @@ Northing & 5524451 & Backwatered & No\\
 \hline
 Stream & Grave Creek & Percent Backwatered & NA\\
 \hline
-Road & NA & Fill Depth & 0.35\\
+Road & NA & Fill Depth (m) & 0.35\\
 \hline
-Road Tenure & unclassified & Outlet Drop & 0\\
+Road Tenure & unclassified & Outlet Drop (m) & 0\\
 \hline
-Channel Width & 0.1 & Outlet Pool Depth & 0\\
+Channel Width (m) & 0.1 & Outlet Pool Depth (m) & 0\\
 \hline
-Stream Slope & 1 & Inlet Drop & No\\
+Stream Slope (\%) & 1 & Inlet Drop & No\\
 \hline
-Beaver Activity & No & Slope & 4\\
+Beaver Activity & No & Slope (\%) & 4\\
 \hline
 Habitat Value & Low & Valley Fill & Deep Fill\\
 \hline
@@ -2011,13 +2046,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-23 & Crossing Sub Type & Round Culvert\\
 \hline
-PSCIS ID & NA & Diameter & 0.6\\
+PSCIS ID & NA & Diameter (m) & 0.6\\
 \hline
-External ID & 4603265 & Length & 13\\
+External ID & 4603265 & Length (m) & 13\\
 \hline
-Crew & AI, KP & Embed & No\\
+Crew & AI, KP & Embedded & No\\
 \hline
-UTM Zone & 11 & Depth Embedded & NA\\
+UTM Zone & 11 & Depth Embedded (m) & NA\\
 \hline
 Easting & 640287 & Resemble Channel & No\\
 \hline
@@ -2025,15 +2060,15 @@ Northing & 5481650 & Backwatered & No\\
 \hline
 Stream & Tributary to Elk River & Percent Backwatered & NA\\
 \hline
-Road & Railway & Fill Depth & 3\\
+Road & Railway & Fill Depth (m) & 3\\
 \hline
-Road Tenure & Canadian Pacific & Outlet Drop & 0\\
+Road Tenure & Canadian Pacific & Outlet Drop (m) & 0\\
 \hline
-Channel Width & 0.5 & Outlet Pool Depth & 0\\
+Channel Width (m) & 0.5 & Outlet Pool Depth (m) & 0\\
 \hline
-Stream Slope & 0 & Inlet Drop & No\\
+Stream Slope (\%) & 0 & Inlet Drop & No\\
 \hline
-Beaver Activity & No & Slope & 0.5\\
+Beaver Activity & No & Slope (\%) & 0.5\\
 \hline
 Habitat Value & Low & Valley Fill & Deep Fill\\
 \hline
@@ -2048,13 +2083,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-23 & Crossing Sub Type & Round Culvert\\
 \hline
-PSCIS ID & NA & Diameter & 1.2\\
+PSCIS ID & NA & Diameter (m) & 1.2\\
 \hline
-External ID & 4603291 & Length & 13\\
+External ID & 4603291 & Length (m) & 13\\
 \hline
-Crew & KP, AI & Embed & No\\
+Crew & KP, AI & Embedded & No\\
 \hline
-UTM Zone & 11 & Depth Embedded & NA\\
+UTM Zone & 11 & Depth Embedded (m) & NA\\
 \hline
 Easting & 640891 & Resemble Channel & No\\
 \hline
@@ -2062,15 +2097,15 @@ Northing & 5480517 & Backwatered & No\\
 \hline
 Stream & Cokato Creek & Percent Backwatered & NA\\
 \hline
-Road & Cokato Road & Fill Depth & 0.5\\
+Road & Cokato Road & Fill Depth (m) & 0.5\\
 \hline
-Road Tenure & MoTi local & Outlet Drop & 0\\
+Road Tenure & MoTi local & Outlet Drop (m) & 0\\
 \hline
-Channel Width & 4.5 & Outlet Pool Depth & 0\\
+Channel Width (m) & 4.5 & Outlet Pool Depth (m) & 0\\
 \hline
-Stream Slope & 4 & Inlet Drop & No\\
+Stream Slope (\%) & 4 & Inlet Drop & No\\
 \hline
-Beaver Activity & No & Slope & 4\\
+Beaver Activity & No & Slope (\%) & 4\\
 \hline
 Habitat Value & Low & Valley Fill & Deep Fill\\
 \hline
@@ -2088,13 +2123,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-18 & Crossing Sub Type & Round Culvert\\
 \hline
-PSCIS ID & NA & Diameter & 0.8\\
+PSCIS ID & NA & Diameter (m) & 0.8\\
 \hline
-External ID & 4604198 & Length & 9\\
+External ID & 4604198 & Length (m) & 9\\
 \hline
-Crew & AI, KP & Embed & No\\
+Crew & AI, KP & Embedded & No\\
 \hline
-UTM Zone & 11 & Depth Embedded & NA\\
+UTM Zone & 11 & Depth Embedded (m) & NA\\
 \hline
 Easting & 647819 & Resemble Channel & No\\
 \hline
@@ -2102,15 +2137,15 @@ Northing & 5498551 & Backwatered & No\\
 \hline
 Stream & Tributary to Elk River & Percent Backwatered & NA\\
 \hline
-Road & Hadner FSR & Fill Depth & 1\\
+Road & Hadner FSR & Fill Depth (m) & 1\\
 \hline
-Road Tenure & FLNR 6946 & Outlet Drop & 0.6\\
+Road Tenure & FLNR 6946 & Outlet Drop (m) & 0.6\\
 \hline
-Channel Width & 2.9 & Outlet Pool Depth & 0.3\\
+Channel Width (m) & 2.9 & Outlet Pool Depth (m) & 0.3\\
 \hline
-Stream Slope & 19 & Inlet Drop & Yes\\
+Stream Slope (\%) & 19 & Inlet Drop & Yes\\
 \hline
-Beaver Activity & No & Slope & 6\\
+Beaver Activity & No & Slope (\%) & 6\\
 \hline
 Habitat Value & Medium & Valley Fill & Deep Fill\\
 \hline
@@ -2126,13 +2161,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-24 & Crossing Sub Type & Round Culvert\\
 \hline
-PSCIS ID & NA & Diameter & 0.9\\
+PSCIS ID & NA & Diameter (m) & 0.9\\
 \hline
-External ID & 4604455 & Length & 16\\
+External ID & 4604455 & Length (m) & 16\\
 \hline
-Crew & KP, AI & Embed & No\\
+Crew & KP, AI & Embedded & No\\
 \hline
-UTM Zone & 11 & Depth Embedded & NA\\
+UTM Zone & 11 & Depth Embedded (m) & NA\\
 \hline
 Easting & 638669 & Resemble Channel & No\\
 \hline
@@ -2140,15 +2175,15 @@ Northing & 5480601 & Backwatered & No\\
 \hline
 Stream & Tributary to Elk River & Percent Backwatered & NA\\
 \hline
-Road & Fernie ski hill & Fill Depth & 2\\
+Road & Fernie ski hill & Fill Depth (m) & 2\\
 \hline
-Road Tenure & unclassified & Outlet Drop & 0.15\\
+Road Tenure & unclassified & Outlet Drop (m) & 0.15\\
 \hline
-Channel Width & 1.5 & Outlet Pool Depth & 0.2\\
+Channel Width (m) & 1.5 & Outlet Pool Depth (m) & 0.2\\
 \hline
-Stream Slope & 9 & Inlet Drop & Yes\\
+Stream Slope (\%) & 9 & Inlet Drop & Yes\\
 \hline
-Beaver Activity & No & Slope & 7\\
+Beaver Activity & No & Slope (\%) & 7\\
 \hline
 Habitat Value & Low & Valley Fill & Deep Fill\\
 \hline
@@ -2165,13 +2200,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-16 & Crossing Sub Type & Pipe Arch\\
 \hline
-PSCIS ID & NA & Diameter & 2.5\\
+PSCIS ID & NA & Diameter (m) & 2.5\\
 \hline
-External ID & 4605636 & Length & 14.5\\
+External ID & 4605636 & Length (m) & 14\\
 \hline
-Crew & KP, AI & Embed & NA\\
+Crew & KP, AI & Embedded & NA\\
 \hline
-UTM Zone & 11 & Depth Embedded & NA\\
+UTM Zone & 11 & Depth Embedded (m) & NA\\
 \hline
 Easting & 644148 & Resemble Channel & NA\\
 \hline
@@ -2179,15 +2214,15 @@ Northing & 5564425 & Backwatered & NA\\
 \hline
 Stream & Tributary to Elk River & Percent Backwatered & NA\\
 \hline
-Road & Elk River FSR & Fill Depth & NA\\
+Road & Elk River FSR & Fill Depth (m) & NA\\
 \hline
-Road Tenure & FLNR 0103 & Outlet Drop & NA\\
+Road Tenure & FLNR 0103 & Outlet Drop (m) & NA\\
 \hline
-Channel Width & NA & Outlet Pool Depth & NA\\
+Channel Width (m) & NA & Outlet Pool Depth (m) & NA\\
 \hline
-Stream Slope & NA & Inlet Drop & NA\\
+Stream Slope (\%) & NA & Inlet Drop & NA\\
 \hline
-Beaver Activity & No & Slope & NA\\
+Beaver Activity & No & Slope (\%) & NA\\
 \hline
 Habitat Value & NA & Valley Fill & NA\\
 \hline
@@ -2202,13 +2237,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-16 & Crossing Sub Type & Round Culvert\\
 \hline
-PSCIS ID & NA & Diameter & 0.9\\
+PSCIS ID & NA & Diameter (m) & 0.9\\
 \hline
-External ID & 4605649 & Length & 17\\
+External ID & 4605649 & Length (m) & 17\\
 \hline
-Crew & KP, AI & Embed & No\\
+Crew & KP, AI & Embedded & No\\
 \hline
-UTM Zone & 11 & Depth Embedded & NA\\
+UTM Zone & 11 & Depth Embedded (m) & NA\\
 \hline
 Easting & 645873 & Resemble Channel & No\\
 \hline
@@ -2216,15 +2251,15 @@ Northing & 5556758 & Backwatered & Yes\\
 \hline
 Stream & Tributary to Elk River & Percent Backwatered & 100\\
 \hline
-Road & Elk River FSR & Fill Depth & 1.5\\
+Road & Elk River FSR & Fill Depth (m) & 1.5\\
 \hline
-Road Tenure & FLNR 0103 & Outlet Drop & 0\\
+Road Tenure & FLNR 0103 & Outlet Drop (m) & 0\\
 \hline
-Channel Width & 1 & Outlet Pool Depth & 0.6\\
+Channel Width (m) & 1 & Outlet Pool Depth (m) & 0.6\\
 \hline
-Stream Slope & 2.5 & Inlet Drop & No\\
+Stream Slope (\%) & 2.5 & Inlet Drop & No\\
 \hline
-Beaver Activity & No & Slope & 0.5\\
+Beaver Activity & No & Slope (\%) & 0.5\\
 \hline
 Habitat Value & Medium & Valley Fill & Deep Fill\\
 \hline
@@ -2239,13 +2274,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-16 & Crossing Sub Type & Round Culvert\\
 \hline
-PSCIS ID & NA & Diameter & 0.9\\
+PSCIS ID & NA & Diameter (m) & 0.9\\
 \hline
-External ID & 4605653 & Length & 10.92\\
+External ID & 4605653 & Length (m) & 11\\
 \hline
-Crew & AI, KP & Embed & No\\
+Crew & AI, KP & Embedded & No\\
 \hline
-UTM Zone & 11 & Depth Embedded & NA\\
+UTM Zone & 11 & Depth Embedded (m) & NA\\
 \hline
 Easting & 644666 & Resemble Channel & No\\
 \hline
@@ -2253,15 +2288,15 @@ Northing & 5564940 & Backwatered & No\\
 \hline
 Stream & Tributary to Elk River & Percent Backwatered & NA\\
 \hline
-Road & Elk River FSR & Fill Depth & 0.4\\
+Road & Elk River FSR & Fill Depth (m) & 0.4\\
 \hline
-Road Tenure & FLNR 0103 & Outlet Drop & 0\\
+Road Tenure & FLNR 0103 & Outlet Drop (m) & 0\\
 \hline
-Channel Width & 2.5 & Outlet Pool Depth & 0.2\\
+Channel Width (m) & 2.5 & Outlet Pool Depth (m) & 0.2\\
 \hline
-Stream Slope & 2 & Inlet Drop & No\\
+Stream Slope (\%) & 2 & Inlet Drop & No\\
 \hline
-Beaver Activity & No & Slope & 3.2\\
+Beaver Activity & No & Slope (\%) & 3.2\\
 \hline
 Habitat Value & Medium & Valley Fill & Deep Fill\\
 \hline
@@ -2283,13 +2318,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-16 & Crossing Sub Type & Round Culvert\\
 \hline
-PSCIS ID & NA & Diameter & 0.6\\
+PSCIS ID & NA & Diameter (m) & 0.6\\
 \hline
-External ID & 4605675 & Length & 10.5\\
+External ID & 4605675 & Length (m) & 10\\
 \hline
-Crew & AI, KP & Embed & No\\
+Crew & AI, KP & Embedded & No\\
 \hline
-UTM Zone & 11 & Depth Embedded & NA\\
+UTM Zone & 11 & Depth Embedded (m) & NA\\
 \hline
 Easting & 645225 & Resemble Channel & No\\
 \hline
@@ -2297,15 +2332,15 @@ Northing & 5567096 & Backwatered & No\\
 \hline
 Stream & Tributary to Elk River & Percent Backwatered & NA\\
 \hline
-Road & Elk River FSR & Fill Depth & 0.5\\
+Road & Elk River FSR & Fill Depth (m) & 0.5\\
 \hline
-Road Tenure & NA & Outlet Drop & 0\\
+Road Tenure & NA & Outlet Drop (m) & 0\\
 \hline
-Channel Width & 2 & Outlet Pool Depth & 0.05\\
+Channel Width (m) & 2 & Outlet Pool Depth (m) & 0.05\\
 \hline
-Stream Slope & 0.5 & Inlet Drop & No\\
+Stream Slope (\%) & 0.5 & Inlet Drop & No\\
 \hline
-Beaver Activity & No & Slope & 2.5\\
+Beaver Activity & No & Slope (\%) & 2.5\\
 \hline
 Habitat Value & Medium & Valley Fill & Deep Fill\\
 \hline
@@ -2324,13 +2359,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-16 & Crossing Sub Type & Round Culvert\\
 \hline
-PSCIS ID & NA & Diameter & 1.5\\
+PSCIS ID & NA & Diameter (m) & 1.5\\
 \hline
-External ID & 4605697 & Length & 1.8\\
+External ID & 4605697 & Length (m) & 2\\
 \hline
-Crew & AI, KP & Embed & No\\
+Crew & AI, KP & Embedded & No\\
 \hline
-UTM Zone & 11 & Depth Embedded & NA\\
+UTM Zone & 11 & Depth Embedded (m) & NA\\
 \hline
 Easting & 648722 & Resemble Channel & No\\
 \hline
@@ -2338,15 +2373,15 @@ Northing & 5548198 & Backwatered & No\\
 \hline
 Stream & Crossing Creek & Percent Backwatered & NA\\
 \hline
-Road & Elk River FSR & Fill Depth & 1\\
+Road & Elk River FSR & Fill Depth (m) & 1\\
 \hline
-Road Tenure & FLNR 0103 & Outlet Drop & 0\\
+Road Tenure & FLNR 0103 & Outlet Drop (m) & 0\\
 \hline
-Channel Width & 2.5 & Outlet Pool Depth & 0\\
+Channel Width (m) & 2.5 & Outlet Pool Depth (m) & 0\\
 \hline
-Stream Slope & 3.5 & Inlet Drop & No\\
+Stream Slope (\%) & 3.5 & Inlet Drop & No\\
 \hline
-Beaver Activity & No & Slope & 5\\
+Beaver Activity & No & Slope (\%) & 5\\
 \hline
 Habitat Value & Low & Valley Fill & Deep Fill\\
 \hline
@@ -2362,13 +2397,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-16 & Crossing Sub Type & Round Culvert\\
 \hline
-PSCIS ID & NA & Diameter & 0.35\\
+PSCIS ID & NA & Diameter (m) & 0.35\\
 \hline
-External ID & 4605705 & Length & 15\\
+External ID & 4605705 & Length (m) & 15\\
 \hline
-Crew & AI, KP & Embed & No\\
+Crew & AI, KP & Embedded & No\\
 \hline
-UTM Zone & 11 & Depth Embedded & NA\\
+UTM Zone & 11 & Depth Embedded (m) & NA\\
 \hline
 Easting & 643733 & Resemble Channel & No\\
 \hline
@@ -2376,15 +2411,15 @@ Northing & 5560586 & Backwatered & No\\
 \hline
 Stream & Tributary to Elk River & Percent Backwatered & NA\\
 \hline
-Road & Elk River FSR & Fill Depth & 1.2\\
+Road & Elk River FSR & Fill Depth (m) & 1.2\\
 \hline
-Road Tenure & Unknown & Outlet Drop & 2.15\\
+Road Tenure & Unknown & Outlet Drop (m) & 2.15\\
 \hline
-Channel Width & 1 & Outlet Pool Depth & 0.4\\
+Channel Width (m) & 1 & Outlet Pool Depth (m) & 0.4\\
 \hline
-Stream Slope & 0.5 & Inlet Drop & No\\
+Stream Slope (\%) & 0.5 & Inlet Drop & No\\
 \hline
-Beaver Activity & No & Slope & 2.5\\
+Beaver Activity & No & Slope (\%) & 2.5\\
 \hline
 Habitat Value & Low & Valley Fill & Deep Fill\\
 \hline
@@ -2400,13 +2435,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-16 & Crossing Sub Type & Round Culvert\\
 \hline
-PSCIS ID & NA & Diameter & 0.6\\
+PSCIS ID & NA & Diameter (m) & 0.6\\
 \hline
-External ID & 4605707 & Length & 11\\
+External ID & 4605707 & Length (m) & 11\\
 \hline
-Crew & KP, AI & Embed & No\\
+Crew & KP, AI & Embedded & No\\
 \hline
-UTM Zone & 11 & Depth Embedded & NA\\
+UTM Zone & 11 & Depth Embedded (m) & NA\\
 \hline
 Easting & 643981 & Resemble Channel & No\\
 \hline
@@ -2414,15 +2449,15 @@ Northing & 5561132 & Backwatered & No\\
 \hline
 Stream & Tributary to Elk River & Percent Backwatered & NA\\
 \hline
-Road & Elk River FSR & Fill Depth & 0.4\\
+Road & Elk River FSR & Fill Depth (m) & 0.4\\
 \hline
-Road Tenure & FLNR 0103 & Outlet Drop & 0\\
+Road Tenure & FLNR 0103 & Outlet Drop (m) & 0\\
 \hline
-Channel Width & 2.3 & Outlet Pool Depth & 0\\
+Channel Width (m) & 2.3 & Outlet Pool Depth (m) & 0\\
 \hline
-Stream Slope & 1 & Inlet Drop & No\\
+Stream Slope (\%) & 1 & Inlet Drop & No\\
 \hline
-Beaver Activity & No & Slope & 1.5\\
+Beaver Activity & No & Slope (\%) & 1.5\\
 \hline
 Habitat Value & Low & Valley Fill & Deep Fill\\
 \hline
@@ -2439,13 +2474,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-16 & Crossing Sub Type & Round Culvert\\
 \hline
-PSCIS ID & NA & Diameter & 0.6\\
+PSCIS ID & NA & Diameter (m) & 0.6\\
 \hline
-External ID & 4605708 & Length & 10\\
+External ID & 4605708 & Length (m) & 10\\
 \hline
-Crew & AI, KP & Embed & Yes\\
+Crew & AI, KP & Embedded & Yes\\
 \hline
-UTM Zone & 11 & Depth Embedded & 0.1\\
+UTM Zone & 11 & Depth Embedded (m) & 0.1\\
 \hline
 Easting & 643611 & Resemble Channel & Yes\\
 \hline
@@ -2453,15 +2488,15 @@ Northing & 5559835 & Backwatered & No\\
 \hline
 Stream & Tributary to Lowe Creek & Percent Backwatered & NA\\
 \hline
-Road & Elk River FSR & Fill Depth & 0.5\\
+Road & Elk River FSR & Fill Depth (m) & 0.5\\
 \hline
-Road Tenure & FLNR 0103 & Outlet Drop & 0\\
+Road Tenure & FLNR 0103 & Outlet Drop (m) & 0\\
 \hline
-Channel Width & 1.1 & Outlet Pool Depth & 0\\
+Channel Width (m) & 1.1 & Outlet Pool Depth (m) & 0\\
 \hline
-Stream Slope & 3.5 & Inlet Drop & No\\
+Stream Slope (\%) & 3.5 & Inlet Drop & No\\
 \hline
-Beaver Activity & No & Slope & 1.5\\
+Beaver Activity & No & Slope (\%) & 1.5\\
 \hline
 Habitat Value & Low & Valley Fill & Deep Fill\\
 \hline
@@ -2477,13 +2512,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-16 & Crossing Sub Type & Round Culvert\\
 \hline
-PSCIS ID & NA & Diameter & 1.5\\
+PSCIS ID & NA & Diameter (m) & 1.5\\
 \hline
-External ID & 4605732 & Length & 49\\
+External ID & 4605732 & Length (m) & 49\\
 \hline
-Crew & KP, AI & Embed & No\\
+Crew & KP, AI & Embedded & No\\
 \hline
-UTM Zone & 11 & Depth Embedded & NA\\
+UTM Zone & 11 & Depth Embedded (m) & NA\\
 \hline
 Easting & 646735 & Resemble Channel & No\\
 \hline
@@ -2491,15 +2526,15 @@ Northing & 5554534 & Backwatered & No\\
 \hline
 Stream & Tributary to Elk River & Percent Backwatered & NA\\
 \hline
-Road & Elk River FSR & Fill Depth & 8\\
+Road & Elk River FSR & Fill Depth (m) & 8\\
 \hline
-Road Tenure & FLNR 0103 & Outlet Drop & 1.48\\
+Road Tenure & FLNR 0103 & Outlet Drop (m) & 1.48\\
 \hline
-Channel Width & 3.5 & Outlet Pool Depth & 1.3\\
+Channel Width (m) & 3.5 & Outlet Pool Depth (m) & 1.3\\
 \hline
-Stream Slope & 1.5 & Inlet Drop & Yes\\
+Stream Slope (\%) & 1.5 & Inlet Drop & Yes\\
 \hline
-Beaver Activity & No & Slope & 3.5\\
+Beaver Activity & No & Slope (\%) & 3.5\\
 \hline
 Habitat Value & High & Valley Fill & Deep Fill\\
 \hline
@@ -2515,13 +2550,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-16 & Crossing Sub Type & Round Culvert\\
 \hline
-PSCIS ID & NA & Diameter & 1.2\\
+PSCIS ID & NA & Diameter (m) & 1.2\\
 \hline
-External ID & 4605733 & Length & 9.5\\
+External ID & 4605733 & Length (m) & 10\\
 \hline
-Crew & AI, KP & Embed & No\\
+Crew & AI, KP & Embedded & No\\
 \hline
-UTM Zone & 11 & Depth Embedded & NA\\
+UTM Zone & 11 & Depth Embedded (m) & NA\\
 \hline
 Easting & 647191 & Resemble Channel & No\\
 \hline
@@ -2529,15 +2564,15 @@ Northing & 5552693 & Backwatered & No\\
 \hline
 Stream & Tributary to Elk River & Percent Backwatered & NA\\
 \hline
-Road & Elk River FSR & Fill Depth & 1\\
+Road & Elk River FSR & Fill Depth (m) & 1\\
 \hline
-Road Tenure & FLNR 0103 & Outlet Drop & 0.3\\
+Road Tenure & FLNR 0103 & Outlet Drop (m) & 0.3\\
 \hline
-Channel Width & 3.1 & Outlet Pool Depth & 0.6\\
+Channel Width (m) & 3.1 & Outlet Pool Depth (m) & 0.6\\
 \hline
-Stream Slope & 2 & Inlet Drop & No\\
+Stream Slope (\%) & 2 & Inlet Drop & No\\
 \hline
-Beaver Activity & No & Slope & 1\\
+Beaver Activity & No & Slope (\%) & 1\\
 \hline
 Habitat Value & Low & Valley Fill & Deep Fill\\
 \hline
@@ -2553,13 +2588,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-16 & Crossing Sub Type & Round Culvert\\
 \hline
-PSCIS ID & NA & Diameter & 1.5\\
+PSCIS ID & NA & Diameter (m) & 1.5\\
 \hline
-External ID & 4605742 & Length & 15\\
+External ID & 4605742 & Length (m) & 15\\
 \hline
-Crew & KP, AI & Embed & Yes\\
+Crew & KP, AI & Embedded & Yes\\
 \hline
-UTM Zone & 11 & Depth Embedded & 0.12\\
+UTM Zone & 11 & Depth Embedded (m) & 0.12\\
 \hline
 Easting & 643578 & Resemble Channel & Yes\\
 \hline
@@ -2567,15 +2602,15 @@ Northing & 5560087 & Backwatered & No\\
 \hline
 Stream & Lowe Creek & Percent Backwatered & NA\\
 \hline
-Road & Elk River FSR & Fill Depth & 0.3\\
+Road & Elk River FSR & Fill Depth (m) & 0.3\\
 \hline
-Road Tenure & FLNR 0103 & Outlet Drop & 0\\
+Road Tenure & FLNR 0103 & Outlet Drop (m) & 0\\
 \hline
-Channel Width & 2.5 & Outlet Pool Depth & 0.2\\
+Channel Width (m) & 2.5 & Outlet Pool Depth (m) & 0.2\\
 \hline
-Stream Slope & 3.5 & Inlet Drop & No\\
+Stream Slope (\%) & 3.5 & Inlet Drop & No\\
 \hline
-Beaver Activity & No & Slope & 1.5\\
+Beaver Activity & No & Slope (\%) & 1.5\\
 \hline
 Habitat Value & High & Valley Fill & Deep Fill\\
 \hline
@@ -2599,13 +2634,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-16 & Crossing Sub Type & Round Culvert\\
 \hline
-PSCIS ID & NA & Diameter & 0.4\\
+PSCIS ID & NA & Diameter (m) & 0.4\\
 \hline
-External ID & 4606669 & Length & 10\\
+External ID & 4606669 & Length (m) & 10\\
 \hline
-Crew & AI, KP & Embed & No\\
+Crew & AI, KP & Embedded & No\\
 \hline
-UTM Zone & 11 & Depth Embedded & NA\\
+UTM Zone & 11 & Depth Embedded (m) & NA\\
 \hline
 Easting & 646462 & Resemble Channel & No\\
 \hline
@@ -2613,15 +2648,15 @@ Northing & 5554360 & Backwatered & No\\
 \hline
 Stream & Tributary to Elk River & Percent Backwatered & NA\\
 \hline
-Road & Spur from Elk River FSR & Fill Depth & 1\\
+Road & Spur from Elk River FSR & Fill Depth (m) & 1\\
 \hline
-Road Tenure & Canfor R08473 & Outlet Drop & 0\\
+Road Tenure & Canfor R08473 & Outlet Drop (m) & 0\\
 \hline
-Channel Width & 1 & Outlet Pool Depth & 0\\
+Channel Width (m) & 1 & Outlet Pool Depth (m) & 0\\
 \hline
-Stream Slope & 0.5 & Inlet Drop & No\\
+Stream Slope (\%) & 0.5 & Inlet Drop & No\\
 \hline
-Beaver Activity & No & Slope & 2\\
+Beaver Activity & No & Slope (\%) & 2\\
 \hline
 Habitat Value & Low & Valley Fill & Deep Fill\\
 \hline
@@ -2638,13 +2673,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-23 & Crossing Sub Type & Concrete Box\\
 \hline
-PSCIS ID & NA & Diameter & 1.2\\
+PSCIS ID & NA & Diameter (m) & 1.2\\
 \hline
-External ID & 4606807 & Length & 9\\
+External ID & 4606807 & Length (m) & 9\\
 \hline
-Crew & KP, AI & Embed & Yes\\
+Crew & KP, AI & Embedded & Yes\\
 \hline
-UTM Zone & 11 & Depth Embedded & 0.09\\
+UTM Zone & 11 & Depth Embedded (m) & 0.09\\
 \hline
 Easting & 639952 & Resemble Channel & No\\
 \hline
@@ -2652,15 +2687,15 @@ Northing & 5483636 & Backwatered & No\\
 \hline
 Stream & Tributary to Elk River & Percent Backwatered & NA\\
 \hline
-Road & Railway & Fill Depth & 6\\
+Road & Railway & Fill Depth (m) & 6\\
 \hline
-Road Tenure & Canadian Pacific & Outlet Drop & 0\\
+Road Tenure & Canadian Pacific & Outlet Drop (m) & 0\\
 \hline
-Channel Width & 1.5 & Outlet Pool Depth & 0\\
+Channel Width (m) & 1.5 & Outlet Pool Depth (m) & 0\\
 \hline
-Stream Slope & 30 & Inlet Drop & No\\
+Stream Slope (\%) & 30 & Inlet Drop & No\\
 \hline
-Beaver Activity & No & Slope & 1.5\\
+Beaver Activity & No & Slope (\%) & 1.5\\
 \hline
 Habitat Value & Low & Valley Fill & Deep Fill\\
 \hline
@@ -2677,13 +2712,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-16 & Crossing Sub Type & Round Culvert\\
 \hline
-PSCIS ID & NA & Diameter & 0.4\\
+PSCIS ID & NA & Diameter (m) & 0.4\\
 \hline
-External ID & 4606835 & Length & 10\\
+External ID & 4606835 & Length (m) & 10\\
 \hline
-Crew & AI, KP & Embed & No\\
+Crew & AI, KP & Embedded & No\\
 \hline
-UTM Zone & 11 & Depth Embedded & NA\\
+UTM Zone & 11 & Depth Embedded (m) & NA\\
 \hline
 Easting & 644829 & Resemble Channel & No\\
 \hline
@@ -2691,15 +2726,15 @@ Northing & 5559116 & Backwatered & No\\
 \hline
 Stream & Tributary to Elk River & Percent Backwatered & NA\\
 \hline
-Road & Spur from Elk River FSR & Fill Depth & 1\\
+Road & Spur from Elk River FSR & Fill Depth (m) & 1\\
 \hline
-Road Tenure & Canfor R08370 & Outlet Drop & 0.3\\
+Road Tenure & Canfor R08370 & Outlet Drop (m) & 0.3\\
 \hline
-Channel Width & 1 & Outlet Pool Depth & 0\\
+Channel Width (m) & 1 & Outlet Pool Depth (m) & 0\\
 \hline
-Stream Slope & 3 & Inlet Drop & No\\
+Stream Slope (\%) & 3 & Inlet Drop & No\\
 \hline
-Beaver Activity & No & Slope & 2.5\\
+Beaver Activity & No & Slope (\%) & 2.5\\
 \hline
 Habitat Value & Low & Valley Fill & Deep Fill\\
 \hline
@@ -2716,13 +2751,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-18 & Crossing Sub Type & Bridge\\
 \hline
-PSCIS ID & NA & Diameter & 4\\
+PSCIS ID & NA & Diameter (m) & 4\\
 \hline
-External ID & 4607023 & Length & 18\\
+External ID & 4607023 & Length (m) & 18\\
 \hline
-Crew & AI, KP & Embed & NA\\
+Crew & AI, KP & Embedded & NA\\
 \hline
-UTM Zone & 11 & Depth Embedded & NA\\
+UTM Zone & 11 & Depth Embedded (m) & NA\\
 \hline
 Easting & 648041 & Resemble Channel & NA\\
 \hline
@@ -2730,15 +2765,15 @@ Northing & 5499983 & Backwatered & NA\\
 \hline
 Stream & McCool Creek & Percent Backwatered & NA\\
 \hline
-Road & NA & Fill Depth & NA\\
+Road & NA & Fill Depth (m) & NA\\
 \hline
-Road Tenure & Canfor R08477 & Outlet Drop & NA\\
+Road Tenure & Canfor R08477 & Outlet Drop (m) & NA\\
 \hline
-Channel Width & NA & Outlet Pool Depth & NA\\
+Channel Width (m) & NA & Outlet Pool Depth (m) & NA\\
 \hline
-Stream Slope & NA & Inlet Drop & NA\\
+Stream Slope (\%) & NA & Inlet Drop & NA\\
 \hline
-Beaver Activity & No & Slope & NA\\
+Beaver Activity & No & Slope (\%) & NA\\
 \hline
 Habitat Value & NA & Valley Fill & NA\\
 \hline
@@ -2753,13 +2788,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-18 & Crossing Sub Type & Bridge\\
 \hline
-PSCIS ID & NA & Diameter & 4\\
+PSCIS ID & NA & Diameter (m) & 4\\
 \hline
-External ID & 2020091801 & Length & 18\\
+External ID & 2020091801 & Length (m) & 18\\
 \hline
-Crew & AI, KP & Embed & NA\\
+Crew & AI, KP & Embedded & NA\\
 \hline
-UTM Zone & 11 & Depth Embedded & NA\\
+UTM Zone & 11 & Depth Embedded (m) & NA\\
 \hline
 Easting & 648381 & Resemble Channel & NA\\
 \hline
@@ -2767,15 +2802,15 @@ Northing & 5499536 & Backwatered & NA\\
 \hline
 Stream & McCool Creek & Percent Backwatered & NA\\
 \hline
-Road & Hadner FSR & Fill Depth & NA\\
+Road & Hadner FSR & Fill Depth (m) & NA\\
 \hline
-Road Tenure & FLNR 6946 & Outlet Drop & NA\\
+Road Tenure & FLNR 6946 & Outlet Drop (m) & NA\\
 \hline
-Channel Width & NA & Outlet Pool Depth & NA\\
+Channel Width (m) & NA & Outlet Pool Depth (m) & NA\\
 \hline
-Stream Slope & NA & Inlet Drop & NA\\
+Stream Slope (\%) & NA & Inlet Drop & NA\\
 \hline
-Beaver Activity & No & Slope & NA\\
+Beaver Activity & No & Slope (\%) & NA\\
 \hline
 Habitat Value & NA & Valley Fill & NA\\
 \hline
@@ -2790,13 +2825,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-22 & Crossing Sub Type & Bridge\\
 \hline
-PSCIS ID & NA & Diameter & 1.2\\
+PSCIS ID & NA & Diameter (m) & 1.2\\
 \hline
-External ID & 2020092201 & Length & 12\\
+External ID & 2020092201 & Length (m) & 12\\
 \hline
-Crew & AI, KP & Embed & NA\\
+Crew & AI, KP & Embedded & NA\\
 \hline
-UTM Zone & 11 & Depth Embedded & NA\\
+UTM Zone & 11 & Depth Embedded (m) & NA\\
 \hline
 Easting & 634969 & Resemble Channel & NA\\
 \hline
@@ -2804,15 +2839,15 @@ Northing & 5484828 & Backwatered & NA\\
 \hline
 Stream & Tributary to Lizard Creek & Percent Backwatered & NA\\
 \hline
-Road & Lazy Lizard Lower & Fill Depth & NA\\
+Road & Lazy Lizard Lower & Fill Depth (m) & NA\\
 \hline
-Road Tenure & Unknown & Outlet Drop & NA\\
+Road Tenure & Unknown & Outlet Drop (m) & NA\\
 \hline
-Channel Width & NA & Outlet Pool Depth & NA\\
+Channel Width (m) & NA & Outlet Pool Depth (m) & NA\\
 \hline
-Stream Slope & NA & Inlet Drop & NA\\
+Stream Slope (\%) & NA & Inlet Drop & NA\\
 \hline
-Beaver Activity & No & Slope & NA\\
+Beaver Activity & No & Slope (\%) & NA\\
 \hline
 Habitat Value & NA & Valley Fill & NA\\
 \hline
@@ -2827,13 +2862,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-23 & Crossing Sub Type & Bridge\\
 \hline
-PSCIS ID & NA & Diameter & 1.2\\
+PSCIS ID & NA & Diameter (m) & 1.2\\
 \hline
-External ID & 2020092301 & Length & 8\\
+External ID & 2020092301 & Length (m) & 8\\
 \hline
-Crew & AI, KP & Embed & NA\\
+Crew & AI, KP & Embedded & NA\\
 \hline
-UTM Zone & 11 & Depth Embedded & NA\\
+UTM Zone & 11 & Depth Embedded (m) & NA\\
 \hline
 Easting & 636474 & Resemble Channel & NA\\
 \hline
@@ -2841,15 +2876,15 @@ Northing & 5483873 & Backwatered & NA\\
 \hline
 Stream & Tributary to Lizard Creek & Percent Backwatered & NA\\
 \hline
-Road & Trail & Fill Depth & NA\\
+Road & Trail & Fill Depth (m) & NA\\
 \hline
-Road Tenure & Unknown & Outlet Drop & NA\\
+Road Tenure & Unknown & Outlet Drop (m) & NA\\
 \hline
-Channel Width & NA & Outlet Pool Depth & NA\\
+Channel Width (m) & NA & Outlet Pool Depth (m) & NA\\
 \hline
-Stream Slope & NA & Inlet Drop & NA\\
+Stream Slope (\%) & NA & Inlet Drop & NA\\
 \hline
-Beaver Activity & No & Slope & NA\\
+Beaver Activity & No & Slope (\%) & NA\\
 \hline
 Habitat Value & NA & Valley Fill & NA\\
 \hline
@@ -2864,13 +2899,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-23 & Crossing Sub Type & Round Culvert\\
 \hline
-PSCIS ID & NA & Diameter & 0.6\\
+PSCIS ID & NA & Diameter (m) & 0.6\\
 \hline
-External ID & 2020092302 & Length & 14\\
+External ID & 2020092302 & Length (m) & 14\\
 \hline
-Crew & AI, KP & Embed & Yes\\
+Crew & AI, KP & Embedded & Yes\\
 \hline
-UTM Zone & 11 & Depth Embedded & 0.03\\
+UTM Zone & 11 & Depth Embedded (m) & 0.03\\
 \hline
 Easting & 640218 & Resemble Channel & Yes\\
 \hline
@@ -2878,15 +2913,15 @@ Northing & 5481065 & Backwatered & No\\
 \hline
 Stream & Tributary to Elk River & Percent Backwatered & NA\\
 \hline
-Road & Hill Road & Fill Depth & 1.2\\
+Road & Hill Road & Fill Depth (m) & 1.2\\
 \hline
-Road Tenure & Unknown & Outlet Drop & 0\\
+Road Tenure & Unknown & Outlet Drop (m) & 0\\
 \hline
-Channel Width & 1.5 & Outlet Pool Depth & 0\\
+Channel Width (m) & 1.5 & Outlet Pool Depth (m) & 0\\
 \hline
-Stream Slope & 0 & Inlet Drop & No\\
+Stream Slope (\%) & 0 & Inlet Drop & No\\
 \hline
-Beaver Activity & No & Slope & 0.5\\
+Beaver Activity & No & Slope (\%) & 0.5\\
 \hline
 Habitat Value & Low & Valley Fill & Deep Fill\\
 \hline
@@ -2901,13 +2936,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-23 & Crossing Sub Type & Round Culvert\\
 \hline
-PSCIS ID & NA & Diameter & 0.6\\
+PSCIS ID & NA & Diameter (m) & 0.6\\
 \hline
-External ID & 2020092303 & Length & 15\\
+External ID & 2020092303 & Length (m) & 15\\
 \hline
-Crew & AI, KP & Embed & No\\
+Crew & AI, KP & Embedded & No\\
 \hline
-UTM Zone & 11 & Depth Embedded & NA\\
+UTM Zone & 11 & Depth Embedded (m) & NA\\
 \hline
 Easting & 640227 & Resemble Channel & No\\
 \hline
@@ -2915,15 +2950,15 @@ Northing & 5481028 & Backwatered & No\\
 \hline
 Stream & Tributary to Elk River & Percent Backwatered & NA\\
 \hline
-Road & Driveway & Fill Depth & 1\\
+Road & Driveway & Fill Depth (m) & 1\\
 \hline
-Road Tenure & Unknown & Outlet Drop & 0\\
+Road Tenure & Unknown & Outlet Drop (m) & 0\\
 \hline
-Channel Width & 1.5 & Outlet Pool Depth & 0\\
+Channel Width (m) & 1.5 & Outlet Pool Depth (m) & 0\\
 \hline
-Stream Slope & 2 & Inlet Drop & No\\
+Stream Slope (\%) & 2 & Inlet Drop & No\\
 \hline
-Beaver Activity & No & Slope & 0.5\\
+Beaver Activity & No & Slope (\%) & 0.5\\
 \hline
 Habitat Value & Low & Valley Fill & Deep Fill\\
 \hline
@@ -2940,13 +2975,13 @@ Location and Stream Data & - & Crossing Characteristics & --\\
 \hline
 Date & 2020-09-23 & Crossing Sub Type & Bridge\\
 \hline
-PSCIS ID & NA & Diameter & 1.2\\
+PSCIS ID & NA & Diameter (m) & 1.2\\
 \hline
-External ID & 2020092310 & Length & 13.5\\
+External ID & 2020092310 & Length (m) & 14\\
 \hline
-Crew & KP, AI & Embed & NA\\
+Crew & KP, AI & Embedded & NA\\
 \hline
-UTM Zone & 11 & Depth Embedded & NA\\
+UTM Zone & 11 & Depth Embedded (m) & NA\\
 \hline
 Easting & 636029 & Resemble Channel & NA\\
 \hline
@@ -2954,15 +2989,15 @@ Northing & 5484419 & Backwatered & NA\\
 \hline
 Stream & Tributary to Lizard Creek & Percent Backwatered & NA\\
 \hline
-Road & Lazy Lizard Lower & Fill Depth & NA\\
+Road & Lazy Lizard Lower & Fill Depth (m) & NA\\
 \hline
-Road Tenure & Unknown & Outlet Drop & NA\\
+Road Tenure & Unknown & Outlet Drop (m) & NA\\
 \hline
-Channel Width & NA & Outlet Pool Depth & NA\\
+Channel Width (m) & NA & Outlet Pool Depth (m) & NA\\
 \hline
-Stream Slope & NA & Inlet Drop & NA\\
+Stream Slope (\%) & NA & Inlet Drop & NA\\
 \hline
-Beaver Activity & No & Slope & NA\\
+Beaver Activity & No & Slope (\%) & NA\\
 \hline
 Habitat Value & NA & Valley Fill & NA\\
 \hline
@@ -2970,6 +3005,112 @@ Habitat Value & NA & Valley Fill & NA\\
 \multicolumn{4}{l}{\textsuperscript{} Photos:}\\
 \multicolumn{4}{l}{2020092310![](https://github.com/NewGraphEnvironment/fish\_passage\_elk\_2020\_reporting/raw/master/data/photos/2020092310/crossing\_all.JPG)}\\
 \end{tabular}
+
+\hypertarget{appendix---crossing-50155}{%
+\chapter*{Appendix - Crossing 50155}\label{appendix---crossing-50155}}
+\addcontentsline{toc}{chapter}{Appendix - Crossing 50155}
+
+\textbf{Island Lake Lodge Road - Tributary to Lizard Creek}
+
+\hypertarget{site-location}{%
+\section*{Site Location}\label{site-location}}
+\addcontentsline{toc}{section}{Site Location}
+
+Crossing 50155 is located on a tributary to Lizard Creek, approximately 75m upstream from the confluence with Lizard Creek. The stream is located approximately 100m east of the location where it is mapped on the freshwater atlas stream layer. Island Lake Lodge Road is an extension of Mt.Fernie Park Road with access to Highway 3 located within Fernie city limits. The are is a popular recreational destination for hikers and mountain bikers. Island Lake Lodge is a year round tourist destination providing accomodations, guided hiking and backcountry catskiing for clients.
+
+\hypertarget{background-1}{%
+\section*{Background}\label{background-1}}
+\addcontentsline{toc}{section}{Background}
+
+At the crossing location, the stream is 2nd order with a watershed area upstream of the road of approximately 1.8km\textsuperscript{2}. The elevation of the watershed ranges from a maximum of 1945m to 1080m at the culvert. One 12m long bridge (PSCIS 197543) is located upstream of the subject crossing approximately 575m on the Lazy Lizard bike trail and another 7m long bridge structure is located downstream also on a recreational trail. A search of provincial records yielded no fisheries information for the stream \citep{moeStreamInventorySample}. Downstream, Lizard Creek supports westslope cutthroat trout, bull trout, mountain whitefish, brook trout, longnose sucker and longnose dace \citep{data_fish_obs}.
+
+PSCIS stream crossing 50155 was ranked as a high priority for follow up with habitat confirmation due to the large size of the stream relative to other tributary streams in the watershed, the previously rated high value habitat and because it was prioritized for follow up by \citet{vastFishPassage2013}. The habitat confirmation was completed on September 22, 2020. A map of the watershed including areas surveyed is provided in Attachment 1 -- Map \href{https://hillcrestgeo.ca/outgoing/fishpassage/projects/elk/FishPassage_082G.113.pdf}{082G.113}.
+
+\hypertarget{stream-characteristics-at-crossing}{%
+\section*{Stream Characteristics at Crossing}\label{stream-characteristics-at-crossing}}
+\addcontentsline{toc}{section}{Stream Characteristics at Crossing}
+
+At the time of the survey, the un-embedded and non-backwatered 0.9m diameter crossing was considered a barrier to upstream fish passage with a pipe length of 11m, a culvert slope of 2.6\%, a stream width ratio of 2.5 an outlet drop of 0.22m (Table \ref{tab:tableculvert-010}. Water temperature was 9\(^\circ\)C, pH was 7.7 and conductivity was 480uS/cm.
+
+\hypertarget{stream-characteristics-downstream}{%
+\section*{Stream Characteristics Downstream}\label{stream-characteristics-downstream}}
+\addcontentsline{toc}{section}{Stream Characteristics Downstream}
+
+The stream was surveyed downstream from the culvert for 100m to Lizard Creek. Overall, total cover amount was rated as moderate with undercut banks dominant. Cover was also present as small woody debris, large woody debris, and overhanging vegetation (Figures \ref{fig:photo-001}). The average channel width was 2.2m, the average wetted width was 1.9m and the average gradient was 4.3\%. Habitat value was rated as medium with good potential for fry/juvenile salmonid rearing but a lack of deep pools for adult overwintering and rearing.
+
+\hypertarget{stream-characteristics-upstream}{%
+\section*{Stream Characteristics Upstream}\label{stream-characteristics-upstream}}
+\addcontentsline{toc}{section}{Stream Characteristics Upstream}
+
+The stream was surveyed upstream from the culvert for 700m. Overall, total cover amount was rated as abundant with deep pools dominant. Cover was also present as small woody debris, large woody debris, boulders, undercut banks, and overhanging vegetation (Figure \ref{fig:photo-002}). The average channel width was 2.2m, the average wetted width was 1.6m and the average gradient was 10.5\%. There were frequent areas of gravels suitable for resident westslope cutthrout trout spawning. Frequent pools to 40cm deep were present and associated with small and large woody debris. Habitat value was rated as high for fry and juvenile westslope cutthrout rearing.
+
+\hypertarget{fish-sampling}{%
+\section*{Fish Sampling}\label{fish-sampling}}
+\addcontentsline{toc}{section}{Fish Sampling}
+
+To assess potential impacts of the culvert on fish densities in the stream we electrofished upstream and downstream of the crossing. Three sites were sampled upstream and one site was sampled downstream. A total of 42 westslope cutthrout trout and 4 eastern brook trout were captured upstream with 28 westslope cutthrout trout and 2 eastern brook trout captured downstream. Raw results are included in digital format as \href{https://github.com/NewGraphEnvironment/fish_passage_elk_2020_reporting/raw/master/data/habitat_confirmations.xls}{Attachment 2} and summarized in Tables \ref{tab:tab-fish-site-010} - \ref{tab:tab-fish-dens-010} and Figure \ref{fig:plot-fish-box-010}.
+
+\hypertarget{conclusion-1}{%
+\section*{Conclusion}\label{conclusion-1}}
+\addcontentsline{toc}{section}{Conclusion}
+
+There is an estimated NAkm of mainstem habitat upstream of crossing 50155 with habitat in the areas surveyed upstream of the crossing rated as high value for fry and juvenile salmonid rearing. Although it could be partially attributed to the lower gradient habitat downstream and the proximity to the Lizard Creek mainstem, fish sampling results indicated that the crossing is potentially negatively impacting habitat capacity upstream of the crossing as higher densities of westslope cutthrout trout were captured downstream of the crossing than above. It is unclear whether the road is part of the Island Lake Recreational tenure or solely the responsiblity of the Ministry of Forests, Lands, Natural Resource Operations \& Rural Development. The crossing was ranked as a moderate priority for proceeding to design for an open bottomed replacement structure.
+
+\begin{table}
+
+\caption{\label{tab:tab-fish-site-010}Electrofishing sites for PSCIS crossing 50155.}
+\centering
+\begin{tabular}[t]{r|l|r|r|r|r|r}
+\hline
+Site & Location & Width (m) & Length (m) & Area (m2) & Effort (s) & Effort (s/m2)\\
+\hline
+19 & Downstream & 1.7 & 40 & 68 & 200 & 2.9\\
+\hline
+18 & Upstream & 1.6 & 25 & 40 & 117 & 2.9\\
+\hline
+33 & Upstream & 1.6 & 13 & 21 & 61 & 2.9\\
+\hline
+34 & Upstream & 1.6 & 45 & 72 & 154 & 2.1\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}
+
+\caption{\label{tab:tab-fish-dens-010}Westslope cuthrout trout densities (fish/100m2) for PSCIS crossing 50155.}
+\centering
+\begin{tabular}[t]{l|l|l|l|l|l}
+\hline
+Site & Location & Fry & Parr & Juvenile & Adult\\
+\hline
+19 & Downstream & 35.3 & 4.4 & - & 1.5\\
+\hline
+18 & Upstream & 15 & 12.5 & - & -\\
+\hline
+33 & Upstream & 23.8 & 9.5 & 9.5 & -\\
+\hline
+34 & Upstream & 23.6 & 5.6 & - & 1.4\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{figure}
+\centering
+\includegraphics{Elk-River-Fish-Passage-2020_files/figure-latex/plot-fish-box-010-1.pdf}
+\caption{\label{fig:plot-fish-box-010}Fish densities (fish/100m2) for PSCIS crossing 50155.}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics{Elk-River-Fish-Passage-2020_files/figure-latex/photo-001-1.pdf}
+\caption{\label{fig:photo-001}Typical habitat downstream of PSCIS crossing 50155.}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics{Elk-River-Fish-Passage-2020_files/figure-latex/photo-002-1.pdf}
+\caption{\label{fig:photo-002}Typical habitat upstream of PSCIS crossing 50155.}
+\end{figure}
 
   \bibliography{book.bib,packages.bib}
 

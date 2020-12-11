@@ -11,6 +11,9 @@ at_trim_xlsheet2 <- function(df, column_last = ncol(df)) {
 
 ##function to import pscis info
 import_pscis <- function(workbook_name = 'pscis_phase1.xlsm'){ ##new template.  could change file back to .xls
+  sig_fig0 <- c('length_or_width_meters')
+  sig_fig1 <- c('culvert_slope_percent', 'stream_width_ratio')
+  sig_fig2 <- c('outlet_drop_meters')
   readxl::read_excel(path = paste0(getwd(),"/data/", workbook_name),
                      sheet = 'PSCIS Assessment Worksheet') %>%
     # purrr::set_names(janitor::make_clean_names(names(.))) %>%
@@ -19,7 +22,10 @@ import_pscis <- function(workbook_name = 'pscis_phase1.xlsm'){ ##new template.  
     mutate(date = janitor::excel_numeric_to_date(as.numeric(date))) %>%
     filter(!is.na(date)) %>%
     readr::type_convert() %>%  ##guess the type!!
-    mutate(source = workbook_name)
+    mutate(source = workbook_name) %>%
+    mutate(across(all_of(sig_fig0), round, 0)) %>%
+    mutate(across(all_of(sig_fig1), round, 1)) %>%
+    mutate(across(all_of(sig_fig2), round, 2))
 }
 
 
@@ -52,15 +58,53 @@ make_photo_comp_cv <- function(site_id){
   image_write(photos_stacked, path = paste0(getwd(), '/data/photos/', site_id, '/crossing_all.JPG'), format = 'jpg')
 }
 
-##make a function to retrieve the watershed info
-get_watershed <- function(fish_habitat_info){
-  mapply(fwapgr::fwa_watershed, blue_line_key = fish_habitat_info$blue_line_key,
-         downstream_route_measure = fish_habitat_info$downstream_route_measure) %>%
-    purrr::set_names(nm = fish_habitat_info$pscis_model_combined_id) %>%
-    discard(function(x) nrow(x) == 0) %>% ##remove zero row tibbles with https://stackoverflow.com/questions/49696392/remove-list-elements-that-are-zero-row-tibbles
-    data.table::rbindlist(idcol="pscis_model_combined_id") %>%
-    distinct(pscis_model_combined_id, .keep_all = T) %>% ##there are duplicates we should get rid of
-    st_as_sf()
+
+####-------culvert details summary---------------
+make_tab_cv <- function(dat = pscis){
+tab_culvert_prep <- dat %>%
+  select(pscis_crossing_id, continuous_embeddedment_yes_no,
+         outlet_drop_meters, diameter_or_span_meters,
+         stream_width_ratio, culvert_slope_percent,
+         length_or_width_meters,
+         final_score, barrier_result)
+
+names_report <- left_join(
+  as_tibble(names(tab_culvert_prep)),
+  select(xref_names, spdsht, report),
+  by = c('value' = 'spdsht')
+) %>%
+  pull(report)
+
+tab_culvert <- tab_culvert_prep %>%
+  purrr::set_names(nm = names_report)
 }
 
 
+####------my_kable-------------------------------
+my_kable_scroll <- function(dat, caption_text = ''){
+  dat %>%
+    kable(caption = caption_text) %>%
+    kableExtra::kable_styling(c("condensed"), full_width = T, font_size = 11) %>%
+    kableExtra::scroll_box(width = "100%", height = "500px")
+}
+
+# my_kable_scroll <- function(dat){
+#   dat %>%
+#     kable() %>%
+#     kableExtra::kable_styling(c("condensed"), full_width = T, font_size = 11) %>%
+#     kableExtra::scroll_box(width = "100%", height = "500px")
+# }
+
+my_kable <- function(dat, caption_text = ''){
+  dat %>%
+    kable(caption = caption_text) %>%
+    kableExtra::kable_styling(c("condensed"), full_width = T, font_size = 11)
+    # kableExtra::scroll_box(width = "100%", height = "500px")
+}
+
+# my_kable <- function(dat){
+#   dat %>%
+#     kable() %>%
+#     kableExtra::kable_styling(c("condensed"), full_width = T, font_size = 11)
+#   # kableExtra::scroll_box(width = "100%", height = "500px")
+# }
