@@ -112,7 +112,7 @@ make_tab_summary(df = pscis2 %>% filter(pscis_crossing_id == my_site)) %>%
 
 <br>
 
-```{r photo-001, fig.cap= my_caption, eval=T}
+```{r photo-001, eval=T}
 my_photo = '20200922_131045_k.JPG'
 
 my_caption = paste0('Typical habitat downstream of PSCIS crossing ', my_site, '.')
@@ -124,7 +124,9 @@ knitr::include_graphics(get_img_path())
 
 <br>
 
-```{r photo-002, fig.cap= my_caption, eval=T}
+```{r photo-002, eval=T}
+
+# fig.cap= my_caption, 
 my_photo = 'IMG_3304_k.JPG'
 
 my_caption = paste0('Typical habitat upstream of PSCIS crossing ', my_site, '.')

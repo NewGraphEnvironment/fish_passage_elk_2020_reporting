@@ -86,11 +86,5 @@ my_priority_info <- function(dat = habitat_confirmations_priorities, site = my_s
     filter(site == my_site & location == loc)
 }
 
-get_img <- function(site = my_site, photo = my_photo){
-  jpeg::readJPEG(paste0('data/photos/', site, '/', photo))
-}
 
-get_img_path <- function(site = my_site, photo = my_photo){
-  paste0('./data/photos/', site, '/', photo)
-}
 

@@ -115,3 +115,16 @@ my_kable <- function(dat, caption_text = ''){
 #     kableExtra::kable_styling(c("condensed"), full_width = T, font_size = 11)
 #   # kableExtra::scroll_box(width = "100%", height = "500px")
 # }
+
+get_img <- function(site = my_site, photo = my_photo){
+  jpeg::readJPEG(paste0('data/photos/', site, '/', photo))
+}
+
+get_img_path_abs <- function(site = my_site, photo = my_photo){
+  stub <- 'https://github.com/NewGraphEnvironment/fish_passage_elk_2020_reporting/blob/master/'
+  paste0(stub, 'data/photos/', site, '/', photo)
+}
+
+get_img_path <- function(site = my_site, photo = my_photo){
+  paste0('data/photos/', site, '/', photo)
+}
