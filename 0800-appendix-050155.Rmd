@@ -97,7 +97,8 @@ tab_fish_dens() %>%
 ```{r plot-fish-box-010, fig.cap= my_caption, eval=T}
 my_caption <- paste0('Fish densities (fish/100m2) for PSCIS crossing ', my_site, '.')
 
-plot_fish_box() 
+p <- plot_fish_box() 
+p
 ```
 
 
@@ -112,7 +113,7 @@ make_tab_summary(df = pscis2 %>% filter(pscis_crossing_id == my_site)) %>%
 <br>
 
 ```{r photo-001, fig.cap= my_caption, eval=T}
-my_photo = '20200922_131045.JPG'
+my_photo = '20200922_131045_k.JPG'
 
 my_caption = paste0('Typical habitat downstream of PSCIS crossing ', my_site, '.')
 
@@ -122,7 +123,7 @@ grid::grid.raster(get_img())
 <br>
 
 ```{r photo-002, fig.cap= my_caption, eval=T}
-my_photo = 'IMG_3304.JPG'
+my_photo = 'IMG_3304_k.JPG'
 
 my_caption = paste0('Typical habitat upstream of PSCIS crossing ', my_site, '.')
 

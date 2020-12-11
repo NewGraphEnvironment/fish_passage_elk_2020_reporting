@@ -1,5 +1,5 @@
 # Introduction {#intro}
-New Graph Environment was retained by the Canadian Wildlife Federation in the fall of 2020 to conduct fish passage assessments of stream crossings within the Elk River watershed upstream of the Elko Dam near Elko, BC. Hillcrest Geographics was subcontracted to provide geographical information systems (GIS) support for the project.  The work was carried out in accordance with the BC Ministry of Environment: Field Assessment  for Determining Fish Passage at Closed  Bottom  Structures,  4th  Edition [@fish_passage_assessments] and Fish Passage Strategic Approach: Protocol for Prioritizing Sites for Fish Passage Remediation: 4th Edition [@fishpassagetechnicalworkinggroupFishPassageStrategic2014].
+New Graph Environment was retained by the Canadian Wildlife Federation in the fall of 2020 to conduct fish passage assessments of stream crossings within the Elk River watershed upstream of the Elko Dam near Elko, BC. The work was carried out in accordance with the BC Ministry of Environment: Field Assessment  for Determining Fish Passage at Closed  Bottom  Structures,  4th  Edition [@fish_passage_assessments] and Fish Passage Strategic Approach: Protocol for Prioritizing Sites for Fish Passage Remediation: 4th Edition [@fishpassagetechnicalworkinggroupFishPassageStrategic2014].
 
 <br>
 
