@@ -124,9 +124,9 @@ knitr::include_graphics(get_img_path())
 
 <br>
 
-```{r photo-002, eval=T}
+```{r photo-002, fig.cap= my_caption, eval=T}
 
-# fig.cap= my_caption, 
+# 
 my_photo = 'IMG_3304_k.JPG'
 
 my_caption = paste0('Typical habitat upstream of PSCIS crossing ', my_site, '.')
