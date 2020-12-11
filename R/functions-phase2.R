@@ -90,3 +90,7 @@ get_img <- function(site = my_site, photo = my_photo){
   jpeg::readJPEG(paste0('data/photos/', site, '/', photo))
 }
 
+get_img_path <- function(site = my_site, photo = my_photo){
+  paste0('data/photos/', site, '/', photo)
+}
+

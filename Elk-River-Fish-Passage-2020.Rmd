@@ -4,7 +4,6 @@ author: "Al Irvine, R.P.Bio."
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
-self_contained: true
 documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
@@ -382,7 +381,9 @@ my_photo = '20200922_131045_k.JPG'
 
 my_caption = paste0('Typical habitat downstream of PSCIS crossing ', my_site, '.')
 
-grid::grid.raster(get_img())
+# grid::grid.raster(get_img())
+
+knitr::include_graphics(get_img_path())
 ```
 
 <br>
