@@ -4,6 +4,7 @@ author: "Al Irvine, R.P.Bio."
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
+self_contained: true
 documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
@@ -344,7 +345,7 @@ There is an estimated `r my_priority_info() %>% pull(upstream_habitat_length_km)
 my_caption <- paste0('Electrofishing sites for PSCIS crossing ', my_site, '.')
 
 tab_fish_site() %>% 
-  my_kable(caption_text = my_caption)
+  my_kable_scroll_no_height(caption_text = my_caption)
 ```
 
 <br>
@@ -353,7 +354,7 @@ tab_fish_site() %>%
 my_caption <- paste0('Westslope cuthrout trout densities (fish/100m2) for PSCIS crossing ', my_site, '.')
 
 tab_fish_dens() %>% 
-  my_kable(caption_text = my_caption)
+  my_kable_scroll_no_height(caption_text = my_caption)
 ```
 
 <br>

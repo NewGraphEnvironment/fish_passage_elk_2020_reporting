@@ -88,6 +88,13 @@ my_kable_scroll <- function(dat, caption_text = ''){
     kableExtra::scroll_box(width = "100%", height = "500px")
 }
 
+my_kable_scroll_no_height <- function(dat, caption_text = ''){
+  dat %>%
+    kable(caption = caption_text) %>%
+    kableExtra::kable_styling(c("condensed"), full_width = T, font_size = 11) %>%
+    kableExtra::scroll_box(width = "100%")
+}
+
 # my_kable_scroll <- function(dat){
 #   dat %>%
 #     kable() %>%
