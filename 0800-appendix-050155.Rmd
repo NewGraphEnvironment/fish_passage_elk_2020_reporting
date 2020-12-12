@@ -131,6 +131,7 @@ my_photo = 'IMG_3304_k.JPG'
 
 my_caption = paste0('Typical habitat upstream of PSCIS crossing ', my_site, '.')
 
-grid::grid.raster(get_img())
+# grid::grid.raster(get_img())
+knitr::include_graphics(get_img_path())
 ```
 
