@@ -2,5 +2,5 @@ book_filename: "Elk-River-Fish-Passage-2020"
 language:
   ui:
     chapter_name: ""
-delete_merged_file: false
+delete_merged_file: True
 output_dir: "docs"

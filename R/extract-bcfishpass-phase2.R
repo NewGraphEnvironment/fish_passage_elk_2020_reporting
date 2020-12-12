@@ -1,7 +1,6 @@
 source('R/functions.R')
 source('R/packages.R')
 source('R/private_info.R')
-# source('R/tables.R') ##only because we need the xref for pscis vs my_crossing_reference sites
 
 ##make a dataframe to pull info from the db
 ##we should probably break each row out and determine the crs by the utm_zone attribute
@@ -43,17 +42,17 @@ conn <- DBI::dbConnect(
 dbGetQuery(conn,
            "SELECT table_name
            FROM information_schema.tables
-           WHERE table_schema='cwf'")
+           WHERE table_schema='bcfishpass'")
 # # #
 # # # ##list column names in a table
 dbGetQuery(conn,
            "SELECT column_name,data_type
            FROM information_schema.columns
-           WHERE table_name='modelled_culverts_qa'")
+           WHERE table_name='pscis_modelledcrossings_streams_xref'")
 
 
 
-# test <- dbGetQuery(conn, "SELECT * FROM bcfishpass.pscis_modelledcrossings_streams_xref")
+# test <- dbGetQuery(conn, "SELECT * FROM bcfishpass.waterfalls")
 
 # add a unique id - we could just use the reference number
 dat$misc_point_id <- seq.int(nrow(dat))
@@ -84,10 +83,11 @@ CROSS JOIN LATERAL
    LIMIT 1) AS b")
 
 
+##swapped out fish_passage.modelled_crossings_closed_bottom for bcfishpass.barriers_anthropogenic
 
 ##join the modelling data to our pscis submission info
 dat_joined <- left_join(
-  select(dat, misc_point_id, pscis_crossing_id, my_crossing_reference, source),
+  select(dat, misc_point_id, pscis_crossing_id,my_crossing_reference), ##traded pscis_crossing_id for my_crossing_reference
   dat_info,
   by = "misc_point_id"
 ) %>%
@@ -118,28 +118,15 @@ conn <- DBI::dbConnect(
 # load to database
 sf::st_write(obj = dat, dsn = conn, Id(schema= "working", table = "misc"))
 
-# sf doesn't automagically create a spatial index or a primary key
-res <- dbSendQuery(conn, "CREATE INDEX ON working.misc USING GIST (geometry)")
-dbClearResult(res)
-res <- dbSendQuery(conn, "ALTER TABLE working.misc ADD PRIMARY KEY (misc_point_id)")
-dbClearResult(res)
+
 
 dat_info <- dbGetQuery(conn,
                        "
-                                  WITH c AS
-                                  (SELECT a.misc_point_id, b.map_tile_display_name, a.geometry
+                                  SELECT a.misc_point_id, b.admin_area_abbreviation
                                   FROM working.misc a
                                   INNER JOIN
-                                  whse_basemapping.dbm_mof_50k_grid b
-                                  ON ST_Intersects(b.geom, ST_Transform(a.geometry,3005)))
-
-                                  SELECT c.misc_point_id, c.map_tile_display_name, b.admin_area_abbreviation, c.geometry
-                                  FROM c
-                                  LEFT OUTER JOIN
                                   whse_legal_admin_boundaries.abms_municipalities_sp b
-                                  ON ST_Intersects(b.geom, ST_Transform(c.geometry,3005))
-
-
+                                  ON ST_Intersects(b.geom, ST_Transform(a.geometry,3005))
                        ")
 
 dbDisconnect(conn = conn)
@@ -150,8 +137,6 @@ dat_joined2 <- left_join(
   dat_info,
   by = "misc_point_id"
 )
-
-
 
 # ##burn it all to a csv so you can use it however you want
 # df_joined2 %>% readr::write_csv(file = paste0(getwd(), '/data/bcfishpass-phase2.csv'))
@@ -208,8 +193,7 @@ dat_joined4 <- dat_joined3 %>%
            case_when(distance > 100 ~ 'Unknown',  ##we need to get rid of the info for the ones that are far away
                      T ~ my_road_tenure))
 
-##we need to qa our phase 2 model crossings so we can get the watershed info
-
+##we need to qa which are our modelled crossings at least for our phase 2 crossings
 pscis_modelledcrossings_streams_xref <- dat_joined4 %>%
   select(stream_crossing_id = pscis_crossing_id,
          crossing_id,
@@ -217,26 +201,16 @@ pscis_modelledcrossings_streams_xref <- dat_joined4 %>%
   filter(!is.na(stream_crossing_id)) %>%
   mutate(modelled_crossing_id = case_when(
     stream_crossing_id == 50159 |
-      stream_crossing_id == 62425 |
-      stream_crossing_id == 62426
-      ~ NA_integer_,
+    stream_crossing_id == 62425 |
+    stream_crossing_id == 62426
+    ~ NA_integer_,
     T ~ crossing_id
   ),
   linear_feature_id = case_when(
-    is.na(modelled_crossing_id) ~
-      bit64::NA_integer64_,
+    is.na(modelled_crossing_id) ~ NA_integer64_,
     T ~ linear_feature_id
   ))
 
-##join the qa modelled info back into the dat
-dat_joined5 <- left_join(
-  dat_joined4,
-  select(pscis_modelledcrossings_streams_xref, stream_crossing_id, modelled_crossing_id) %>%
-    sf::st_drop_geometry(),
-  by = c('pscis_crossing_id' = 'stream_crossing_id')
-)
-
-
 
 ##burn it all to a file we can use later
-dat_joined5 %>% readr::write_csv(file = paste0(getwd(), '/data/bcfishpass-phase2.csv'))
+dat_joined4 %>% readr::write_csv(file = paste0(getwd(), '/data/bcfishpass-phase2.csv'))
