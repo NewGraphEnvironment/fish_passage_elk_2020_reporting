@@ -3,7 +3,7 @@ tab:tab-barrier-scoring
 tab:tab-barrier-result
 tab:cost-est
 tab:tab-overview
-tab:unnamed-chunk-4
+tab:unnamed-chunk-5
 tab:tab-habitat-summary
 tab:tab-fish-site-010
 tab:tab-fish-dens-010
