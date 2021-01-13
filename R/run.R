@@ -42,8 +42,8 @@ file.rename('data/0600-appendix.Rmd', '0600-appendix.Rmd')
 #font_set <- 11
 #photo_width <- "100%"
 
-##  make the site
-rmarkdown::render_site(output_format = 'bookdown::gitbook', encoding = 'UTF-8')
+
+##now we need to print the docs/Elk.html file to Elk.pdf with chrome.  We should automate this step.  Do in browser for now
 
 ##sub in the title page
 length <- pdf_length(paste0(getwd(), "/docs/Elk.pdf"))
@@ -58,3 +58,6 @@ pdf_combine(c(paste0(getwd(), "/docs/title_page.pdf"),
 file.rename(paste0(getwd(), "/docs/Elk3.pdf"), paste0(getwd(),"/docs/Elk.pdf"))
 
 file.remove(paste0(getwd(), "/docs/Elk2.pdf"))
+
+##  make the site
+rmarkdown::render_site(output_format = 'bookdown::gitbook', encoding = 'UTF-8')

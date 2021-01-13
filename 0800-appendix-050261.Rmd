@@ -93,7 +93,7 @@ The stream was surveyed immediately upstream from the culvert for `r my_priority
 
 ## Conclusion {-}
 
-The chute located 200m downstream of PSCIS `r as.character(my_site)` is an impassable barrier to upstream migration and negates the value in restoring passage at the crossing. It is recommended that the crossing not proceed to design for remeiation of fish passage at the site. 
+The chute located 200m downstream of PSCIS `r as.character(my_site)` is an impassable barrier to upstream migration and negates the value in restoring passage at the crossing. It is recommended that the crossing not proceed to design for remediation of fish passage at the site. 
 
 \pagebreak
 

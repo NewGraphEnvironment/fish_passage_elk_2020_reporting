@@ -109,6 +109,7 @@ fish-passage-assessments
 barrier-scoring
 cost-benefit-analysis
 habitat-gain-index
+cost-estimates
 habitat-confirmation-assessments
 reporting
 results-and-discussion
