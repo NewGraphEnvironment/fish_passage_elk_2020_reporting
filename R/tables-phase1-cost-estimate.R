@@ -123,8 +123,8 @@ tab_cost_est_prep3 <- left_join(
 ) %>%
   mutate(cost_net = round(wct_belowupstrbarriers_network_km * 1000/cost_est_1000s, 1),
          cost_gross = round(wct_network_km * 1000/cost_est_1000s, 1),
-         cost_area_net = round((wct_belowupstrbarriers_network_km * 1000 * downstream_channel_width_meters * 0.5)/cost_est_1000s, 1), ##this is a triangle area!
-         cost_area_gross = round((wct_network_km * 1000 * downstream_channel_width_meters * 0.5)/cost_est_1000s, 1)) ##this is a triangle area!
+         cost_area_net = round((wct_belowupstrbarriers_network_km * 1000 * downstream_channel_width_meters)/cost_est_1000s, 1), ##this is a triangle area!
+         cost_area_gross = round((wct_network_km * 1000 * downstream_channel_width_meters)/cost_est_1000s, 1)) ##this is a triangle area!
 
 ##add the xref stream_crossing_id
 tab_cost_est_prep4 <- left_join(
