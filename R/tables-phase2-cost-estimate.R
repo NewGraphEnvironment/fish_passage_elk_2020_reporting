@@ -118,7 +118,7 @@ tab_cost_est_prep3 <- left_join(
   by = c('pscis_crossing_id' = 'site')
 ) %>%
   mutate(cost_net = round(upstream_habitat_length_m/cost_est_1000s, 1),
-         cost_area_net = round((upstream_habitat_length_m * downstream_channel_width_meters * 0.5)/cost_est_1000s, 1))
+         cost_area_net = round((upstream_habitat_length_m * downstream_channel_width_meters)/cost_est_1000s, 1))
 
 
 
