@@ -8,7 +8,6 @@ tab:tab-hab-value
 tab:tab-barrier-scoring
 tab:tab-barrier-result
 tab:tab-cost-mult
-fig:map-interactive
 tab:cost-est-phase-1
 tab:tab-overview
 tab:unnamed-chunk-6
