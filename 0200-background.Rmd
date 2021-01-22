@@ -10,17 +10,21 @@ As a result of high-level direction from the provincial government, a Fish Passa
   
 <br>
 
+The Canadian Wildlife Federation has been working on a watershed connectivity remediation plan for the Elk River watershed that incorporates the provincial Strategic Approach and local knowledge of the watershed to prioritize barriers for remediation, to restore connectivity for westslope cutthroat trout and other species in a strategic manner. New Graph Environment was retained to conduct fish passage assessments and habitat confirmations to fill data gaps in support of this work.
+
+<br>
+
 ## Project Location
 
-To focus the project area on habitat with high value for conservation of westslope cutthrout trout, the project included the upper Elk River watershed upstream of the Elko Dam with planning also conducted for the Flathead River watershed (Figure \@ref(fig:overview-map).  
+To focus the project area on habitat with high value for conservation of westslope cutthrout trout, the project included the upper Elk River watershed upstream of the Elko Dam with planning also conducted for the Flathead River watershed (Figure \@ref(fig:overview-map)).  
 
 <br>
 
-The Elk River has a mean annual discharge of `r round(fasstr::calc_longterm_mean(station_number = "08NK002")$LTMAD,1)` m^3^/s with flow patterns typical of high elevation watersheds on the west side of the northern Rocky Mountains which receive large amounts of precipitation as snow leading to peak levels of discharge during snowmelt, typically from May to July (Figures \@ref(fig:hydrology-plot) - \@ref(fig:hydrology-stats)). 
+The Elk River has a mean annual discharge of `r round(fasstr::calc_longterm_mean(station_number = "08NK002")$LTMAD,1)` m^3^/s with flow patterns typical of high elevation watersheds on the west side of the Rocky Mountains which receive large amounts of precipitation as snow leading to peak levels of discharge during snowmelt, typically from May to July (Figures \@ref(fig:hydrology-plot) - \@ref(fig:hydrology-stats)) [@canada2020NationalWater]. 
 
 <br>
 
-```{r overview-map, fig.cap = 'Overview map of Study Areas'}
+```{r overview-map, fig.cap = 'Overview map of Study Areas.'}
 knitr::include_graphics("fig/ElkOverview_2020-12-23_v2.png")
 ```
 
@@ -72,26 +76,28 @@ The vision statement has been translated to english as:
 
 ### Elk Valley Cumulative Effects Management Framework
 
-Coal deposits are located in the Elk River and Flathead coalfields which extend fromthe Canada-USA border to the northwest for 175km along the Rocky Mountains with cumulative coal thickness ranging up to 70m. Subsurface resource exploration and develpment is prohibited in the Flathead River watershed due to legislation enacted in 2011.  At the time of reporting there were four active coal mines in the Elk River watershed (Fording River, Greenhills, Line Creek and Elkview), one closed mine (Coal Mountain) as well as multiple exploration projects and proposed new mines [@ministryofenergy2020EastKootenay].
+```{r eval=FALSE}
+# Coal deposits are located in the Elk River and Flathead coalfields which extend fromthe Canada-USA border to the northwest for 175km along the Rocky Mountains with cumulative coal thickness ranging up to 70m. Subsurface resource exploration and develpment is prohibited in the Flathead River watershed due to legislation enacted in 2011.  At the time of reporting there were four active coal mines in the Elk River watershed (Fording River, Greenhills, Line Creek and Elkview), one closed mine (Coal Mountain) as well as multiple exploration projects and proposed new mines [@ministryofenergy2020EastKootenay].
+
+```
+
+
+First Nations, stakeholders, proponents and provincial and municipal governments have recognized that the region has been impacted by historic and current coal operations as well as other stresses such as forestry operations, wildfire, residential development, recreational activities and transportation.  To assess the historic, current and potential future conditions of valued ecosystem components and to support resource management decisions within the region, the Provincial Cumulative Effects Framework and the Elk Valley Cumulative Effects Management Framework (EV-CEMF) have been formed under joint management between the Ktunaxa Nation Council and the B.C. Ministry of Forests, Lands, Natural Resource Operations and Rural Development (FLNRORD). A working group consisting of the Ktunaxa Nation Council, industry, community, organizations, and provincial government ministries has been formed to provide guidance and oversight for EV-CEMF activities.  Valued component technical reports for Grizzly Bear, Riparian and westslope cutthroat trout [@davidson_etal2018AquaticEcosystems], bighorn sheep, and old and mature forest have been drafted, integrated into an overarching Cumulative Effects Assessment and Management Report [@elkvalleycumulativeeffectsmanagementframeworkworkinggroup2018ElkValley] and endorsed by the Working Group. These reports describe the historical, current, and future assessment of cumulative effects in the Elk Valley and provide management and mitigation recommendations. Next steps for the framework include the development of an Implementation Plan to identify priority actions and spatial locations to focus management and mitigation of cumulative effects in the valley which may include actions to address aquatic habitat connectivity issues [@ministryofforests2020ElkValley].
 
 <br>
 
-First Nations, stakeholders, proponents and provincial and municipal governments have recognized that the region has been impacted by historic and current coal operations as well as other stresses such as forestry operations, wildfire, residential development, recreational activities and transportation.  To assess the historic, current and potential future conditions of valued ecosystem components and to support resource management decisions within the region, the Provincial Cumulative Effects Framework and the Elk Valley Cumulative Effects Management Framework (EV-CEMF) have been formed under joint management between the Ktunaxa Nation Council and the B.C. Ministry of Forests, Lands, Natural Resource Operations and Rural Development (FLNRORD). A working group consisting of the Ktunaxa Nation Council, industry, community, organizations, and provincial government ministries has been formed to provide guidance and oversight for EV-CEMF activities.  Valued component technical reports for Grizzly Bear, Riparian and westslope cutthroat trout [@davidson_etal2018AquaticEcosystems], bighorn sheep, and old and mature forest have been drafted, integrated into an overarching Cumulative Effects Assessment and Management Report [@elkvalleycumulativeeffectsmanagementframeworkworkinggroup2018ElkValley] and endorsed by the Working Group. These reports describe the historical, current, and future assessment of cumulative effects in the Elk Valley and provide management and mitigation recommendations. Next steps include the development of an Implementation Plan to identify priority actions and spatial locations to focus management and mitigation of cumulative effect in the valley [@ministryofforests2020ElkValley].
 
-<br>
-
-
+```{r eval = FALSE}
 ### Elk River Alliance
 
-The Elk River Alliance is a community-based water group that aims to improve and preserve watershed health through projects that raise watershed literacy, inform sustainable water decision-making, collect scientific data to prioritize restoration opportunities and promote safe and sustainable river recreation [@ElkRiverAlliance2020]. Following a large flood event in 2013 that caused significant property and infrastructure damage throughout the valley, the Elk River Alliance developed a comprehensive Flood Strategy report to provide a review of watershed functioning, forecast streamflow/flooding in the Elk Valley, describe the effects of flooding on the community and provide strategies to mitigate against future flood risk [@walker_etal2016ElkRiver]. Building on the 2016 Flood Strategy, the Elk River Cutthroat Trout Research Initiative is a Elk River Alliance project which focuses on habitat evaluation, identification of restoration opportunities and the communication of westslope cutthrout trout information to the community by conducting redd surveys, habitat assessments and the drafting of restoration plans for future habitat improvements [@elkriveralliance2020ElkRiver]. 
+# The Elk River Alliance is a community-based water group that aims to improve and preserve watershed health through projects that raise watershed literacy, inform sustainable water decision-making, collect scientific data to prioritize restoration opportunities and promote safe and sustainable river recreation [@ElkRiverAlliance2020]. Following a large flood event in 2013 that caused significant property and infrastructure damage throughout the valley, the Elk River Alliance developed a comprehensive Flood Strategy report to provide a review of watershed functioning, forecast streamflow/flooding in the Elk Valley, describe the effects of flooding on the community and provide strategies to mitigate against future flood risk [@walker_etal2016ElkRiver]. Building on the 2016 Flood Strategy, the Elk River Cutthroat Trout Research Initiative is a Elk River Alliance project which focuses on habitat evaluation, identification of restoration opportunities and the communication of westslope cutthrout trout information to the community by conducting redd surveys, habitat assessments and the drafting of restoration plans for future habitat improvements [@elkriveralliance2020ElkRiver]. 
 
-<br>
 
 ### Living Lakes Canada
 
-Living Lakes Canada is part of Living Lakes International, a global network of non-government organizations that aim to protect, restore and rehabilitate rivers, lakes, wetlands and watersheds throughout the world. Their mandate is to help build water stewardship ethic by facilitating data collection and knowledge sharing related to the connections between water quantity, water quality, land-use, climate change, biodiversity and healthy human communities. They coordinate and contribute to numerous projects in the Columbia and Elk River watershed group including the Columbia Basin Groundwater Monitoring Program, the Canadian Biomonitoring Network, Foreshore Inventory Mapping in the Columbia Basin,  the Columbia Basin Water Monitoring Collaborative and The Flathead River Biomonitoring Program among many others [@LivingLakesCanada2020].
+# Living Lakes Canada is part of Living Lakes International, a global network of non-government organizations that aim to protect, restore and rehabilitate rivers, lakes, wetlands and watersheds throughout the world. Their mandate is to help build water stewardship ethic by facilitating data collection and knowledge sharing related to the connections between water quantity, water quality, land-use, climate change, biodiversity and healthy human communities. They coordinate and contribute to numerous projects in the Columbia and Elk River watershed group including the Columbia Basin Groundwater Monitoring Program, the Canadian Biomonitoring Network, Foreshore Inventory Mapping in the Columbia Basin,  the Columbia Basin Water Monitoring Collaborative and The Flathead River Biomonitoring Program among many others [@LivingLakesCanada2020].
+```
 
-<br>
 
 
 ## Fisheries
@@ -102,8 +108,8 @@ Fish species recorded in the Elk River watershed group are detailed in Table \@r
 
 ```{r fiss-species-table}
 readr::read_csv(file = paste0(getwd(), '/data/raw_input/fiss_species_table.csv')) %>% 
-  filter(`Species Code` != 'CT') %>% 
-  my_kable(caption_text = 'Fish species recorded in the Elk River watershed group.')
+  # filter(`Species Code` != 'CT') %>% 
+  my_kable(caption_text = 'Fish species recorded in the study areas (FISS 2020).')
 
 
 ```
@@ -112,12 +118,12 @@ readr::read_csv(file = paste0(getwd(), '/data/raw_input/fiss_species_table.csv')
 
 ### Westslope Cutthrout Trout
 
-There are multiple life history strategies for westslope cutthrout trout including stream-resident, fluvial and adfluvial.  All have habitat requirements during life history stages that include cold clean water and varied forms of cover (undercut banks, pool-riffle habitat and riparian vegetation).  Stream-resident fish inhabitat headwater streams above barriers, complete their life cycle within a relatively small range and typically remain relatively small (i.e. <200mm in length).  Fluvial fish are migratory subpopulations that migrate between small spawning/rearing tributaries to and larger adult rearing rivers. Lengths of fluvial fish generally reach more than 400mm.  Finally, adfluvial subpopulations  rear in lakes and migrate to spawning/rearing tributaries with lengths often exceeding 500mm [@schweigert_etal2017COSEWICassessment].
+There are multiple life history strategies for westslope cutthrout trout including stream-resident, fluvial and adfluvial.  All have habitat requirements during life history stages that include cold clean water and varied forms of cover (undercut banks, pool-riffle habitat and riparian vegetation).  Stream-resident fish inhabitat headwater streams above barriers, complete their life cycle within a relatively small range and typically remain relatively small (i.e. <200mm in length).  Fluvial fish are migratory subpopulations that migrate between small spawning/rearing tributaries and larger adult rearing rivers. Lengths of fluvial fish generally reach more than 400mm.  Finally, adfluvial subpopulations  rear in lakes and migrate to spawning/rearing tributaries with lengths often exceeding 500mm [@schweigert_etal2017COSEWICassessment].
 
 
 <br>
 
-Spawning habitat for resident and fluvial subpopulations are documented as within the tailouts of deep pools at moderate to high-flow events within small, low-gradient streams with cold well-oxygenated water and clean unsilted gravels [@schmetterling2001SeasonalMovements]. Proximity to large woody debris, boulder or bedrock cover is important for spawning fish while residing in spawning tributaries as high mortality may result when suitable cover is lacking.  The dominant substrate used for spawning ws gravel (1.8 - 3.3cm diameter) with spawning occurring in late May and June towards the end of the spring freshet with rising water temperatures between 7-11$^\circ$C.  Nine of 11 westslope cutthrout trout radio-tagged in the Blackfoot River drainage, Montana by @schmetterling2001SeasonalMovements made movements to tributaries presumable for spawning. While in tributaries, fish movements averaged 12.5km and stayed within a 100m reach during the spawning period for between 15 and 63 days.
+Spawning habitat for resident and fluvial subpopulations are documented as within the tailouts of deep pools at moderate to high-flow events within small, low-gradient streams with cold well-oxygenated water and clean unsilted gravels [@schmetterling2001SeasonalMovements]. Proximity to large woody debris, boulder or bedrock cover is important for spawning fish while residing in spawning tributaries as high mortality may result when suitable cover is lacking.  The dominant substrate used for spawning is gravel (1.8 - 3.3cm diameter) with spawning occurring in late May and June towards the end of the spring freshet with rising water temperatures between 7-11$^\circ$C.  Nine of 11 westslope cutthrout trout radio-tagged in the Blackfoot River drainage, Montana by @schmetterling2001SeasonalMovements made movements to tributaries presumable for spawning. While in tributaries, fish movements to spawning sites averaged 12.5km where they stayed within an approximately 100m reach during the spawning period for between 15 and 63 days.
 
 <br>
 
@@ -125,7 +131,7 @@ Small perennial streams with a diversity of cover are important for juvenile rea
 
 <br>
 
-The suitability of overwintering habitat is determined by groundwater influx and the absence of anchor ice with fluvial adults congregating in slow deep pools in the winter.  Boulders and other large in-stream structurues or off-channel habitat (beaver bonds and sloughs) provide cover for juveniles with adfluvial fish overwintering in lakes [@schweigert_etal2017COSEWICassessment; @brown_mackay1995Spawningecology; @cope_etal2017UpperFording]. 
+The suitability of overwintering habitat is determined by groundwater influx and the absence of anchor ice with fluvial adults congregating in slow deep pools in the winter.  Boulders and other large in-stream structures or off-channel habitat (beaver bonds and sloughs) provide cover for juveniles with adfluvial fish overwintering in lakes [@schweigert_etal2017COSEWICassessment; @brown_mackay1995Spawningecology; @cope_etal2017UpperFording]. 
 
 <br>
 
@@ -152,7 +158,7 @@ A summary of historical westslope cutthrout trout observations in the Elk River 
 plot_wct_elkr_grad <- wct_elkr_grad %>% 
   ggplot(aes(x = Gradient, y = Percent)) +
   geom_bar(stat = "identity")+
-  theme_bw(base_size = 8)+
+  theme_bw(base_size = 10)+
   labs(x = "Stream Gradient", y = "WCT Occurrences (%)")
 plot_wct_elkr_grad
 

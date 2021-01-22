@@ -11,7 +11,7 @@ tab:tab-cost-mult
 fig:map-interactive
 tab:cost-est-phase-1
 tab:tab-overview
-tab:unnamed-chunk-4
+tab:unnamed-chunk-6
 tab:cost-est-phase-2
 tab:tab-habitat-summary
 fig:fish-histogram
@@ -99,8 +99,6 @@ background
 project-location
 ktunaxa-nation
 elk-valley-cumulative-effects-management-framework
-elk-river-alliance
-living-lakes-canada
 fisheries
 westslope-cutthrout-trout
 methods

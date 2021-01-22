@@ -52,14 +52,14 @@ tab_cost_rd_mult <- pscis_rd %>%
   # mutate(road_surface_mult = NA_real_, road_class_mult = NA_real_) %>%
   mutate(road_class_mult = case_when(my_road_class == 'local' ~ 4,
                                      my_road_class == 'collector' ~ 4,
-                                     my_road_class == 'arterial' ~ 10,
-                                     my_road_class == 'highway' ~ 10,
-                                       my_road_class == 'rail' ~ 5,
+                                     my_road_class == 'arterial' ~ 20,
+                                     my_road_class == 'highway' ~ 20,
+                                     my_road_class == 'rail' ~ 20,
                                      T ~ 1))  %>%
-  mutate(road_surface_mult = case_when(my_road_surface == 'loose' |
-                                         my_road_surface == 'rough' ~
-                                         1,
-                                       T ~ 2)) %>%
+  mutate(road_surface_mult = case_when(my_road_surface == 'loose' ~ 1,
+                                       my_road_surface == 'rough' ~ 1,
+                                       my_road_surface == 'rail' ~ 2,
+                                       my_road_surface == 'paved' ~ 2)) %>%
   # mutate(road_type_mult = road_class_mult * road_surface_mult) %>%
   mutate(cost_m_1000s_bridge = road_surface_mult * road_class_mult * 12.5,
          cost_embed_cv = road_surface_mult * road_class_mult * 25) %>%
@@ -74,13 +74,13 @@ tab_cost_rd_mult <- pscis_rd %>%
 
 ####-----------report table--------------------
 tab_cost_rd_mult_report <- tab_cost_rd_mult %>%
-  # mutate(cost_m_1000s_bridge = cost_m_1000s_bridge * 10) %>%
+  mutate(cost_m_1000s_bridge = cost_m_1000s_bridge * 10) %>%
   rename(
     Class = my_road_class,
     Surface = my_road_surface,
     `Class Multiplier` = road_class_mult,
     `Surface Multiplier` = road_surface_mult,
-    `Bridge $K/m` = cost_m_1000s_bridge,
+    `Bridge $K/10m` = cost_m_1000s_bridge,
     `Streambed Simulation $K` = cost_embed_cv
   ) %>%
   filter(!is.na(Class)) %>%
