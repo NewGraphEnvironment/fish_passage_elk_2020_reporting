@@ -13,7 +13,29 @@ bcfishpass_rd <- bcfishpass_phase2 %>%
          wct_network_km, wct_belowupstrbarriers_network_km,distance) %>%
   # mutate(uphab_net_sub22 = rowSums(select(., uphab_l_net_inf_000_030:uphab_l_net_obs_150_220))) %>%
   filter(distance < 100) %>%
-  select(my_crossing_reference:admin_area_abbreviation, wct_network_km, wct_belowupstrbarriers_network_km)
+  select(pscis_crossing_id:admin_area_abbreviation, wct_network_km, wct_belowupstrbarriers_network_km)
+
+
+##trying to fix the missed matches
+dups <- c(4600183, 4600069, 4600367, 4605732, 4600070)
+
+match_this <- xref_pscis_my_crossing_modelled %>%
+  filter(my_crossing_reference %in% dups) %>%
+  purrr::set_names(nm = paste0('x_', names(.))) %>%
+  mutate(x_my_crossing_reference = as.numeric(x_my_crossing_reference))
+
+bcfishpass_rd <- left_join(
+  bcfishpass_rd,
+  match_this,
+  by = c('pscis_crossing_id' = 'x_stream_crossing_id')
+) %>%
+  mutate(my_crossing_reference =
+           case_when(is.na(my_crossing_reference) & !is.na(x_my_crossing_reference) ~ x_my_crossing_reference,
+                     T ~ my_crossing_reference)) %>%
+  select(-x_my_crossing_reference, -x_misc_point_id, -x_crossing_id)
+
+
+# bcfishpass_rd <- bcfishpass_rd %>%
 
 ## updated to new bcfishpass info
 # bcfishpass_rd <- bcfishpass_phase2 %>%
@@ -25,11 +47,14 @@ bcfishpass_rd <- bcfishpass_phase2 %>%
 #   filter(distance < 100) %>%
 #   select(my_crossing_reference:admin_area_abbreviation, uphab_gross_sub22, uphab_net_sub22)
 
+
+
+
 ###note that some of the rd info is not likely correct if the distance is >100m
 pscis_rd <- left_join(
   pscis,
   bcfishpass_rd,
-  by = 'my_crossing_reference'
+  by = c('my_crossing_reference')
 ) %>%
   dplyr::mutate(my_road_class = case_when(is.na(road_class) & !is.na(file_type_description) ~
                                             file_type_description,
@@ -42,7 +67,9 @@ pscis_rd <- left_join(
                                             T ~ road_surface)) %>%
   dplyr::mutate(my_road_surface = case_when(is.na(my_road_surface) & !is.na(owner_name) ~
                                             'rail',
-                                          T ~ my_road_surface))
+                                          T ~ my_road_surface)) %>%
+    select(rowname:road_name, file_type_description, owner_name, road_surface,  road_class, my_road_class, everything())
+
 
 # test <- pscis_rd %>% filter(my_crossing_reference == 4605732)
 
@@ -90,18 +117,24 @@ tab_cost_rd_mult_report <- tab_cost_rd_mult %>%
 
 
 
-##make tyhe cost estimates
+##make the cost estimates
 tab_cost_est_prep <- left_join(
-  select(pscis_rd, my_crossing_reference, stream_name, road_name, my_road_class,
+  select(pscis_rd, my_crossing_reference, stream_name, road_name, habitat_value, my_road_class,
          my_road_surface, downstream_channel_width_meters, barrier_result,
-         fill_depth_meters, crossing_fix, , habitat_value, recommended_diameter_or_span_meters),
+         fill_depth_meters, crossing_fix,  habitat_value, recommended_diameter_or_span_meters),
   select(tab_cost_rd_mult, my_road_class, my_road_surface, cost_m_1000s_bridge, cost_embed_cv),
   by = c('my_road_class','my_road_surface')
 )
 
-# test <- tab_cost_est_prep %>% filter(my_crossing_reference == 4605732)
+# tab_cost_est_prep <- left_join(
+#   select(pscis_rd, my_crossing_reference, stream_name, road_name, my_road_class,
+#          my_road_surface, downstream_channel_width_meters, barrier_result,
+#          fill_depth_meters, crossing_fix, , habitat_value, recommended_diameter_or_span_meters),
+#   select(tab_cost_rd_mult, my_road_class, my_road_surface, cost_m_1000s_bridge, cost_embed_cv),
+#   by = c('my_road_class','my_road_surface')
+# )
 
-##lets
+
 
 
 tab_cost_est_prep2 <- left_join(
@@ -118,8 +151,8 @@ tab_cost_est_prep2 <- left_join(
 ##add in the model data.  This is a good reason for the data to be input first so that we can use the net distance!!
 tab_cost_est_prep3 <- left_join(
   tab_cost_est_prep2,
-  select(bcfishpass_rd, my_crossing_reference, wct_network_km, wct_belowupstrbarriers_network_km),
-  by = 'my_crossing_reference'
+  select(bcfishpass_rd, my_crossing_reference,  wct_network_km, wct_belowupstrbarriers_network_km),
+  by = c('my_crossing_reference' = 'my_crossing_reference')
 ) %>%
   mutate(cost_net = round(wct_belowupstrbarriers_network_km * 1000/cost_est_1000s, 1),
          cost_gross = round(wct_network_km * 1000/cost_est_1000s, 1),
@@ -149,23 +182,25 @@ tab_cost_est <- left_join(
     !is.na(stream_crossing_id) ~ stream_crossing_id,
     T ~ paste0('*', my_crossing_reference
     ))) %>%
-  select(stream_crossing_id, my_crossing_reference, crossing_id, ID, stream_name, road_name, downstream_channel_width_meters, priority_phase1,
+  select(stream_crossing_id, my_crossing_reference, crossing_id, ID, stream_name, road_name, habitat_value, barrier_result, downstream_channel_width_meters, priority_phase1,
          crossing_fix_code, cost_est_1000s, wct_network_km,
          cost_gross, cost_area_gross)
 
-tab_cost_est_phase1 <- tab_cost_est %>%
+tab_cost_est_phase1b <- tab_cost_est %>%
   select(-stream_crossing_id:-crossing_id) %>%
   rename(
-    Priority = priority_phase1,
+    `Habitat Value` = habitat_value,
+    # Priority = priority_phase1,
     Stream = stream_name,
     Road = road_name,
+    `Barrier Result` = barrier_result,
     `Stream Width (m)` = downstream_channel_width_meters,
     Fix = crossing_fix_code,
     `Cost Est ( $K)` =  cost_est_1000s,
     `Habitat Upstream (km)` = wct_network_km,
     `Cost Benefit (m / $K)` = cost_gross,
-    `Cost Benefit (m2 / $K)` = cost_area_gross) %>%
-  filter(!is.na(Priority))
+    `Cost Benefit (m2 / $K)` = cost_area_gross)
+  # filter(!is.na(Priority))
 
 
 # tab_cost_est_phase1 <- left_join(
