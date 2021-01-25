@@ -120,7 +120,7 @@ tab_cost_rd_mult_report <- tab_cost_rd_mult %>%
 ##make the cost estimates
 tab_cost_est_prep <- left_join(
   select(pscis_rd, my_crossing_reference, stream_name, road_name, habitat_value, my_road_class,
-         my_road_surface, downstream_channel_width_meters, barrier_result,
+         my_road_surface, downstream_channel_width_meters, barrier_result, final_score,
          fill_depth_meters, crossing_fix,  habitat_value, recommended_diameter_or_span_meters),
   select(tab_cost_rd_mult, my_road_class, my_road_surface, cost_m_1000s_bridge, cost_embed_cv),
   by = c('my_road_class','my_road_surface')
@@ -182,24 +182,27 @@ tab_cost_est <- left_join(
     !is.na(stream_crossing_id) ~ stream_crossing_id,
     T ~ paste0('*', my_crossing_reference
     ))) %>%
-  select(stream_crossing_id, my_crossing_reference, crossing_id, ID, stream_name, road_name, habitat_value, barrier_result, downstream_channel_width_meters, priority_phase1,
+  mutate(barrier_result_score = paste0(barrier_result, ' (', final_score, ')')) %>%
+  select(stream_crossing_id, my_crossing_reference, crossing_id, ID, stream_name, road_name, habitat_value, barrier_result_score, downstream_channel_width_meters, priority_phase1,
          crossing_fix_code, cost_est_1000s, wct_network_km,
          cost_gross, cost_area_gross)
 
-tab_cost_est_phase1b <- tab_cost_est %>%
-  select(-stream_crossing_id:-crossing_id) %>%
+tab_cost_est_phase1 <- tab_cost_est %>%
+  select(-stream_crossing_id:-crossing_id, -priority_phase1) %>%
   rename(
     `Habitat Value` = habitat_value,
     # Priority = priority_phase1,
     Stream = stream_name,
     Road = road_name,
-    `Barrier Result` = barrier_result,
+    `Result (Score)` = barrier_result_score,
     `Stream Width (m)` = downstream_channel_width_meters,
     Fix = crossing_fix_code,
     `Cost Est ( $K)` =  cost_est_1000s,
     `Habitat Upstream (km)` = wct_network_km,
     `Cost Benefit (m / $K)` = cost_gross,
-    `Cost Benefit (m2 / $K)` = cost_area_gross)
+    `Cost Benefit (m2 / $K)` = cost_area_gross) %>%
+  mutate(across(everything(), as.character)) %>%
+  replace(., is.na(.), "-")
   # filter(!is.na(Priority))
 
 
