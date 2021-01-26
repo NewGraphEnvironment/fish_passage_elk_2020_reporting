@@ -183,14 +183,16 @@ tab_cost_est <- left_join(
     T ~ paste0('*', my_crossing_reference
     ))) %>%
   mutate(barrier_result_score = paste0(barrier_result, ' (', final_score, ')')) %>%
-  select(stream_crossing_id, my_crossing_reference, crossing_id, ID, stream_name, road_name, habitat_value, barrier_result_score, downstream_channel_width_meters, priority_phase1,
+  mutate(`Habitat Value (priority)` = case_when(is.na(habitat_value) |  is.na(priority_phase1) ~ '--',
+                                                T ~  paste0(habitat_value, ' (' , priority_phase1, ')'))) %>%
+  select(stream_crossing_id, my_crossing_reference, crossing_id, ID, stream_name, road_name, `Habitat Value (priority)`, habitat_value, barrier_result_score, downstream_channel_width_meters, priority_phase1,
          crossing_fix_code, cost_est_1000s, wct_network_km,
          cost_gross, cost_area_gross)
 
 tab_cost_est_phase1 <- tab_cost_est %>%
-  select(-stream_crossing_id:-crossing_id, -priority_phase1) %>%
+  select(-stream_crossing_id:-crossing_id, -habitat_value, -priority_phase1) %>%
   rename(
-    `Habitat Value` = habitat_value,
+    # `Habitat Value` = habitat_value,
     # Priority = priority_phase1,
     Stream = stream_name,
     Road = road_name,
@@ -202,7 +204,9 @@ tab_cost_est_phase1 <- tab_cost_est %>%
     `Cost Benefit (m / $K)` = cost_gross,
     `Cost Benefit (m2 / $K)` = cost_area_gross) %>%
   mutate(across(everything(), as.character)) %>%
-  replace(., is.na(.), "-")
+  replace(., is.na(.), "--")
+  # mutate(`Habitat Value (priority)` = stringr::str_replace_all(`Habitat Value (priority)`, 'NA (NA)', ''),
+  #        `Habitat Value (priority)` = stringr::str_replace_all(`Habitat Value (priority)`, '(NA)', ''))
   # filter(!is.na(Priority))
 
 
