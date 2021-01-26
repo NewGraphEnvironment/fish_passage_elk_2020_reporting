@@ -56,7 +56,7 @@ During surveys, we spoke with the owner of lands adjacent to crossing `r as.char
 <br>
 
 
-Westslope cutthroat trout, bull trout and brook trout have been recorded in Hartley Creek upstream of PCSIS `r as.character(my_site)` with westslope cutthroat trout, bull trout and mountain whitefish recorded below [@data_fish_obs]. A radio-tagging study conducted in 2001–2002, identified Hartley Creek as a spawning location of westslope cutthrout trout captured and tagged in the Elk River [@schweigert_etal2017COSEWICassessment]. In 2012, three pass closed site electrofishing data, including individual fish collection information, sampling effort and site measurements was collected for three sites located within the first 100m upstream of Dicken Road as part of work completed by @loticenvironmentalltd_2012FishCollection to produce habitat suitability for westslope cutthrout trout in the Upper Elk River. Westslope cutthrout trout were captured at all sites.
+Westslope cutthroat trout, bull trout and brook trout have been recorded in Hartley Creek upstream of PCSIS `r as.character(my_site)` with westslope cutthroat trout, bull trout and mountain whitefish recorded below [@data_fish_obs]. A radio-tagging study conducted in 2001–2002, identified Hartley Creek as a spawning location of westslope cutthrout trout captured and tagged in the Elk River [@schweigert_etal2017COSEWICassessment]. In 2012, three pass closed site electrofishing data, including individual fish collection information, sampling effort and site measurements were collected for three sites located within the first 100m upstream of Dicken Road as part of work completed by @loticenvironmentalltd_2012FishCollection to produce habitat suitability for westslope cutthrout trout in the Upper Elk River. Westslope cutthrout trout were captured at all sites.
 
 <br>
 
@@ -109,7 +109,7 @@ Within the 75m section of stream surveyed 2.5km upstream of Dicken Road, stream 
 
 ## Structure Remediation and Cost Estimate {-}
 
-Structure replacement with an open bottomed structure is recommended to provide access to the habitat located upstream of PSCIS crossing `r as.character(my_site)`. The cost of the work is estimated at \$`r as.character(my_cost_estimate() %>% pull(cost_est_1000s) * 1000)` for a cost benefit of `r as.character(my_cost_estimate() %>% pull(cost_net))` linear m/\$1000 and `r as.character(my_cost_estimate() %>% pull(cost_area_net))`m^2^/\$1000.
+Structure replacement with an open bottomed structure is recommended to provide access to the habitat located upstream of PSCIS crossing `r as.character(my_site)`. The cost of the work is estimated at \$`r format(my_cost_estimate() %>% pull(cost_est_1000s) * 1000, big.mark = ',')` for a cost benefit of `r as.character(my_cost_estimate() %>% pull(cost_net))` linear m/\$1000 and `r as.character(my_cost_estimate() %>% pull(cost_area_net))`m^2^/\$1000.
 
 <br>
 

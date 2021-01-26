@@ -89,7 +89,7 @@ To assess potential impacts of the culvert on fish communities in the stream, el
 
 ## Structure Remediation and Cost Estimate {-}
 
-Structure replacement with an open bottomed culvert is recommended to provide access to the habitat located upstream of PSCIS crossing `r as.character(my_site)`.  Due to the large amount of fill on the road (`r my_pscis_info() %>% pull(fill_depth_meters)`) the size of a replacement bridge was estimated at `r my_pscis_info() %>% pull(recommended_diameter_or_span_meters)`m. The cost for work is estimated at \$`r as.character(my_cost_estimate() %>% pull(cost_est_1000s) * 1000)` for a cost benefit of `r as.character(my_cost_estimate() %>% pull(cost_net) * 1000)`linear m/\$1000 and `r as.character(my_cost_estimate() %>% pull(cost_area_net) * 1000)`m^2^/\$1000.
+Structure replacement with an open bottomed culvert is recommended to provide access to the habitat located upstream of PSCIS crossing `r as.character(my_site)`.  Due to the large amount of fill on the road (`r my_pscis_info() %>% pull(fill_depth_meters)`m) the size of a replacement bridge was estimated at `r my_pscis_info() %>% pull(recommended_diameter_or_span_meters)`m. The cost for work is estimated at \$`r format(my_cost_estimate() %>% pull(cost_est_1000s) * 1000, big.mark = ',')` for a cost benefit of `r as.character(my_cost_estimate() %>% pull(cost_net) * 1000)`linear m/\$1000 and `r as.character(my_cost_estimate() %>% pull(cost_area_net) * 1000)`m^2^/\$1000.
 
 <br>
 
