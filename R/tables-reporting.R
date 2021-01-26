@@ -69,7 +69,7 @@ tab_hab_summary <- left_join(
          `Gradient (%)` = average_gradient_percent,
          `Total Cover` = total_cover,
          `Habitat Value` = hab_value) %>%
-  replace(., is.na(.), "-")
+  replace(., is.na(.), "--")
 
 
 ##we need an sf object with details for the interactive map
