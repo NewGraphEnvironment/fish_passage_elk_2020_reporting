@@ -34,7 +34,9 @@ tab_fish_site <- function(dat = hab_fish_dens, sit = my_site){
          `Length (m)` = ef_length_m,
          `Area (m2)` = area,
          `Effort (s)` = ef_seconds,
-         `Effort (s/m2)` = effort)
+         `Effort (s/m2)` = effort) %>%
+    mutate(across(everything(), as.character)) %>%
+    replace(., is.na(.), "0")
 }
 
 
@@ -56,7 +58,8 @@ tab_fish_dens <- function(dat = hab_fish_dens, sit = my_site, species = 'WCT'){
            Location = location,
            fry, parr, everything()) %>%
     purrr::set_names(nm = stringr::str_to_title(names(.))) %>%
-    mutate_all(~replace_na(.,"-"))
+    mutate(across(everything(), as.character)) %>%
+    replace(., is.na(.), "0")
 }
 
 
