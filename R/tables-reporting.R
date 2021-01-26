@@ -26,7 +26,7 @@ tab_overview <- left_join(
   by = c('pscis_crossing_id' = 'site')
 ) %>%
   mutate(utm = paste0(easting, ' ', northing)) %>%
-  select(Site = pscis_crossing_id,
+  select(`PSCIS ID` = pscis_crossing_id,
          Stream = stream_name,
          Road = road_name,
          Tenure = road_tenure,
