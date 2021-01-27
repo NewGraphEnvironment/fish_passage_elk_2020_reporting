@@ -362,24 +362,26 @@ conn <- DBI::dbConnect(
   user = "postgres",
   password = "postgres"
 )
-dbDisconnect(conn = conn)
 
-# # ##list tables in a schema
-dbGetQuery(conn,
-           "SELECT table_name
-           FROM information_schema.tables
-           WHERE table_schema='working'")
+
+# # # ##list tables in a schema
+# dbGetQuery(conn,
+#            "SELECT table_name
+#            FROM information_schema.tables
+#            WHERE table_schema='working'")
 
 
 query <- "SELECT * FROM working.elk_flathead_planning_20210110"
 dat_after_review<- st_read(conn, query = query) %>%
-  dplyr::mutate(utm_zone = 9,
-                northing = sf::st_coordinates(.)[,1],
-                easting = sf::st_coordinates(.)[,2])
+  dplyr::mutate(utm_zone = 11,
+                easting = sf::st_coordinates(.)[,1],
+                 northing = sf::st_coordinates(.)[,2])
   # arrange(my_text) ##this is weird. it will not read out the
 
 dat_after_review %>% readr::write_csv(file = 'data/planning_results.csv')
 
+
+dbDisconnect(conn = conn)
 # dat <- dat_after_review %>%
 #   filter(!is.na(my_text) & !my_text %ilike% 'assessed') %>%
 #   arrange(stream_crossing_id, modelled_crossing_id) %>%

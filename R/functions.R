@@ -331,3 +331,56 @@ appendix_title <- function(site = my_site){
 appendix_subtitle <- function(){
   paste0('**', my_overview_info() %>% pull(road_name), ' - ', my_overview_info() %>% pull(stream_name), '**')
 }
+
+##############this is for making kmls from the bulkley work - want to adapt
+##the colors don't seem to work yet.  Might need to put a case_when for the actual google icon symbol.  Posting cutom symbols on a url and pointing to them will work too.
+make_kml_col <- function(df){
+  df %>%
+    mutate(`PSCIS ID` = as.integer(`PSCIS ID`),
+           `Modelled ID` = as.integer(`Modelled ID`),
+           color = case_when(Priority == 'high' ~ 'red',
+                             Priority == 'no fix' ~ 'green',
+                             Priority == 'moderate' ~ 'orange',
+                             T ~ 'grey'),
+           color = plotKML::col2kml(color),
+           site_id = case_when(!is.na(`PSCIS ID`) ~ paste('PSCIS ', `PSCIS ID`),
+                               is.na(`PSCIS ID`) ~ paste0('Modelled ', `Modelled ID`)),
+           label = paste0(site_id, '-', Priority, '-', ' priority'))
+  # mutate(across(where(is.numeric), round(.,2)))
+
+}
+
+##this is how we make html tables.  Can add colors or whatever -https://stackoverflow.com/questions/50199845/converting-dataframe-in-required-html-table-format-in-r
+make_html_tbl <- function(df) {
+
+  df2 <- df %>%
+    dplyr::mutate(`Image link` = cell_spec('crossing', "html", link = `Image link`))
+    # dplyr::select()
+
+  df <- df %>%
+    mutate(html_tbl = knitr::kable(df2, 'html', escape = F)%>%
+             # All cells get a border
+             row_spec(0:nrow(df2), extra_css = "border: 1px solid black;") %>%
+             row_spec(0, background = "yellow") %>%
+             kableExtra::column_spec(column = ncol(df2), width_min = '2in') %>%
+             kableExtra::column_spec(column = 1:10, width_min = '0.2in') #this might need to be 12
+    )
+  return(df)
+}
+
+## add a line to the function to make the comments column wide enough
+make_html_tbl_hab <- function(df) {
+  df2 <- df %>% janitor::remove_empty()
+  df %>%
+    mutate(html_tbl = knitr::kable(df2, 'html', escape = F) %>%
+             kableExtra::row_spec(0:nrow(df2), extra_css = "border: 1px solid black;") %>% # All cells get a border
+             kableExtra::row_spec(0, background = "yellow") %>%
+             kableExtra::column_spec(column = ncol(df2) - 1, width_min = '0.5in') %>%
+             kableExtra::column_spec(column = ncol(df2), width_min = '4in')
+    )
+}
+
+
+
+
+

@@ -255,7 +255,7 @@ tab_plan_raw <- readr::read_csv(file = 'data/planning_results.csv', guess_max = 
 tab_plan_sf <- tab_plan_raw %>%
   filter(!is.na(my_text) & !my_text %ilike% 'assessed') %>%
   arrange(stream_crossing_id, modelled_crossing_id) %>%
-  st_as_sf(crs = 26911, coords = c("northing", "easting")) %>%
+  st_as_sf(crs = 26911, coords = c("easting", "northing")) %>%
   st_transform(crs = 4326) %>%
   mutate(my_priority = case_when(my_priority == 'mod' ~ 'moderate',
                                      T ~ my_priority)) %>%
