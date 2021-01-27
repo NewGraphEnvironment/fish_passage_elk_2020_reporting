@@ -44,7 +44,7 @@ At the crossing location, the stream is 4th order with a watershed area upstream
 
 <br>
 
-PSCIS stream crossing `r as.character(my_site)` was ranked as a high priority for follow up with habitat confirmation due to the large amount of habitat modelled upstream of the crossing. The habitat confirmation was completed on `r my_pscis_info() %>% pull(date) %>% format(., format = "%B %d, %Y")`. A map of the watershed including areas surveyed is provided in Attachment 1 – Map [`r my_bcfishpass() %>% pull(map_tile_display_name)`](082J.103).
+PSCIS stream crossing `r as.character(my_site)` was ranked as a high priority for follow up with habitat confirmation due to the large amount of habitat modelled upstream of the crossing. The habitat confirmation was completed on `r my_pscis_info() %>% pull(date) %>% format(., format = "%B %d, %Y")`. A map of the watershed including areas surveyed is provided in Attachment 1 – Map [`r my_bcfishpass() %>% pull(map_tile_display_name)`](`r my_mapsheet()`).
 
 <br>
 
