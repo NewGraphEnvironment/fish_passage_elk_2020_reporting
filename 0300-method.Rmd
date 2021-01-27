@@ -22,37 +22,23 @@ To identify priorities for crossing structure rehabilitation, background literat
 
 <br>
  
-Following delineation of "non-fish habitat" with the `Fish Habitat Model`, the *average* gradient of each stream segment within habitat classified as below the 22% threshold was calculated and summed using `bcfishpass` to quantify upstream habitat potentially available for westslope cutthrout trout and facilitate stream line symbology based on stream morphology.  `bcfishpass` summed average gradients of stream network line segments within seven categories (0 - 3%, 3 - 5%, 5 - 8%, 8 - 15%, 15 - 22%, 22 - 30% and >30%) with these outputs further amalgamated to summarize and symbolize potential upstream habitat in four categories: riffle/cascade (0 - 5%), step-pool (5 - 15%), step-pool very steep (15-22%) and extremely steep (22 - 30%) (Table \@ref(tab:tablethreshaverage)). For each crossing location, the area of lake and wetland habitat upstream, species documented upstream and an estimate of watershed area was also collated using `bcfishpass`, `fwapg` [@norris2020fwapg] and `bcfishobs` [@norris2020bcfishobs] to provide an indication of the potential quantity and quality of habitat potentially gained should fish passage be restored.  
+Following delineation of "non-fish habitat" with the `Fish Habitat Model`, the *average* gradient of each stream segment within habitat classified as below the 20% threshold was calculated and summed using `bcfishpass` to quantify upstream habitat potentially available for westslope cutthrout trout and facilitate stream line symbology based on stream morphology.  `bcfishpass` summed average gradients of stream network line segments within six categories (0 - 3%, 3 - 5%, 5 - 8%, 8 - 15%, 15 - 20% and >20%) with these outputs further amalgamated to summarize and symbolize potentially accessible upstream habitat in five categories: riffle/cascade (0 - 3%), step-pool (5 - 8%), step-pool very steep (8-15%) and extremely steep (15 - 20%) (Table \@ref(tab:tablethreshaverage)). For each crossing location, the area of lake and wetland habitat upstream, species documented upstream and an estimate of watershed area was also collated using `bcfishpass` [@norrisBcfishpass2020], `fwapg` [@norris2020fwapg] and `bcfishobs` [@norris2020bcfishobs] to provide an indication of the potential quantity and quality of habitat potentially gained should fish passage be restored.  
 
 
 <br>
 
 
-```{r tablethreshaverage, eval= T}
+```{r tablethreshaverage,  eval= T}
 #threshold and average gradient table
-table_thresh_average <- tibble::tibble(`Gradient` = c('0 - 5%', '5 - 15%', '15 - 22%', '22 - 30%', '>30%'),
-                                       `Channel Type` = c('Riffle and cascade pool', 'Step pool', 'Step pool - very steep', 'Step pool - extremely steep (bull trout only)', 'Non fish habitat'))
+table_thresh_average <- tibble::tibble(`Gradient` = c('0 - 3%', '5 - 8%', '8 - 15%', '15 - 20%', '>20%'),
+                                       `Channel Type` = c('Riffle and cascade pool', 'Step pool', 'Step pool - very steep', 'Step pool - extremely steep', 'WCT Unaccessible'))
 
-# knitr::kable(table_thresh_average,
-#              caption = 'Stream gradient threshold and average gradient categories generated from the Fish Habitat Model as well as associated channel type.')
 
-# table_thresh_average %>%
-#   gt() %>%
-#   tab_header(title="Stream gradient categories (threshold and average) and associated channel type.") %>%
-#   tab_options(table.font.size = 11)
-if(knitr::is_html_output() == TRUE){
-  table_thresh_average %>% 
+table_thresh_average %>% 
     my_kable(caption_text = 'Stream gradient categories (threshold and average) and associated channel type.')
-    # knitr::kable(caption = 'Stream gradient categories (threshold and average) and associated channel type.') %>% 
-    # # kableExtra::column_spec(column = 1, width_min = '1.5in') %>% 
-    # kableExtra::kable_styling(c("condensed"), full_width = T) 
-} else table_thresh_average %>%
-  my_flextable(fontsize = 8) %>% 
-  flextable::autofit() %>%
-  flextable::align(i = NULL, j = c(1,2), align = "left", part = "all") %>% 
-  flextable::set_caption('Stream gradient categories (threshold and average) and associated channel type.')
 
-#  Although bull trout are known to populate habitat within and above stream reaches with gradients up to 30% areas upstream of gradients estimated at >22% for more than 100m were considered non-fish habitat if no fish observations had been documented upstream. 
+
+#  Although bull trout are known to populate habitat within and above stream reaches with gradients up to 30% areas upstream of gradients estimated at >20% for more than 100m were considered non-fish habitat if no fish observations had been documented upstream. 
 
 
 ```
@@ -60,14 +46,15 @@ if(knitr::is_html_output() == TRUE){
 
 <br>
 
-To prepare for Phase 1 and 2 assessments in the study area, past fish passage assessment reports for the Elk River watershed group were first reviewed to identify crossing structures not yet assessed or previously ranked as priorities for rehabilitation in @vastFishPassage2013 and @grainger2011FishPassage2011.  To determine which of those crossings had not yet been assessed with Phase 1 and Phase 2 assessments we cross-referenced these reports with the Phase 2 report previously completed in the study area by @masseEKConfirmation2015 and reviewed outputs from PSCIS as well as the `Fish Habitat Model` and `bcfishpass`.  Outputs for modelled and PSCIS crossings (barriers and potential barriers) that met the following criteria underwent a detailed review to facilitate prioritization for Phase1 - Fish Passage Assessments and Phase 2 - Habitat Confirmations.
+To prepare for Phase 1 and 2 assessments in the study area, past fish passage assessment reports for the Elk River watershed group were first reviewed to identify crossing structures not yet assessed or previously ranked as priorities for rehabilitation in @irvine2016ColumbiaBasin; @vastFishPassage2013 and @grainger2011FishPassage2011.  To determine which of those crossings had not yet been assessed with Phase 1 and Phase 2 assessments we cross-referenced these reports with the Phase 2 report previously completed in the study area by @masseEKConfirmation2015 and reviewed outputs from PSCIS as well as the `Fish Habitat Model` and `bcfishpass`.  Outputs for modelled and PSCIS crossings (barriers and potential barriers) that met the following criteria underwent a detailed review to facilitate prioritization for Phase1 - Fish Passage Assessments and Phase 2 - Habitat Confirmations.
 
- * Confirmed fish presence upstream of the structure.
+ * Confirmed fish presence upstream of the PSCIS or modelled structure.
  * Stream width documented as > 2.0m in PSCIS.
- * Linear lengths of modelled upstream habitat <22% gradient for ≥1km for PSCIS crossings or ≥2km for modelled crossings.
+ * Habitat value rated as "medium" or “high” in PSCIS.
+ * For PSCIS crossings: linear lengths of modelled upstream habitat <20% gradient for ≥1km 
+ * For modelled crossings crossings: linear lengths of modelled upstream habitat <20% gradient for ≥2km and no anthropogenic barriers (including modelled potential stream crossing structures) documented downstream.
  * Crossings located on streams classified as 3rd order or higher.
- * Crossings located on streams with >5 ha of modeled wetland and/or lake habitat upstream.
- * Habitat value rated as "medium" or “high” in PSCIS.  
+
  
 
 <br>
@@ -82,8 +69,10 @@ In the field, crossings prioritized for follow-up were first assessed for fish p
 
  
 ```{r tab-hab-value}
+
+
 tab_habvalue %>% 
-  knitr::kable(caption = 'Habitat value criteria (Fish Passage Technical Working Group, 2011).', booktabs = T) %>% 
+  knitr::kable(booktabs = T, caption = 'Habitat value criteria (Fish Passage Technical Working Group, 2011).') %>% 
     kableExtra::column_spec(column = 1, width_min = '1.5in') %>% 
     kableExtra::kable_styling(c("condensed"), full_width = T, font_size = font_set) 
   
@@ -98,6 +87,7 @@ Fish passage potential was determined for each stream crossing identified as a c
 <br>
 
 ```{r tab-barrier-scoring, eval=T}
+
 tab <- as_tibble(t(tab_barrier_scoring)) %>% 
   mutate(V4 = names(tab_barrier_scoring)) %>% 
   select(V4, everything()) %>% 
@@ -115,6 +105,8 @@ tab %>%
 
 
 ```{r tab-barrier-result}
+
+
 tab_barrier_result %>% 
   my_kable(caption_text = 'Fish Barrier Scoring Results (MoE 2011).') 
 
@@ -130,7 +122,7 @@ A cost benefit analysis was conducted for each crossing determined to be a barri
 
 #### Habitat Gain Index
 
-The habitat gain index is the quantity of modelled habitat upstream of the subject crossing and represents an estimate of habitat gained with remediation of fish passage at the crossing.  For this project, a gradient threshold between accessible and non-accessible habitat was set at 20% (for a minimimum length of 100m) intended to represent the maximum gradient of which westslope cutthrout trout are likely to be able to migrate upstream.  For Phase 1 assessments a "net" value of habitat quantity output from `bcfishpass` was used to estimate the amount of habitat upstream of each crossing less than 20% gradient before either a falls of height >5m - as recorded in @ProvincialObstaclesFish, a road-stream crossing recorded in PSCIS as a barrier, or a modelled unassessed crossing.  For Phase 2 assessments, to provide a conservative estimate of habitat to be potentially gained by fish passage restoration, the amount of habitat upstream of each crossing was estimated by measuring the amount of mainstem and stream segments > 1st order upstream of the crossing using the measure tool within QGIS [@QGIS_software].
+The habitat gain index is the quantity of modelled habitat upstream of the subject crossing and represents an estimate of habitat gained with remediation of fish passage at the crossing.  For this project, a gradient threshold between accessible and non-accessible habitat was set at 20% (for a minimum length of 100m) intended to represent the maximum gradient of which westslope cutthrout trout are likely to be able to migrate upstream.  For Phase 1 assessments a "gross" value of habitat quantity output from `bcfishpass` was used to estimate the amount of habitat upstream of each crossing less than 20% gradient before either a falls of height >5m - as recorded in @ProvincialObstaclesFish or a section of stream with an average gradient >20% for >100m. This methodology gives a best case scenario of potential habitat gain that does not consider road stream structures upstream that may be barriers to migration. To determine area of habitat potentially gained the downstream channel width from the Phase 1 assessment was multiplied by the linear amount of habitat.  For Phase 2 assessments, to provide a conservative estimate of habitat to be potentially gained by fish passage restoration, the amount of habitat upstream of each crossing was measured using the measure tool within QGIS [@QGIS_software] to estimate the amount of mainstem and stream segments > 1st order upstream of the crossing before any natural migration barriers or stream crossing structures that are located upstream and confirmed or potential barriers. To determine area of habitat potentially gained for Phase 2 assessments, the average upstream channel width (from the habitat confirmation assessment) was multiplied by the linear amount of habitat. 
 
 <br>
 
@@ -158,6 +150,7 @@ Base costs for installation of bridges on forest service roads and permit roads 
 
 ```{r tab-cost-mult}
 # print_tab_cost_mult(caption_text = 'Cost multiplier table based on road class and surface type.')
+
 tab_cost_rd_mult_report %>%
   my_kable(caption_text = 'Cost multiplier table based on road class and surface type.')
 ```
