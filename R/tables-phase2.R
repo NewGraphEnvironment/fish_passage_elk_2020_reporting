@@ -139,7 +139,7 @@ habitat_confirmations_priorities <- readxl::read_excel(
   filter(!local_name %like% 'ef') %>% ##ditch the ef sites
   tidyr::separate(local_name, into = c('site', 'location'), remove = F) %>%
   mutate(site = as.numeric(site),
-         upstream_habitat_length_km = round(upstream_habitat_length_m/1000,1))
+         upstream_habitat_length_km = round(upstream_habitat_length_m/1000,2))
 
 
 ##add the priorities to the site data
