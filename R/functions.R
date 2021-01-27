@@ -340,37 +340,50 @@ make_kml_col <- function(df){
            `Modelled ID` = as.integer(`Modelled ID`),
            color = case_when(Priority == 'high' ~ 'red',
                              Priority == 'no fix' ~ 'green',
-                             Priority == 'moderate' ~ 'orange',
+                             Priority == 'moderate' ~ 'yellow',
                              T ~ 'grey'),
+           # shape = case_when(Priority == 'high' ~ 'http://maps.google.com/mapfiles/kml/pushpin/red-pushpin.png',
+           #                   Priority == 'no fix' ~ 'http://maps.google.com/mapfiles/kml/pushpin/grn-pushpin.png',
+           #                   Priority == 'moderate' ~ 'http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png',
+           #                   T ~ 'http://maps.google.com/mapfiles/kml/pushpin/wht-pushpin.png'),
+           shape = case_when(Priority == 'high' ~ 'http://maps.google.com/mapfiles/kml/paddle/red-blank.png',
+                             Priority == 'no fix' ~ 'http://maps.google.com/mapfiles/kml/paddle/grn-blank.png',
+                             Priority == 'moderate' ~ 'http://maps.google.com/mapfiles/kml/paddle/ylw-blank.png',
+                             T ~ 'http://maps.google.com/mapfiles/kml/paddle/wht-blank.png'),
            color = plotKML::col2kml(color),
            site_id = case_when(!is.na(`PSCIS ID`) ~ paste('PSCIS ', `PSCIS ID`),
                                is.na(`PSCIS ID`) ~ paste0('Modelled ', `Modelled ID`)),
-           label = paste0(site_id, '-', Priority, '-', ' priority'))
+           label = paste0(site_id, '-', Priority),
+           `Image link` = case_when(!is.na(`Image link`) ~ cell_spec('crossing', "html", link = `Image link`),
+           T ~ `Image link`)) %>%
+    select(site_id, Area, Priority, label, color, shape, everything())
   # mutate(across(where(is.numeric), round(.,2)))
 
 }
 
 ##this is how we make html tables.  Can add colors or whatever -https://stackoverflow.com/questions/50199845/converting-dataframe-in-required-html-table-format-in-r
-make_html_tbl <- function(df) {
-
-  df2 <- df %>%
-    dplyr::mutate(`Image link` = cell_spec('crossing', "html", link = `Image link`))
-    # dplyr::select()
-
-  df <- df %>%
-    mutate(html_tbl = knitr::kable(df2, 'html', escape = F)%>%
-             # All cells get a border
-             row_spec(0:nrow(df2), extra_css = "border: 1px solid black;") %>%
-             row_spec(0, background = "yellow") %>%
-             kableExtra::column_spec(column = ncol(df2), width_min = '2in') %>%
-             kableExtra::column_spec(column = 1:10, width_min = '0.2in') #this might need to be 12
-    )
-  return(df)
-}
+# make_html_tbl <- function(df) {
+#
+#   df2 <- df %>%
+#     dplyr::mutate(`Image link` = cell_spec('crossing', "html", link = `Image link`))
+#     # dplyr::select()
+#
+#   df <- df %>%
+#     mutate(html_tbl = knitr::kable(df2, 'html', escape = F)%>%
+#              # All cells get a border
+#              row_spec(0:nrow(df2), extra_css = "border: 1px solid black;") %>%
+#              row_spec(0, background = "yellow") %>%
+#              kableExtra::column_spec(column = ncol(df2), width_min = '2in') %>%
+#              kableExtra::column_spec(column = 1:10, width_min = '0.2in') #this might need to be 12
+#     )
+#   return(df)
+# }
 
 ## add a line to the function to make the comments column wide enough
-make_html_tbl_hab <- function(df) {
-  df2 <- df %>% janitor::remove_empty()
+make_html_tbl <- function(df) {
+  # df2 <- df %>%
+  #   dplyr::mutate(`Image link` = cell_spec('crossing', "html", link = `Image link`))
+  df2 <- select(df, -shape, -color, -label) %>% janitor::remove_empty()
   df %>%
     mutate(html_tbl = knitr::kable(df2, 'html', escape = F) %>%
              kableExtra::row_spec(0:nrow(df2), extra_css = "border: 1px solid black;") %>% # All cells get a border
