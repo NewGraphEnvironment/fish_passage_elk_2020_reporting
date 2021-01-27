@@ -24,15 +24,19 @@ description: "My Description."
 ```{r setup, include = TRUE, echo =FALSE, message=FALSE, warning=FALSE}
 knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, dpi=60, out.width = "100%")
 
+options(scipen=999)
+
 ##define a picture specific output width you can put in chunk headers
 ##we need a switch to turn off html only so the printed version looks ok
-# photo_width <- "100%"
-# html_on <- TRUE
+photo_width <- "100%"
+html_on <- TRUE
+# caption_font_size = 16
 
-##these are the settings for the pagedown version!! DONT FORGET THE FONT DOWN BELOW TOO!!!!!!!!!!!!!!
-photo_width <- "80%"
-html_on <- FALSE
 
+##these are the settings for the pagedown version!! DONT FORGET THE font_set (font size for the tables) DOWN BELOW TOO!!!!!!!!!!!!!!
+# photo_width <- "80%"
+# html_on <- FALSE
+# caption_font_size = 10
 
 
 ##try to fix the kable caption size https://stackoverflow.com/questions/45018397/changing-the-font-size-of-figure-captions-in-rmarkdown-html-output
@@ -51,20 +55,11 @@ source('R/functions-fish.R')
 
 ##set the font default size for the tables.  had a crash and think this might have been it so put after functions.R
 ##seems odd but not risking again for now.
-# font_set <- 11
-font_set <- 9
-
+font_set <- 11
+# font_set <- 9
 
 ```
 
-
-```{r caption-size, eval = FALSE }
-caption_size <- '<style> .table-wrapper caption {font-size: 9px;} </style>'
-
-knitr::asis_output(caption_size)
-
-#identical(html_on, FALSE)
-```
 
 ```{r include=FALSE}
 # automatically create a bib database for R packages

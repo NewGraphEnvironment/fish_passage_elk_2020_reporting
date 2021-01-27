@@ -24,10 +24,10 @@
 <meta name="author" content="Prepared for Canadian Wildlife Federation" />
 <meta name="author" content="Prepared by Al Irvine, B.Sc., R.P.Bio." />
 <meta name="author" content="New Graph Environment" />
-<meta name="author" content="Version 0.1.0" />
+<meta name="author" content="Version 1.0" />
 
 
-<meta name="date" content="2021-01-22" />
+<meta name="date" content="2021-01-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -149,7 +149,7 @@
 <p><br></p>
 <p><code>bcfishpass</code> is comprised of sql and python based shell script libraries that “generate a simple model of aquatic habitat connectivity by identifying natural barriers to fish passage (plus hydro dams that are not feasible to remediate) and classifying all streams not upstream of these barriers as ‘potentially accessible’” <span class="citation">(Norris 2020b)</span>. On potentially accessible streams, <code>bcfishpass</code> scripts “identify known barriers and additional anthropogenic features (primarily road/railway stream crossings, i.e. culverts) that are potentially barriers. To prioritize these features for assessment or remediation,” the scripts “report on how much modelled potentially accessible aquatic habitat the barriers may obstruct. The model can be refined with known fish observations. Depending on the modelling scenario, all aquatic habitat downstream of a given fish observation can be classified as ‘observed accessible’, overriding any downstream barriers.”</p>
 <p><br></p>
-<p>Following delineation of “non-fish habitat” with the <code>Fish Habitat Model</code>, the <em>average</em> gradient of each stream segment within habitat classified as below the 22% threshold was calculated and summed using <code>bcfishpass</code> to quantify upstream habitat potentially available for westslope cutthrout trout and facilitate stream line symbology based on stream morphology. <code>bcfishpass</code> summed average gradients of stream network line segments within seven categories (0 - 3%, 3 - 5%, 5 - 8%, 8 - 15%, 15 - 22%, 22 - 30% and &gt;30%) with these outputs further amalgamated to summarize and symbolize potential upstream habitat in four categories: riffle/cascade (0 - 5%), step-pool (5 - 15%), step-pool very steep (15-22%) and extremely steep (22 - 30%) (Table <a href="methods.html#tab:tablethreshaverage">3.1</a>). For each crossing location, the area of lake and wetland habitat upstream, species documented upstream and an estimate of watershed area was also collated using <code>bcfishpass</code>, <code>fwapg</code> <span class="citation">(Norris 2020c)</span> and <code>bcfishobs</code> <span class="citation">(Norris 2020a)</span> to provide an indication of the potential quantity and quality of habitat potentially gained should fish passage be restored.</p>
+<p>Following delineation of “non-fish habitat” with the <code>Fish Habitat Model</code>, the <em>average</em> gradient of each stream segment within habitat classified as below the 20% threshold was calculated and summed using <code>bcfishpass</code> to quantify upstream habitat potentially available for westslope cutthrout trout and facilitate stream line symbology based on stream morphology. <code>bcfishpass</code> summed average gradients of stream network line segments within six categories (0 - 3%, 3 - 5%, 5 - 8%, 8 - 15%, 15 - 20% and &gt;20%) with these outputs further amalgamated to summarize and symbolize potentially accessible upstream habitat in five categories: riffle/cascade (0 - 3%), step-pool (5 - 8%), step-pool very steep (8-15%) and extremely steep (15 - 20%) (Table <a href="methods.html#tab:tablethreshaverage">3.1</a>). For each crossing location, the area of lake and wetland habitat upstream, species documented upstream and an estimate of watershed area was also collated using <code>bcfishpass</code> <span class="citation">(Norris 2020b)</span>, <code>fwapg</code> <span class="citation">(Norris 2020c)</span> and <code>bcfishobs</code> <span class="citation">(Norris 2020a)</span> to provide an indication of the potential quantity and quality of habitat potentially gained should fish passage be restored.</p>
 <p><br></p>
 <table class="table table-condensed" style="font-size: 11px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
@@ -168,7 +168,7 @@ Channel Type
 <tbody>
 <tr>
 <td style="text-align:left;">
-0 - 5%
+0 - 3%
 </td>
 <td style="text-align:left;">
 Riffle and cascade pool
@@ -176,7 +176,7 @@ Riffle and cascade pool
 </tr>
 <tr>
 <td style="text-align:left;">
-5 - 15%
+5 - 8%
 </td>
 <td style="text-align:left;">
 Step pool
@@ -184,7 +184,7 @@ Step pool
 </tr>
 <tr>
 <td style="text-align:left;">
-15 - 22%
+8 - 15%
 </td>
 <td style="text-align:left;">
 Step pool - very steep
@@ -192,31 +192,31 @@ Step pool - very steep
 </tr>
 <tr>
 <td style="text-align:left;">
-22 - 30%
+15 - 20%
 </td>
 <td style="text-align:left;">
-Step pool - extremely steep (bull trout only)
+Step pool - extremely steep
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-&gt;30%
+&gt;20%
 </td>
 <td style="text-align:left;">
-Non fish habitat
+WCT Unaccessible
 </td>
 </tr>
 </tbody>
 </table>
 <p><br></p>
-<p>To prepare for Phase 1 and 2 assessments in the study area, past fish passage assessment reports for the Elk River watershed group were first reviewed to identify crossing structures not yet assessed or previously ranked as priorities for rehabilitation in <span class="citation">VAST Resource Solutions Inc. (2013)</span> and <span class="citation">Grainger (2011)</span>. To determine which of those crossings had not yet been assessed with Phase 1 and Phase 2 assessments we cross-referenced these reports with the Phase 2 report previously completed in the study area by <span class="citation">Masse Environmental Consultants Ltd. (2015)</span> and reviewed outputs from PSCIS as well as the <code>Fish Habitat Model</code> and <code>bcfishpass</code>. Outputs for modelled and PSCIS crossings (barriers and potential barriers) that met the following criteria underwent a detailed review to facilitate prioritization for Phase1 - Fish Passage Assessments and Phase 2 - Habitat Confirmations.</p>
+<p>To prepare for Phase 1 and 2 assessments in the study area, past fish passage assessment reports for the Elk River watershed group were first reviewed to identify crossing structures not yet assessed or previously ranked as priorities for rehabilitation in <span class="citation">Irvine (2016)</span>; <span class="citation">VAST Resource Solutions Inc. (2013)</span> and <span class="citation">Grainger (2011)</span>. To determine which of those crossings had not yet been assessed with Phase 1 and Phase 2 assessments we cross-referenced these reports with the Phase 2 report previously completed in the study area by <span class="citation">Masse Environmental Consultants Ltd. (2015)</span> and reviewed outputs from PSCIS as well as the <code>Fish Habitat Model</code> and <code>bcfishpass</code>. Outputs for modelled and PSCIS crossings (barriers and potential barriers) that met the following criteria underwent a detailed review to facilitate prioritization for Phase1 - Fish Passage Assessments and Phase 2 - Habitat Confirmations.</p>
 <ul>
-<li>Confirmed fish presence upstream of the structure.</li>
+<li>Confirmed fish presence upstream of the PSCIS or modelled structure.</li>
 <li>Stream width documented as &gt; 2.0m in PSCIS.</li>
-<li>Linear lengths of modelled upstream habitat &lt;22% gradient for ≥1km for PSCIS crossings or ≥2km for modelled crossings.</li>
-<li>Crossings located on streams classified as 3rd order or higher.</li>
-<li>Crossings located on streams with &gt;5 ha of modeled wetland and/or lake habitat upstream.</li>
 <li>Habitat value rated as “medium” or “high” in PSCIS.</li>
+<li>For PSCIS crossings: linear lengths of modelled upstream habitat &lt;20% gradient for ≥1km</li>
+<li>For modelled crossings crossings: linear lengths of modelled upstream habitat &lt;20% gradient for ≥2km and no anthropogenic barriers (including modelled potential stream crossing structures) documented downstream.</li>
+<li>Crossings located on streams classified as 3rd order or higher.</li>
 </ul>
 <p><br></p>
 </div>
@@ -483,7 +483,7 @@ barrier
 <p><br></p>
 <div id="habitat-gain-index" class="section level4">
 <h4><span class="header-section-number">3.2.2.1</span> Habitat Gain Index</h4>
-<p>The habitat gain index is the quantity of modelled habitat upstream of the subject crossing and represents an estimate of habitat gained with remediation of fish passage at the crossing. For this project, a gradient threshold between accessible and non-accessible habitat was set at 20% (for a minimimum length of 100m) intended to represent the maximum gradient of which westslope cutthrout trout are likely to be able to migrate upstream. For Phase 1 assessments a “net” value of habitat quantity output from <code>bcfishpass</code> was used to estimate the amount of habitat upstream of each crossing less than 20% gradient before either a falls of height &gt;5m - as recorded in <span class="citation">MoE (2020c)</span>, a road-stream crossing recorded in PSCIS as a barrier, or a modelled unassessed crossing. For Phase 2 assessments, to provide a conservative estimate of habitat to be potentially gained by fish passage restoration, the amount of habitat upstream of each crossing was estimated by measuring the amount of mainstem and stream segments &gt; 1st order upstream of the crossing using the measure tool within QGIS <span class="citation">(QGIS Development Team 2009)</span>.</p>
+<p>The habitat gain index is the quantity of modelled habitat upstream of the subject crossing and represents an estimate of habitat gained with remediation of fish passage at the crossing. For this project, a gradient threshold between accessible and non-accessible habitat was set at 20% (for a minimum length of 100m) intended to represent the maximum gradient of which westslope cutthrout trout are likely to be able to migrate upstream. For Phase 1 assessments a “gross” value of habitat quantity output from <code>bcfishpass</code> was used to estimate the amount of habitat upstream of each crossing less than 20% gradient before either a falls of height &gt;5m - as recorded in <span class="citation">MoE (2020c)</span> or a section of stream with an average gradient &gt;20% for &gt;100m. This methodology gives a best case scenario of potential habitat gain that does not consider road stream structures upstream that may be barriers to migration. To determine area of habitat potentially gained the downstream channel width from the Phase 1 assessment was multiplied by the linear amount of habitat. For Phase 2 assessments, to provide a conservative estimate of habitat to be potentially gained by fish passage restoration, the amount of habitat upstream of each crossing was measured using the measure tool within QGIS <span class="citation">(QGIS Development Team 2009)</span> to estimate the amount of mainstem and stream segments &gt; 1st order upstream of the crossing before any natural migration barriers or stream crossing structures that are located upstream and confirmed or potential barriers. To determine area of habitat potentially gained for Phase 2 assessments, the average upstream channel width (from the habitat confirmation assessment) was multiplied by the linear amount of habitat.</p>
 <p><br></p>
 </div>
 <div id="cost-estimates" class="section level4">

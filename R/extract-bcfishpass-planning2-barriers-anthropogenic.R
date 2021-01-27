@@ -211,8 +211,12 @@ dat_mod_prep <- bind_cols(
 
 ##we are habing issues with these data types for some reason so we need to either remove them or change them to character.
 # convert_to_char <- c('wscode_ltree','localcode_ltree','dnstr_crossings','dnstr_barriers_anthropogenic','observedspp_dnstr','observedspp_upstr')
-convert_to_char <- c('wscode_ltree','localcode_ltree','dnstr_barriers_anthropogenic','observedspp_dnstr','observedspp_upstr') ##removed 'dnstr_crossings'
+convert_to_char <- c('wscode_ltree','localcode_ltree',
+                     'dnstr_barriers_anthropogenic',
+                     'observedspp_dnstr','observedspp_upstr') ##removed 'dnstr_crossings'
 
+
+##should add "crossing_source != 'BCDAMS' & consulant_name != 'IRVINE'
 
 ##add the pscis info that we need for our analysis
 dat_mod <- full_join(
@@ -344,3 +348,52 @@ res <- dbSendQuery(conn,
 dbClearResult(res)
 
 dbDisconnect(conn = conn)
+
+
+###########################################after processing and adding my_text in qgis - pull back out and make tables and files for the report
+#########################################################################################################################
+
+
+conn <- DBI::dbConnect(
+  RPostgres::Postgres(),
+  dbname = "postgis",
+  host = "localhost",
+  port = "5432",
+  user = "postgres",
+  password = "postgres"
+)
+dbDisconnect(conn = conn)
+
+# # ##list tables in a schema
+dbGetQuery(conn,
+           "SELECT table_name
+           FROM information_schema.tables
+           WHERE table_schema='working'")
+
+
+query <- "SELECT * FROM working.elk_flathead_planning_20210110"
+dat_after_review<- st_read(conn, query = query) %>%
+  dplyr::mutate(utm_zone = 9,
+                northing = sf::st_coordinates(.)[,1],
+                easting = sf::st_coordinates(.)[,2])
+  # arrange(my_text) ##this is weird. it will not read out the
+
+dat_after_review %>% readr::write_csv(file = 'data/planning_results.csv')
+
+# dat <- dat_after_review %>%
+#   filter(!is.na(my_text) & !my_text %ilike% 'assessed') %>%
+#   arrange(stream_crossing_id, modelled_crossing_id) %>%
+#   select(Area = study_area,
+#          Priority = my_priority,
+#          `PSCIS ID` = stream_crossing_id,
+#          `Modelled ID` = modelled_crossing_id,
+#          `Species` = observedspp_upstr,
+#          `Order` = stream_order,
+#          `Upstream habitat (km)` = wct_network_km,
+#          `Channel width` = downstream_channel_width,
+#          `Habitat value` = habitat_value_code,
+#          `Image URL` = image_view_url,
+#          Comments = my_text)
+
+
+

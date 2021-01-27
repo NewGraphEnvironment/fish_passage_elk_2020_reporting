@@ -27,9 +27,11 @@ file.rename('0600-appendix.Rmd', 'data/0600-appendix.Rmd')
 #html_on <- FALSE and change
 #font_set <- 9
 #photo_width <- "80%"
+# caption_font <- 11
 
 ##   then make our printable pdf
 rmarkdown::render_site(output_format = 'pagedown::html_paged', encoding = 'UTF-8')
+# pagedown::chrome_print("index.Rmd")
 
 ##  move it to the docs folder so that it can be seen by the download button
 file.rename('Elk.html', 'docs/Elk.html')
@@ -58,6 +60,8 @@ pdf_combine(c(paste0(getwd(), "/docs/title_page.pdf"),
 file.rename(paste0(getwd(), "/docs/Elk3.pdf"), paste0(getwd(),"/docs/Elk.pdf"))
 
 file.remove(paste0(getwd(), "/docs/Elk2.pdf"))
+
+##here is a list of the blank pages that we want to remove.
 
 ##  make the site
 rmarkdown::render_site(output_format = 'bookdown::gitbook', encoding = 'UTF-8')

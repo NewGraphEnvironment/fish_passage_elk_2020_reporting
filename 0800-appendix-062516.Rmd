@@ -25,7 +25,7 @@ my_site <- 62516
 
 ## Site Location {-}
 
-Crossing `r as.character(my_site)` is located on a `r my_pscis_info() %>% pull(stream_name)`, approximately `r my_priority_info(loc = 'ds') %>% pull(survey_length_m)`m upstream from the confluence with Lizard Creek. This culvert has also been recorded in PSCIS as crossing 50153. The culvert is located at 2.5km on Island Lake Lodge Road which is an extension of Mt.Fernie Park Road accessed from Highway 3 within Fernie city limits.  The Mt.Fernie Provincial Park is a popular recreational destination for hikers, sightseers and mountain bikers.  Island Lake Lodge is located at 1400m of elevation near Island Lake and is a year round tourist destination providing accommodations, guided hiking and backcountry catskiing. The stream has been diverted from its historic channel and runs adjacent to a historic road to Lizard Creek approximately 500 downstream of the location of the confluence in the freshwater atlas.  
+Crossing `r as.character(my_site)` is located on a `r my_pscis_info() %>% pull(stream_name)`, approximately `r my_priority_info(loc = 'ds') %>% pull(survey_length_m)`m upstream from the confluence with Lizard Creek. This culvert has also been recorded in PSCIS as crossing 50153. The culvert is located at 2.5km on Island Lake Lodge Road which is an extension of Mt.Fernie Park Road accessed from Highway 3 within Fernie city limits.  The Mt.Fernie Provincial Park is a popular recreational destination for hikers, sightseers and mountain bikers.  Island Lake Lodge is located at 1400m of elevation near Island Lake and is a year round tourist destination providing accommodations, guided hiking and backcountry catskiing. The stream has been diverted from its historic channel and runs adjacent to a historic road to Lizard Creek approximately 500m downstream of the location of the confluence in the freshwater atlas.  
 
 
 <br>
@@ -36,7 +36,7 @@ At the crossing location, the stream had good flow and is located within an area
 
 <br>
 
-PSCIS stream crossing `r as.character(my_site)` was ranked as a high priority for follow up with habitat confirmation due to the relatively large size of the stream recorded in PSCIS (channel width = 3.5m) relative to other tributary streams in the Lizard Creek watershed and because it was rated as containing high value habitat by @vastFishPassage2013 and @grainger2011FishPassage2011. There is a bridge (PSCIS 197566) located on the Lazy Lizard recreation trail approximatley 350m upstream of the crossing and an unassessed modelled crossing (modelled ID 4600929) approximately 950m upstream.  Downstream approximately 400m there is a foot bridge (PSCIS 197544) on a recreational hiking/biking trail.  The habitat confirmation was completed on `r my_pscis_info() %>% pull(date) %>% format(., format = "%B %d, %Y")`. A map of the watershed including areas surveyed is provided in Attachment 1 – Map [`r my_bcfishpass() %>% pull(map_tile_display_name)`](`r my_mapsheet()`).
+PSCIS stream crossing `r as.character(my_site)` was ranked as a high priority for follow up with habitat confirmation due to the relatively large size of the stream recorded in PSCIS (channel width = 3.5m) relative to other tributary streams in the Lizard Creek watershed and because it was rated as containing high value habitat by @vastFishPassage2013 and @grainger2011FishPassage2011. There is a bridge (PSCIS 197566) located on the Lazy Lizard recreation trail approximately 350m upstream of the crossing and an unassessed modelled crossing (modelled ID 4600929) approximately 950m upstream.  Downstream approximately 400m there is a foot bridge (PSCIS 197544) on a recreational hiking/biking trail.  The habitat confirmation was completed on `r my_pscis_info() %>% pull(date) %>% format(., format = "%B %d, %Y")`. A map of the watershed including areas surveyed is provided in Attachment 1 – Map [`r my_bcfishpass() %>% pull(map_tile_display_name)`](`r my_mapsheet()`).
 
 <br>
 
@@ -69,7 +69,7 @@ The stream was surveyed upstream from the culvert for `r my_priority_info(loc = 
 
 ## Structure Remediation and Cost Estimate {-}
 
-Structure replacement with an open bottomed structure is recommended to provide access to the habitat located upstream of PSCIS crossing `r as.character(my_site)`.  The cost of the work is estimated at \$`r as.character(my_cost_estimate() %>% pull(cost_est_1000s) * 1000)` for a cost benefit of `r as.character(my_cost_estimate() %>% pull(cost_net))` linear m/\$1000 and `r as.character(my_cost_estimate() %>% pull(cost_area_net))`m^2^/\$1000.
+Structure replacement with a bridge is recommended to provide access to the habitat located upstream of PSCIS crossing `r as.character(my_site)`.  The cost of the work is estimated at \$`r format(my_cost_estimate() %>% pull(cost_est_1000s) * 1000, big.mark = ',')` for a cost benefit of `r as.character(my_cost_estimate() %>% pull(cost_net))` linear m/\$1000 and `r as.character(my_cost_estimate() %>% pull(cost_area_net))`m^2^/\$1000.
 
 <br>
 

@@ -236,6 +236,13 @@ my_kable_scroll <- function(dat, caption_text = '', font = font_set){
     kableExtra::scroll_box(width = "100%", height = "500px")
 }
 
+my_kable_scroll2 <- function(dat, font = font_set){
+  dat %>%
+    kable(booktabs = T) %>%
+    kableExtra::kable_styling(c("condensed"), full_width = T, font_size = font) %>%
+    kableExtra::scroll_box(width = "100%", height = "500px")
+}
+
 my_tab_overview <- function(dat, caption_text = '', font = font_set){
   dat %>%
     kable(caption = caption_text, booktabs = T) %>%
@@ -260,12 +267,6 @@ my_kable_scroll_no_height <- function(dat, caption_text = ''){
     kableExtra::scroll_box(width = "100%")
 }
 
-# my_kable_scroll <- function(dat){
-#   dat %>%
-#     kable() %>%
-#     kableExtra::kable_styling(c("condensed"), full_width = T, font_size = 11) %>%
-#     kableExtra::scroll_box(width = "100%", height = "500px")
-# }
 
 my_kable <- function(dat, caption_text = '', font = font_set){
   dat %>%
@@ -273,6 +274,20 @@ my_kable <- function(dat, caption_text = '', font = font_set){
     kableExtra::kable_styling(c("condensed"), full_width = T, font_size = font)
     # kableExtra::scroll_box(width = "100%", height = "500px")
 }
+
+
+##going to leave this here for future reference but seeems like an unnecessary work around.
+my_kable2 <- function(dat, caption_text = '', font = font_set, cap_font_size = caption_font_size){
+  dat %>%
+    kable(caption = paste0('<p style=\"font-size:', cap_font_size, 'px\">', caption_text, '</p>'), booktabs = T) %>%
+    kableExtra::kable_styling(c("condensed"),
+                              full_width = T,
+                              font_size = font)
+  # kableExtra::scroll_box(width = "100%", height = "500px")
+}
+
+# paste0('<p style=\"font-size:30px\">', caption_text, '</p>')
+
 
 # my_kable <- function(dat){
 #   dat %>%

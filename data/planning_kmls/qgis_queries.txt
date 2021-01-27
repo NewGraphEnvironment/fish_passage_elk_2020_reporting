@@ -1,0 +1,17 @@
+"stream_crossing_id" IS NOT NULL
+ 
+  AND 
+ 
+ dnstr_barriers_anthropogenic IS NULL
+ 
+  AND 
+  
+  "crossing_source" != 'BCDAMS'
+ 
+  AND 
+  
+  "consultant_name" != 'IRVINE'
+  
+   AND 
+  
+"my_text" IS NULL

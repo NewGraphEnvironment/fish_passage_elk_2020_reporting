@@ -250,5 +250,29 @@ tab_photo_url <- list.files(path = paste0(getwd(), '/data/photos/'), full.names 
 ##built from funciton in functions.R file
 tabs_phase1 <- mapply(print_tab_summary_all, tab_sum = tab_summary, comments = tab_summary_comments, photos = tab_photo_url)
 
+tab_plan_raw <- readr::read_csv(file = 'data/planning_results.csv', guess_max = 1500)
+
+tab_plan_sf <- tab_plan_raw %>%
+  filter(!is.na(my_text) & !my_text %ilike% 'assessed') %>%
+  arrange(stream_crossing_id, modelled_crossing_id) %>%
+  st_as_sf(crs = 26911, coords = c("northing", "easting")) %>%
+  st_transform(crs = 4326) %>%
+  mutate(my_priority = case_when(my_priority == 'mod' ~ 'moderate',
+                                     T ~ my_priority)) %>%
+  dplyr::mutate(image_view_url = case_when(is.na(image_view_url) ~ NA_character_,
+                                           T ~ paste0('<a href =', image_view_url,'>', 'PSCIS Image link', '</a>'))) %>%
+  select(Area = study_area,
+         Priority = my_priority,
+         `PSCIS ID` = stream_crossing_id,
+         `Modelled ID` = modelled_crossing_id,
+         `Species` = observedspp_upstr,
+         `Order` = stream_order,
+         `Upstream habitat (km)` = wct_network_km,
+         `Channel width` = downstream_channel_width,
+         `Habitat value` = habitat_value_code,
+         `Image link` = image_view_url,
+         Comments = my_text)
+  # mutate(label = paste0('PSCIS - ', `PSCIS ID`, ' - ', 'Model - ', `Modelled ID`, ' - ', Comments)) %>%
+
 
 

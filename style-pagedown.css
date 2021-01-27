@@ -29,6 +29,8 @@ h4.author { /* Header 4 - and the author and data headers use this too  */
 @page {
 size: 8.5in 11in;
 }
+
+
 :root {/*this doesn't work right*/
 --pagedjs-margin-right: 0.5in !important;
 --pagedjs-margin-left: 0.5in !important;
