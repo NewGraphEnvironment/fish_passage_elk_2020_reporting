@@ -131,3 +131,52 @@ wshd_study_flathead %>%
   st_cast("POLYGON") %>%
   sf::st_write(paste0("./data/", 'fishpass_mapping', ".gpkg"), 'wshd_study_flathead', append = F)
 
+##############################################################################
+##############################################################################
+##############################################################################
+##make a kml of the planning info
+
+tab_plan <- tab_plan_raw %>%
+  filter(!is.na(my_text) & !my_text %ilike% 'assessed') %>%
+  arrange(stream_crossing_id, modelled_crossing_id) %>%
+  mutate(my_priority = case_when(my_priority == 'mod' ~ 'moderate',
+                                 T ~ my_priority)) %>%
+  select(Area = study_area,
+         Priority = my_priority,
+         `PSCIS ID` = stream_crossing_id,
+         `Modelled ID` = modelled_crossing_id,
+         `Species` = observedspp_upstr,
+         `Order` = stream_order,
+         `Upstream habitat (km)` = wct_network_km,
+         `Channel width` = downstream_channel_width,
+         `Habitat value` = habitat_value_code,
+         `Image link` = image_view_url,
+         Comments = my_text,
+         easting,
+         northing)
+
+df <- make_kml_col(tab_plan)
+
+df <- df %>%
+  dplyr::group_split(site_id) %>%
+  purrr::map(make_html_tbl) %>%
+  dplyr::bind_rows()
+
+coords <- df %>% select(easting, northing)
+proj4string <- sp::CRS("+init=epsg:26911")
+df <- df %>%
+  sp::SpatialPointsDataFrame(coords = coords, proj4string = proj4string) %>%
+  plotKML::reproject()
+
+# shape = "http://maps.google.com/mapfiles/kml/paddle/A.png"
+shape = "http://maps.google.com/mapfiles/kml/paddle/wht-blank.png"
+
+
+# kml_open("data/outgoing/barrier_assessments.kml")
+kml_open("data/elk_planning.kml")
+kml_layer(df, shape = shape, colour = df$color, labels = df$label, html.table = df$html_tbl, z.scale = 2, LabelScale = 1, size = 2)
+kml_close("data/elk_planning.kml")
+
+##now we will zip up the kml files in the data folder and rename with kmz
+files_to_zip <- paste0("data/", list.files(path = "data/", pattern = "\\.kml$"))  ##this used to includes the planning file which we don't want to do so watch out
+zip::zipr("data/elk_planning_kml.zip", files = files_to_zip)  ##it does not work to zip to kmz!!
