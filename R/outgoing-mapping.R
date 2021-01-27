@@ -175,13 +175,13 @@ df <- df %>%
 
 
 # kml_open("data/outgoing/barrier_assessments.kml")
-kml_open("data/elk_planning.kml")
+kml_open("data/Attachment_1_elk_planning.kml")
 kml_layer(df, shape = df$shape, colour = df$color, labels = df$label, html.table = df$html_tbl, z.scale = 2, LabelScale = 1, size = 1.5)
-kml_close("data/elk_planning.kml")
+kml_close("data/Attachment_1_elk_planning.kml")
 
 
 ##now we will zip up the kml files in the data folder and rename with kmz
 files_to_zip <- paste0("data/", list.files(path = "data/", pattern = "\\.kml$"))  ##this used to includes the planning file which we don't want to do so watch out
-zip::zipr("data/elk_planning_kml.zip", files = files_to_zip)  ##it does not work to zip to kmz!!
+zip::zipr("data/Attachment_1_elk_planning_kml.zip", files = files_to_zip)  ##it does not work to zip to kmz!!
 
 
