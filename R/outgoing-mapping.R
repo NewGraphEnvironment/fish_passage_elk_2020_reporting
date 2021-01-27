@@ -151,9 +151,10 @@ tab_plan <- tab_plan_raw %>%
          `Channel width` = downstream_channel_width,
          `Habitat value` = habitat_value_code,
          `Image link` = image_view_url,
-         Comments = my_text,
          easting,
-         northing)
+         northing,
+         Comments = my_text)
+
 
 df <- make_kml_col(tab_plan)
 
@@ -169,14 +170,18 @@ df <- df %>%
   plotKML::reproject()
 
 # shape = "http://maps.google.com/mapfiles/kml/paddle/A.png"
-shape = "http://maps.google.com/mapfiles/kml/paddle/wht-blank.png"
+# shape = "http://maps.google.com/mapfiles/kml/paddle/wht-blank.png"
+# shape = "http://maps.google.com/mapfiles/kml/pal2/icon18.png"
 
 
 # kml_open("data/outgoing/barrier_assessments.kml")
 kml_open("data/elk_planning.kml")
-kml_layer(df, shape = shape, colour = df$color, labels = df$label, html.table = df$html_tbl, z.scale = 2, LabelScale = 1, size = 2)
+kml_layer(df, shape = df$shape, colour = df$color, labels = df$label, html.table = df$html_tbl, z.scale = 2, LabelScale = 1, size = 1.5)
 kml_close("data/elk_planning.kml")
+
 
 ##now we will zip up the kml files in the data folder and rename with kmz
 files_to_zip <- paste0("data/", list.files(path = "data/", pattern = "\\.kml$"))  ##this used to includes the planning file which we don't want to do so watch out
 zip::zipr("data/elk_planning_kml.zip", files = files_to_zip)  ##it does not work to zip to kmz!!
+
+
