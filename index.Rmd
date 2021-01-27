@@ -1,12 +1,30 @@
 --- 
 title: "Upper Elk River and Flathead River Fish Passage Restoration Planning"
-author:
- - Prepared for Canadian Wildlife Federation
- - Prepared by Al Irvine, B.Sc., R.P.Bio.
- - New Graph Environment
- - Version 1.0
+author: |
+ |
+ |
+ | Prepared for
+ | Canadian Wildlife Federation
+ | 350 Michael Cowpland Dr
+ | Kanata, ON K2M 2W1
+ |
+ | and
+ | 
+ | Nupqu Limited Partnership
+ | 7443 Mission Road
+ | Cranbrook, BC V1C 7E5
+ |
+ | Prepared by
+ | Al Irvine, B.Sc., R.P.Bio.
+ | New Graph Environment
+ | 6 Regent St
+ | Nelson, BC V1L 2P1
 date: |
-   `r format(Sys.Date(), "%Y-%m-%d")`
+ |
+ | Version 1.0
+ | 
+ | `r format(Sys.Date(), "%Y-%m-%d")`
+ 
 toc-title: Table of Contents
 site: bookdown::bookdown_site
 output: bookdown::gitbook
@@ -26,11 +44,13 @@ knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, dpi=60, out.widt
 
 options(scipen=999)
 
+##if we want a workaround for the ugly landing page of the gitbook https://stackoverflow.com/questions/53399095/disable-title-author-in-the-html-output-of-bookdown
+
 ##define a picture specific output width you can put in chunk headers
 ##we need a switch to turn off html only so the printed version looks ok
 photo_width <- "100%"
 html_on <- TRUE
-# caption_font_size = 16
+caption_font_size = 16
 
 
 ##these are the settings for the pagedown version!! DONT FORGET THE font_set (font size for the tables) DOWN BELOW TOO!!!!!!!!!!!!!!
@@ -81,3 +101,7 @@ A total of `r n_distinct(pscis$my_crossing_reference)` Phase 1 assessments were 
 
 Habitat confirmation assessments were conducted at `r hab_site_priorities %>% nrow()` sites with a total of approximately 15 km of stream assessed. `r hab_site_priorities %>% filter(priority %ilike% 'high') %>% nrow() %>% english::as.english() %>% str_to_title()` crossings were rated as high priorities for proceeding to design for replacement, `r hab_site_priorities %>% filter(priority %ilike% 'Moderate') %>% nrow() %>% english::as.english()` crossings were rated as moderate priorities for proceeding to design for replacement, `r hab_site_priorities %>% filter(priority %ilike% 'Low') %>% nrow() %>% english::as.english()` crossings were rated as a low priority and `r hab_site_priorities %>% filter(priority %ilike% 'no fix') %>% nrow() %>% english::as.english()` crossing was rated as "no fix".
 
+```{js, echo = FALSE, eval= html_on}
+title=document.getElementById('header');
+title.innerHTML = '<img src="fig/logo2.png" alt="NewGraph">' + title.innerHTML
+```
