@@ -1,13 +1,19 @@
 # Recommendations
 
-Recommended next steps for fish passage restoration in the Elk River watershed group include:
+Recommendations for potential incorporation into watershed connectivity planning for the Upper Elk River and the Flathead River watersheds led by Canadian Wildlife Federation include:
+
+ * Refine barrier thresholds for road-stream crossing structures to explore metrics specific to life stage and life history types of species of interest. This will further focus efforts of potential remediation actions and could result in the consideration of physical works to alter crossing characteristics that can be significantly less costly than structure replacements (i.e. build up downstream area with rock riffles to decrease the outlet drop size).
+ 
+ * Model fish densities (fish/m^2^) vs. habitat characteristics (i.e. gradient, watershed size, elevation, etc.) using historically gathered electrofishing data to inform crossing prioritization and the monitoring of subsequent restoration actions.
 
 
- * Continue to collaborate with potential partners to build relationships, explore perspectives and develop “road maps” for fish passage restoration in different situations (MoT roads, rail lines, permit roads of different usages, FSRs, etc.) – documenting the people involved, discussions and process that are undertaken, funding options, etc.
- * Continue to develop `bcfishpass` and build a connectivity index for the study area watersheds to inform a connectivity remediation plan.
- * Acquire funding to procure site plans and replacement designs for structures identified as high priorities for restoration. 
- * Conduct fish passage and habitat confirmation assessments at road and rail stream crossings identified as high and moderate priorities in the Elk and Flathead River study areas through this project and future connectivity modelling analysis.
- * Refine passability thresholds for road-stream crossing structures to explore metrics specific to life stage and life history for westslope cutthrout trout to focus quantification of impacts of structures on connectivity within spawning and/or rearing habitats.
- * Work with regulators, the Elk Valley Cumulative Effects Management Framework Working Group and others to explore previously developed habitat suitablity indices for westslope cutthrout trout in the region as well as to analyze historic electrofishing data to determine catch per unit effort by species, area of habitat surveyed and timed electrofishing effort for sites within the study area. Results should be overlaid onto GIS (size/elevation of the watershed, length of modelled upstream channel, channel gradient, substrate type, etc.) to model species specific fish densities in habitats similiar to those found upstream and downstream of culvert locations.  This will facilitate estimations of the carrying capacities of habitats potentially blocked by road-stream crossing structures, allowing assessment of impacts of stream crossings on associated fish populations and quantification of the value of crossing remediations. 
- * Drafting and implementation of a collaborative plan for assessing the impacts of fish passage restoration investments.  The plan should be designed to provide data necessary to effectively monitor the outcomes of restoration efforts, inform future investments and build capacity/momentum for ecosystem restoration activities in the region.
+ * Continue to develop `bcfishpass` and other open source tools that are scalable, facilitate reproducible analysis and can be adapted to incorporate alternative fragmentation indicators and habitat gain/value metrics.
+ 
+ * Continue to conduct fish passage and habitat confirmation assessments at road and rail stream crossings at sites in the upper Elk River and Flathead River study areas prioritized through this project and future connectivity modelling.
+ 
+ * Continue to acquire funding to procure site plans and replacement designs for structures identified as high priorities for restoration.
+ 
+ * Continue to collaborate with potential partners to build relationships, explore perspectives and develop “road maps” for fish passage restoration in different situations (MoT roads, rail lines, permit roads of different usages, FSRs, etc.) – documenting the people involved, discussions and processes that are undertaken, funding options, synergies, measures of success, etc. Through this collaboration, continue to draft and implement a plan to prioritize fish passage restoration investments as well as to monitor the impacts of those investments on westslope cutthrout trout populations.
+
+
 
