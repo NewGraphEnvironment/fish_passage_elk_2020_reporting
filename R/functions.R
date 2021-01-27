@@ -361,24 +361,6 @@ make_kml_col <- function(df){
 
 }
 
-##this is how we make html tables.  Can add colors or whatever -https://stackoverflow.com/questions/50199845/converting-dataframe-in-required-html-table-format-in-r
-# make_html_tbl <- function(df) {
-#
-#   df2 <- df %>%
-#     dplyr::mutate(`Image link` = cell_spec('crossing', "html", link = `Image link`))
-#     # dplyr::select()
-#
-#   df <- df %>%
-#     mutate(html_tbl = knitr::kable(df2, 'html', escape = F)%>%
-#              # All cells get a border
-#              row_spec(0:nrow(df2), extra_css = "border: 1px solid black;") %>%
-#              row_spec(0, background = "yellow") %>%
-#              kableExtra::column_spec(column = ncol(df2), width_min = '2in') %>%
-#              kableExtra::column_spec(column = 1:10, width_min = '0.2in') #this might need to be 12
-#     )
-#   return(df)
-# }
-
 ## add a line to the function to make the comments column wide enough
 make_html_tbl <- function(df) {
   # df2 <- df %>%
