@@ -152,7 +152,9 @@ tab_cost_est_phase2_report <- tab_cost_est_phase2 %>%
          `Cost Est (in $K)` =  cost_est_1000s,
          `Habitat Upstream (m)` = upstream_habitat_length_m,
          `Cost Benefit (m / $K)` = cost_net,
-         `Cost Benefit (m2 / $K)` = cost_area_net)
+         `Cost Benefit (m2 / $K)` = cost_area_net) %>%
+  mutate(across(everything(), as.character)) %>%
+  replace(., is.na(.), "--")
 
 
 # tab_cost_est_phase2 <- tab_cost_est_prep3 %>%
