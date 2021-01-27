@@ -205,9 +205,6 @@ tab_cost_est_phase1 <- tab_cost_est %>%
     `Cost Benefit (m2 / $K)` = cost_area_gross) %>%
   mutate(across(everything(), as.character)) %>%
   replace(., is.na(.), "--")
-  # mutate(`Habitat Value (priority)` = stringr::str_replace_all(`Habitat Value (priority)`, 'NA (NA)', ''),
-  #        `Habitat Value (priority)` = stringr::str_replace_all(`Habitat Value (priority)`, '(NA)', ''))
-  # filter(!is.na(Priority))
 
 
 # tab_cost_est_phase1 <- left_join(
