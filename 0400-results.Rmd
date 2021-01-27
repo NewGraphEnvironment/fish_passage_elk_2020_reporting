@@ -1,6 +1,6 @@
 # Results and Discussion
 
-Field assessments were conducted between `r format(min(pscis$date), format="%B %d %Y")` and `r format(max(pscis$date), format="%B %d %Y")` by Allan Irvine, R.P.Bio, Mark Fjeld, BiT, Kyle Prince, P,Biol, and Chad Hughes, Ecologist. `r if(html_on)knitr::asis_output("Results of Phase 1 and Phase 2 assessments are summarized in Figure \\@ref(fig:map-interactive) with additional details provided in sections below.")` 
+Field assessments were conducted between `r format(min(pscis$date), format="%B %d %Y")` and `r format(max(pscis$date), format="%B %d %Y")` by Allan Irvine, R.P.Bio, Mark Fjeld, BiT, Kyle Prince, P,Biol, and Chad Hughes, Ecologist. `r if(html_on)knitr::asis_output("Results of Planning, Phase 1 and Phase 2 assessments are summarized in Figure \\@ref(fig:map-interactive) with additional details provided in sections below.")` 
 
 <br>
 
@@ -57,9 +57,24 @@ map <- leaflet(height=500, width=780) %>%
     title = "Fish Passage Priorities",
   ) %>% 
     addCircleMarkers(
+    data=select(tab_plan_sf, -Area),
+    label = tab_plan_sf$Comments,
+    labelOptions = labelOptions(noHide = F, textOnly = F),
+    popup = leafpop::popupTable(x = tab_plan_sf %>% st_drop_geometry(),
+                                feature.id = F,
+                                row.numbers = F),
+    radius = 9,
+    fillColor = ~pal(Priority),
+    color= "#ffffff",
+    stroke = TRUE,
+    fillOpacity = 1.0,
+    weight = 2,
+    opacity = 1.0,
+    group = "Planning") %>% 
+    addCircleMarkers(
     data=tab_phase1_map,
     label = tab_phase1_map$ID,
-    labelOptions = labelOptions(noHide = F, textOnly = TRUE),
+    labelOptions = labelOptions(noHide = T, textOnly = TRUE),
     popup = leafpop::popupTable(x = select((tab_phase1_map %>% st_set_geometry(NULL)),
                                            Site = ID, Priority = priority_phase1, Stream = stream_name, Road = road_name, `Habitat value`= habitat_value, `Barrier Result` = barrier_result, `Culvert data` = data_link, `Culvert photos` = photo_link),
                                 feature.id = F,
@@ -103,14 +118,14 @@ map <- leaflet(height=500, width=780) %>%
     baseGroups = c(
       "Esri.DeLorme",
       "ESRI Aerial"),
-    overlayGroups = c("Phase 1", "Phase 2"),
+    overlayGroups = c("Planning", "Phase 1", "Phase 2"),
     options = layersControlOptions(collapsed = F)) %>%
   leaflet.extras::addFullscreenControl() %>% 
   addMiniMap(tiles = providers$"Esri.NatGeoWorldMap",
              zoomLevelOffset = -6, width = 100, height = 100)
 
 map %>% 
-  hideGroup("Phase 2") 
+  hideGroup(c("Planning", "Phase 2")) 
 ```
 
 
@@ -124,15 +139,20 @@ pscis_historic_phase2 <- readr::read_csv(file = paste0(getwd(), '/data/raw_input
 # planning_results <- sf::st_read("data/planning_kmls/flathead_planning.kml")
 # 
 # planning_results %>% filter(study_area %ilike% 'flathead')
+
 ```
 
-Review of the PSCIS database indicated that prior to 2020, `r pscis_historic %>% filter(study_area %ilike% 'elk' & assessment_date < '2020-01-01') %>% nrow()` assessments for fish passage (Phase 1) and `r pscis_historic_phase2 %>% filter(study_area %ilike% 'elk' & assmt_date < '2020-01-01') %>% nrow()` habitat confirmations (Phase 2) have been conducted at crossing structures within the Upper Elk River.  Within the Flathead River watershed `r pscis_historic %>% filter(study_area %ilike% 'flathead' & assessment_date < '2020-01-01') %>% nrow()` fish passage assessments and `r pscis_historic_phase2 %>% filter(study_area %ilike% 'flathead' & assmt_date < '2020-01-01') %>% nrow() %>% english::as.english()` habitat confirmations had been conducted.  Following review of background literature, fisheries information, PSCIS and `bcfishpass` outputs, both modelled and PSCIS sites were selected for follow up with Phase 1 and 2 assessments. Results are included as a zipped package of Google Earth kml files stored  [here](https://github.com/NewGraphEnvironment/fish_passage_elk_2020_reporting_cwf/raw/master/data/planning_kmls/elk_planning_kmls.zip). 
+Review of the PSCIS database indicated that prior to 2020, `r pscis_historic %>% filter(study_area %ilike% 'elk' & assessment_date < '2020-01-01') %>% nrow()` assessments for fish passage (Phase 1) and `r pscis_historic_phase2 %>% filter(study_area %ilike% 'elk' & assmt_date < '2020-01-01') %>% nrow()` habitat confirmations (Phase 2) had been conducted at crossing structures within the Upper Elk River.  Within the Flathead River watershed, `r pscis_historic %>% filter(study_area %ilike% 'flathead' & assessment_date < '2020-01-01') %>% nrow()` fish passage assessments and `r knitr::asis_output(pscis_historic_phase2 %>% filter(study_area %ilike% 'flathead' & assmt_date < '2020-01-01') %>% nrow() %>% english::as.english())` habitat confirmations had been conducted.  
+
+<br>
+
+Following review of background literature, fisheries information, PSCIS and `bcfishpass` outputs, `r tab_plan_sf %>% nrow()` modelled and PSCIS sites were reviewed to select sites for follow up with Phase 1 and 2 assessments. In total, `r tab_plan_sf %>% filter(Area == 'elk') %>%  nrow()` crossings were reviewed in the Upper Elk River watershed and `r tab_plan_sf %>% filter(Area == 'flathead') %>%  nrow()` crossing were reviewed in the Flathead River watershed.  A total of `r tab_plan_sf %>% filter(Priority == 'high') %>%  nrow()` crossings ranked as high priority for follow up with Phase 1 and/or Phase 2 assessments, `r tab_plan_sf %>% filter(Priority == 'moderate') %>%  nrow()` crossings ranked as moderate priorities, `r tab_plan_sf %>% filter(Priority == 'low') %>%  nrow()` crossings ranked as low priorities and `r tab_plan_sf %>% filter(Priority == 'no fix') %>%  nrow()` crossings ranked as "no fix". Results are `r if(html_on)knitr::asis_output("presented in Figure \\@ref(fig:map-interactive) and ")`included as a Google Earth kml file ([Attachment 1](https://github.com/NewGraphEnvironment/fish_passage_elk_2020_reporting_cwf/raw/master/data/planning_kmls/elk_planning_kmls.zip)). 
 
 <br>
 
 ## Phase 1
 
-During 2020 field surveys, a total of `r n_distinct(pscis$my_crossing_reference)` Phase 1 assessments were conducted with `r pscis %>% filter(barrier_result == 'Passable') %>% nrow()` crossings considered "passable", `r pscis %>% filter(barrier_result == 'Potential') %>% nrow() %>% english::as.english()` crossings considered "potential" barriers and `r pscis %>% filter(barrier_result == 'Barrier') %>% nrow()` crossings considered "barriers" according to threshold values based on culvert embedment, outlet drop, slope, diameter (relative to channel size) and length [@fish_passage_assessments].  Site details and photos are presented in [Appendix - Phase 1 Fish Passage Assessment Data and Photos] with maps stored [here](https://hillcrestgeo.ca/outgoing/fishpassage/projects/elk/).  A cost benefit analysis for Phase 1 sites that were determined to be barriers or potential barriers is presented in Table \@ref(tab:cost-est-phase-1). 
+During 2020 field surveys, a total of `r n_distinct(pscis$my_crossing_reference)` Phase 1 assessments were conducted with `r pscis %>% filter(barrier_result == 'Passable') %>% nrow()` crossings considered "passable", `r pscis %>% filter(barrier_result == 'Potential') %>% nrow() %>% english::as.english()` crossings considered "potential" barriers and `r pscis %>% filter(barrier_result == 'Barrier') %>% nrow()` crossings considered "barriers" according to threshold values based on culvert embedment, outlet drop, slope, diameter (relative to channel size) and length [@fish_passage_assessments].  Site maps are presented in [Attachment 2](https://hillcrestgeo.ca/outgoing/fishpassage/projects/elk/) with a summary of crossings assessed, a cost benefit analysis and priority ranking for follow up for Phase 1 sites presented in Table \@ref(tab:cost-est-phase-1). Detailed data with photos are presented in `r if(html_on){knitr::asis_output("[Appendix - Phase 1 Fish Passage Assessment Data and Photos]")} else knitr::asis_output("Appendix - Phase 1 Fish Passage Assessment Data and Photos")`.
 
 <br>
 
@@ -141,11 +161,12 @@ Barrier passability criteria used in this project follows @fish_passage_assessme
 <br>
 
 ```{r cost-est-phase-1}
+
 if(html_on){
   tab_cost_est_phase1 %>% 
-  my_kable_scroll(caption_text = 'Upstream habitat estimates and cost benefit analysis for Phase 1 assessments.  IDs are PSCIS idenfifiers with exception of those with * which are interim references.')
+  my_kable_scroll(caption_text = 'Upstream habitat estimates and cost benefit analysis for Phase 1 assessments. See Appendix - Phase 1 Fish Passage Assessments for details. IDs are PSCIS idenfifiers with exception of those with * which are interim references.')
 } else tab_cost_est_phase1 %>% 
-  my_kable(caption_text = 'Upstream habitat estimates and cost benefit analysis for Phase 1 assessments.  IDs are PSCIS idenfifiers with exception of those with * which are interim references.')
+  my_kable(caption_text = 'Upstream habitat estimates and cost benefit analysis for Phase 1 assessments. See Appendix - Phase 1 Fish Passage Assessments for details. IDs are PSCIS idenfifiers with exception of those with * which are interim references.')
 ```
 
 <br>
@@ -153,7 +174,7 @@ if(html_on){
 ## Phase 2
 
  
-Habitat confirmation assessments were conducted at `r hab_site_priorities %>% nrow()` sites with a total of approximately 15 km of stream assessed. `r hab_site_priorities %>% filter(priority %ilike% 'high') %>% nrow() %>% english::as.english() %>% str_to_title()` crossings were rated as high priorities for proceeding to design for replacement, `r hab_site_priorities %>% filter(priority %ilike% 'Moderate') %>% nrow() %>% english::as.english() %>% str_to_title()` crossings were rated as moderate priorities for proceeding to design for replacement, `r hab_site_priorities %>% filter(priority %ilike% 'Low') %>% nrow() %>% english::as.english()` crossings were rated as a low priority and `r hab_site_priorities %>% filter(priority %ilike% 'no fix') %>% nrow() %>% english::as.english()` rated as "no fix". Results are summarized in `r if(html_on){knitr::asis_output("Figure \\@ref(fig:map-interactive) and ")}`Tables \@ref(tab:tab-overview) - \@ref(tab:tab-habitat-summary) with raw habitat and fish sampling data included in digital format as [Attachment 2](https://github.com/NewGraphEnvironment/fish_passage_elk_2020_reporting_cwf/raw/master/data/habitat_confirmations.xls).  Detailed information for each site assessed with Phase 2 assessments is included within site specific reports included as appendices to this document with pdf maps stored [here](https://hillcrestgeo.ca/outgoing/fishpassage/projects/elk/confirmations/).
+Habitat confirmation assessments were conducted at `r hab_site_priorities %>% nrow()` sites with a total of approximately 15 km of stream assessed. `r hab_site_priorities %>% filter(priority %ilike% 'high') %>% nrow() %>% english::as.english() %>% str_to_title()` crossings were rated as high priorities for proceeding to design for replacement, `r hab_site_priorities %>% filter(priority %ilike% 'Moderate') %>% nrow() %>% english::as.english() %>% str_to_title()` crossings were rated as moderate priorities for proceeding to design for replacement, `r hab_site_priorities %>% filter(priority %ilike% 'Low') %>% nrow() %>% english::as.english()` crossings were rated as a low priority and `r hab_site_priorities %>% filter(priority %ilike% 'no fix') %>% nrow() %>% english::as.english()` rated as "no fix". Results are summarized in `r if(html_on){knitr::asis_output("Figure \\@ref(fig:map-interactive) and ")}`Tables \@ref(tab:tab-overview) - \@ref(tab:tab-habitat-summary) with raw habitat and fish sampling data included in digital format as [Attachment 3](https://github.com/NewGraphEnvironment/fish_passage_elk_2020_reporting_cwf/raw/master/data/habitat_confirmations.xls).  Detailed information for each site assessed with Phase 2 assessments is included within site specific reports included as appendices to this document with maps included as [Attachment 2](https://hillcrestgeo.ca/outgoing/fishpassage/projects/elk/confirmations/).
 
 
 <br>
