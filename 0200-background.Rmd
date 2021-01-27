@@ -159,7 +159,7 @@ A summary of historical westslope cutthrout trout observations in the Elk River 
 plot_wct_elkr_grad <- wct_elkr_grad %>% 
   ggplot(aes(x = Gradient, y = Percent)) +
   geom_bar(stat = "identity")+
-  theme_bw(base_size = 10)+
+  theme_bw(base_size = 12)+
   labs(x = "Stream Gradient", y = "WCT Occurrences (%)")
 plot_wct_elkr_grad
 

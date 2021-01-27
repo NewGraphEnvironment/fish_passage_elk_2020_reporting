@@ -146,7 +146,7 @@ Review of the PSCIS database indicated that prior to 2020, `r pscis_historic %>%
 
 <br>
 
-Following review of background literature, fisheries information, PSCIS and `bcfishpass` outputs, `r tab_plan_sf %>% nrow()` modelled and PSCIS sites were reviewed to select sites for follow up with Phase 1 and 2 assessments. In total, `r tab_plan_sf %>% filter(Area == 'elk') %>%  nrow()` crossings were reviewed in the Upper Elk River watershed and `r tab_plan_sf %>% filter(Area == 'flathead') %>%  nrow()` crossing were reviewed in the Flathead River watershed.  A total of `r tab_plan_sf %>% filter(Priority == 'high') %>%  nrow()` crossings ranked as high priority for follow up with Phase 1 and/or Phase 2 assessments, `r tab_plan_sf %>% filter(Priority == 'moderate') %>%  nrow()` crossings ranked as moderate priorities, `r tab_plan_sf %>% filter(Priority == 'low') %>%  nrow()` crossings ranked as low priorities and `r tab_plan_sf %>% filter(Priority == 'no fix') %>%  nrow()` crossings ranked as "no fix". Results are `r if(html_on)knitr::asis_output("presented in Figure \\@ref(fig:map-interactive) and ")`included as a zipped Google Earth kml file ([Attachment 1](https://github.com/NewGraphEnvironment/fish_passage_elk_2020_reporting_cwf/raw/master/data/elk_planning_kml.zip)). 
+Following review of background literature, fisheries information, PSCIS and `bcfishpass` outputs, `r tab_plan_sf %>% nrow() + n_distinct(pscis$my_crossing_reference)` modelled and PSCIS crossings were reviewed to select sites for follow up with Phase 1 and 2 assessments. In total, `r tab_plan_sf %>% filter(Area == 'elk') %>%  nrow() + n_distinct(pscis$my_crossing_reference)` crossings were reviewed in the Upper Elk River watershed and `r tab_plan_sf %>% filter(Area == 'flathead') %>%  nrow()` crossings were reviewed in the Flathead River watershed.  Not including sites surveyed in the field in 2020, `r tab_plan_sf %>% filter(Priority == 'high') %>%  nrow()` crossings ranked as high priority for future follow up with Phase 1 and/or Phase 2 assessments, `r tab_plan_sf %>% filter(Priority == 'moderate') %>%  nrow()` crossings ranked as moderate priorities, `r tab_plan_sf %>% filter(Priority == 'low') %>%  nrow()` crossings ranked as low priorities and `r tab_plan_sf %>% filter(Priority == 'no fix') %>%  nrow()` crossings ranked as "no fix". Results are `r if(html_on)knitr::asis_output("presented in Figure \\@ref(fig:map-interactive) and ")`included as a zipped Google Earth kml file ([Attachment 1](https://github.com/NewGraphEnvironment/fish_passage_elk_2020_reporting_cwf/raw/master/data/elk_planning_kml.zip)). 
 
 <br>
 
@@ -211,6 +211,8 @@ tab_cost_est_phase2_report %>%
 ```
 
 <br>
+
+\pagebreak
 
 ```{r tab-habitat-summary}
 tab_hab_summary %>% 

@@ -96,7 +96,7 @@ tab <- as_tibble(t(tab_barrier_scoring)) %>%
                           T ~ Risk))
 
 tab %>% 
-  my_kable(caption_text = 'Fish Barrier Risk Assessment (MoE 2011).')
+  my_kable2(caption_text = 'Fish Barrier Risk Assessment (MoE 2011).')
 
 
 ```
