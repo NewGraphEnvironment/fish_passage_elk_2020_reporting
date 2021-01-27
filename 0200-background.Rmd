@@ -107,8 +107,9 @@ Fish species recorded in the Elk River watershed group are detailed in Table \@r
 <br>
 
 ```{r fiss-species-table}
-readr::read_csv(file = paste0(getwd(), '/data/raw_input/fiss_species_table.csv')) %>% 
+fiss_species_table <- readr::read_csv(file = paste0(getwd(), '/data/raw_input/fiss_species_table.csv'))
   # filter(`Species Code` != 'CT') %>% 
+fiss_species_table %>%  
   my_kable(caption_text = 'Fish species recorded in the study areas (FISS 2020).')
 
 
