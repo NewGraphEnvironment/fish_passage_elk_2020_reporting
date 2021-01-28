@@ -103,5 +103,5 @@ Habitat confirmation assessments were conducted at `r hab_site_priorities %>% nr
 
 ```{js, echo = FALSE, eval= html_on}
 title=document.getElementById('header');
-title.innerHTML = '<img src="fig/logo2.png" alt="NewGraph">' + title.innerHTML
+title.innerHTML = '<img src="fig/logo_html3.png" alt="NewGraph">' + title.innerHTML
 ```
