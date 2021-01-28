@@ -79,6 +79,6 @@ folderstocreate %>%
 ##rename 20200923010!!!
 
 ##resize our logo
-image <- image_read("fig/logo.png")
+image <- image_read("fig/logo_html.png")
 image_scaled <- image_scale(image,"480x360")
-image_write(image_scaled, path = "fig/logo2.png", format = 'png')
+image_write(image_scaled, path = "fig/logo_html2.png", format = 'png')
