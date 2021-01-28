@@ -165,11 +165,21 @@ Barrier passability criteria used in this project follows @fish_passage_assessme
 if(html_on){
   tab_cost_est_phase1 %>% 
   my_kable_scroll(caption_text = 'Upstream habitat estimates and cost benefit analysis for Phase 1 assessments. See Appendix - Phase 1 Fish Passage Assessments for details. IDs are PSCIS idenfifiers with exception of those with * which are interim references.')
-} else tab_cost_est_phase1 %>% 
+} else tab_cost_est_phase1[1:28, ] %>% 
   my_kable(caption_text = 'Upstream habitat estimates and cost benefit analysis for Phase 1 assessments. See Appendix - Phase 1 Fish Passage Assessments for details. IDs are PSCIS idenfifiers with exception of those with * which are interim references.')
+
+if(identical(html_on, FALSE)){tab_cost_est_phase1[29:58, ] %>% 
+  my_kable()}
+
+if(identical(html_on, FALSE)){tab_cost_est_phase1[59:nrow(tab_cost_est_phase1), ] %>% 
+  my_kable()}
+
 ```
 
+
 <br>
+
+\pagebreak
 
 ## Phase 2
 
@@ -184,9 +194,12 @@ if(html_on){
 tab_overview %>% 
   select(-Tenure) %>%
   my_tab_overview_scroll(caption_text = 'Overview of habitat confirmation sites.')
-} else tab_overview %>% 
+} else tab_overview[1:10, ] %>% 
   select(-Tenure) %>%
   my_tab_overview(caption_text = 'Overview of habitat confirmation sites.')
+
+if(identical(html_on, FALSE)){tab_overview[11:nrow(tab_overview), ] %>% 
+  my_kable()}
 ```
 
 <br>
