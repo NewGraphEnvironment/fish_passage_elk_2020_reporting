@@ -208,12 +208,12 @@ tab_culvert <- tab_culvert_prep %>%
 ####--------------phase1 summary tables--------------------------
 print_tab_summary_all <- function(tab_sum, comments, photos){
   kable(tab_sum, booktabs = T) %>%
-    kableExtra::kable_styling(c("condensed"), full_width = T, font_size = 11) %>%
+    kableExtra::kable_styling(c("condensed", "basic"), full_width = T, font_size = 11) %>%
     kableExtra::add_footnote(label = paste0('Comments: ', comments[[1]]), notation = 'none') %>% #this grabs the comments out
     kableExtra::add_footnote(label = paste0('Photos: External ID ', photos[[1]],
                                             '. From top left clockwise: Road/Site Card, Barrel, Outlet, Downstream, Upstream, Inlet.',
-                                            photos[[2]]), notation = 'none') %>%
-    kableExtra::add_footnote(label = '<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>', escape = F, notation = 'none')
+                                            photos[[2]]), notation = 'none')
+    # kableExtra::add_footnote(label = '<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>', escape = F, notation = 'none')
 }
 
 ##summary table
@@ -224,7 +224,7 @@ print_tab_summary <- function(dat = pscis2, site = my_site, site_photo_id = my_s
     #                                           pull(assessment_comment)), notation = 'none') %>% #this grabs the comments out
     kableExtra::add_footnote(label = paste0('Photos: From top left clockwise: Road/Site Card, Barrel, Outlet, Downstream, Upstream, Inlet.',
                                             paste0('![](data/photos/', site_photo_id, '/crossing_all.JPG)')), notation = 'none') %>%
-    kableExtra::kable_styling(c("condensed"), full_width = T, font_size = font)
+    kableExtra::kable_styling(c("condensed", "basic"), full_width = T, font_size = font)
   # kableExtra::scroll_box(width = "100%", height = "500px") ##not scrolling to simplify our pagedown output
 }
 
@@ -232,21 +232,21 @@ print_tab_summary <- function(dat = pscis2, site = my_site, site_photo_id = my_s
 my_kable_scroll <- function(dat, caption_text = '', font = font_set){
   dat %>%
     kable(caption = caption_text, booktabs = T) %>%
-    kableExtra::kable_styling(c("condensed"), full_width = T, font_size = font) %>%
+    kableExtra::kable_styling(c("condensed", "basic"), full_width = T, font_size = font) %>%
     kableExtra::scroll_box(width = "100%", height = "500px")
 }
 
 my_kable_scroll2 <- function(dat, font = font_set){
   dat %>%
     kable(booktabs = T) %>%
-    kableExtra::kable_styling(c("condensed"), full_width = T, font_size = font) %>%
+    kableExtra::kable_styling(c("condensed", "basic"), full_width = T, font_size = font) %>%
     kableExtra::scroll_box(width = "100%", height = "500px")
 }
 
 my_tab_overview <- function(dat, caption_text = '', font = font_set){
   dat %>%
     kable(caption = caption_text, booktabs = T) %>%
-    kableExtra::kable_styling(c("condensed"), full_width = T, font_size = font) %>%
+    kableExtra::kable_styling(c("condensed", "basic"), full_width = T, font_size = font) %>%
     kableExtra::column_spec(column = 9, width_min = '1.5in')
     # kableExtra::scroll_box(width = "100%", height = "500px")
 }
@@ -254,7 +254,7 @@ my_tab_overview <- function(dat, caption_text = '', font = font_set){
 my_tab_overview_scroll <- function(dat, caption_text = '', font = font_set){
   dat %>%
     kable(caption = caption_text, booktabs = T) %>%
-    kableExtra::kable_styling(c("condensed"), full_width = T, font_size = font) %>%
+    kableExtra::kable_styling(c("condensed", "basic"), full_width = T, font_size = font) %>%
     kableExtra::column_spec(column = 9, width_min = '1.5in') %>%
     kableExtra::scroll_box(width = "100%", height = "500px")
 }
@@ -263,7 +263,7 @@ my_tab_overview_scroll <- function(dat, caption_text = '', font = font_set){
 my_kable_scroll_no_height <- function(dat, caption_text = ''){
   dat %>%
     kable(caption = caption_text, booktabs = T) %>%
-    kableExtra::kable_styling(c("condensed"), full_width = T, font_size = 11) %>%
+    kableExtra::kable_styling(c("condensed", "basic"), full_width = T, font_size = 11) %>%
     kableExtra::scroll_box(width = "100%")
 }
 
@@ -271,20 +271,22 @@ my_kable_scroll_no_height <- function(dat, caption_text = ''){
 my_kable <- function(dat, caption_text = '', font = font_set){
   dat %>%
     kable(caption = caption_text, booktabs = T) %>%
-    kableExtra::kable_styling(c("condensed"), full_width = T, font_size = font)
+    kableExtra::kable_styling(c("condensed", "basic"), full_width = T, font_size = font)
     # kableExtra::scroll_box(width = "100%", height = "500px")
 }
 
 
-##going to leave this here for future reference but seeems like an unnecessary work around.
-my_kable2 <- function(dat, caption_text = '', font = font_set, cap_font_size = caption_font_size){
-  dat %>%
-    kable(caption = paste0('<p style=\"font-size:', cap_font_size, 'px\">', caption_text, '</p>'), booktabs = T) %>%
-    kableExtra::kable_styling(c("condensed"),
-                              full_width = T,
-                              font_size = font)
-  # kableExtra::scroll_box(width = "100%", height = "500px")
-}
+# ##going to leave this here for future reference but seeems like an unnecessary work around.
+# my_kable <- function(dat, caption_text = '', font = font_set, cap_font_size = caption_font_size){
+#   dat %>%
+#     kable(caption = paste0('<p style=\"font-size:', cap_font_size, 'px\">', caption_text, '</p>'),
+#           booktabs = T,
+#           longtable = T) %>%
+#     kableExtra::kable_styling(c("condensed", "basic"), ##added repeat_header
+#                               full_width = T,
+#                               font_size = font)
+#   # kableExtra::scroll_box(width = "100%", height = "500px")
+# }
 
 # paste0('<p style=\"font-size:30px\">', caption_text, '</p>')
 
@@ -376,6 +378,6 @@ make_html_tbl <- function(df) {
 }
 
 
-
+openHTML <- function(x) browseURL(paste0('file://', file.path(getwd(), x)))
 
 
