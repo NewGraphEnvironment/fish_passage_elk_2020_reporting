@@ -46,22 +46,10 @@ file.rename('data/0600-appendix.Rmd', '0600-appendix.Rmd')
 
 
 ##now we need to print the docs/Elk.html file to Elk.pdf with chrome.  We should automate this step.  Do in browser for now
+openHTML('docs/Elk.html')
 
-##we cannot sub in the title page because the TOC stops working when we do.
-# length <- pdf_length(paste0(getwd(), "/docs/Elk.pdf"))
-#
-# pdf_subset(paste0(getwd(), "/docs/Elk.pdf"),
-#            pages = 2:length, output = paste0(getwd(), "/docs/Elk2.pdf"))
-#
-# pdf_combine(c(paste0(getwd(), "/docs/title_page.pdf"),
-#   paste0(getwd(), "/docs/Elk2.pdf")),
-#             output = paste0(getwd(), "/docs/Elk3.pdf"))
-#
-# file.rename(paste0(getwd(), "/docs/Elk3.pdf"), paste0(getwd(),"/docs/Elk.pdf"))
-#
-# file.remove(paste0(getwd(), "/docs/Elk2.pdf"))
 
-##here is a list of the blank pages that we want to remove.
+
 
 ##  make the site
 rmarkdown::render_site(output_format = 'bookdown::gitbook', encoding = 'UTF-8')
@@ -95,3 +83,17 @@ pdf_subset(paste0(getwd(), "/docs/Attachment_3_Phase_1_Data_and_Photos_prep.pdf"
 
 ##clean out the old file
 file.remove(paste0(getwd(), "/docs/Attachment_3_Phase_1_Data_and_Photos_prep.pdf"))
+
+##we cannot sub in the title page because the TOC stops working when we do.
+# length <- pdf_length(paste0(getwd(), "/docs/Elk.pdf"))
+#
+# pdf_subset(paste0(getwd(), "/docs/Elk.pdf"),
+#            pages = 2:length, output = paste0(getwd(), "/docs/Elk2.pdf"))
+#
+# pdf_combine(c(paste0(getwd(), "/docs/title_page.pdf"),
+#   paste0(getwd(), "/docs/Elk2.pdf")),
+#             output = paste0(getwd(), "/docs/Elk3.pdf"))
+#
+# file.rename(paste0(getwd(), "/docs/Elk3.pdf"), paste0(getwd(),"/docs/Elk.pdf"))
+#
+# file.remove(paste0(getwd(), "/docs/Elk2.pdf"))
