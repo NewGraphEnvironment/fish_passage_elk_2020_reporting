@@ -31,7 +31,7 @@ my_bcfish <- my_bcfishpass() ##can be useful to look at
 
 ## Site Location {-}
 
-Crossing `r as.character(my_site)` is located on a `r my_pscis_info() %>% pull(stream_name)`, approximately `r my_priority_info(loc = 'ds') %>% pull(survey_length_m)`m upstream from the confluence with Morrisey Creek. The crossing is located at km 14.5 on River Road just south of Morrissey approximately 15km south of Fernie.  The road is accessed off of Lodgepole FSR via the Morrissey Bridge over the Elk River adjacent to Highway 3. River Road is a gravel forest tenure road (forest file id `r my_bcfishpass() %>%  pull(forest_file_id)` with active log hauling at the time of the survey. PSCIS crossing 50181 on an upstream tributary located approximately 2.7km upstream was also surveyed with a habitat confirmation assessment ([Appendix - Crossing 50181]).
+Crossing `r as.character(my_site)` is located on a `r my_pscis_info() %>% pull(stream_name)`, approximately `r my_priority_info(loc = 'ds') %>% pull(survey_length_m)`m upstream from the confluence with Morrisey Creek. The crossing is located at km 14.5 on River Road just south of Morrissey approximately 15km south of Fernie.  The road is accessed off of Lodgepole FSR via the Morrissey Bridge over the Elk River adjacent to Highway 3. River Road is a gravel forest tenure road (forest file id `r my_bcfishpass() %>%  pull(forest_file_id)` with active log hauling at the time of the survey. PSCIS crossing 50181 on an upstream tributary located approximately 2.7km upstream was also surveyed with a habitat confirmation assessment.
 
 
 <br>

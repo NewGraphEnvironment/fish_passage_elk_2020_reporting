@@ -48,6 +48,16 @@ options(knitr.kable.NA = '--')
 ##if we want a workaround for the ugly landing page of the gitbook https://stackoverflow.com/questions/53399095/disable-title-author-in-the-html-output-of-bookdown
 
 
+photo_width <- "100%"
+html_on <- TRUE
+caption_font_size = 16
+
+
+##these are the settings for the pagedown version!! DONT FORGET THE font_set (font size for the tables) DOWN BELOW TOO!!!!!!!!!!!!!!
+# photo_width <- "80%"
+# html_on <- FALSE
+# caption_font_size = 12
+
 ##try to fix the kable caption size https://stackoverflow.com/questions/45018397/changing-the-font-size-of-figure-captions-in-rmarkdown-html-output
 
 # fig.align="center", out.width = "90%",
@@ -68,17 +78,13 @@ source('R/functions-fish.R')
 
 ##define a picture specific output width you can put in chunk headers
 ##we need a switch to turn off html only so the printed version looks ok
+
+
+
+
 font_set <- 11
-photo_width <- "100%"
-html_on <- TRUE
-caption_font_size = 16
-
-##these are the settings for the pagedown version!! DONT FORGET THE font_set (font size for the tables) DOWN BELOW TOO!!!!!!!!!!!!!!
-
 # font_set <- 9
-# photo_width <- "80%"
-# html_on <- FALSE
-# caption_font_size = 12
+
 
 ```
 

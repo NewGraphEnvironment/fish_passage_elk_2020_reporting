@@ -39,7 +39,7 @@ my_bcfish <- my_bcfishpass() ##can be useful to look at
 
 ## Site Location {-}
 
-Crossing `r as.character(my_site)` is located on a `r my_pscis_info() %>% pull(stream_name)`, approximately `r my_priority_info(loc = 'ds') %>% pull(survey_length_m)`m upstream from the confluence with a tributary to Morrissey Creek. The crossing is located on `r my_overview_info() %>% pull(road_name)` just south of Morrissey approximately 15km south of Fernie.  `r my_overview_info() %>% pull(road_name)` is a gravel forest tenure road with active log hauling at the time of the survey. This crossing is on a stream that flows into the Morrissey Creek tributary approximately 2.7km upstream of where PSCIS crossing 50185 on River Road was also surveyed with a habitat confirmation assessment ([Appendix - Crossing 50185]).  
+Crossing `r as.character(my_site)` is located on a `r my_pscis_info() %>% pull(stream_name)`, approximately `r my_priority_info(loc = 'ds') %>% pull(survey_length_m)`m upstream from the confluence with a tributary to Morrissey Creek. The crossing is located on `r my_overview_info() %>% pull(road_name)` just south of Morrissey approximately 15km south of Fernie.  `r my_overview_info() %>% pull(road_name)` is a gravel forest tenure road with active log hauling at the time of the survey. This crossing is on a stream that flows into the Morrissey Creek tributary approximately 2.7km upstream of where PSCIS crossing 50185 on River Road was also surveyed with a habitat confirmation assessment.  
 
 
 <br>
@@ -100,7 +100,7 @@ Structure replacement with a bridge is recommended to provide access to the habi
 
 ## Conclusion {-}
 
-There is an estimated `r my_priority_info() %>% pull(upstream_habitat_length_km)`km of mainstem habitat upstream of crossing `r as.character(my_site)` with habitat in the areas surveyed upstream of the crossing rated as `r my_priority_info(loc = 'us') %>% pull(hab_value)` value for fry and juvenile salmonid rearing. Density of westslope cutthrout trout parr was higher in the site sampled downstream of the crossing when compared to the upstream site with fry, juvenile and adult fish captured downstream only. The `r my_overview_info() %>% pull(road_name)` is under tenure of the Ministry of Forests, Lands, Natural Resource Operations & Rural Development. The crossing was ranked as a `r my_priority_info() %>% pull(priority)` priority for proceeding to design for replacement with an open bottomed structure and consideration of remediation of PSCIS 50185 ([Appendix - Crossing 50185]) should be considered at the same time for maximum potential benefits.
+There is an estimated `r my_priority_info() %>% pull(upstream_habitat_length_km)`km of mainstem habitat upstream of crossing `r as.character(my_site)` with habitat in the areas surveyed upstream of the crossing rated as `r my_priority_info(loc = 'us') %>% pull(hab_value)` value for fry and juvenile salmonid rearing. Density of westslope cutthrout trout parr was higher in the site sampled downstream of the crossing when compared to the upstream site with fry, juvenile and adult fish captured downstream only. The `r my_overview_info() %>% pull(road_name)` is under tenure of the Ministry of Forests, Lands, Natural Resource Operations & Rural Development. The crossing was ranked as a `r my_priority_info() %>% pull(priority)` priority for proceeding to design for replacement with an open bottomed structure and consideration of remediation of PSCIS 50185 should be considered at the same time for maximum potential benefits.
 
 <br>
 
