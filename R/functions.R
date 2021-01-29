@@ -327,8 +327,16 @@ pull_photo_by_str <- function(site_id = my_site, str_to_pull = 'barrel'){
 }
 
 appendix_title <- function(site = my_site){
-  paste0('# Appendix - Crossing ', site,'{-}')
+  paste0('# Appendix - ', site, ' - ', my_overview_info() %>% pull(stream_name), ' {-}')
 }
+
+appendix_title2 <- function(site = my_site, site2 = my_site2){
+  paste0('# Appendix - ', site, ' & ', site2, ' - ', my_overview_info() %>% pull(stream_name), ' {-}')
+}
+
+# appendix_title <- function(site = my_site){
+#   paste0('# Appendix - Crossing ', site,'{-}')
+# }
 
 appendix_subtitle <- function(){
   paste0('**', my_overview_info() %>% pull(road_name), ' - ', my_overview_info() %>% pull(stream_name), '**')

@@ -18,9 +18,9 @@ source('R/functions-fish.R')
 my_site <- 62516
 ```
 
-
-`r paste0('# Appendix - Crossing ', my_site)`{-} 
-`r paste0('**', my_overview_info() %>% pull(road_name), ' - ', my_overview_info() %>% pull(stream_name), '**')`
+`r appendix_title()`
+<!-- `r paste0('# Appendix - Crossing ', my_site)`{-}  -->
+<!-- `r paste0('**', my_overview_info() %>% pull(road_name), ' - ', my_overview_info() %>% pull(stream_name), '**')` -->
 
 
 ## Site Location {-}

@@ -21,9 +21,9 @@ my_site_xref <- 4600183
 my_site2_xref <- 4600070
 ```
 
-
-`r paste0('# Appendix - Crossings ', my_site, ' and ', my_site2)`{-} 
-`r paste0('**', my_overview_info() %>% pull(road_name), ' and ', my_overview_info(site = my_site2) %>% pull(road_name), ' - ', my_overview_info() %>% pull(stream_name), '**')`
+`r appendix_title2()`
+<!-- `r paste0('# Appendix - ', my_site, ' and ', my_site2)`{-}  -->
+<!-- `r paste0('**', my_overview_info() %>% pull(road_name), ' and ', my_overview_info(site = my_site2) %>% pull(road_name), ' - ', my_overview_info() %>% pull(stream_name), '**')` -->
 
 
 ## Site Location {-}

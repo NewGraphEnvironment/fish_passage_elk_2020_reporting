@@ -33,7 +33,7 @@ my_bcfish <- my_bcfishpass() ##can be useful to look at
 ```
 
 `r appendix_title()`
-`r appendix_subtitle()`
+<!-- `r appendix_subtitle()` -->
 
 
 

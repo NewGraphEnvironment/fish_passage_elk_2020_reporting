@@ -21,7 +21,7 @@ author: |
  | Nelson, BC V1L 2P1
 date: |
  |
- | Version 1.0
+ | Version 1.1
  | 
  | `r format(Sys.Date(), "%Y-%m-%d")`
  
@@ -47,18 +47,6 @@ options(knitr.kable.NA = '--')
 
 ##if we want a workaround for the ugly landing page of the gitbook https://stackoverflow.com/questions/53399095/disable-title-author-in-the-html-output-of-bookdown
 
-##define a picture specific output width you can put in chunk headers
-##we need a switch to turn off html only so the printed version looks ok
-photo_width <- "100%"
-html_on <- TRUE
-caption_font_size = 16
-
-
-##these are the settings for the pagedown version!! DONT FORGET THE font_set (font size for the tables) DOWN BELOW TOO!!!!!!!!!!!!!!
-# photo_width <- "80%"
-# html_on <- FALSE
-# caption_font_size = 12
-
 
 ##try to fix the kable caption size https://stackoverflow.com/questions/45018397/changing-the-font-size-of-figure-captions-in-rmarkdown-html-output
 
@@ -77,8 +65,20 @@ source('R/functions-fish.R')
 
 ##set the font default size for the tables.  had a crash and think this might have been it so put after functions.R
 ##seems odd but not risking again for now.
+
+##define a picture specific output width you can put in chunk headers
+##we need a switch to turn off html only so the printed version looks ok
 font_set <- 11
+photo_width <- "100%"
+html_on <- TRUE
+caption_font_size = 16
+
+##these are the settings for the pagedown version!! DONT FORGET THE font_set (font size for the tables) DOWN BELOW TOO!!!!!!!!!!!!!!
+
 # font_set <- 9
+# photo_width <- "80%"
+# html_on <- FALSE
+# caption_font_size = 12
 
 ```
 
@@ -93,7 +93,7 @@ knitr::write_bib(c(
 
 # Executive Summary {.front-matter .unnumbered}
 
-New Graph Environment was retained by the Canadian Wildlife Federation and Nupqu Limited Partnership in the fall of 2020 to plan and conduct fish passage and habitat confirmation assessments at road-stream crossings as part of connectivity restoration planning targeting westslope cutthrout trout. Although some planning was conducted for both the Elk River watershed upstream of the Elko Dam near Elko, BC and the Flathead River, on the ground surveys in 2020 focused on the Elk River and tributaries located upstream of the Elko Dam. This report is available as pdf and as an `html` document online [interactive report](https://newgraphenvironment.github.io/fish_passage_elk_2020_reporting_cwf/).  We recommend viewing online as the web-hosted `html` version contains more features and is more easily navigable. 
+New Graph Environment was retained by the Canadian Wildlife Federation and Nupqu Limited Partnership in the fall of 2020 to plan and conduct fish passage and habitat confirmation assessments at road-stream crossings as part of connectivity restoration planning targeting westslope cutthrout trout. Although some planning was conducted for both the Elk River watershed upstream of the Elko Dam near Elko, BC and the Flathead River, on the ground surveys in 2020 focused on the Elk River and tributaries located upstream of the Elko Dam. `r if(identical(html_on, FALSE))knitr::asis_output("This report is available as pdf and as an html document online [interactive report](https://newgraphenvironment.github.io/fish_passage_elk_2020_reporting_cwf/) at https://newgraphenvironment.github.io/fish_passage_elk_2020_reporting_cwf/. We recommend viewing online as the web-hosted html version contains more features and is more easily navigable.")`
 
 <br>
 
