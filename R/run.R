@@ -29,12 +29,19 @@ file.rename('0600-appendix.Rmd', 'data/0600-appendix.Rmd')
 #photo_width <- "80%"
 # caption_font <- 11
 
+##this is hacky but unhash out the following from the functions.R file print_tab_summary_all function
+# kableExtra::add_footnote(label = '<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>', escape = F, notation = 'none')
+
+
 ##   then make our printable pdf
 rmarkdown::render_site(output_format = 'pagedown::html_paged', encoding = 'UTF-8')
-# pagedown::chrome_print("index.Rmd")
+
 
 ##  move it to the docs folder so that it can be seen by the download button
 file.rename('Elk.html', 'docs/Elk.html')
+
+##now we need to print the docs/Elk.html file to Elk.pdf with chrome.  We should automate this step.  Do in browser for now
+openHTML('docs/Elk.html')
 
 ##move the phase 1 appendix back to main directory
 file.rename('data/0600-appendix.Rmd', '0600-appendix.Rmd')
@@ -45,10 +52,8 @@ file.rename('data/0600-appendix.Rmd', '0600-appendix.Rmd')
 #photo_width <- "100%"
 
 
-##now we need to print the docs/Elk.html file to Elk.pdf with chrome.  We should automate this step.  Do in browser for now
-openHTML('docs/Elk.html')
-
-
+##this is hacky but hash out the following from the functions.R file print_tab_summary_all function
+# kableExtra::add_footnote(label = '<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>', escape = F, notation = 'none')
 
 
 ##  make the site

@@ -21,7 +21,7 @@ author: |
  | Nelson, BC V1L 2P1
 date: |
  |
- | Version 1.1
+ | Version 1.2
  | 
  | `r format(Sys.Date(), "%Y-%m-%d")`
  
