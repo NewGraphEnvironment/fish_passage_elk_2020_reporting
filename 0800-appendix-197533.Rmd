@@ -74,7 +74,7 @@ The stream was surveyed upstream from `r as.character(my_site)` for `r my_priori
 
 ## Stream Characteristics Upstream of `r as.character(my_site2)`{-}
 
-The stream was surveyed immediately upstream from `r as.character(my_site2)` for 1200m and then another 600m beginning at the ford (PSCIS 197536) 2km upstream for a total of `r my_priority_info(sit = my_site2, loc = 'us') %>% pull(survey_length_m)`m. The channel was dewatered immediately upstream of Highway 43 with intermittent pools only to a distance approximately 670 m upstream.  Upstream of the dewatered area, stream flows increased with increasing upstream distance.  Overall, total cover amount was rated as `r my_habitat_info2(sit = my_site2, loc = 'us') %>% filter(rowname == 'total cover') %>% pull(v)` with  `r my_habitat_info2(sit = my_site2, loc = 'us') %>% filter(v == 'dominant') %>% pull(rowname)` dominant. Cover was also present as `r my_habitat_info2(sit = my_site2,, loc = 'us') %>% filter(v == 'sub-dominant') %>% pull(rowname) %>% knitr::combine_words()` (Table \@ref(tab:tab-habitat-summary-197533), Figure \@ref(fig:photo-197533-02)). The average channel width was `r my_habitat_info3(loc = 'us', row = 'avg channel width m')`m, the average wetted width was `r my_habitat_info3(sit = my_site2, loc = 'us', row = 'avg wetted width m')`m and the average gradient was `r my_habitat_info3(sit = my_site2, loc = 'us', row = 'average gradient percent')`%.  Overall, habitat upstream of `r as.character(my_site2)` was rated as `r my_priority_info(sit = my_site2, loc = 'us') %>% pull(hab_value)` value habitat present suitable for resident and fluvial salmonid rearing and spawning. 
+The stream was surveyed immediately upstream from `r as.character(my_site2)` for 1200m and then another 600m beginning at the ford (PSCIS 197536) 2km upstream for a total of `r my_priority_info(sit = my_site2, loc = 'us') %>% pull(survey_length_m)`m. The channel was dewatered immediately upstream of Highway 43 with intermittent pools only to a distance approximately 670 m upstream (Figure \@ref(fig:photo-197533-04)).  Upstream of the dewatered area, stream flows increased with increasing upstream distance.  Overall, total cover amount was rated as `r my_habitat_info2(sit = my_site2, loc = 'us') %>% filter(rowname == 'total cover') %>% pull(v)` with  `r my_habitat_info2(sit = my_site2, loc = 'us') %>% filter(v == 'dominant') %>% pull(rowname)` dominant. Cover was also present as `r my_habitat_info2(sit = my_site2,, loc = 'us') %>% filter(v == 'sub-dominant') %>% pull(rowname) %>% knitr::combine_words()` (Table \@ref(tab:tab-habitat-summary-197533), Figure \@ref(fig:photo-197533-05)). The average channel width was `r my_habitat_info3(loc = 'us', row = 'avg channel width m')`m, the average wetted width was `r my_habitat_info3(sit = my_site2, loc = 'us', row = 'avg wetted width m')`m and the average gradient was `r my_habitat_info3(sit = my_site2, loc = 'us', row = 'average gradient percent')`%.  Overall, habitat upstream of `r as.character(my_site2)` was rated as `r my_priority_info(sit = my_site2, loc = 'us') %>% pull(hab_value)` value habitat present suitable for resident and fluvial salmonid rearing and spawning. 
 
 <br>
 
@@ -95,12 +95,12 @@ As properties on Busato Road could be accessed from either side of the road, rem
 
 ## Conclusion {-}
 
-There is `r my_priority_info() %>% pull(upstream_habitat_length_km)`km of habitat upstream of crossing `r as.character(my_site2)` and another `r my_priority_info(sit = my_site2) %>% pull(upstream_habitat_length_km)`km upstream of `r as.character(my_site2)` rated as `r my_priority_info(sit = my_site, loc = 'us') %>% pull(hab_value)` value for resident and fluvial salmonid rearing/spawning. The lack of fish captured upstream of the crossing is not an indication of a lack of fish presence but may be indicative of low population densities and/or restricted access due to  downstream culverts and dewatering. Although an interim ranking for remediation at the crossings was assessed as `r my_priority_info() %>% pull(priority)` priority to proceeding to designs for both crossings, follow up to determine the extent of dewatering during higher flow periods is recommended.  Although unconfirmed at the time of reporting, the 670m section of stream located immediately upstream of Highway 43 that was flowing subsurface at the time of the survey, very likely flows above ground during high and peak flows when adult westslope cutthrout trout display a general pattern of upstream movement to spawning areas [@schweigert_etal2017COSEWICassessment].
+There is `r my_priority_info() %>% pull(upstream_habitat_length_km)`km of habitat upstream of crossing `r as.character(my_site)` and another `r my_priority_info(sit = my_site2) %>% pull(upstream_habitat_length_km)`km upstream of `r as.character(my_site2)` rated as `r my_priority_info(sit = my_site, loc = 'us') %>% pull(hab_value)` value for resident and fluvial salmonid rearing/spawning. The lack of fish captured upstream of the crossing is not necessarily an indication of a lack of fish presence but may be indicative of low population densities and/or restricted access due to  downstream culverts and dewatering. Although an interim ranking for remediation at the crossings was assessed as `r my_priority_info() %>% pull(priority)` priority to proceeding to designs for both crossings, follow up to determine the extent of dewatering during higher flow periods is recommended.  Although unconfirmed at the time of reporting, the 670m section of stream located immediately upstream of Highway 43 that was flowing subsurface at the time of the survey, very likely flows above ground during high and peak flows when adult westslope cutthrout trout display a general pattern of upstream movement to spawning areas [@schweigert_etal2017COSEWICassessment].
 
-<br>
+
 
 ```{r tab-culvert-197533, eval = T}
-print_tab_summary(site_photo_id = my_site_xref)
+print_tab_summary()
 
 ```
 
@@ -108,7 +108,7 @@ print_tab_summary(site_photo_id = my_site_xref)
 
 ```{r tab-culvert-197559, eval = T}
 ##had to pull this object out of the table push for some reason
-print_tab_summary(site = my_site2, site_photo_id = my_site2_xref)
+print_tab_summary(site = my_site2, site_photo_id = my_site2)
 
 ```
 
