@@ -1,8 +1,3 @@
----
-output: html_document
-editor_options: 
-  chunk_output_type: console
----
 
 ```{r setup-197542, eval = F}
 knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE)
@@ -84,7 +79,7 @@ The stream was surveyed downstream from the culvert for 940m to the confluence w
 
 <br>
 
-Within the 500m below PSCIS crossing `r as.character(my_site2)`, the first 175m of channel downstream of the culvert was primarily composed of an aggrading gravel channel with widths between 12-15m.  Downstream of this initial section was a marsh area impounded by multiple beaver dams containing run sections to 1m deep and fine substrates.  Much of the channel surveyed within the lower sections was within the Elk River floodplain.   Total cover amount was rated as `r my_habitat_info2(loc = 'ds', sit = my_site2) %>% filter(rowname == 'total cover') %>% pull(v)` with  `r my_habitat_info2(sit = my_site2, loc = 'ds') %>% filter(v == 'dominant') %>% pull(rowname)` dominant. Cover was also present as `r my_habitat_info2(sit = my_site2, loc = 'ds') %>% filter(v == 'sub-dominant') %>% pull(rowname) %>% knitr::combine_words()` (Table \@ref(tab:tab-habitat-summary-197542), Figures \@ref(fig:photo-197542-02) - \@ref(fig:photo-197542-03)). The average channel width was `r my_habitat_info3(sit = my_site2, loc = 'ds', row = 'avg channel width m')`m, the average wetted width was `r my_habitat_info3(sit = my_site2, loc = 'ds', row = 'avg wetted width m')`m and the average gradient was `r my_habitat_info3(sit = my_site2, loc = 'ds', row = 'average gradient percent')`%.  The dominant substrate was `r my_habitat_info3(sit = my_site2, loc = 'ds', row = "bed material dominant")` with `r my_habitat_info3(sit = my_site2, loc = 'ds', row = "bed material subdominant")` subdominant. Young of the year salmonids were observed upstream of upper most beaver dam. Habitat was rated as `r my_priority_info(sit = my_site2, loc = 'ds') %>%  pull(hab_value)` representing an important migration corridor containing habitat with moderate rearing potential for resident and fluvial salmonids.
+Within the 500m below PSCIS crossing `r as.character(my_site2)`, the first 175m of channel downstream of the culvert was primarily composed of an aggrading gravel channel with widths between 12-15m.  Downstream of this initial section was a marsh area impounded by multiple beaver dams containing run sections to 1m deep and fine substrates.  Much of the channel surveyed within the lower sections was within the Elk River floodplain.   Total cover amount was rated as `r my_habitat_info2(loc = 'ds', sit = my_site2) %>% filter(rowname == 'total cover') %>% pull(v)` with  `r my_habitat_info2(sit = my_site2, loc = 'ds') %>% filter(v == 'dominant') %>% pull(rowname)` dominant. Cover was also present as `r my_habitat_info2(sit = my_site2, loc = 'ds') %>% filter(v == 'sub-dominant') %>% pull(rowname) %>% knitr::combine_words()` (Table \@ref(tab:tab-habitat-summary-197542), Figures \@ref(fig:photo-197542-01b) - \@ref(fig:photo-197542-01c)). The average channel width was `r my_habitat_info3(sit = my_site2, loc = 'ds', row = 'avg channel width m')`m, the average wetted width was `r my_habitat_info3(sit = my_site2, loc = 'ds', row = 'avg wetted width m')`m and the average gradient was `r my_habitat_info3(sit = my_site2, loc = 'ds', row = 'average gradient percent')`%.  The dominant substrate was `r my_habitat_info3(sit = my_site2, loc = 'ds', row = "bed material dominant")` with `r my_habitat_info3(sit = my_site2, loc = 'ds', row = "bed material subdominant")` subdominant. Young of the year salmonids were observed upstream of upper most beaver dam. Habitat was rated as `r my_priority_info(sit = my_site2, loc = 'ds') %>%  pull(hab_value)` representing an important migration corridor containing habitat with moderate rearing potential for resident and fluvial salmonids.
 
 
 ```{r eval=F}
@@ -116,6 +111,8 @@ Structure replacement with an open bottomed structure is recommended to provide 
 ## Conclusion {-}
 
 There is an estimated `r my_priority_info() %>% pull(upstream_habitat_length_km)`km of mainstem habitat available upstream of crossing `r as.character(my_site)` with habitat rated as `r my_priority_info(loc = 'us') %>% pull(hab_value)` value, representing an important migration corridor with moderate rearing and spawning potential for resident and fluvial salmonids. `r my_overview_info() %>% pull(road_name)` is the responsiblity of the Ministry of Transportation and Infrastructure. We recommend fish collection data from @loticenvironmentalltd_2012FishCollection be analyzed to calculate baseline fish densities upstream of the crossing in 2012. The crossing was ranked as a `r my_priority_info() %>% pull(priority)` priority for proceeding to design for replacement with an open bottomed structure. The private land adjacent to Hartley Creek in the vicinity of Dicken Road and Highway 3 may represent valuable opportunities for channel and riparian restoration activities as it is located within an area of intensive fish habitat impacts resulting from dredging to protect highway infrastructure  as well as other historic land use activities (i.e. log transport and processing). 
+
+<br>
 
 \pagebreak
 
