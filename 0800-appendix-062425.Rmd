@@ -99,7 +99,7 @@ print_tab_summary()
 <br>
 
 ```{r tab-culvert-62426, eval = T}
-print_tab_summary(site = my_site2)
+print_tab_summary(site = my_site2, site_photo_id = my_site2)
 
 ```
 
