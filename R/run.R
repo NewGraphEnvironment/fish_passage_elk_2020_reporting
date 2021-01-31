@@ -52,10 +52,6 @@ file.rename('data/0600-appendix.Rmd', '0600-appendix.Rmd')
 #photo_width <- "100%"
 
 
-##this is hacky but hash out the following from the functions.R file print_tab_summary_all function
-# kableExtra::add_footnote(label = '<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>', escape = F, notation = 'none')
-
-
 ##  make the site
 rmarkdown::render_site(output_format = 'bookdown::gitbook', encoding = 'UTF-8')
 
@@ -68,6 +64,9 @@ files_to_move <- list.files(pattern = ".Rmd$") %>%
 files_destination <- paste0('hold/', files_to_move)
 
 mapply(file.rename, from = files_to_move, to = files_destination)
+
+##this is hacky but unhash the following from the functions.R file print_tab_summary_all function
+# kableExtra::add_footnote(label = '<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>', escape = F, notation = 'none')
 
 ##   then make our printable pdf
 rmarkdown::render_site(output_format = 'pagedown::html_paged', encoding = 'UTF-8')
