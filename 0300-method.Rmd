@@ -189,7 +189,7 @@ This pdf report and an online [interactive report](https://newgraphenvironment.g
  + Populated [pscis_assessment_template_v24.xls](https://www2.gov.bc.ca/gov/content/environment/plants-animals-ecosystems/fish/aquatic-habitat-management/fish-passage/fish-passage-technical/assessment-projects)
  
  
- + [`Fish Habitat Model`/`bcfishpass`](https://github.com/NewGraphEnvironment/fish_passage_elk_2020_reporting_cwf/blob/master/data/bcfishpass-phase2.csv) outputs.
+ + [`Fish Habitat Model`/`bcfishpass`](https://github.com/NewGraphEnvironment/fish_passage_elk_2020_reporting_cwf/blob/master/data/bcfishpass_outputs.zip) outputs.
 
 
  + [Custom Excel Spreadsheet](https://github.com/NewGraphEnvironment/fish_passage_elk_2020_reporting_cwf/raw/master/data/habitat_confirmations_priorities.xlsx) detailing Phase 2 site:
