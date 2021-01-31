@@ -76,7 +76,7 @@ Structure replacement with a bridge is recommended to provide access to the habi
 
 ## Conclusion {-}
 
-There is `r my_priority_info() %>% pull(upstream_habitat_length_km)`km of mainstem habitat upstream of crossing `r as.character(my_site)` with habitat rated as high value for fry and juvenile salmonid rearing. The road may be part of the Island Lake Recreational tenure or solely the responsiblity of the Ministry of Forests, Lands, Natural Resource Operations & Rural Development. The crossing was ranked as a `r my_priority_info() %>% pull(priority)` priority for proceeding to design for replacement.
+There is `r my_priority_info() %>% pull(upstream_habitat_length_km)`km of mainstem habitat upstream of crossing `r as.character(my_site)` with habitat in areas surveyed rated as high value for fry and juvenile salmonid rearing. The road may be part of the Island Lake Recreational tenure or solely the responsiblity of the Ministry of Forests, Lands, Natural Resource Operations & Rural Development. The crossing was ranked as a `r my_priority_info() %>% pull(priority)` priority for proceeding to design for replacement.
 
 <br>
 

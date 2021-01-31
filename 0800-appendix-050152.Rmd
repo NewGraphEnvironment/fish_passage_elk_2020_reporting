@@ -77,7 +77,7 @@ Structure replacement with a bridge is recommended to provide access to the habi
 
 ## Conclusion {-}
 
-There is `r my_priority_info() %>% pull(upstream_habitat_length_km)`km of mainstem habitat in Stove Creek upstream of crossing `r as.character(my_site)` with habitat rated as high value for fry and juvenile salmonid rearing. Of the four streams surveyed with habitat confirmations in the Lizard Creek drainage during this project, Stove Creek contained the highest value habitat. The large outlet drop (`r my_pscis_info() %>% pull(outlet_drop_meters)`m) on the newly installed culvert prevents upstream migration by all species and life stages.  This paved section of road is within Mt.Fernie Provincial Park. The crossing was ranked as a `r my_priority_info() %>% pull(priority)` priority for proceeding to design for replacement.
+There is `r my_priority_info() %>% pull(upstream_habitat_length_km)`km of mainstem habitat in Stove Creek upstream of crossing `r as.character(my_site)` with habitat rated in areas surveyed as high value for fry and juvenile salmonid rearing. Of the four streams surveyed with habitat confirmations in the Lizard Creek drainage during this project, Stove Creek contained the highest value habitat. The large outlet drop (`r my_pscis_info() %>% pull(outlet_drop_meters)`m) on the newly installed culvert prevents upstream migration by all species and life stages.  This paved section of road is within Mt.Fernie Provincial Park. The crossing was ranked as a `r my_priority_info() %>% pull(priority)` priority for proceeding to design for replacement.
 
 <br>
 
