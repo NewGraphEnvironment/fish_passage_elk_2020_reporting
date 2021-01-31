@@ -1,6 +1,6 @@
 # Results and Discussion
 
-Field assessments were conducted between `r format(min(pscis$date), format="%B %d %Y")` and `r format(max(pscis$date), format="%B %d %Y")` by Allan Irvine, R.P.Bio, Mark Fjeld, BiT, Kyle Prince, P,Biol, and Chad Hughes, Ecologist. `r if(html_on)knitr::asis_output("Results of Planning, Phase 1 and Phase 2 assessments are summarized in Figure \\@ref(fig:map-interactive) with additional details provided in sections below.")` 
+Field assessments were conducted between `r format(min(pscis$date), format="%B %d %Y")` and `r format(max(pscis$date), format="%B %d %Y")` by Allan Irvine, R.P.Bio, Mark Fjeld, BiT, Kyle Prince, P,Biol, and Chad Hughes, Ecologist. Mapping was completed by Hillcrest Geographics. `r if(html_on)knitr::asis_output("Results of Planning, Phase 1 and Phase 2 assessments are summarized in Figure \\@ref(fig:map-interactive) with additional details provided in sections below.")` 
 
 <br>
 

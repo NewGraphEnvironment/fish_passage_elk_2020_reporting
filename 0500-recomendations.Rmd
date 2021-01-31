@@ -2,9 +2,9 @@
 
 Recommendations for potential incorporation into watershed connectivity planning for the Upper Elk River and the Flathead River watersheds led by Canadian Wildlife Federation include:
 
- * Refine barrier thresholds for road-stream crossing structures to explore metrics specific to life stage and life history types of species of interest. This will further focus efforts of potential remediation actions and could result in the consideration of physical works to alter crossing characteristics that can be significantly less costly than structure replacements (i.e. build up downstream area with rock riffles to decrease the outlet drop size).
+ * Refine barrier thresholds for road-stream crossing structures to explore metrics specific to life stage and life history types of species of interest. This will further focus efforts of potential remediation actions based on biological attributes (ex. timing of migration, size/direction of fish migrating, etc.) and could result in the consideration of physical works to alter crossing characteristics that can be significantly less costly than structure replacements (i.e. build up downstream area with rock riffles to decrease the outlet drop size).
  
- * Model fish densities (fish/m^2^) vs. habitat characteristics (i.e. gradient, watershed size, elevation, etc.) using historically gathered electrofishing data to inform crossing prioritization and the monitoring of subsequent restoration actions.
+ * Model fish densities (fish/m^2^) vs. habitat/water quality characteristics (i.e. gradient, watershed size, channel size, alkalinity, elevation, etc.) using historically gathered electrofishing data to inform crossing prioritization and the monitoring of subsequent restoration actions.
 
 
  * Continue to develop `bcfishpass` and other open source tools that are scalable, facilitate reproducible analysis and can be adapted to incorporate alternative fragmentation indicators and habitat gain/value metrics.
@@ -13,7 +13,7 @@ Recommendations for potential incorporation into watershed connectivity planning
  
  * Continue to acquire funding to procure site plans and replacement designs for structures identified as high priorities for restoration.
  
- * Continue to collaborate with potential partners to build relationships, explore perspectives and develop “road maps” for fish passage restoration in different situations (MoT roads, rail lines, permit roads of different usages, FSRs, etc.) – documenting the people involved, discussions and processes that are undertaken, funding options, synergies, measures of success, etc. Through this collaboration, continue to draft and implement a plan to prioritize fish passage restoration investments as well as to monitor the impacts of those investments on westslope cutthrout trout populations.
+ * Continue to collaborate with potential partners to build relationships, explore perspectives and develop “road maps” for fish passage restoration in different situations (MoT roads, rail lines, permit roads of different usages, FSRs, etc.) – documenting the people involved, discussions and processes that are undertaken, funding options, synergies, measures of success, etc. Through this collaboration, continue to draft and implement a plan to prioritize fish passage restoration investments as well as to monitor the impacts of those investments on fish populations.
 
 
 

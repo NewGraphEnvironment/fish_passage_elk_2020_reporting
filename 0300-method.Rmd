@@ -123,7 +123,7 @@ tab_barrier_result %>%
 
 ### Cost Benefit Analysis
 
-A cost benefit analysis was conducted for each crossing determined to be a barrier based on an estimate of cost associated with remediation or replacement of the crossing with a structure that facilitates fish passage and the amount of potential habitat that would be made available by remediating fish passage at the site (habitat gain index).  
+Cost benefit analysis were conducted for each crossing determined to be a barrier based on estimates of the costs associated with fish passage remediation and the amount of habitat (linear length and area) that would potentially be made available by remedial works (habitat gain index).  
 
 <br>
 
