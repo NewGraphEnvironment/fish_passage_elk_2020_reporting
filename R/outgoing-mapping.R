@@ -184,4 +184,9 @@ kml_close("data/Attachment_1_elk_planning.kml")
 files_to_zip <- paste0("data/", list.files(path = "data/", pattern = "\\.kml$"))  ##this used to includes the planning file which we don't want to do so watch out
 zip::zipr("data/Attachment_1_elk_planning_kml.zip", files = files_to_zip)  ##it does not work to zip to kmz!!
 
+##add the planning to the goepackage
+tab_plan_sf %>%
+sf::st_write(paste0("./data/", 'fishpass_mapping', ".gpkg"), 'planning_priorities', append = F)
+
+st_layers(paste0("./data/", 'fishpass_mapping', ".gpkg"))
 
