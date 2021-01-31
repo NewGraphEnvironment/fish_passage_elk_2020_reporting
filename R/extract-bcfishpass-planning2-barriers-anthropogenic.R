@@ -398,4 +398,6 @@ dbDisconnect(conn = conn)
 #          Comments = my_text)
 
 
+##lets zip the file so that it can be downloaded
+zip::zipr("data/bcfishpass_outputs.zip", files = "data/bcfishpass-phase2.csv")
 
