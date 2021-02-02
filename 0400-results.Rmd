@@ -188,6 +188,7 @@ Habitat confirmation assessments were conducted at `r hab_site_priorities %>% nr
 
 
 <br>
+\pagebreak
 
 ```{r tab-overview}
 if(html_on){
