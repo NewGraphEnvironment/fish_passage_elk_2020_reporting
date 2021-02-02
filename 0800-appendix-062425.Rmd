@@ -78,7 +78,7 @@ The stream was surveyed upstream from `r as.character(my_site2)` for `r my_prior
 
 ## Structure Remediation and Cost Estimate {-}
 
-Replacing PSCIS crossings `r as.character(my_site)` and 62426 with bridges is recommended to provide access to the habitat located upstream.  The costs are estimated at \$`r format(my_cost_estimate() %>% pull(cost_est_1000s) * 1000, big.mark = ',')` and \$`r format(my_cost_estimate(site = 62426) %>% pull(cost_est_1000s) * 1000, big.mark = ',')` respectively for a combined cost benefit of `r as.character(my_cost_estimate() %>% pull(cost_net) * 1000 + my_cost_estimate(site = 62426) %>% pull(cost_net) * 1000)` linear m/\$1000 and `r as.character(my_cost_estimate() %>% pull(cost_area_net) * 1000  + my_cost_estimate(site = 62426) %>% pull(cost_area_net) * 1000)`m^2^/\$1000.
+Replacing PSCIS crossings `r as.character(my_site)` and 62426 with bridges is recommended to provide access to the habitat located upstream.  The costs are estimated at \$`r format(my_cost_estimate() %>% pull(cost_est_1000s) * 1000, big.mark = ',')` and \$`r format(my_cost_estimate(site = 62426) %>% pull(cost_est_1000s) * 1000, big.mark = ',')` respectively for a combined cost benefit of `r as.character(my_cost_estimate() %>% pull(cost_net) + my_cost_estimate(site = 62426) %>% pull(cost_net))` linear m/\$1000 and `r as.character(my_cost_estimate() %>% pull(cost_area_net) + my_cost_estimate(site = 62426) %>% pull(cost_area_net))`m^2^/\$1000.
 
 
 <br>
