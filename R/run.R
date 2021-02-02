@@ -24,13 +24,7 @@ preview_chapter('0400-results.Rmd')
 file.rename('0600-appendix.Rmd', 'data/0600-appendix.Rmd')
 
 ##go to the index.Rmd doc and turn
-#html_on <- FALSE and change
-#font_set <- 9
-#photo_width <- "80%"
-# caption_font <- 11
-
-##this is hacky but unhash out the following from the functions.R file print_tab_summary_all function
-# kableExtra::add_footnote(label = '<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>', escape = F, notation = 'none')
+#html_on <- FALSE
 
 
 ##   then make our printable pdf
@@ -46,11 +40,12 @@ openHTML('docs/Elk.html')
 ##move the phase 1 appendix back to main directory
 file.rename('data/0600-appendix.Rmd', '0600-appendix.Rmd')
 
-##go to the index.Rmd doc and turn
+##go to the index.Rmd
 #html_on <- TRUE and change
-#font_set <- 11
-#photo_width <- "100%"
 
+
+##this is hacky but hash out the following from the functions.R file print_tab_summary_all function
+# kableExtra::add_footnote(label = '<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>', escape = F, notation = 'none')
 
 ##  make the site
 rmarkdown::render_site(output_format = 'bookdown::gitbook', encoding = 'UTF-8')
