@@ -342,8 +342,7 @@ appendix_subtitle <- function(){
   paste0('**', my_overview_info() %>% pull(road_name), ' - ', my_overview_info() %>% pull(stream_name), '**')
 }
 
-##############this is for making kmls from the bulkley work - want to adapt
-##the colors don't seem to work yet.  Might need to put a case_when for the actual google icon symbol.  Posting cutom symbols on a url and pointing to them will work too.
+##############this is for making kmls
 make_kml_col <- function(df){
   df %>%
     mutate(`PSCIS ID` = as.integer(`PSCIS ID`),
