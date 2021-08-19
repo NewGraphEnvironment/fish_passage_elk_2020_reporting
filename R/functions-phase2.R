@@ -78,14 +78,15 @@ my_watershed_area <- function(dat = wsheds, site = my_site){
 }
 
 ##we needed to back off this b/c maps not ready
+# my_mapsheet <- function(){
+#   paste0('https://hillcrestgeo.ca/outgoing/fishpassage/projects/elk/archive/2021-01-31/FishPassage_', my_bcfishpass() %>%
+#            pull(map_tile_display_name), '.pdf')
+# }
+
 my_mapsheet <- function(){
-  paste0('https://hillcrestgeo.ca/outgoing/fishpassage/projects/elk/archive/2021-01-31/FishPassage_', my_bcfishpass() %>%
+  paste0('https://hillcrestgeo.ca/outgoing/fishpassage/projects/elk/FishPassage_', my_bcfishpass() %>%
            pull(map_tile_display_name), '.pdf')
 }
-
-# my_mapsheet <- function(){
-#   paste0('https://hillcrestgeo.ca/outgoing/fishpassage/projects/elk/confirmations')
-# }
 
 my_priority_info <- function(dat = habitat_confirmations_priorities, sit = my_site, loc = 'us'){
   dat %>%
