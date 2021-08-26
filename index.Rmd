@@ -22,7 +22,7 @@ author: |
  | Cranbrook, BC V1C 7E5
 date: |
  |
- | Version 1.4
+ | Version 1.5
  | 
  | `r format(Sys.Date(), "%Y-%m-%d")`
  
