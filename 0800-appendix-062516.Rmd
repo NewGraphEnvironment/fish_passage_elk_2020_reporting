@@ -121,7 +121,7 @@ grid::grid.raster(get_img())
 <br>
 
 ```{r photo-042, fig.cap= my_caption, out.width = photo_width, eval=T}
-my_photo = '20200923_115933_u_g_.JPG'
+my_photo = '20200923_115933_u_g_k_.JPG'
 
 my_caption = paste0('Gravels suitable for spawning upstream of PSCIS crossing ', my_site, '.')
 
