@@ -24,7 +24,7 @@ date: |
  |
  | Version 1.5
  | 
- | `r format(Sys.Date(), "%Y-%m-%d")`
+ | 2021-08-26
  
 toc-title: Table of Contents
 site: bookdown::bookdown_site
