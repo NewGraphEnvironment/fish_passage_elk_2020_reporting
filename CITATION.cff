@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: If you cite this report, please cite it as below.
+title: Upper Elk River and Flathead River Fish Passage Restoration Planning 2020
+authors:
+- family-names: Irvine
+  given-names: Allan
+  orcid: https://orcid.org/0000-0002-3495-2128
+- name: Nupqu Limited Partnership
+date-released: '2023-12-06'
+url: https://www.newgraphenvironment.com/fish_passage_elk_2020_reporting/
+repository-code: https://github.com/NewGraphEnvironment/fish_passage_elk_2020_reporting
+preferred-citation:
+  type: report
+  title: Upper Elk River and Flathead River Fish Passage Restoration Planning 2020
+  authors:
+  - family-names: Irvine
+    given-names: Allan
+    orcid: https://orcid.org/0000-0002-3495-2128
+  - name: Nupqu Limited Partnership
+  institution:
+    name: New Graph Environment Ltd.
+  year: 2023
+  date-published: '2023-12-06'
+  url: https://www.newgraphenvironment.com/fish_passage_elk_2020_reporting/
+  repository-code: https://github.com/NewGraphEnvironment/fish_passage_elk_2020_reporting
+
